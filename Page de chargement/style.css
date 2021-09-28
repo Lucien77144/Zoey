@@ -1,0 +1,45 @@
+body{
+    overflow: hidden;
+    margin: 0;
+}
+
+.loader{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background: #FFC800;
+    background: radial-gradient(circle, rgba(255,200,0,1) 0%, rgba(255,166,0,1) 100%);
+}
+
+.wrapload{
+    height: 75vh;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+}
+
+.animals{
+    height: 5vmax;
+    width: 5vmax;
+    transition: 0.5s ease-in-out;
+    opacity: 0.25;
+}
+
+@keyframes loading {
+    0%{
+        opacity: 0.25;
+        transform: rotate(0deg) scale(1);
+    }
+    50%{
+        opacity: 1;
+        transform: rotate(180deg) scale(1.2);
+    }
+    100%{
+        opacity: 0.25;
+        transform: rotate(360deg) scale(1);
+    }
+}
