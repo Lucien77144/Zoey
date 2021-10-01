@@ -2,9 +2,12 @@
 session_start();
 $pageTitle = "Zoey";
 $targetPage = NULL;
+$viewContent = "";
 
-$getTargetPage = "";
 if (isset($targetPage)){
-    $getTargetPage = "?action=" . $targetPage;
+    
+} else {
+    $viewContent = getBlogArticles();
 }
-require("view/template.php" . $getTargetPage);
+
+require("controller/blogController.php");

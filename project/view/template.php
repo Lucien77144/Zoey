@@ -8,6 +8,5 @@
 </head>
 <body>
     <?= $viewContent ?>
-    <h1>accueil</h1>
 </body>
 </html>

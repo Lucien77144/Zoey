@@ -1,0 +1,2 @@
+<h1>Les animaux c'est génial</h1>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea nostrum qui, libero at officia beatae harum ipsa esse quis vitae dolorem quaerat quas iste distinctio quos quidem praesentium. Dolorum, cupiditate.</p>
