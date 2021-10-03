@@ -1,9 +1,7 @@
 <?php 
-$pageTitle = 'Blog';
+$article = $article->fetch();
+$pageTitle = htmlspecialchars($article['titre']);
 ob_start();
-
-while ($article = $blog->fetch())
-{
 ?>
     <article class="defaultBlock">
         <h1>
@@ -14,10 +12,6 @@ while ($article = $blog->fetch())
             <?= nl2br(htmlspecialchars($article['resume'])) ?>
         </p>
     </article>
-<?php
-}
-$blog->closeCursor();
-?>
 <?php 
     $viewContent = ob_get_clean();
     require('template.php');
