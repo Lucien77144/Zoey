@@ -1,13 +1,8 @@
 <?php
 session_start();
+define("BASE_URL","../project/");
 $pageTitle = "Zoey";
 $targetPage = NULL;
 $viewContent = "";
 
-if (isset($targetPage)){
-    
-} else {
-    $viewContent = getBlogArticles();
-}
-
-require("controller/blogController.php");
+require_once("controller/controller.php");
