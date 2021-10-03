@@ -5,19 +5,22 @@ ob_start();
 while ($article = $blog->fetch())
 {
 ?>
-    <article class="defaultBlock">
-        <h1>
-            <?= htmlspecialchars($article['titre']) ?>
-        </h1>
-        
-        <p>
-            <?= nl2br(htmlspecialchars($article['resume'])) ?>
-        </p>
-    </article>
+    <!-- <a href="index.php?action=blog&id=<?= htmlspecialchars($article['id']) ?>"> -->
+    <a href="blog/<?= htmlspecialchars($article['id']) ?>">
+        <article class="defaultBlock">
+            <h1>
+                <?= htmlspecialchars($article['titre']) ?>
+            </h1>
+            
+            <p>
+                <?= nl2br(htmlspecialchars($article['resume'])) ?>
+            </p>
+        </article>
+    </a>
 <?php
 }
 $blog->closeCursor();
 ?>
 <?php 
     $viewContent = ob_get_clean();
-    require('template.php');
+    require(BASE_URL . 'public/template/template.php');

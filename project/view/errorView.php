@@ -14,4 +14,4 @@ ob_start();
     </article>
 <?php
     $viewContent = ob_get_clean();
-    require('template.php');
+    require(BASE_URL . 'public/template/template.php');

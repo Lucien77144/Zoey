@@ -1,0 +1,19 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    let apiPath = "http://localhost/Zoey/Zoey/project/";
+    $( document ).ready(function() {
+        $.get( 
+            `${apiPath}index.php`,
+            {
+                action : 'blog',
+                // id : ""
+            },
+            function(ReturnedValue) {
+                $(".ajaxReceived").html(ReturnedValue);
+                console.log(ReturnedValue);
+            },
+            'html'
+        );
+    });
+</script>
+<div class="ajaxReceived"></div>

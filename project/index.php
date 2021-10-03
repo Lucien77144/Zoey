@@ -1,9 +1,10 @@
 <?php
     session_start();
+    header('Access-Control-Allow-Origin: *');
     define("BASE_URL","../project/");
     $pageTitle = "Zoey";
     $viewContent = "";
-
+    // $requestedFromAPI = false;
     require_once("controller/controller.php");
 
 try{
@@ -16,6 +17,8 @@ try{
             else{
                 printBlog();
             }
+        } else if ($_GET['action'] == 'subscribe'){
+            printSubscribe();
         }
     }
     else {
