@@ -1,0 +1,27 @@
+#Alias "/Zoey/Zoey/project" "/Zoey"
+#AliasMatch "/project" "/public/template/template.php"
+
+#Redirect "/a" "/public/template/template.php"
+
+#RewriteRule blog index.php?action=blog
+
+#RewriteCond %{REQUEST_URI} !^/index.php?action=blog
+#RewriteRule ^(.*)$ /blog/
+
+#RewriteCond %{HTTP_HOST} ^localhost/Zoey/Zoey/project
+#RewriteCond %{REQUEST_URI} !^/index.php
+#RewriteRule ^(.*)$ /MonSite/    
+
+#RewriteCond %{REQUEST_URI} !index.php [OR]
+#RewriteCond %{REQUEST_URI} !a.a
+#RewriteRule (.*) index.php?var=1
+
+
+RewriteEngine On
+RewriteRule ^blog/([0-9]+)$ index.php?action=blog&id=$1 [L]
+RewriteRule ^blog$ index.php?action=blog [L]
+RewriteRule ^hw/a/b/c$ helloworld.php [L]
+
+RewriteCond %{HTTP_HOST} ^localhost$ [NC]
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^helloworld.php$ http://localhost/Zoey/Zoey/project/index.php? [R=302,NE,NC,L]
