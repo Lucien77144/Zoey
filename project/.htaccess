@@ -17,11 +17,33 @@
 #RewriteRule (.*) index.php?var=1
 
 
-RewriteEngine On
-RewriteRule ^blog/([0-9]+)$ index.php?action=blog&id=$1 [L]
-RewriteRule ^blog$ index.php?action=blog [L]
-RewriteRule ^hw/a/b/c$ helloworld.php [L]
+#RewriteEngine On
+#RewriteRule ^blog/([0-9]+)$ index.php?action=blog&id=$1 [L]
+#RewriteRule ^blog$ index.php?action=blog [L]
+#RewriteRule ^hw/a/b/c$ helloworld.php [L]
 
-RewriteCond %{HTTP_HOST} ^localhost$ [NC]
-RewriteCond %{QUERY_STRING} ^$
-RewriteRule ^helloworld.php$ http://localhost/Zoey/Zoey/project/index.php? [R=302,NE,NC,L]
+#RewriteCond %{HTTP_HOST} ^localhost$ [NC]
+#RewriteCond %{QUERY_STRING} ^$
+#RewriteRule ^helloworld.php$ http://localhost/Zoey/Zoey/project/index.php? [R=302,NE,NC,L]
+
+
+#RewriteCond %{QUERY_STRING} ^action\=blog&id\=1$
+#RewriteRule ^index\.php$ /blog? [R=301,L]
+
+
+# ///////////////////////
+
+
+DirectoryIndex index.php
+RewriteEngine on
+
+# set your rewrite base
+# Edit this in your init method too if you script lives in a subfolder
+RewriteBase /
+
+# Deliver the folder or file directly if it exists on the server
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Push every request to index.php
+RewriteRule ^(.*)$ index.php [QSA]

@@ -19,6 +19,8 @@ try{
             }
         } else if ($_GET['action'] == 'subscribe'){
             printSubscribe();
+        }  else if ($_GET['action'] == 'account'){
+            printAccount();
         }
     }
     else {

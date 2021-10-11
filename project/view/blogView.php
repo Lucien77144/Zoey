@@ -5,8 +5,8 @@ ob_start();
 while ($article = $blog->fetch())
 {
 ?>
-    <!-- <a href="index.php?action=blog&id=<?= htmlspecialchars($article['id']) ?>"> -->
-    <a href="blog/<?= htmlspecialchars($article['id']) ?>">
+    <a href="index.php?action=blog&id=<?= htmlspecialchars($article['id']) ?>">
+    <!-- <a href="blog/<?= htmlspecialchars($article['id']) ?>"> -->
         <article class="defaultBlock">
             <h1>
                 <?= htmlspecialchars($article['titre']) ?>
