@@ -16,6 +16,11 @@
         require(BASE_URL . "view/subscribeView.php");
     }
 
+    function printConnect(){
+        // $connect = 
+        require(BASE_URL . "view/connectView.php");
+    }
+
     function printAccount(){
         echo "account page : work in progress";
     }

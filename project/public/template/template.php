@@ -10,12 +10,12 @@
 </head>
 <body>
     <header>
-        <a href="index.php?action=connection">connexion</a>
+        <a href="index.php?action=connect">connexion</a>
         <a href="index.php?action=subscribe">inscription</a>
         <a href="index.php?action=blog">blog</a>
         <a href="index.php?action=forum">forum</a>
         <a href="index.php?action=feed">feed</a>
-        <a href="index.php?action=profile">mon compte</a>
+        <a href="index.php?action=account">mon compte</a>
         <a href="index.php?action=post">poster</a>
 
         <a href="index.php?action=messages">messages</a>

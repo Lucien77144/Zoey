@@ -19,8 +19,28 @@ try{
             }
         } else if ($_GET['action'] == 'subscribe'){
             printSubscribe();
-        }  else if ($_GET['action'] == 'account'){
+        } else if ($_GET['action'] == 'connect'){
+            printConnect();
+        } else if ($_GET['action'] == 'account'){
             printAccount();
+        } else if ($_GET['action'] == 'messages'){            
+            if (isset($_GET['id'])) {
+                printChat();
+            }
+            else{
+                printMessages();
+            }
+        } else if ($_GET['action'] == 'feed'){
+            if (isset($_GET['id'])) {
+                printPost();
+            }
+            else{
+                printFeed();
+            }
+        }  else if ($_GET['action'] == 'addPost'){
+            printAddPost();
+        } else if ($_GET['action'] == 'feed'){
+            printFeed();
         }
     }
     else {

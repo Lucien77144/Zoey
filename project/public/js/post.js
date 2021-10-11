@@ -20,7 +20,35 @@ $(document).ready(function(){
                 console.log(ReturnedMessage);
 
                 if (ReturnedMessage == "valid"){
-                    // window.location.href = "index.php?action=account";
+                    window.location.href = "index.php?action=connect";
+                    console.log('valid !!')
+                } else {
+                    $('#ConfirmationMessage').html('');
+                    $('#ConfirmationMessage').text(
+                        `Il y a une erreur dans un des champs remplis.`
+                    );
+                }
+            },
+            'text'
+        );
+    };
+
+    function postConnect(){
+        console.log("postConnect")
+        
+        $.post(
+            'model/postConnect.php',
+            {
+                pseudo : $("#pseudo").val(),
+                password : $("#password").val()
+            },
+
+            function(ReturnedMessage){
+                console.log("function Received")
+                console.log(ReturnedMessage);
+
+                if (ReturnedMessage == "valid"){
+                    window.location.href = "index.php?action=account";
                     console.log('valid !!')
                 } else {
                     $('#ConfirmationMessage').html('');
@@ -40,6 +68,14 @@ $(document).ready(function(){
         console.log("click")
 
         postSubscribe();
+    });
+
+    $("#submitConnect").click(function(e){
+        e.preventDefault();
+
+        console.log("click")
+
+        postConnect();
     });
     
 });
