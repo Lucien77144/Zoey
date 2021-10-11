@@ -1,18 +1,10 @@
-var animload = false;
-var animplyd = false;
-
-$(window).load(function(){
-    animload = true;
-    if(animload && animplyd){
-        $(".loader").fadeOut(1000);
-        $("html, body").css("overflow", "auto");
-    }
-});
+let animload = false;
+let animplyd = false;
+let delay = 400;
 
 $(document).ready(function(){
-    var delay = 0;
-    for(var i = 0; i<5; i++){
-        delay = delay+400;
+    for(let i = 0; i<5; i++){
+        delay += 400;
         animals(i+1, delay)
     }
 });
@@ -32,3 +24,11 @@ function animals(select, delay){
         }
     },delay);
 }
+
+$(window).load(function(){
+    animload = true;
+    if(animload && animplyd){
+        $(".loader").fadeOut(1000);
+        $("html, body").css("overflow", "auto");
+    }
+});
