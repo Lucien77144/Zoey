@@ -12,7 +12,7 @@ $(document).ready(function(){
                 prenom : $("#prenom").val(),
                 mail : $("#mail").val(),
                 date_naissance : $("#date_naissance").val(),
-                password : 42 //$("#password").val()
+                password : $("#password").val()
             },
 
             function(ReturnedMessage){
@@ -20,7 +20,8 @@ $(document).ready(function(){
                 console.log(ReturnedMessage);
 
                 if (ReturnedMessage == "valid"){
-                    window.location.href = "index.php?action=account";
+                    // window.location.href = "index.php?action=account";
+                    console.log('valid !!')
                 } else {
                     $('#ConfirmationMessage').html('');
                     $('#ConfirmationMessage').text(

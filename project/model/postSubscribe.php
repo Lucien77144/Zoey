@@ -13,8 +13,8 @@ function postSubscibe(){
     $prenom = safeEntry($_POST['prenom']);
     $adresse_mail = safeEntry($_POST['mail']);
     $date_naissance = safeEntry($_POST['date_naissance']);
-    $password = 42; // $_POST['password'] -> hash
-
+    $new_password_hash = password_hash($_POST['password'], PASSWORD_ARGON2I, ['memory_cost' => 2048, 'time_cost' => 4, 'threads' => 3]);
+    
     require_once("PDO.php");
 
     $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
@@ -29,7 +29,7 @@ function postSubscibe(){
         ':prenom' => $prenom,
         ':adresse_mail' => $adresse_mail,
         ':date_naissance' => $date_naissance,
-        ':mot_de_passe' => $password));
+        ':mot_de_passe' => $new_password_hash));
 
     if ($req->rowCount() <= 0)
         throw new Exception("Votre compte n'a pas pu être ajouté, il y a une erreur dans les champs remplis.");
@@ -38,7 +38,6 @@ function postSubscibe(){
 }
 
 try {
-
     if (isset($_POST['pseudo'])
     &&isset($_POST['nom'])
     &&isset($_POST['prenom'])

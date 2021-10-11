@@ -17,5 +17,5 @@
     }
 
     function printAccount(){
-        echo "account";
+        echo "account page : work in progress";
     }
