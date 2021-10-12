@@ -1,5 +1,6 @@
 <?php
     require_once(BASE_URL . "model/model.php");
+    require_once(BASE_URL . "model/verifyToken.php");
 
     function printBlog(){
         $blog = getBlog();
@@ -26,12 +27,16 @@
         $_SESSION = array();
         session_destroy();
 
-        setcookie('login', '');
-        setcookie('pass_hache', '');
+        // setcookie('login', '');
+        // setcookie('pass_hash', '');
 
         require(BASE_URL . "view/disconnectView.php");
     }
 
     function printAccount(){
-        echo "account page : work in progress";
+        if (verifyToken()){
+            require(BASE_URL . "view/accountView.php");
+        } else {
+            printConnect();
+        }
     }

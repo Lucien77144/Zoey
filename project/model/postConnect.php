@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 function safeEntry($validate){
     $validate = trim($validate);
@@ -26,6 +27,7 @@ function postConnect(){
         if(password_verify($_POST['password'], $user['mot_de_passe'])) {
             
             $_SESSION['idUser'] = $user['idutilisateur'];
+            $_SESSION['pseudo'] = $user['pseudo'];
             require('generateToken.php');
 
             return "valid";
