@@ -71,3 +71,20 @@ function isPseudoFree($entryPseudo){
         throw new Exception("Aucun pseudo renseigné");
     }
 }
+
+function getFeed(){
+    require("PDO.php");
+
+    $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
+    (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+
+    $sql = "SELECT idpost, description, profil_animal_de_compagnie_idprofil_animal_de_compagnie animal FROM post";
+    $req = $db -> prepare($sql);
+    
+    $req -> execute();
+
+    if ($req->rowCount() <= 0)
+        throw new Exception("Aucun post n'a été trouvé");
+
+    return $req;
+}

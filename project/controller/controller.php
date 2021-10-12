@@ -48,3 +48,8 @@
             printConnect();
         }
     }
+
+    function printFeed(){
+        $feed = getFeed();
+        require(BASE_URL . "view/feedView.php");
+    }

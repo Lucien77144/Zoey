@@ -31,7 +31,7 @@ try{
             printAccount();
         } else if ($_GET['action'] == 'modifyAccount'){
             printModifyAccount();
-        } else if ($_GET['action'] == 'messages'){            
+        } else if ($_GET['action'] == 'messages'){
             if (isset($_GET['id'])) {
                 printChat();
             }
@@ -47,8 +47,6 @@ try{
             }
         }  else if ($_GET['action'] == 'addPost'){
             printAddPost();
-        } else if ($_GET['action'] == 'feed'){
-            printFeed();
         }
     }
     else {
