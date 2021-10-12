@@ -29,6 +29,8 @@ try{
             printDisconnect();
         } else if ($_GET['action'] == 'account'){
             printAccount();
+        } else if ($_GET['action'] == 'modifyAccount'){
+            printModifyAccount();
         } else if ($_GET['action'] == 'messages'){            
             if (isset($_GET['id'])) {
                 printChat();

@@ -8,6 +8,8 @@ ob_start();
 
 <p>utilisateur connecté : <?= $_SESSION['pseudo'] ?></p>
 
+<a href="index.php?action=modifyAccount">modifier mon compte</a>
+
 <?php 
     $viewContent = ob_get_clean();
     require(BASE_URL . 'public/template/template.php');

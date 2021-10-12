@@ -33,6 +33,38 @@ $(document).ready(function(){
         );
     };
 
+    function postModifyAccount(){
+        console.log("postModifyAccount")
+        
+        $.post(
+            'model/postModifyAccount().php',
+            {
+                pseudo : $("#pseudoSubscribe").val(),
+                nom : $("#nom").val(),
+                prenom : $("#prenom").val(),
+                mail : $("#mail").val(),
+                date_naissance : $("#date_naissance").val(),
+                password : $("#password").val()
+            },
+
+            function(ReturnedMessage){
+                console.log("function Received")
+                console.log(ReturnedMessage);
+
+                if (ReturnedMessage == "valid"){
+                    window.location.href = "index.php?action=connect";
+                    console.log('valid !!')
+                } else {
+                    $('#ConfirmationMessage').html('');
+                    $('#ConfirmationMessage').text(
+                        `Il y a une erreur dans un des champs remplis.`
+                    );
+                }
+            },
+            'text'
+        );
+    };
+
     function postConnect(){
         console.log("postConnect")
         
@@ -74,11 +106,13 @@ $(document).ready(function(){
                 console.log("function Received")
                 console.log(ReturnedMessage);
 
-                if (ReturnedMessage){
+                if (ReturnedMessage == true){
                     $('#ConfirmationMessage').html('');
                     $('#ConfirmationMessage').text(
                         `Ce pseudo n'existe pas encore !`
                     );
+                } else if (ReturnedMessage == "2") {
+                    $('#ConfirmationMessage').html(''); // empty message when pseudo is already the user's one
                 } else {
                     $('#ConfirmationMessage').html('');
                     $('#ConfirmationMessage').text(
@@ -96,6 +130,14 @@ $(document).ready(function(){
         console.log("click")
 
         postSubscribe();
+    });
+
+    $("#submitModifyAccount").click(function(e){
+        e.preventDefault();
+
+        console.log("click")
+
+        postModifyAccount();
     });
 
     $("#submitConnect").click(function(e){

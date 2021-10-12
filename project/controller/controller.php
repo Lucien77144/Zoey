@@ -40,3 +40,11 @@
             printConnect();
         }
     }
+
+    function printModifyAccount(){
+        if (verifyToken()){
+            require(BASE_URL . "view/modifyAccountView.php");
+        } else {
+            printConnect();
+        }
+    }
