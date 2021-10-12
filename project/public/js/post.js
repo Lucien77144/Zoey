@@ -7,7 +7,7 @@ $(document).ready(function(){
         $.post(
             'model/postSubscribe.php',
             {
-                pseudo : $("#pseudo").val(),
+                pseudo : $("#pseudoSubscribe").val(),
                 nom : $("#nom").val(),
                 prenom : $("#prenom").val(),
                 mail : $("#mail").val(),
@@ -61,6 +61,34 @@ $(document).ready(function(){
         );
     };
     
+    function isPseudoFreeAPI(){
+        console.log("isPseudoFreeAPI")
+        
+        $.post(
+            'model/isPseudoFreeAPI.php',
+            {
+                checkPseudo: $("#pseudoSubscribe").val()
+            },
+
+            function(ReturnedMessage){
+                console.log("function Received")
+                console.log(ReturnedMessage);
+
+                if (ReturnedMessage){
+                    $('#ConfirmationMessage').html('');
+                    $('#ConfirmationMessage').text(
+                        `Ce pseudo n'existe pas encore !`
+                    );
+                } else {
+                    $('#ConfirmationMessage').html('');
+                    $('#ConfirmationMessage').text(
+                        `Ce pseudo existe déjà !`
+                    );
+                }
+            },
+            'text'
+        );
+    };
 
     $("#submitSubscribe").click(function(e){
         e.preventDefault();
@@ -77,5 +105,34 @@ $(document).ready(function(){
 
         postConnect();
     });
-    
+
+    // let flagPseudoCheck = false;
+    $("#pseudoSubscribe").keyup(function(){
+        isPseudoFreeAPI();
+
+
+        // A OPTIMISER !!! -> limiter les requetes
+        
+
+        // console.log("keyup")
+
+        // if(!flagPseudoCheck){
+        //     let regularCheck = setInterval(() => {
+        //                             console.log("check")
+
+        //                             isPseudoFreeAPI();
+        //                         }, 1000);
+
+        //     setTimeout(() => {
+        //     clearInterval(regularCheck);
+        //     }, 5000);
+        // }
+
+        // flagPseudoCheck = true;
+        // setTimeout(() => {
+        //     flagPseudoCheck = false;
+        //     console.log("timeout -> false again")
+        //     // isPseudoFreeAPI();
+        // }, 1000);
+    });
 });

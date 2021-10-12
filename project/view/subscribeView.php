@@ -5,7 +5,7 @@ ob_start();
 
 <form class="subscribeForm">
     <label for="pseudo">pseudo</label>
-    <input type="text" name="pseudo" id="pseudo"> <br>
+    <input type="text" name="pseudo" id="pseudoSubscribe"> <br>
     <label for="nom">nom</label>
     <input type="text" name="nom" id="nom"> <br>
     <label for="prenom">prenom</label>

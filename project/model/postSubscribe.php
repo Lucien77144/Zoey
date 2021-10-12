@@ -1,11 +1,13 @@
 <?php
 
-function safeEntry($validate){
-    $validate = trim($validate);
-    $validate = stripslashes($validate);
-    $validate = htmlspecialchars($validate);
-    return $validate;
-}
+require("model.php");
+
+// function safeEntry($validate){
+//     $validate = trim($validate);
+//     $validate = stripslashes($validate);
+//     $validate = htmlspecialchars($validate);
+//     return $validate;
+// }
 
 function postSubscibe(){
     $pseudo = safeEntry($_POST['pseudo']);
@@ -15,7 +17,7 @@ function postSubscibe(){
     $date_naissance = safeEntry($_POST['date_naissance']);
     $new_password_hash = password_hash($_POST['password'], PASSWORD_ARGON2I, ['memory_cost' => 2048, 'time_cost' => 4, 'threads' => 3]);
     
-    require_once("PDO.php");
+    require("PDO.php");
 
     $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
     (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
@@ -39,6 +41,7 @@ function postSubscibe(){
 
 try {
     if (isset($_POST['pseudo'])
+    &&isPseudoFree($_POST['pseudo'])
     &&isset($_POST['nom'])
     &&isset($_POST['prenom'])
     &&isset($_POST['mail'])

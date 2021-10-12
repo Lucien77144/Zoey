@@ -8,7 +8,7 @@ function safeEntry($validate){
 }
 
 function getBlog(){
-        require_once("PDO.php");
+        require("PDO.php");
 
         $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
         (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
@@ -28,7 +28,7 @@ function getArticle(){
     if (isset($_GET['id']) && is_numeric($_GET['id']) && intval($_GET['id']) > 0){
         $articleId = intval($_GET['id']);
 
-        require_once("PDO.php");
+        require("PDO.php");
 
         $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
         (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
@@ -44,5 +44,30 @@ function getArticle(){
         return $req;
     } else {
         throw new Exception("Cet article n'existe pas !");
+    }
+}
+
+function isPseudoFree($entryPseudo){
+    if (isset($entryPseudo)){
+
+        $entryPseudo = safeEntry($entryPseudo);
+
+        require("PDO.php");
+
+        $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
+        (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    
+        $sql = "SELECT pseudo FROM utilisateur WHERE pseudo = ?";
+        $req = $db -> prepare($sql);
+        
+        $req -> execute(array($entryPseudo));
+
+        if ($req->rowCount() >= 1){
+            return false;
+        } else{
+            return true;
+        }
+    } else {
+        throw new Exception("Aucun pseudo renseigné");
     }
 }
