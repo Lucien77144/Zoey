@@ -21,6 +21,8 @@ try{
             printSubscribe();
         } else if ($_GET['action'] == 'connect'){
             printConnect();
+        } else if ($_GET['action'] == 'disconnect'){
+            printDisconnect();
         } else if ($_GET['action'] == 'account'){
             printAccount();
         } else if ($_GET['action'] == 'messages'){            

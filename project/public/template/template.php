@@ -11,6 +11,7 @@
 <body>
     <header>
         <a href="index.php?action=connect">connexion</a>
+        <a href="index.php?action=disconnect">déconnexion</a>
         <a href="index.php?action=subscribe">inscription</a>
         <a href="index.php?action=blog">blog</a>
         <a href="index.php?action=forum">forum</a>
