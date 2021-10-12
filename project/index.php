@@ -1,15 +1,17 @@
 <?php
     session_start();
 
-    var_dump($_SESSION);
-    echo "<br>";
-
-    header('Access-Control-Allow-Origin: *');
+    // header('Access-Control-Allow-Origin: *');
     define("BASE_URL","../project/");
     $pageTitle = "Zoey";
     $viewContent = "";
+    $showModifyLink = false;
     // $requestedFromAPI = false;
     require_once("controller/controller.php");
+    verifyToken();
+
+    var_dump($_SESSION);
+    echo "<br>";
 
 try{
 
@@ -33,10 +35,12 @@ try{
             printModifyAccount();
         } else if ($_GET['action'] == 'messages'){
             if (isset($_GET['id'])) {
-                printChat();
+                // printChat();
+                echo 'page en construction';
             }
             else{
-                printMessages();
+                // printMessages();
+                echo 'page en construction';
             }
         } else if ($_GET['action'] == 'feed'){
             if (isset($_GET['id'])) {
@@ -45,8 +49,21 @@ try{
             else{
                 printFeed();
             }
-        }  else if ($_GET['action'] == 'addPost'){
-            printAddPost();
+        } else if ($_GET['action'] == 'addpost'){
+            echo 'page en construction';
+        } else if ($_GET['action'] == 'animal'){
+            printAnimal();
+        } else if ($_GET['action'] == 'modifyAnimal'){
+            echo 'page en construction';
+        } else if ($_GET['action'] == 'forum'){
+            echo 'page en construction';
+        } else if ($_GET['action'] == 'adoption'){            
+            if (isset($_GET['id'])) {
+                printAdoptionAnimal();
+            }
+            else{
+                printAdoption();
+            }
         }
     }
     else {

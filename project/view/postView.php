@@ -1,9 +1,7 @@
 <?php 
-$pageTitle = 'Feed';
+$pageTitle = 'Post';
+$post = $post->fetch();
 ob_start();
-
-while ($post = $feed->fetch())
-{
 ?>
     <article class="defaultBlock">
         <img src="<?= BASE_URL . 'public/images/' . htmlspecialchars($post['media']) ?>" alt="">
@@ -16,13 +14,14 @@ while ($post = $feed->fetch())
         <p>
             <?= nl2br(htmlspecialchars($post['description'])) ?>
         </p>
-        <a href="index.php?action=feed&id=<?= htmlspecialchars($post['idpost']) ?>">voir le post</a>
     </article>
-    
-<?php
-}
-$feed->closeCursor();
-?>
 <?php 
+if(isset($_SESSION['idUser'])){
+    if($post['iduser'] == $_SESSION['idUser'] && verifyToken()){
+?>
+        <a href="index.php?action=modifyPost">modifier le post</a>
+<?php
+    }
+}
     $viewContent = ob_get_clean();
     require(BASE_URL . 'public/template/template.php');

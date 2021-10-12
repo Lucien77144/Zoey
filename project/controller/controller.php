@@ -13,12 +13,12 @@
     }
 
     function printSubscribe(){
-        // $subscribe = 
+        // postSubscribe en AJAX
         require(BASE_URL . "view/subscribeView.php");
     }
 
     function printConnect(){
-        // $connect = 
+        // postConnect en AJAX 
         require(BASE_URL . "view/connectView.php");
     }
 
@@ -34,11 +34,8 @@
     }
 
     function printAccount(){
-        if (verifyToken()){
-            require(BASE_URL . "view/accountView.php");
-        } else {
-            printConnect();
-        }
+        $account = getAccount();
+        require(BASE_URL . "view/accountView.php");
     }
 
     function printModifyAccount(){
@@ -52,4 +49,24 @@
     function printFeed(){
         $feed = getFeed();
         require(BASE_URL . "view/feedView.php");
+    }
+
+    function printPost(){
+        $post = getPost();
+        require(BASE_URL . "view/postView.php");
+    }
+
+    function printAnimal(){
+        $animal = getAnimal();
+        require(BASE_URL . "view/animalView.php");
+    }
+
+    function printAdoption(){
+        $feedAdoption = getFeedAdoption();
+        require(BASE_URL . "view/adoptionView.php");
+    }
+
+    function printAdoptionAnimal(){
+        $adoptionAnimal = getAdoptionAnimal();
+        require(BASE_URL . "view/adoptionAnimalView.php");
     }

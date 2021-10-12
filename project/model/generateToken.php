@@ -21,7 +21,7 @@ function sendToken(){
     
     $req -> execute(array(
         ':token' => $_SESSION['token'],
-        ':id' => $_SESSION['idUser']));    
+        ':id' => $_SESSION['idUser']));
 }
 
 try {

@@ -1,32 +1,35 @@
 <?php
 
-function verifyToken(){
-        
-    function checkFromDb(){
-        require("PDO.php");
+function checkFromDb(){
+    require("PDO.php");
 
-        $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
-        (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
+    (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-        $sql = 'SELECT token FROM `utilisateur` WHERE idutilisateur = :id';
-        $req = $db -> prepare($sql);
-        
-        $req -> execute(array(':id' => $_SESSION['idUser']));
+    $sql = 'SELECT token FROM `utilisateur` WHERE idutilisateur = :id';
+    $req = $db -> prepare($sql);
+    
+    $req -> execute(array(':id' => $_SESSION['idUser']));
 
-        $storedToken = $req->fetch();
+    $storedToken = $req->fetch();
 
-        $explodedToken = explode("-", $storedToken['token']);
-        $currentTime = time();    
+    $explodedToken = explode("-", $storedToken['token']);
+    $currentTime = time();
 
-        if (($explodedToken[2] + 900) < $currentTime){
-            return false;
-        } else {
-            if($_SESSION['token'] == $storedToken['token']){
-                return true;
-            }
-        }
+    if (($explodedToken[2] + 300) < $currentTime && ($explodedToken[2] + 900) > $currentTime){ // > 5 min but not expired (15min)
+        require('generateToken.php');
     }
 
+    if (($explodedToken[2] + 900) < $currentTime){
+        return false;
+    } else {
+        if($_SESSION['token'] == $storedToken['token']){
+            return true;
+        }
+    }
+}
+
+function verifyToken(){
     try {
         if (isset($_SESSION['idUser'])
         &&isset($_SESSION['token'])){
@@ -41,4 +44,3 @@ function verifyToken(){
         // require(BASE_URL . "view/errorView.php");
     }
 }
-

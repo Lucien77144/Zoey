@@ -16,8 +16,9 @@
         <a href="index.php?action=blog">blog</a>
         <a href="index.php?action=forum">forum</a>
         <a href="index.php?action=feed">feed</a>
+        <a href="index.php?action=adoption">adoption</a>
         <a href="index.php?action=account">mon compte</a>
-        <a href="index.php?action=post">poster</a>
+        <a href="index.php?action=addpost">poster</a>
 
         <a href="index.php?action=messages">messages</a>
     </header>
