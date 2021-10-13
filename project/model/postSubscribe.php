@@ -15,7 +15,8 @@ function postSubscibe(){
     $prenom = safeEntry($_POST['prenom']);
     $adresse_mail = safeEntry($_POST['mail']);
     $date_naissance = safeEntry($_POST['date_naissance']);
-    $new_password_hash = password_hash($_POST['password'], PASSWORD_ARGON2I, ['memory_cost' => 2048, 'time_cost' => 4, 'threads' => 3]);
+    // $new_password_hash = password_hash($_POST['password'], PASSWORD_ARGON2I, ['memory_cost' => 2048, 'time_cost' => 4, 'threads' => 3]);
+    $new_password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
     
     require("PDO.php");
 

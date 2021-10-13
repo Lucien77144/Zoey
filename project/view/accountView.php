@@ -26,11 +26,18 @@ if(isset($_SESSION['idUser'])){
 
 <h2>Mon panier</h2>
 
+<?php
+if (isset($account['nom_animal']) && isset($account['idanimal']) && isset($account['photo_animal'])){ // rajouter une boucle pour plusieurs animaux
+?>
 <a href="index.php?action=animal&id=<?= htmlspecialchars($account['idanimal']) ?>">
     <p><?= htmlspecialchars($account['nom_animal']) ?></p>
     <img src="<?= BASE_URL . 'public/images/' . htmlspecialchars($account['photo_animal']) ?>" alt="">
 </a>
-
-<?php 
+<?php    
+} else {
+    ?>
+    <p>Mon panier est vide pour le moment... Je n'ai pas encore d'animaux de compagnie !</p>    
+    <?php
+}
     $viewContent = ob_get_clean();
     require(BASE_URL . 'public/template/template.php');

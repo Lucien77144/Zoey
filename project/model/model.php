@@ -189,9 +189,6 @@ function getAnimal(){
 }
 
 function getAccount(){
-    if (!isset($_GET['id'])){
-        $_GET['id'] = $_SESSION['idUser'];
-    }
     if (isset($_GET['id']) && is_numeric($_GET['id']) && intval($_GET['id']) > 0){
         $accountId = intval($_GET['id']);
 
@@ -202,7 +199,7 @@ function getAccount(){
 
         $sql = "SELECT animal.idprofil_animal_de_compagnie idanimal, animal.nom nom_animal, animal.url_photo photo_animal, utilisateur.pseudo pseudo_user, utilisateur.url_photo photo_user, utilisateur.description, idutilisateur iduser
         FROM utilisateur
-        INNER JOIN profil_animal_de_compagnie animal ON animal.utilisateur_idutilisateur1 = utilisateur.idutilisateur
+        LEFT OUTER JOIN profil_animal_de_compagnie animal ON animal.utilisateur_idutilisateur1 = utilisateur.idutilisateur
         WHERE idutilisateur = ?;";
         $req = $db -> prepare($sql);
         

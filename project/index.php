@@ -10,9 +10,6 @@
     require_once("controller/controller.php");
     verifyToken();
 
-    var_dump($_SESSION);
-    echo "<br>";
-
 try{
 
     if (isset($_GET['action'])) {
@@ -30,7 +27,16 @@ try{
         } else if ($_GET['action'] == 'disconnect'){
             printDisconnect();
         } else if ($_GET['action'] == 'account'){
-            printAccount();
+            if (!isset($_GET['id']) && isset($_SESSION['idUser'])){
+                $_GET['id'] = $_SESSION['idUser'];
+            }
+            if (isset($_GET['id'])) {
+                printAccount();
+            }
+            else{
+                printConnect();
+            }
+            
         } else if ($_GET['action'] == 'modifyAccount'){
             printModifyAccount();
         } else if ($_GET['action'] == 'messages'){
