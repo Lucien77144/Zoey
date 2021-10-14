@@ -58,6 +58,7 @@
 
     function printAnimal(){
         $animal = getAnimal();
+        $animalFeed = getAnimalFeed();
         require(BASE_URL . "view/animalView.php");
     }
 
@@ -69,4 +70,20 @@
     function printAdoptionAnimal(){
         $adoptionAnimal = getAdoptionAnimal();
         require(BASE_URL . "view/adoptionAnimalView.php");
+    }
+
+    function printAddPost(){
+        if (verifyToken()){
+            require(BASE_URL . "view/addPostView.php");
+        } else {
+            printConnect();
+        }
+    }
+
+    function printAddAnimal(){
+        if (verifyToken()){
+            require(BASE_URL . "view/addAnimalView.php");
+        } else {
+            printConnect();
+        }
     }

@@ -2,7 +2,7 @@
     session_start();
 
     // header('Access-Control-Allow-Origin: *');
-    define("BASE_URL","../project/");
+    define("BASE_URL","../project/"); //getcwd();
     $pageTitle = "Zoey";
     $viewContent = "";
     $showModifyLink = false;
@@ -56,9 +56,12 @@ try{
                 printFeed();
             }
         } else if ($_GET['action'] == 'addpost'){
-            echo 'page en construction';
+            printAddPost();
+            // echo 'page en construction';
         } else if ($_GET['action'] == 'animal'){
             printAnimal();
+        } else if ($_GET['action'] == 'addAnimal'){
+            printAddAnimal();
         } else if ($_GET['action'] == 'modifyAnimal'){
             echo 'page en construction';
         } else if ($_GET['action'] == 'forum'){

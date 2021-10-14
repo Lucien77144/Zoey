@@ -124,12 +124,102 @@ $(document).ready(function(){
         );
     };
 
+    function postAddPost(){
+        console.log("addpost")
+
+        let fd = new FormData();
+        let files = $("#media")[0].files[0];
+        fd.append( 'media',  files);
+        // fd.append( 'description',  $("#description").val());
+        
+        $.ajax({
+            url: 'model/postAddPost.php',
+            data: fd,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function(data){
+              alert(data);
+            }
+          });
+
+        // $.post(
+        //     'model/postAddPost.php',
+        //     {
+        //         description : $("#description").val(),
+        //         media : fd
+        //     },
+
+        //     function(ReturnedMessage){
+        //         console.log("function Received")
+        //         console.log(ReturnedMessage);
+
+        //         if (ReturnedMessage == "valid"){
+        //             window.location.href = "index.php?action=connect";
+        //             console.log('valid !!')
+        //         } else {
+        //             $('#ConfirmationMessage').html('');
+        //             $('#ConfirmationMessage').text(
+        //                 `L'importation a échoué.`
+        //             );
+        //         }
+        //     },
+        //     'text'
+        // );
+    };
+
+    function postAddAnimal(){
+        console.log("postAddAnimal")
+        
+        $.post(
+            'model/postAddAnimal.php',
+            {
+                nom : $("#nom").val(),
+                description : $("#description").val(),
+                date_naissance : $("#date_naissance").val(),
+                idtype : $("#idtype").val()
+            },
+
+            function(ReturnedMessage){
+                console.log("function Received")
+                console.log(ReturnedMessage);
+
+                if (ReturnedMessage == "valid"){
+                    window.location.href = "index.php?action=account";
+                    console.log('valid !!')
+                } else {
+                    $('#ConfirmationMessage').html('');
+                    $('#ConfirmationMessage').text(
+                        `Il y a une erreur dans un des champs remplis.`
+                    );
+                }
+            },
+            'text'
+        );
+    };
+
     $("#submitSubscribe").click(function(e){
         e.preventDefault();
 
         console.log("click")
 
         postSubscribe();
+    });
+
+    $("#submitAddPost").click(function(e){
+        e.preventDefault();
+
+        console.log("click");
+
+        postAddPost();
+    });
+
+    $("#submitAddAnimal").click(function(e){
+        e.preventDefault();
+
+        console.log("click");
+
+        postAddAnimal();
     });
 
     $("#submitModifyAccount").click(function(e){

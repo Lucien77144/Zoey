@@ -91,6 +91,33 @@ function getFeed(){
     return $req;
 }
 
+function getAnimalFeed(){
+    if (isset($_GET['id']) && is_numeric($_GET['id']) && intval($_GET['id']) > 0){
+        $animalId = intval($_GET['id']);
+
+        require("PDO.php");
+
+        $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
+        (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+
+        $sql = "SELECT idpost, post.description, media, profil_animal_de_compagnie_idprofil_animal_de_compagnie idanimal, profil_animal_de_compagnie.nom
+        FROM post
+        INNER JOIN profil_animal_de_compagnie ON post.profil_animal_de_compagnie_idprofil_animal_de_compagnie = profil_animal_de_compagnie.idprofil_animal_de_compagnie
+        WHERE profil_animal_de_compagnie_idprofil_animal_de_compagnie = ?;";
+        $req = $db -> prepare($sql);
+        
+        $req -> execute(array($animalId));
+
+        if ($req->rowCount() <= 0)
+            throw new Exception("Aucun post n'a été trouvé");
+
+        return $req;
+    } else {
+        throw new Exception("Aucun animal n'a été trouvé");
+    }
+    
+}
+
 function getFeedAdoption(){
     require("PDO.php");
 
@@ -185,7 +212,7 @@ function getAnimal(){
         return $req;
     } else {
         throw new Exception("Ce profil d'animal de compagnie n'existe pas");
-    }    
+    }
 }
 
 function getAccount(){

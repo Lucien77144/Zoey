@@ -26,6 +26,8 @@ if(isset($_SESSION['idUser'])){
 
 <h2>Mon panier</h2>
 
+<a href="index.php?action=addAnimal">ajouter un nouvel animal à mon panier</a>
+
 <?php
 if (isset($account['nom_animal']) && isset($account['idanimal']) && isset($account['photo_animal'])){ // rajouter une boucle pour plusieurs animaux
 ?>
