@@ -6,18 +6,19 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 10vw;
+    margin-bottom: 50px;
 }
 
 .crslTitre{
-    margin: 2.5vw 0 0 0;
+    margin: 15px 0 0 0;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     font-size: 1.5rem;
 }
 
 .crslDesc{
-    margin: 2.5vw 0 0 0;
+    margin: 10px 0 0 0;
+    max-width: 583px;
     text-align: justify;
     padding: 0 5vw;
     font-family: 'Roboto', sans-serif;
@@ -29,11 +30,11 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100vw;
 }
 
 .arrow1, .arrow2{
     height: 7.5vw;
+    max-height: 54px;
     margin: 1vw;
 }
 
@@ -44,9 +45,11 @@ body{
 .crslImg{
     height: 54vw;
     width: 36vw;
+    max-height: 387px;
+    max-width: 258px;
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 3vw;
+    border-radius: min(3vw, 20px);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
     transition: 0.5s ease-in-out;
 }
@@ -55,21 +58,23 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60vw;
+    height: min(60vw, 430px);
 }
 
 .crslWrap #I4{ /*  Images de droite  */
-    margin-left: -15vw;
+    margin-left: max(-15vw, -110px);
 }
 
 .crslWrap #I3{ /* Image centrale */
     z-index: 2;
     height: 60vw;
     width: 40vw;
+    max-height: 430px;
+    max-width: 287px;
 }
 
 .crslWrap  #I2{ /*  Images de gauche  */
-    margin-right: -15vw;
+    margin-right: max(-15vw, -110px);
 }
 
 #I0, #I1, #I5, #I6{
