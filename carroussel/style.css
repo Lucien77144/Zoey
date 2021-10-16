@@ -1,0 +1,79 @@
+body{
+    margin: 0;
+}
+
+.crsl{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10vw;
+}
+
+.crslTitre{
+    margin: 2.5vw 0 0 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.crslDesc{
+    margin: 2.5vw 0 0 0;
+    text-align: justify;
+    padding: 0 5vw;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.crslPic{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+}
+
+.arrow1, .arrow2{
+    height: 7.5vw;
+    margin: 1vw;
+}
+
+.arrow2{
+    transform: rotate(180deg);
+}
+
+.crslImg{
+    height: 54vw;
+    width: 36vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 3vw;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+    transition: 0.5s ease-in-out;
+}
+
+.crslWrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vw;
+}
+
+.crslWrap #I4{ /*  Images de droite  */
+    margin-left: -15vw;
+}
+
+.crslWrap #I3{ /* Image centrale */
+    z-index: 2;
+    height: 60vw;
+    width: 40vw;
+}
+
+.crslWrap  #I2{ /*  Images de gauche  */
+    margin-right: -15vw;
+}
+
+#I0, #I1, #I5, #I6{
+    width: 0;
+    height: 0;
+    z-index: -1;
+}
