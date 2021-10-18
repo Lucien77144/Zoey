@@ -15,6 +15,10 @@ if(isset($_SESSION['idUser'])){
     if($account['iduser'] == $_SESSION['idUser'] && verifyToken()){
 ?>
         <a href="index.php?action=modifyAccount">modifier mon profil</a>
+
+        <h2>Mon panier</h2>
+
+        <a href="index.php?action=addAnimal">ajouter un nouvel animal à mon panier</a>
 <?php
     } else if ($account['iduser'] == $_SESSION['idUser']) {
         ?>
@@ -22,13 +26,8 @@ if(isset($_SESSION['idUser'])){
         <?php
     }
 }
-?>
 
-<h2>Mon panier</h2>
 
-<a href="index.php?action=addAnimal">ajouter un nouvel animal à mon panier</a>
-
-<?php
 if (isset($account['nom_animal']) && isset($account['idanimal']) && isset($account['photo_animal'])){ // rajouter une boucle pour plusieurs animaux
 ?>
 <a href="index.php?action=animal&id=<?= htmlspecialchars($account['idanimal']) ?>">
