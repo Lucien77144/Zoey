@@ -61,11 +61,11 @@ body{
     height: min(60vw, 430px);
 }
 
-.crslWrap #I4{ /*  Images de droite  */
+.crslWrap #I4>.crslImg{ /*  Images de droite  */
     margin-left: max(-15vw, -110px);
 }
 
-.crslWrap #I3{ /* Image centrale */
+.crslWrap #I3>.crslImg{ /* Image centrale */
     z-index: 2;
     height: 60vw;
     width: 40vw;
@@ -73,12 +73,20 @@ body{
     max-width: 287px;
 }
 
-.crslWrap  #I2{ /*  Images de gauche  */
+.crslWrap #I3{
+    z-index: 2;
+}
+
+.crslWrap  #I2>.crslImg{ /*  Images de gauche  */
     margin-right: max(-15vw, -110px);
 }
 
-#I0, #I1, #I5, #I6{
+#I0>.crslImg, #I1>.crslImg, #I5>.crslImg, #I6>.crslImg{
     width: 0;
     height: 0;
+    z-index: -1;
+}
+
+#I0, #I1, #I5, #I6{
     z-index: -1;
 }
