@@ -35,6 +35,7 @@
 
     function printAccount(){
         $account = getAccount();
+        $accountAnimals = getAccountAnimals();
         require(BASE_URL . "view/accountView.php");
     }
 
