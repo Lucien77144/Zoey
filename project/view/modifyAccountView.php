@@ -1,5 +1,5 @@
 <?php 
-$pageTitle = "Mondifier mon compte";
+$pageTitle = "Modifier mon compte";
 ob_start();
 ?>
 
@@ -19,7 +19,7 @@ ob_start();
     <label for="password">mot de passe</label>
     <input type="password" name="password" id="password"> <br>
 
-    <input type="submit" id="submitSubscribe">
+    <input type="submit" id="submitModifyAccount">
 </form>
 <span id="ConfirmationMessage"></span>
 
