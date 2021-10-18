@@ -1,8 +1,6 @@
 <?php
     session_start();
 
-    var_dump($_SESSION);
-
     // header('Access-Control-Allow-Origin: *');
     define("BASE_URL","../project/"); //getcwd();
     $pageTitle = "Zoey";

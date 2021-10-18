@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 require("model.php");
 
 // function safeEntry($validate){
@@ -24,7 +22,7 @@ function postModifyAccount(){
     $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
     (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-    $sql = "UPDATE utilisateur SET pseudo = :pseudo, nom = :nom, prenom = :prenom, adresse_mail = :adresse_mail, date_naissance = :date_naissance, mot_de_passe = :mot_de_passe WHERE idutilisateur = :id;";
+    $sql = "UPDATE utilisateur SET pseudo = :pseudo, nom = :nom, adresse_mail = :adresse_mail, date_naissance = :date_naissance, mot_de_passe = :mot_de_passe WHERE idutilisateur = :id;";
     $req = $db -> prepare($sql);
     
     $req -> execute(array(
@@ -36,28 +34,25 @@ function postModifyAccount(){
         ':mot_de_passe' => $new_password_hash,
         ':id' => $_SESSION['idUser']));
 
-    // if ($req->rowCount() <= 0)
-    //     throw new Exception("Votre compte n'a pas pu être modifié, il y a une erreur dans les champs remplis.1");
+    if ($req->rowCount() <= 0)
+        throw new Exception("Votre compte n'a pas pu être ajouté, il y a une erreur dans les champs remplis.");
 
     return "valid";
 }
 
 try {
     if (isset($_POST['pseudo'])
+    &&isPseudoFree($_POST['pseudo'])
     &&isset($_POST['nom'])
     &&isset($_POST['prenom'])
     &&isset($_POST['mail'])
     &&isset($_POST['date_naissance'])
     &&isset($_POST['password']))
     {
-        if (isPseudoFree($_POST['pseudo']) || $_POST['pseudo'] == $_SESSION['pseudo']){
-            $postModifyAccount = postModifyAccount();
-            echo $postModifyAccount;
-        } else {
-            throw new Exception("Ce pseudo existe déjà !");
-        }
-    } else {
-        throw new Exception("Votre compte n'a pas pu être modifié, il y a une erreur dans les champs remplis.");
+        $postModifyAccount = postModifyAccount();
+        echo $postModifyAccount;
+    } else {        
+        throw new Exception("Votre compte n'a pas pu être ajouté, il y a une erreur dans les champs remplis.");
     }
 
 } catch (Exception $e) {

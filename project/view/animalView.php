@@ -8,11 +8,7 @@ ob_start();
 
 <img src="<?= BASE_URL . 'public/images/' . htmlspecialchars($animal['photo_animal']) ?>" alt="">
 
-<p>Je m'appelle <?= htmlspecialchars($animal['nom_animal']) ?>. <br>
-<div class="defaultBlock">
-    <?= nl2br(htmlspecialchars($animal['description_animal'])) ?>
-</div>
-</p>
+<p>Je m'appelle <?= htmlspecialchars($animal['nom_animal']) ?></p>
 
 <?php
 if(isset($_SESSION['idUser'])){
@@ -34,31 +30,26 @@ if(isset($_SESSION['idUser'])){
 <h2>Mes posts</h2>
 
 <?php
-if (!$animalFeed){ // renvoie vaut false si aucun animal lié à ce compte n'a été trouvé en bdd
-    ?>
-    <p>Je n'ai encore jamais posté !</p>    
-    <?php
-} else {
-    while ($post = $animalFeed->fetch()) {
-        ?>
-            <article class="defaultBlock">
-                <img src="<?= BASE_URL . 'public/images/' . htmlspecialchars($post['media']) ?>" alt="">
-                <a href="index.php?action=animal&id=<?= htmlspecialchars($post['idanimal']) ?>" title="voir le profil de <?= htmlspecialchars($post['nom']) ?>">
-                    <h1>
-                        <?= htmlspecialchars($post['nom']) ?>
-                    </h1>
-                </a>
-                
-                <p>
-                    <?= nl2br(htmlspecialchars($post['description'])) ?>
-                </p>
-                <a href="index.php?action=feed&id=<?= htmlspecialchars($post['idpost']) ?>">voir le post</a>
-            </article>
-            
-        <?php
-    }
-    $animalFeed->closeCursor();
+while ($post = $animalFeed->fetch())
+{
+?>
+    <article class="defaultBlock">
+        <img src="<?= BASE_URL . 'public/images/' . htmlspecialchars($post['media']) ?>" alt="">
+        <a href="index.php?action=animal&id=<?= htmlspecialchars($post['idanimal']) ?>" title="voir le profil de <?= htmlspecialchars($post['nom']) ?>">
+            <h1>
+                <?= htmlspecialchars($post['nom']) ?>
+            </h1>
+        </a>
+        
+        <p>
+            <?= nl2br(htmlspecialchars($post['description'])) ?>
+        </p>
+        <a href="index.php?action=feed&id=<?= htmlspecialchars($post['idpost']) ?>">voir le post</a>
+    </article>
+    
+<?php
 }
+    $animalFeed->closeCursor();
 
     $viewContent = ob_get_clean();
     require(BASE_URL . 'public/template/template.php');

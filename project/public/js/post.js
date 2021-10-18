@@ -37,7 +37,7 @@ $(document).ready(function(){
         console.log("postModifyAccount")
         
         $.post(
-            'model/postModifyAccount.php',
+            'model/postModifyAccount().php',
             {
                 pseudo : $("#pseudoSubscribe").val(),
                 nom : $("#nom").val(),
@@ -48,9 +48,8 @@ $(document).ready(function(){
             },
 
             function(ReturnedMessage){
-                
+                console.log("function Received")
                 console.log(ReturnedMessage);
-                console.log("function Received1");
 
                 if (ReturnedMessage == "valid"){
                     window.location.href = "index.php?action=connect";
@@ -169,26 +168,6 @@ $(document).ready(function(){
         // );
     };
 
-    function postPhoto(){
-        console.log("postPhoto");
-
-        let fd = new FormData();
-        let files = $("#media")[0].files[0];
-        fd.append( 'media',  files);
-        // fd.append( 'description',  $("#description").val());
-        
-        $.ajax({
-            url: 'model/postPhoto.php',
-            data: fd,
-            processData: false,
-            contentType: false,
-            type: 'POST',
-            success: function(data){
-              alert(data);
-            }
-          });
-    };
-
     function postAddAnimal(){
         console.log("postAddAnimal")
         
@@ -232,8 +211,7 @@ $(document).ready(function(){
 
         console.log("click");
 
-        postPhoto();
-        // postAddPost();
+        postAddPost();
     });
 
     $("#submitAddAnimal").click(function(e){
