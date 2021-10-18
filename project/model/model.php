@@ -78,9 +78,10 @@ function getFeed(){
     $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
     (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-    $sql = "SELECT idpost, post.description, media, profil_animal_de_compagnie_idprofil_animal_de_compagnie idanimal, profil_animal_de_compagnie.nom
+    $sql = "SELECT idpost, post.description, media, date_publication, profil_animal_de_compagnie_idprofil_animal_de_compagnie idanimal, profil_animal_de_compagnie.nom
     FROM post
-    INNER JOIN profil_animal_de_compagnie ON post.profil_animal_de_compagnie_idprofil_animal_de_compagnie = profil_animal_de_compagnie.idprofil_animal_de_compagnie;";
+    INNER JOIN profil_animal_de_compagnie ON post.profil_animal_de_compagnie_idprofil_animal_de_compagnie = profil_animal_de_compagnie.idprofil_animal_de_compagnie
+    ORDER BY date_publication DESC;";
     $req = $db -> prepare($sql);
     
     $req -> execute();
@@ -241,6 +242,9 @@ function getAccount(){
 }
 
 function getAccountAnimals(){
+    if (!isset($_GET['id']) && isset($_SESSION['idUser'])){
+        $_GET['id'] = $_SESSION['idUser'];
+    }
     if (isset($_GET['id']) && is_numeric($_GET['id']) && intval($_GET['id']) > 0){
         $userId = intval($_GET['id']);
 

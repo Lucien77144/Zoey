@@ -7,85 +7,36 @@ if (!isset($_SESSION['idUser']) && isnumeric($_SESSION['idUser'])){
 
 require("model.php");
 
-
-
-// function safeEntry($validate){
-//     $validate = trim($validate);
-//     $validate = stripslashes($validate);
-//     $validate = htmlspecialchars($validate);
-//     return $validate;
-// }
-
 function postAddPost(){
-    // $description = safeEntry($_POST['description']);
+
+    $description = safeEntry($_POST['description']);
+    $fileName = safeEntry($_POST['media']);
+    $idAnimal = safeEntry($_POST['idAnimal']);
+    $idUser = $_SESSION['idUser'];
     
-    // $currentDirectory = getcwd();
-    $uploadDirectory = "public/images/";
+    require("PDO.php");
 
-    $errosrs = [];
+    $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
+    (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-    $fileExtensionsAllowed = ['jpeg','jpg','png'];
-
-    $fileName = safeEntry($_FILES['media']['name']);
-    $fileSize = $_FILES['media']['size'];
-    $fileTmpName  = $_FILES['media']['tmp_name'];
-    $fileType = $_FILES['media']['type'];
-    $explodedFilename = explode('.',$fileName);
-    $fileExtension = strtolower(end($explodedFilename));
-
-    $uploadPath = "../" . $uploadDirectory . "uploadedOn" . time() . "_by_" . $_SESSION['idUser'] . "_" . basename($fileName);
-
-    if (isset($_FILES['media'])) {
-
-      if (! in_array($fileExtension,$fileExtensionsAllowed)) {
-        // throw new Exception("Zoey n'accepte que des photos JPEG ou PNG pour le moment.");s
-        $errors[] = "Zoey n'accepte que des photos JPEG ou PNG pour le moment.";
-      }
-
-      if ($fileSize > 8000000) {
-        // throw new Exception("Zoey n'accepte pas les photos de plus de 8Mo pour le moment.");
-        $errors[] = "Zoey n'accepte pas les photos de plus de 8Mo pour le moment.";
-      }
-
-      if (empty($errors)) {
-        $didUpload = move_uploaded_file($fileTmpName, $uploadPath);
-
-        if ($didUpload) {
-          echo "Le fichier " . basename($fileName) . " a bien été uploadé";
-        } else {
-          echo "Erreur";
-        }
-      } else {
-        foreach ($errors as $error) {
-          echo $error . " -> erreurs" . "\n";
-        }
-      }
-
-    }
+    $sql = "INSERT INTO post (description, media, profil_animal_de_compagnie_idprofil_animal_de_compagnie, profil_animal_de_compagnie_utilisateur_idutilisateur1) VALUES (:description, :media, :idAnimal, :idUser)";
+    $req = $db -> prepare($sql);
     
-    
-    // require("PDO.php");
-
-    // $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
-    // (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
-
-    // $sql = "INSERT INTO post (description, media) VALUES (:description, :media)";
-    // $req = $db -> prepare($sql);
-    
-    // $req -> execute(array(
-    //     ':description' => $description,
-    //     ':media' => $fileName));
-
-    // if ($req->rowCount() <= 0)
-    //     throw new Exception("L'importation a échoué.1");
+    $valid = $req -> execute(array(
+        ':description' => $description,
+        ':media' => $fileName,
+        ':idAnimal' => $idAnimal,
+        ':idUser' => $idUser));
+        
+    if (!$valid)
+        throw new Exception("L'importation a échoué.1");
 
     return "valid";
 }
 
 try {
     if (
-      // isset($_POST['description'])
-    isset($_FILES['media'])
+      isset($_POST['description'])
     )
     {
         $postAddPost = postAddPost();

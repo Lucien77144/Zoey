@@ -125,51 +125,37 @@ $(document).ready(function(){
         );
     };
 
-    function postAddPost(){
+    function postAddPost(postedMedia){
+        console.log(postedMedia)
         console.log("addpost")
-
-        let fd = new FormData();
-        let files = $("#media")[0].files[0];
-        fd.append( 'media',  files);
-        // fd.append( 'description',  $("#description").val());
         
-        $.ajax({
-            url: 'model/postAddPost.php',
-            data: fd,
-            processData: false,
-            contentType: false,
-            type: 'POST',
-            success: function(data){
-              alert(data);
-            }
-          });
+        $.post(
+            'model/postAddPost.php',
+            {
+                description : $("#description").val(),
+                media : "test.jpg",
+                idAnimal : $("#idAnimal").val()
+            },
 
-        // $.post(
-        //     'model/postAddPost.php',
-        //     {
-        //         description : $("#description").val(),
-        //         media : fd
-        //     },
+            function(ReturnedMessage){
+                console.log("function Received")
+                console.log(ReturnedMessage);
 
-        //     function(ReturnedMessage){
-        //         console.log("function Received")
-        //         console.log(ReturnedMessage);
-
-        //         if (ReturnedMessage == "valid"){
-        //             window.location.href = "index.php?action=connect";
-        //             console.log('valid !!')
-        //         } else {
-        //             $('#ConfirmationMessage').html('');
-        //             $('#ConfirmationMessage').text(
-        //                 `L'importation a échoué.`
-        //             );
-        //         }
-        //     },
-        //     'text'
-        // );
+                if (ReturnedMessage == "valid"){
+                    // window.location.href = "index.php?action=connect";
+                    console.log('valid 1 !!')
+                } else {
+                    $('#ConfirmationMessage').html('');
+                    $('#ConfirmationMessage').text(
+                        `L'ajout a échoué`
+                    );
+                }
+            },
+            'text'
+        );
     };
 
-    function postPhoto(){
+    function postPhoto(){ // renvoie basename fichier uploadé
         console.log("postPhoto");
 
         let fd = new FormData();
@@ -184,7 +170,7 @@ $(document).ready(function(){
             contentType: false,
             type: 'POST',
             success: function(data){
-              alert(data);
+              return data;
             }
           });
     };
@@ -232,8 +218,8 @@ $(document).ready(function(){
 
         console.log("click");
 
-        postPhoto();
-        // postAddPost();
+        let postedMedia = postPhoto();
+        postAddPost("coucou.jpg");
     });
 
     $("#submitAddAnimal").click(function(e){

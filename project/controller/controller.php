@@ -75,6 +75,7 @@
 
     function printAddPost(){
         if (verifyToken()){
+            $accountAnimals = getAccountAnimals();
             require(BASE_URL . "view/addPostView.php");
         } else {
             printConnect();

@@ -39,15 +39,19 @@ function postPhoto(){
 
         if ($didUpload) {
             // echo "Le fichier " . basename($fileName) . " a bien été uploadé";
-            return "valid";
+            // return "valid";
+            return basename($fileName);
+
         } else {
-            echo "Erreur";
+            // echo "Erreur";
+            return false;
         }
 
     } else {
-        foreach ($errors as $error) {
-            echo $error . " -> erreurs" . "\n";
-        }
+        // foreach ($errors as $error) {
+        //     echo $error . " -> erreurs" . "\n";
+        // }
+        return false;
     }
 }
 
@@ -60,13 +64,15 @@ try {
         $postPhoto = postPhoto();
         echo $postPhoto;
     } else {        
-        throw new Exception("L'importation a échoué.");
+        // throw new Exception("L'importation a échoué.");
+        return false;
     }
 
 } catch (Exception $e) {
     echo "catch";
     $errorMsg = $e->getMessage();
-    echo $errorMsg;
+    // echo $errorMsg;
+    return false;
     // require(BASE_URL . "view/errorView.php");
 }
 
