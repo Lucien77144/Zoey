@@ -133,7 +133,7 @@ $(document).ready(function(){
             'model/postAddPost.php',
             {
                 description : $("#description").val(),
-                media : "test.jpg",
+                media : postedMedia,
                 idAnimal : $("#idAnimal").val()
             },
 
@@ -162,7 +162,9 @@ $(document).ready(function(){
         let files = $("#media")[0].files[0];
         fd.append( 'media',  files);
         // fd.append( 'description',  $("#description").val());
-        
+
+        let returnedFromAjax;
+
         $.ajax({
             url: 'model/postPhoto.php',
             data: fd,
@@ -170,9 +172,13 @@ $(document).ready(function(){
             contentType: false,
             type: 'POST',
             success: function(data){
-              return data;
-            }
-          });
+                returnedFromAjax = data;
+            },
+            dataType: 'text',
+            async: false
+        });
+
+        return returnedFromAjax;
     };
 
     function postAddAnimal(){
@@ -219,7 +225,8 @@ $(document).ready(function(){
         console.log("click");
 
         let postedMedia = postPhoto();
-        postAddPost("coucou.jpg");
+        
+        postAddPost(postedMedia);
     });
 
     $("#submitAddAnimal").click(function(e){

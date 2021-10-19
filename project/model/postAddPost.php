@@ -11,8 +11,22 @@ function postAddPost(){
 
     $description = safeEntry($_POST['description']);
     $fileName = safeEntry($_POST['media']);
-    $idAnimal = safeEntry($_POST['idAnimal']);
+    $postedIdAnimal = intval(safeEntry($_POST['idAnimal']));
     $idUser = $_SESSION['idUser'];
+
+    $accountAnimals = getAccountAnimals();
+
+    if (!$accountAnimals){ // renvoie vaut false si aucun animal lié à ce compte n'a été trouvé en bdd
+        throw new Exception("Nous n'avons pas trouvé cet animal !");
+    } else {
+        $animal = $accountAnimals->fetchAll();
+
+        if ($postedIdAnimal <= $accountAnimals->rowCount()){
+            $idAnimal = $animal[$postedIdAnimal]['idanimal'];
+        } else {
+            throw new Exception("Nous n'avons pas trouvé cet animal ! 2");
+        }
+    }
     
     require("PDO.php");
 
@@ -35,8 +49,8 @@ function postAddPost(){
 }
 
 try {
-    if (
-      isset($_POST['description'])
+    if (is_numeric($_POST['idAnimal'])
+      && isset($_POST['description'])
     )
     {
         $postAddPost = postAddPost();

@@ -17,7 +17,7 @@ ob_start();
     <select name="idAnimal" id="idAnimal">
         <option value="">--Please choose an option--</option>
         <?php
-        $animalIdCounter = 1;
+        $animalIdCounter = 0;
         while ($animal = $accountAnimals -> fetch()){
             ?>
                 <option value="<?= $animalIdCounter ?>"><?= htmlspecialchars($animal['nom_animal']) ?></option>

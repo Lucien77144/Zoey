@@ -22,7 +22,8 @@ function postPhoto(){
     $explodedFilename = explode('.',$fileName);
     $fileExtension = strtolower(end($explodedFilename));
 
-    $uploadPath = "../" . $uploadDirectory . "uploadedOn" . time() . "_by_" . $_SESSION['idUser'] . "_" . basename($fileName);
+    $uploadName = "uploadedOn" . time() . "_by_" . $_SESSION['idUser'] . "_" . basename($fileName);
+    $uploadPath = "../" . $uploadDirectory . $uploadName;
 
     if (! in_array($fileExtension,$fileExtensionsAllowed)) {
     // throw new Exception("Zoey n'accepte que des photos JPEG ou PNG pour le moment.");s
@@ -40,7 +41,7 @@ function postPhoto(){
         if ($didUpload) {
             // echo "Le fichier " . basename($fileName) . " a bien été uploadé";
             // return "valid";
-            return basename($fileName);
+            return strval($uploadName);
 
         } else {
             // echo "Erreur";
