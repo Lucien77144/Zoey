@@ -10,7 +10,7 @@
     $showModifyLink = false;
     // $requestedFromAPI = false;
     require_once("controller/controller.php");
-    verifyToken();
+    verifyToken(); //refresh token
 
 try{
 
@@ -65,7 +65,7 @@ try{
         } else if ($_GET['action'] == 'addAnimal'){
             printAddAnimal();
         } else if ($_GET['action'] == 'modifyAnimal'){
-            echo 'page en construction';
+            printModifyAnimal();
         } else if ($_GET['action'] == 'forum'){
             echo 'page en construction';
         } else if ($_GET['action'] == 'adoption'){            

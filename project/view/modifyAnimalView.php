@@ -1,9 +1,11 @@
 <?php 
-$pageTitle = "Ajouter un nouvel animal à mon panier";
+$animal = $animal->fetch();
+$pageTitle = "Modifier le profil de "  . $animal['nom_animal'];
 ob_start();
 ?>
 
-<form class="addAnimalForm">
+<form class="modifyAnimalForm">
+
     <label for="nom">nom</label>
     <input type="text" name="nom" id="nom"> <br>
 
@@ -12,8 +14,11 @@ ob_start();
 
     <label for="description">description</label>
     <input type="text" name="description" id="description"> <br>
+
     <label for="date_naissance">date de naissance</label>
     <input type="date" name="date_naissance" id="date_naissance"> <br>
+
+    
     <label for="idtype">catégorie d'animal</label>
     
     <select name="idtype" id="idtype">
@@ -29,7 +34,7 @@ ob_start();
         ?>
     </select>
 
-    <input type="submit" id="submitAddAnimal">
+    <input type="submit" id="submitModifyAnimal">
 </form>
 <span id="ConfirmationMessage"></span>
 

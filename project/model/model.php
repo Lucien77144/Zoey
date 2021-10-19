@@ -199,7 +199,7 @@ function getAnimal(){
         $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
         (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-        $sql = "SELECT animal.nom nom_animal, animal.url_photo photo_animal, animal.description description_animal, animal.date_naissance, utilisateur_idutilisateur1 iduser, types_animaux_idtypes_animaux, utilisateur.pseudo pseudo_user, utilisateur.url_photo photo_user
+        $sql = "SELECT idprofil_animal_de_compagnie idanimal, animal.nom nom_animal, animal.url_photo photo_animal, animal.description description_animal, animal.date_naissance, utilisateur_idutilisateur1 iduser, types_animaux_idtypes_animaux, utilisateur.pseudo pseudo_user, utilisateur.url_photo photo_user
         FROM profil_animal_de_compagnie animal
         INNER JOIN utilisateur ON animal.utilisateur_idutilisateur1 = utilisateur.idutilisateur
         WHERE idprofil_animal_de_compagnie = ?;";
@@ -265,4 +265,21 @@ function getAccountAnimals(){
     } else {
         throw new Exception("Nous n'avons pas trouvé ce compte");
     }
+}
+
+function getAnimalTypes(){
+    require("PDO.php");
+
+    $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
+    (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+
+    $sql = "SELECT idtypes_animaux id, nom, url_icone FROM types_animaux";
+    $req = $db -> prepare($sql);
+    
+    $req -> execute();
+    
+    if ($req->rowCount() <= 0)
+        throw new Exception("Aucune catégorie n'a été trouvée");
+
+    return $req;
 }

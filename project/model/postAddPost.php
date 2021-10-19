@@ -16,7 +16,7 @@ function postAddPost(){
 
     $accountAnimals = getAccountAnimals();
 
-    if (!$accountAnimals){ // renvoie vaut false si aucun animal lié à ce compte n'a été trouvé en bdd
+    if (!$accountAnimals){ // renvoie false si aucun animal lié à ce compte n'a été trouvé en bdd
         throw new Exception("Nous n'avons pas trouvé cet animal !");
     } else {
         $animal = $accountAnimals->fetchAll();

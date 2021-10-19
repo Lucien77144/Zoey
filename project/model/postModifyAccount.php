@@ -1,18 +1,11 @@
 <?php
-
 session_start();
 
 require("model.php");
 
-// function safeEntry($validate){
-//     $validate = trim($validate);
-//     $validate = stripslashes($validate);
-//     $validate = htmlspecialchars($validate);
-//     return $validate;
-// }
-
 function postModifyAccount(){
     $pseudo = safeEntry($_POST['pseudo']);
+    $fileName = safeEntry($_POST['media']);
     $nom = safeEntry($_POST['nom']);
     $prenom = safeEntry($_POST['prenom']);
     $adresse_mail = safeEntry($_POST['mail']);
@@ -24,11 +17,12 @@ function postModifyAccount(){
     $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
     (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-    $sql = "UPDATE utilisateur SET pseudo = :pseudo, nom = :nom, prenom = :prenom, adresse_mail = :adresse_mail, date_naissance = :date_naissance, mot_de_passe = :mot_de_passe WHERE idutilisateur = :id;";
+    $sql = "UPDATE utilisateur SET pseudo = :pseudo, url_photo = :url_photo, nom = :nom, prenom = :prenom, adresse_mail = :adresse_mail, date_naissance = :date_naissance, mot_de_passe = :mot_de_passe WHERE idutilisateur = :id;";
     $req = $db -> prepare($sql);
     
     $req -> execute(array(
         ':pseudo' => $pseudo,
+        ':url_photo' => $fileName,
         ':nom' => $nom,
         ':prenom' => $prenom,
         ':adresse_mail' => $adresse_mail,

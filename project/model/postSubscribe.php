@@ -11,6 +11,7 @@ require("model.php");
 
 function postSubscibe(){
     $pseudo = safeEntry($_POST['pseudo']);
+    $fileName = safeEntry($_POST['media']);
     $nom = safeEntry($_POST['nom']);
     $prenom = safeEntry($_POST['prenom']);
     $adresse_mail = safeEntry($_POST['mail']);
@@ -23,11 +24,12 @@ function postSubscibe(){
     $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
     (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-    $sql = "INSERT INTO utilisateur (pseudo, nom, prenom, adresse_mail, date_naissance, mot_de_passe) VALUES (:pseudo, :nom, :prenom, :adresse_mail, :date_naissance, :mot_de_passe)";
+    $sql = "INSERT INTO utilisateur (pseudo, url_photo, nom, prenom, adresse_mail, date_naissance, mot_de_passe) VALUES (:pseudo, :url_photo, :nom, :prenom, :adresse_mail, :date_naissance, :mot_de_passe)";
     $req = $db -> prepare($sql);
     
     $req -> execute(array(
         ':pseudo' => $pseudo,
+        ':url_photo' => $fileName,
         ':nom' => $nom,
         ':prenom' => $prenom,
         ':adresse_mail' => $adresse_mail,

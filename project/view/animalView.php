@@ -18,7 +18,7 @@ ob_start();
 if(isset($_SESSION['idUser'])){
     if($animal['iduser'] == $_SESSION['idUser'] && verifyToken()){
 ?>
-        <a href="index.php?action=modifyAnimal">modifier son profil</a>
+        <a href="index.php?action=modifyAnimal&id=<?= htmlspecialchars($animal['idanimal']) ?>">modifier son profil</a>
 <?php
     }
 }
