@@ -1,0 +1,48 @@
+<!-- page blog -->
+
+<!-- voilà à quoi ressemble le html pour le moment une fois généré par php. Je t'ai remplacé le php par un texte explicite :)
+    Tu peux rajouter un header / footer provisoire, sans les liens pour le moment -->
+
+<!-- encadrer l'article avec le lien ce n'est pas une bonne pratique, regarder si on peut faire mieux / demander à gaelle (c'est une balise de type inline, elle n'est pas censé entourer une balise de type block) -->
+
+<a href="index.php?action=blog&id=____VARIABLEPHP_id____">
+    <article class="taClasseCSS">
+        <h1>
+            ____VARIABLEPHP_titre____
+        </h1>
+
+        <img src="____VARIABLEPHP_url_image____" alt="">
+        
+        <p>
+            ____VARIABLEPHP_résumé_de_larticle____
+        </p>
+    </article>
+</a>
+
+<a href="index.php?action=blog&id=____VARIABLEPHP____">
+    <article class="taClasseCSS">
+        <h1>
+            ____VARIABLEPHP____
+        </h1>
+        
+        <p>
+            ____VARIABLEPHP____
+        </p>
+    </article>
+</a>
+
+<a href="index.php?action=blog&id=____VARIABLEPHP____">
+    <article class="taClasseCSS">
+        <h1>
+            ____VARIABLEPHP____
+        </h1>
+        
+        <p>
+            ____VARIABLEPHP____
+        </p>
+    </article>
+</a>
+
+<!-- etc -->
+
+<!-- le bloc doit pouvoir se répéter à l'infini sans tout casser ! Je n'ai besoin que d'un seul des blocs, je m'occupe de le faire se répéter en mettant les bons textes dedans. -->
