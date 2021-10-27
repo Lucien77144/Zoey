@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 body {
     margin: 0;
@@ -19,18 +19,39 @@ section {
     justify-content: center;
 }
 article {
-    width: 80vw;
+    width: 100vw;
     height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
 }
 article h1 {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.3rem;
     text-align: center;
 }
 article img {
-    width: 80vw;
+    width: 70vw;
     height: auto;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+article p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    width: 90vw;
+}
+article a {    
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8rem;
+    color: white;
+    text-decoration: none; 
+    background-color:#F3811C;
+    padding: 10px 10px 5px 5px ;
+    text-align: center;
+    border-radius: 30px;
 }
 .footer {
     width: 100vw;
