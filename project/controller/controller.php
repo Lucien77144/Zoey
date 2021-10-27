@@ -35,6 +35,7 @@
 
     function printAccount(){
         $account = getAccount();
+        $accountAnimals = getAccountAnimals();
         require(BASE_URL . "view/accountView.php");
     }
 
@@ -74,6 +75,7 @@
 
     function printAddPost(){
         if (verifyToken()){
+            $accountAnimals = getAccountAnimals();
             require(BASE_URL . "view/addPostView.php");
         } else {
             printConnect();
@@ -82,7 +84,18 @@
 
     function printAddAnimal(){
         if (verifyToken()){
+            $types_animaux = getAnimalTypes();
             require(BASE_URL . "view/addAnimalView.php");
+        } else {
+            printConnect();
+        }
+    }
+
+    function printModifyAnimal(){
+        if (verifyToken()){
+            $animal = getAnimal();
+            $types_animaux = getAnimalTypes();
+            require(BASE_URL . "view/modifyAnimalView.php");
         } else {
             printConnect();
         }

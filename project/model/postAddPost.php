@@ -7,85 +7,50 @@ if (!isset($_SESSION['idUser']) && isnumeric($_SESSION['idUser'])){
 
 require("model.php");
 
-
-
-// function safeEntry($validate){
-//     $validate = trim($validate);
-//     $validate = stripslashes($validate);
-//     $validate = htmlspecialchars($validate);
-//     return $validate;
-// }
-
 function postAddPost(){
-    // $description = safeEntry($_POST['description']);
-    
-    // $currentDirectory = getcwd();
-    $uploadDirectory = "public/images/";
 
-    $errosrs = [];
+    $description = safeEntry($_POST['description']);
+    $fileName = safeEntry($_POST['media']);
+    $postedIdAnimal = intval(safeEntry($_POST['idAnimal']));
+    $idUser = $_SESSION['idUser'];
 
-    $fileExtensionsAllowed = ['jpeg','jpg','png'];
+    $accountAnimals = getAccountAnimals();
 
-    $fileName = safeEntry($_FILES['media']['name']);
-    $fileSize = $_FILES['media']['size'];
-    $fileTmpName  = $_FILES['media']['tmp_name'];
-    $fileType = $_FILES['media']['type'];
-    $explodedFilename = explode('.',$fileName);
-    $fileExtension = strtolower(end($explodedFilename));
+    if (!$accountAnimals){ // renvoie false si aucun animal lié à ce compte n'a été trouvé en bdd
+        throw new Exception("Nous n'avons pas trouvé cet animal !");
+    } else {
+        $animal = $accountAnimals->fetchAll();
 
-    $uploadPath = "../" . $uploadDirectory . "uploadedOn" . time() . "_by_" . $_SESSION['idUser'] . "_" . basename($fileName);
-
-    if (isset($_FILES['media'])) {
-
-      if (! in_array($fileExtension,$fileExtensionsAllowed)) {
-        // throw new Exception("Zoey n'accepte que des photos JPEG ou PNG pour le moment.");s
-        $errors[] = "Zoey n'accepte que des photos JPEG ou PNG pour le moment.";
-      }
-
-      if ($fileSize > 8000000) {
-        // throw new Exception("Zoey n'accepte pas les photos de plus de 8Mo pour le moment.");
-        $errors[] = "Zoey n'accepte pas les photos de plus de 8Mo pour le moment.";
-      }
-
-      if (empty($errors)) {
-        $didUpload = move_uploaded_file($fileTmpName, $uploadPath);
-
-        if ($didUpload) {
-          echo "Le fichier " . basename($fileName) . " a bien été uploadé";
+        if ($postedIdAnimal <= $accountAnimals->rowCount()){
+            $idAnimal = $animal[$postedIdAnimal]['idanimal'];
         } else {
-          echo "Erreur";
+            throw new Exception("Nous n'avons pas trouvé cet animal ! 2");
         }
-      } else {
-        foreach ($errors as $error) {
-          echo $error . " -> erreurs" . "\n";
-        }
-      }
-
     }
     
+    require("PDO.php");
+
+    $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
+    (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+
+    $sql = "INSERT INTO post (description, media, profil_animal_de_compagnie_idprofil_animal_de_compagnie, profil_animal_de_compagnie_utilisateur_idutilisateur1) VALUES (:description, :media, :idAnimal, :idUser)";
+    $req = $db -> prepare($sql);
     
-    // require("PDO.php");
-
-    // $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
-    // (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
-
-    // $sql = "INSERT INTO post (description, media) VALUES (:description, :media)";
-    // $req = $db -> prepare($sql);
-    
-    // $req -> execute(array(
-    //     ':description' => $description,
-    //     ':media' => $fileName));
-
-    // if ($req->rowCount() <= 0)
-    //     throw new Exception("L'importation a échoué.1");
+    $valid = $req -> execute(array(
+        ':description' => $description,
+        ':media' => $fileName,
+        ':idAnimal' => $idAnimal,
+        ':idUser' => $idUser));
+        
+    if (!$valid)
+        throw new Exception("L'importation a échoué.1");
 
     return "valid";
 }
 
 try {
-    if (
-      // isset($_POST['description'])
-    isset($_FILES['media'])
+    if (is_numeric($_POST['idAnimal'])
+      && isset($_POST['description'])
     )
     {
         $postAddPost = postAddPost();

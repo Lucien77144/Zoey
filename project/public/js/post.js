@@ -1,13 +1,14 @@
 $(document).ready(function(){
     console.log("ready")
     
-    function postSubscribe(){
+    function postSubscribe(postedMedia){
         console.log("postSubscribe")
         
         $.post(
             'model/postSubscribe.php',
             {
                 pseudo : $("#pseudoSubscribe").val(),
+                media : postedMedia,
                 nom : $("#nom").val(),
                 prenom : $("#prenom").val(),
                 mail : $("#mail").val(),
@@ -33,13 +34,14 @@ $(document).ready(function(){
         );
     };
 
-    function postModifyAccount(){
+    function postModifyAccount(postedMedia){
         console.log("postModifyAccount")
         
         $.post(
-            'model/postModifyAccount().php',
+            'model/postModifyAccount.php',
             {
                 pseudo : $("#pseudoSubscribe").val(),
+                media : postedMedia,
                 nom : $("#nom").val(),
                 prenom : $("#prenom").val(),
                 mail : $("#mail").val(),
@@ -48,8 +50,9 @@ $(document).ready(function(){
             },
 
             function(ReturnedMessage){
-                console.log("function Received")
+                
                 console.log(ReturnedMessage);
+                console.log("function Received1");
 
                 if (ReturnedMessage == "valid"){
                     window.location.href = "index.php?action=connect";
@@ -124,57 +127,70 @@ $(document).ready(function(){
         );
     };
 
-    function postAddPost(){
+    function postAddPost(postedMedia){
+        console.log(postedMedia)
         console.log("addpost")
+        
+        $.post(
+            'model/postAddPost.php',
+            {
+                description : $("#description").val(),
+                media : postedMedia,
+                idAnimal : $("#idAnimal").val()
+            },
+
+            function(ReturnedMessage){
+                console.log("function Received")
+                console.log(ReturnedMessage);
+
+                if (ReturnedMessage == "valid"){
+                    // window.location.href = "index.php?action=connect";
+                    console.log('valid 1 !!')
+                } else {
+                    $('#ConfirmationMessage').html('');
+                    $('#ConfirmationMessage').text(
+                        `L'ajout a échoué`
+                    );
+                }
+            },
+            'text'
+        );
+    };
+
+    function postPhoto(){ // renvoie basename fichier uploadé
+        console.log("postPhoto");
 
         let fd = new FormData();
         let files = $("#media")[0].files[0];
         fd.append( 'media',  files);
         // fd.append( 'description',  $("#description").val());
-        
+
+        let returnedFromAjax;
+
         $.ajax({
-            url: 'model/postAddPost.php',
+            url: 'model/postPhoto.php',
             data: fd,
             processData: false,
             contentType: false,
             type: 'POST',
             success: function(data){
-              alert(data);
-            }
-          });
+                returnedFromAjax = data;
+            },
+            dataType: 'text',
+            async: false
+        });
 
-        // $.post(
-        //     'model/postAddPost.php',
-        //     {
-        //         description : $("#description").val(),
-        //         media : fd
-        //     },
-
-        //     function(ReturnedMessage){
-        //         console.log("function Received")
-        //         console.log(ReturnedMessage);
-
-        //         if (ReturnedMessage == "valid"){
-        //             window.location.href = "index.php?action=connect";
-        //             console.log('valid !!')
-        //         } else {
-        //             $('#ConfirmationMessage').html('');
-        //             $('#ConfirmationMessage').text(
-        //                 `L'importation a échoué.`
-        //             );
-        //         }
-        //     },
-        //     'text'
-        // );
+        return returnedFromAjax;
     };
 
-    function postAddAnimal(){
+    function postAddAnimal(postedMedia){
         console.log("postAddAnimal")
         
         $.post(
             'model/postAddAnimal.php',
             {
                 nom : $("#nom").val(),
+                media : postedMedia,
                 description : $("#description").val(),
                 date_naissance : $("#date_naissance").val(),
                 idtype : $("#idtype").val()
@@ -198,12 +214,44 @@ $(document).ready(function(){
         );
     };
 
+    function postModifyAnimal(postedMedia, id){
+        console.log("postModifyAnimal")
+        
+        $.post(
+            'model/postModifyAnimal.php',
+            {
+                nom : $("#nom").val(),
+                media : postedMedia,
+                description : $("#description").val(),
+                date_naissance : $("#date_naissance").val(),
+                idtype : $("#idtype").val(),
+                idAnimal : id
+            },
+
+            function(ReturnedMessage){
+                console.log("function Received")
+                console.log(ReturnedMessage);
+
+                if (ReturnedMessage == "valid"){
+                    console.log('valid !!')
+                } else {
+                    $('#ConfirmationMessage').html('');
+                    $('#ConfirmationMessage').text(
+                        `Il y a une erreur dans un des champs remplis.`
+                    );
+                }
+            },
+            'text'
+        );
+    };
+
     $("#submitSubscribe").click(function(e){
         e.preventDefault();
 
         console.log("click")
 
-        postSubscribe();
+        let postedMedia = postPhoto();
+        postSubscribe(postedMedia);
     });
 
     $("#submitAddPost").click(function(e){
@@ -211,7 +259,9 @@ $(document).ready(function(){
 
         console.log("click");
 
-        postAddPost();
+        let postedMedia = postPhoto();
+
+        postAddPost(postedMedia);
     });
 
     $("#submitAddAnimal").click(function(e){
@@ -219,7 +269,9 @@ $(document).ready(function(){
 
         console.log("click");
 
-        postAddAnimal();
+        let postedMedia = postPhoto();
+
+        postAddAnimal(postedMedia);
     });
 
     $("#submitModifyAccount").click(function(e){
@@ -227,7 +279,23 @@ $(document).ready(function(){
 
         console.log("click")
 
-        postModifyAccount();
+        let postedMedia = postPhoto();
+
+        postModifyAccount(postedMedia);
+    });
+
+    $("#submitModifyAnimal").click(function(e){
+        e.preventDefault();
+
+        console.log("click")
+
+        const pageUrl = window.location.search;
+        const urlGetParameters = new URLSearchParams(pageUrl);
+        const id = urlGetParameters.get('id');
+
+        let postedMedia = postPhoto();
+
+        postModifyAnimal(postedMedia, id);
     });
 
     $("#submitConnect").click(function(e){

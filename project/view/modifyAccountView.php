@@ -1,5 +1,5 @@
 <?php 
-$pageTitle = "Mondifier mon compte";
+$pageTitle = "Modifier mon compte";
 ob_start();
 ?>
 
@@ -8,6 +8,10 @@ ob_start();
 <form class="modifyAccountForm">
     <label for="pseudo">pseudo</label>
     <input type="text" name="pseudo" id="pseudoSubscribe"> <br>
+
+    <label for="media">photo de profil</label>
+    <input type="file" id="media" name="media" accept="image/png, image/jpeg"> <br>
+
     <label for="nom">nom</label>
     <input type="text" name="nom" id="nom"> <br>
     <label for="prenom">prenom</label>
@@ -19,7 +23,7 @@ ob_start();
     <label for="password">mot de passe</label>
     <input type="password" name="password" id="password"> <br>
 
-    <input type="submit" id="submitSubscribe">
+    <input type="submit" id="submitModifyAccount">
 </form>
 <span id="ConfirmationMessage"></span>
 

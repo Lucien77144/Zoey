@@ -6,6 +6,10 @@ ob_start();
 <form class="subscribeForm">
     <label for="pseudo">pseudo</label>
     <input type="text" name="pseudo" id="pseudoSubscribe"> <br>
+
+    <label for="media">photo de profil</label>
+    <input type="file" id="media" name="media" accept="image/png, image/jpeg"> <br>
+    
     <label for="nom">nom</label>
     <input type="text" name="nom" id="nom"> <br>
     <label for="prenom">prenom</label>
