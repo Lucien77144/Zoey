@@ -245,6 +245,62 @@ $(document).ready(function(){
         );
     };
 
+    function postAddFriend(){
+        console.log("postAddFriend")
+        
+        $.post(
+            'model/postAddFriend.php',
+            {
+                addFriendId : $("#addFriend").val()
+            },
+
+            function(ReturnedMessage){
+                console.log("function Received")
+                console.log(ReturnedMessage);
+
+                if (ReturnedMessage == true){
+                    // window.location.href = "index.php?action=account";
+                    location.reload();
+                    console.log('valid !!')
+                } else {
+                    $('#confirmationMessage').html('');
+                    $('#confirmationMessage').text(
+                        `La demande d'ami n'a pas pu être envoyée.`
+                    );
+                }
+            },
+            'text'
+        );
+    };
+
+    function postRemoveFriend(){
+        console.log("postRemoveFriend")
+        
+        $.post(
+            'model/postRemoveFriend.php',
+            {
+                removeFriendId : $("#removeFriend").val()
+            },
+
+            function(ReturnedMessage){
+                console.log("function Received")
+                console.log(ReturnedMessage);
+
+                if (ReturnedMessage == true){
+                    // window.location.href = "index.php?action=account";
+                    location.reload();
+                    console.log('valid !!')
+                } else {
+                    $('#confirmationMessage').html('');
+                    $('#confirmationMessage').text(
+                        `La demande n'a pas pu être envoyée.`
+                    );
+                }
+            },
+            'text'
+        );
+    };
+
     $("#submitSubscribe").click(function(e){
         e.preventDefault();
 
@@ -304,6 +360,22 @@ $(document).ready(function(){
         console.log("click")
 
         postConnect();
+    });
+
+    $("#addFriend").click(function(e){
+        e.preventDefault();
+
+        console.log("addFriend")
+
+        postAddFriend();
+    });
+
+    $("#removeFriend").click(function(e){
+        e.preventDefault();
+
+        console.log("removeFriend")
+
+        postRemoveFriend();
     });
 
     // let flagPseudoCheck = false;

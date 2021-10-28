@@ -1,6 +1,7 @@
 <?php
     require_once(BASE_URL . "model/model.php");
     require_once(BASE_URL . "model/verifyToken.php");
+    require_once(BASE_URL . "model/isFriend.php");
 
     function printBlog(){
         $blog = getBlog();
@@ -96,6 +97,24 @@
             $animal = getAnimal();
             $types_animaux = getAnimalTypes();
             require(BASE_URL . "view/modifyAnimalView.php");
+        } else {
+            printConnect();
+        }
+    }
+
+    function printMessages(){
+        if (verifyToken()){
+            $messages = getMessages();
+            require(BASE_URL . "view/messagesView.php");
+        } else {
+            printConnect();
+        }
+    }
+
+    function printChat(){
+        if (verifyToken()){
+            $chat = getChat();
+            require(BASE_URL . "view/chatView.php");
         } else {
             printConnect();
         }

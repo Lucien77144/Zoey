@@ -1,6 +1,6 @@
 <?php
 
-function checkFromDb(){
+function verifyToken_checkFromDb(){
     require("PDO.php");
 
     $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
@@ -33,7 +33,7 @@ function verifyToken(){
     try {
         if (isset($_SESSION['idUser'])
         &&isset($_SESSION['token'])){
-            $verifyToken = checkFromDb();
+            $verifyToken = verifyToken_checkFromDb();
             return $verifyToken;
         } else {
             return false;

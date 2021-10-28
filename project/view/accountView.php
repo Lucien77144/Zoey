@@ -23,6 +23,19 @@ if(isset($_SESSION['idUser'])){
         ?>
         <a href="index.php?action=connect">Vous avez été déconnecté (inactif depuis plus de 15 minutes). Reconnectez-vous pour pouvoir modifier votre profil.</a>
         <?php
+    } else if (!verifyToken() && isset($_SESSION['idUser'])) {
+        ?>
+        <a href="index.php?action=connect">Vous avez été déconnecté (inactif depuis plus de 15 minutes). Reconnectez-vous pour pouvoir ajouter <?= htmlspecialchars($account['pseudo_user']) ?> en ami.</a>
+        <?php
+    } else if (isFriend($account['iduser'])){
+        ?>
+        <button id="removeFriend" value="<?= htmlspecialchars($account['iduser']) ?>">Enlever de mes amis</button>
+        <?php
+    } else if (!isFriend($account['iduser'])){
+        ?>
+        <button id="addFriend" value="<?= htmlspecialchars($account['iduser']) ?>">Ajouter en ami</button>
+        <span id="confirmationMessage"></span>
+        <?php
     }
 }
 
@@ -30,7 +43,7 @@ if(isset($_SESSION['idUser'])){
     <h2>Mon panier</h2>
 <?php
 
-if (!$accountAnimals){ // renvoie vaut false si aucun animal lié à ce compte n'a été trouvé en bdd
+if (!$accountAnimals){ // renvoie false si aucun animal lié à ce compte n'a été trouvé en bdd
     ?>
     <p>Mon panier est vide pour le moment... Je n'ai pas encore d'animaux de compagnie !</p>    
     <?php

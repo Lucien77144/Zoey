@@ -43,12 +43,10 @@ try{
             printModifyAccount();
         } else if ($_GET['action'] == 'messages'){
             if (isset($_GET['id'])) {
-                // printChat();
-                echo 'page en construction';
+                printChat();
             }
             else{
-                // printMessages();
-                echo 'page en construction';
+                printMessages();
             }
         } else if ($_GET['action'] == 'feed'){
             if (isset($_GET['id'])) {
@@ -59,7 +57,6 @@ try{
             }
         } else if ($_GET['action'] == 'addpost'){
             printAddPost();
-            // echo 'page en construction';
         } else if ($_GET['action'] == 'animal'){
             printAnimal();
         } else if ($_GET['action'] == 'addAnimal'){
@@ -67,7 +64,11 @@ try{
         } else if ($_GET['action'] == 'modifyAnimal'){
             printModifyAnimal();
         } else if ($_GET['action'] == 'forum'){
+
+
             echo 'page en construction';
+            
+
         } else if ($_GET['action'] == 'adoption'){            
             if (isset($_GET['id'])) {
                 printAdoptionAnimal();

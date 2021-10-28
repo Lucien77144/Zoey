@@ -72,6 +72,31 @@ function isPseudoFree($entryPseudo){
     }
 }
 
+function getPseudoFromId($idUser){
+    if (isset($idUser) && is_numeric($idUser) && intval($idUser) > 0){
+        $idUser = intval($idUser);
+
+        require("PDO.php");
+
+        $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
+        (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    
+        $sql = "SELECT pseudo FROM utilisateur WHERE idutilisateur = ?";
+        $req = $db -> prepare($sql);
+        
+        $req -> execute(array($idUser));
+
+        if ($req->rowCount() > 1)
+            throw new Exception("Nous n'avons pas trouvé ce pseudo");
+
+        $pseudo = $req -> fetch();
+        
+        return $pseudo["pseudo"];
+    } else {
+        throw new Exception("Aucun pseudo renseigné");
+    }
+}
+
 function getFeed(){
     require("PDO.php");
 
@@ -282,4 +307,85 @@ function getAnimalTypes(){
         throw new Exception("Aucune catégorie n'a été trouvée");
 
     return $req;
+}
+
+function getConversationUsers($sentIdConv){ // renvoie les users d'une conversation
+    if (isset($sentIdConv)){
+        $idConv = $sentIdConv;
+    } else if (isset($_GET['id']) && is_numeric($_GET['id']) && intval($_GET['id']) > 0){
+        $idConv = intval($_GET['id']);
+    } else {
+        throw new Exception("La conversation n'a pas été trouvée");
+    }
+
+    if (!isset($flagConversationUsersPrepare)){ // check flag prepare PDO : don't prepare the request if already prepared
+        require("PDO.php");
+
+        $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
+        (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+
+        $sql = "SELECT utilisateur_idutilisateur user FROM `conversation_has_utilisateur` WHERE conversation_has_utilisateur.conversation_idconversation = ?";
+        $conversationUsers = $db -> prepare($sql);
+
+        $flagConversationUsersPrepare = true; // flag prepare PDO
+    }
+
+    $conversationUsers -> execute(array($idConv));
+
+    if ($conversationUsers->rowCount() <= 0)
+        return false;
+
+    return $conversationUsers;
+}
+
+function getMessages(){ // renvoie toutes les conversations d'un utilisateur
+    if (isset($_SESSION['idUser'])){
+        $idUser = $_SESSION['idUser'];
+
+        require("PDO.php");
+
+        $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
+        (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+
+        $sql = "SELECT idconversation, titre
+        FROM `conversation`
+        INNER JOIN conversation_has_utilisateur ON conversation_has_utilisateur.conversation_idconversation = conversation.idconversation
+        WHERE conversation_has_utilisateur.utilisateur_idutilisateur = ?;";
+        $req = $db -> prepare($sql);
+        
+        $req -> execute(array($idUser));
+
+        if ($req->rowCount() <= 0)
+            return false;
+
+        return $req;
+    } else {
+        throw new Exception("Vous êtes déconnecté.");
+    }
+}
+
+function getChat(){ // renvoie une seule conversation
+    if (isset($_GET['id'])){
+        $idConv = $_GET['id'];
+
+        require("PDO.php");
+
+        $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
+        (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+
+        $sql = "SELECT texte_message msg, utilisateur_idutilisateur iduser, utilisateur_idutilisateur authorId, utilisateur.pseudo authorPseudo
+        FROM `message`
+        INNER JOIN utilisateur ON message.utilisateur_idutilisateur = utilisateur.idutilisateur
+        WHERE conversation_idconversation = ?";
+        $req = $db -> prepare($sql);
+        
+        $req -> execute(array($idConv));
+
+        if ($req->rowCount() <= 0)
+            return false;
+
+        return $req;
+    } else {
+        throw new Exception("Nous n'avons pas trouvé cette conversation.");
+    }
 }
