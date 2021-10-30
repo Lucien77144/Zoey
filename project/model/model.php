@@ -364,28 +364,54 @@ function getMessages(){ // renvoie toutes les conversations d'un utilisateur
     }
 }
 
-function getChat(){ // renvoie une seule conversation
+function getChat($offsetCoef){ // renvoie une seule conversation
     if (isset($_GET['id'])){
-        $idConv = $_GET['id'];
+        $idConv = safeEntry($_GET['id']);
+    } else if (isset($_POST['id'])){
+        $idConv = safeEntry($_POST['id']);
+    } else {
+        throw new Exception("Nous n'avons pas trouvé cette conversation.");
+    }
+    
+    $numberOfMessages = 10; // CHANGE HERE the number of messages printed at each call
+    $offset = $offsetCoef * $numberOfMessages;
+
+    if (!isset($flagGetChatPrepare)){ // check flag prepare PDO : don't prepare the request if already prepared
 
         require("PDO.php");
 
         $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
         (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-        $sql = "SELECT texte_message msg, url_media media, utilisateur_idutilisateur iduser, utilisateur_idutilisateur authorId, utilisateur.pseudo authorPseudo
-        FROM `message`
-        INNER JOIN utilisateur ON message.utilisateur_idutilisateur = utilisateur.idutilisateur
-        WHERE conversation_idconversation = ?";
+        $sql = "SELECT msg.* 
+        FROM ( 
+            SELECT idmessage, texte_message msg, url_media media, utilisateur_idutilisateur iduser, utilisateur_idutilisateur authorId, utilisateur.pseudo authorPseudo, conversation_idconversation idConv
+            FROM `message` 
+            INNER JOIN utilisateur ON message.utilisateur_idutilisateur = utilisateur.idutilisateur
+            WHERE conversation_idconversation = :idConv
+            ORDER BY date_envoi_msg DESC LIMIT :offset, :numberOfMessages
+        ) msg
+        ORDER BY idmessage ASC";
+
         $req = $db -> prepare($sql);
-        
-        $req -> execute(array($idConv));
 
-        if ($req->rowCount() <= 0)
-            return false;
-
-        return $req;
-    } else {
-        throw new Exception("Nous n'avons pas trouvé cette conversation.");
+        $flagGetChatPrepare = true; // flag prepare PDO
     }
+
+    $req->bindValue(':numberOfMessages', $numberOfMessages, PDO::PARAM_INT); // only way to execute with parameters in LIMIT
+    $req->bindValue(':idConv', $idConv, PDO::PARAM_INT);
+    $req->bindValue(':offset', $offset, PDO::PARAM_INT);
+    
+    $req -> execute(
+        // array(
+        // ':idConv' => $idConv
+        // ':numberOfMessages' => (int)$numberOfMessages // can't bind parameters in LIMIT
+        // ':offset' => "0"
+        // )
+    );
+
+    if ($req->rowCount() <= 0)
+        return false;
+
+    return $req;
 }

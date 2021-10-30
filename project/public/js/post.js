@@ -214,6 +214,7 @@ $(document).ready(function(){
                 if (ReturnedMessage == "valid"){
                     // window.location.href = "index.php?action=connect";
                     console.log('valid 1')
+                    $('#addMessageForm').trigger('reset');
                 } else {
                     $('#ConfirmationMessage').html('');
                     $('#ConfirmationMessage').text(
@@ -428,6 +429,38 @@ $(document).ready(function(){
         console.log("removeFriend")
 
         postRemoveFriend();
+    });
+
+    // loadMoreMessages on the chat :
+    offsetCoef = 1;
+    $("#loadMoreMessages").click(function(e){
+        console.log("loadMoreMessages");
+        
+        $.post(
+            'model/postLoadMoreMessages.php',
+            {
+                offsetCoef : offsetCoef,
+                id : getParameterByName('id')
+            },
+
+            function(ReturnedMessage){
+                console.log("function Received")
+                console.log(ReturnedMessage);
+
+                if (ReturnedMessage){
+                    console.log('valid !!')
+                    $('#chatContainer').prepend(ReturnedMessage);
+                    offsetCoef += 1;
+                } else {
+                    $('#loadMoreMessages').remove();
+                    $('#confirmationMessage').html('');
+                    $('#confirmationMessage').text(
+                        `Tous les messages ont déjà été chargés.`
+                    );
+                }
+            },
+            'text'
+        );
     });
 
     // let flagPseudoCheck = false;

@@ -22,7 +22,7 @@ function postPhoto(){
     $explodedFilename = explode('.',$fileName);
     $fileExtension = strtolower(end($explodedFilename));
 
-    $uploadName = "uploadedOn" . time() . "_by_" . $_SESSION['idUser'] . "_" . basename($fileName);
+    $uploadName = $_SESSION['idUser'] . time() . "." . $fileExtension;
     $uploadPath = "../" . $uploadDirectory . $uploadName;
 
     if (! in_array($fileExtension,$fileExtensionsAllowed)) {

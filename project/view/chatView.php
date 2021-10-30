@@ -1,10 +1,19 @@
 <?php 
 $pageTitle = 'Conversation';
+// CONTENT BLOCK
 ob_start();
-
+?>
+<button id="loadMoreMessages">Afficher les messages précédents</button>
+<span id="confirmationMessage"></span>
+<div id="chatContainer">
+    
+<?php
 while ($message = $chat->fetch())
 {
+    $idMessage = $message['idmessage'];
+    $idConv = $message['idConv'];
 ?>
+
     <article class="defaultBlock">
         <p>
             <?= htmlspecialchars($message['msg']) ?>
@@ -20,7 +29,11 @@ while ($message = $chat->fetch())
     </article>
 <?php
 }
+
+$_SESSION['chatLastId'] = array('idConv' => $idConv, 'lastId' => $idMessage); // store last message's id in SESSION
+$chat->closeCursor();
 ?>
+</div>
 
 <form id="addMessageForm">
     <label for="msg">message</label>
@@ -34,8 +47,11 @@ while ($message = $chat->fetch())
 <span id="ConfirmationMessage"></span>
 
 <?php
-$chat->closeCursor();
-?>
-<?php 
     $viewContent = ob_get_clean();
+    
+    // SCRIPT BLOCK
+    ob_start(); ?>
+    <script src="public/js/chat.js"></script>
+<?php
+    $scriptsBlock = ob_get_clean();
     require(BASE_URL . 'public/template/template.php');

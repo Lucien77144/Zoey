@@ -113,7 +113,7 @@
 
     function printChat(){
         if (verifyToken()){
-            $chat = getChat();
+            $chat = getChat(0);
             require(BASE_URL . "view/chatView.php");
         } else {
             printConnect();

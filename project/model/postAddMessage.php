@@ -60,7 +60,7 @@ function postAddMessage(){
         ':idConv' => $postedIdConv));
         
     if (!$valid)
-        throw new Exception("L'importation a échoué.");
+        throw new Exception("Nous n'avons pas pu envoyer ce message.");
 
     
 
@@ -76,7 +76,7 @@ try {
         $postAddMessage = postAddMessage();
         echo $postAddMessage;
     } else {        
-        throw new Exception("L'importation a échoué.2");
+        throw new Exception("Nous n'avons pas pu envoyer ce message.");
     }
 
 } catch (Exception $e) {
