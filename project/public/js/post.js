@@ -1,6 +1,44 @@
 $(document).ready(function(){
     console.log("ready")
+
+    function getParameterByName(name, url = window.location.href) {
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
     
+    function postPhoto(){ // renvoie basename fichier uploadé
+        console.log("postPhoto");
+
+        let fd = new FormData();
+        let files = $("#media")[0].files[0];
+        if (files === null){
+            return null;
+        }
+            
+        fd.append( 'media',  files);
+
+        let returnedFromAjax;
+
+        $.ajax({
+            url: 'model/postPhoto.php',
+            data: fd,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function(data){
+                returnedFromAjax = data;
+            },
+            dataType: 'text',
+            async: false
+        });
+
+        return returnedFromAjax;
+    };
+
     function postSubscribe(postedMedia){
         console.log("postSubscribe")
         
@@ -157,30 +195,34 @@ $(document).ready(function(){
         );
     };
 
-    function postPhoto(){ // renvoie basename fichier uploadé
-        console.log("postPhoto");
-
-        let fd = new FormData();
-        let files = $("#media")[0].files[0];
-        fd.append( 'media',  files);
-        // fd.append( 'description',  $("#description").val());
-
-        let returnedFromAjax;
-
-        $.ajax({
-            url: 'model/postPhoto.php',
-            data: fd,
-            processData: false,
-            contentType: false,
-            type: 'POST',
-            success: function(data){
-                returnedFromAjax = data;
+    function postAddMessage(postedMedia){
+        console.log(postedMedia)
+        console.log("addMessage")
+        
+        $.post(
+            'model/postAddMessage.php',
+            {
+                msg : $("#msg").val(),
+                media : postedMedia,
+                idconversation : getParameterByName('id')
             },
-            dataType: 'text',
-            async: false
-        });
 
-        return returnedFromAjax;
+            function(ReturnedMessage){
+                console.log("function Received")
+                console.log(ReturnedMessage);
+
+                if (ReturnedMessage == "valid"){
+                    // window.location.href = "index.php?action=connect";
+                    console.log('valid 1')
+                } else {
+                    $('#ConfirmationMessage').html('');
+                    $('#ConfirmationMessage').text(
+                        `L'envoi a échoué`
+                    );
+                }
+            },
+            'text'
+        );
     };
 
     function postAddAnimal(postedMedia){
@@ -318,6 +360,16 @@ $(document).ready(function(){
         let postedMedia = postPhoto();
 
         postAddPost(postedMedia);
+    });
+
+    $("#submitAddMessage").click(function(e){
+        e.preventDefault();
+
+        console.log("click");
+
+        let postedMedia = postPhoto();
+
+        postAddMessage(postedMedia);
     });
 
     $("#submitAddAnimal").click(function(e){

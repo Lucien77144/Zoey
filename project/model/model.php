@@ -373,7 +373,7 @@ function getChat(){ // renvoie une seule conversation
         $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
         (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-        $sql = "SELECT texte_message msg, utilisateur_idutilisateur iduser, utilisateur_idutilisateur authorId, utilisateur.pseudo authorPseudo
+        $sql = "SELECT texte_message msg, url_media media, utilisateur_idutilisateur iduser, utilisateur_idutilisateur authorId, utilisateur.pseudo authorPseudo
         FROM `message`
         INNER JOIN utilisateur ON message.utilisateur_idutilisateur = utilisateur.idutilisateur
         WHERE conversation_idconversation = ?";

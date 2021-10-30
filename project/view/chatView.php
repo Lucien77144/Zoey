@@ -9,6 +9,13 @@ while ($message = $chat->fetch())
         <p>
             <?= htmlspecialchars($message['msg']) ?>
         </p>
+        <?php
+        if (isset($message['media'])){
+            ?>
+                <img src="<?= BASE_URL . 'public/images/' . htmlspecialchars($message['media']) ?>" alt="">
+            <?php
+        }
+        ?>
         <p>envoyé par <a href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>"><?= htmlspecialchars($message['authorPseudo']) ?></a></p>
     </article>
 <?php
