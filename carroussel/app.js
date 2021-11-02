@@ -39,6 +39,7 @@ $(document).ready(function(){
             let item1 = [titre, desc, img, link];
 
             categorie[i] = [item1];
+            console.log(categorie[i])
             max = categorie[0][0][3].length;
 
             if(i<3){
