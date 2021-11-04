@@ -2,6 +2,7 @@
     require_once(BASE_URL . "model/model.php");
     require_once(BASE_URL . "model/verifyToken.php");
     require_once(BASE_URL . "model/isFriend.php");
+    require_once(BASE_URL . "controller/isMemberOfTheConversation.php");
 
     function printBlog(){
         $blog = getBlog();
@@ -113,8 +114,12 @@
 
     function printChat(){
         if (verifyToken()){
-            $chat = getChat(0);
-            require(BASE_URL . "view/chatView.php");
+            if (isMemberOfTheConversation()){
+                $chat = getChat(0);
+                require(BASE_URL . "view/chatView.php");
+            } else {
+                throw new Exception("La conversation n'a pas été trouvée");
+            }            
         } else {
             printConnect();
         }

@@ -25,7 +25,7 @@ while ($chat = $messages->fetch())
                                 echo ".";
                             }
                         }
-                    }                    
+                    }
                 ?>
             </p>
         </article>

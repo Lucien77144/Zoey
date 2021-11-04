@@ -24,7 +24,8 @@ $(document).ready(function(){
     
                     if (ReturnedMessage){
                         console.log('new messages found !!')
-                        $('#chatContainer').append(ReturnedMessage);
+                        $('#noMessagesYet').remove();
+                        $('#chatContainer').append(ReturnedMessage);                        
                     }
                 },
                 'text'
