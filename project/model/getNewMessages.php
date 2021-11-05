@@ -9,10 +9,10 @@ function getNewMessages(){
     function getNewChat(){
 
         $idConv = safeEntry($_POST['id']);
-        $storedIdConv = $_SESSION['chatLastId']['idConv'];
+        $storedIdConv = safeEntry($_SESSION['chatLastId']['idConv']);
 
         if ($idConv == $storedIdConv){
-            $lastId = $_SESSION['chatLastId']['lastId'];
+            $lastId = safeEntry($_SESSION['chatLastId']['lastId']);
         } else {
             throw new Exception("Nous n'avons pas trouvé cette conversation");
         }

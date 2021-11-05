@@ -8,30 +8,41 @@ ob_start();
 <div id="chatContainer">
     
 <?php
-while ($message = $chat->fetch())
-{
-    $idMessage = $message['idmessage'];
-    $idConv = $message['idConv'];
-?>
 
-    <article class="defaultBlock">
-        <p>
-            <?= htmlspecialchars($message['msg']) ?>
-        </p>
-        <?php
-        if (isset($message['media'])){
-            ?>
-                <img src="<?= BASE_URL . 'public/images/' . htmlspecialchars($message['media']) ?>" alt="">
+if ($chat){
+    while ($message = $chat->fetch())
+    {
+        $idMessage = $message['idmessage'];
+        $idConv = $message['idConv'];
+    ?>
+
+        <article class="defaultBlock">
+            <p>
+                <?= htmlspecialchars($message['msg']) ?>
+            </p>
             <?php
-        }
-        ?>
-        <p>envoyé par <a href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>"><?= htmlspecialchars($message['authorPseudo']) ?></a></p>
-    </article>
-<?php
+            if (isset($message['media'])){
+                ?>
+                    <img src="<?= BASE_URL . 'public/images/' . htmlspecialchars($message['media']) ?>" alt="">
+                <?php
+            }
+            ?>
+            <p>envoyé par <a href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>"><?= htmlspecialchars($message['authorPseudo']) ?></a></p>
+        </article>
+    <?php
+    }
+
+    $_SESSION['chatLastId'] = array('idConv' => $idConv, 'lastId' => $idMessage); // store last message's id in SESSION
+    $chat->closeCursor();
+} else {
+    ?>
+    <p id="noMessagesYet">Vous n'avez pas encore échangé de messages !</p>
+    <?php
+    $idMessage = 0;
+    $idConv = safeEntry($_GET['id']);
+    $_SESSION['chatLastId'] = array('idConv' => $idConv, 'lastId' => $idMessage);
 }
 
-$_SESSION['chatLastId'] = array('idConv' => $idConv, 'lastId' => $idMessage); // store last message's id in SESSION
-$chat->closeCursor();
 ?>
 </div>
 

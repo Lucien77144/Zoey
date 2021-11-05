@@ -310,8 +310,8 @@ function getAnimalTypes(){
 }
 
 function getConversationUsers($sentIdConv){ // renvoie les users d'une conversation
-    if (isset($sentIdConv)){
-        $idConv = $sentIdConv;
+    if (isset($sentIdConv) && is_numeric($sentIdConv) && $sentIdConv != 0){
+        $idConv = intval($sentIdConv);
     } else if (isset($_GET['id']) && is_numeric($_GET['id']) && intval($_GET['id']) > 0){
         $idConv = intval($_GET['id']);
     } else {

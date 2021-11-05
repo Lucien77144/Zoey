@@ -344,6 +344,34 @@ $(document).ready(function(){
         );
     };
 
+    function postAcceptFriend(){
+        console.log("postAcceptFriend")
+        
+        $.post(
+            'model/postAcceptFriend.php',
+            {
+                acceptFriendId : $("#acceptFriend").val()
+            },
+
+            function(ReturnedMessage){
+                console.log("function Received")
+                console.log(ReturnedMessage);
+
+                if (ReturnedMessage == true){
+                    // window.location.href = "index.php?action=account";
+                    location.reload();
+                    console.log('valid !!')
+                } else {
+                    $('#confirmationMessage').html('');
+                    $('#confirmationMessage').text(
+                        `La demande n'a pas pu être envoyée.`
+                    );
+                }
+            },
+            'text'
+        );
+    };
+
     $("#submitSubscribe").click(function(e){
         e.preventDefault();
 
@@ -429,6 +457,14 @@ $(document).ready(function(){
         console.log("removeFriend")
 
         postRemoveFriend();
+    });
+
+    $("#acceptFriend").click(function(e){
+        e.preventDefault();
+
+        console.log("acceptFriend")
+
+        postAcceptFriend();
     });
 
     // loadMoreMessages on the chat :

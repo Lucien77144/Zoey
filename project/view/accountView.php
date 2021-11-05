@@ -27,7 +27,7 @@ if(isset($_SESSION['idUser'])){
         ?>
         <a href="index.php?action=connect">Vous avez été déconnecté (inactif depuis plus de 15 minutes). Reconnectez-vous pour pouvoir ajouter <?= htmlspecialchars($account['pseudo_user']) ?> en ami.</a>
         <?php
-    } else if (isFriend($account['iduser'])){
+    } else if (isFriend($account['iduser']) == 2){ // 2 : ami
         ?>
         <button id="removeFriend" value="<?= htmlspecialchars($account['iduser']) ?>">Enlever de mes amis</button>
         <?php
@@ -36,6 +36,17 @@ if(isset($_SESSION['idUser'])){
         <button id="addFriend" value="<?= htmlspecialchars($account['iduser']) ?>">Ajouter en ami</button>
         <span id="confirmationMessage"></span>
         <?php
+    } else if (isFriend($account['iduser']) == 11){ // 11 : en attente, utilisateur demandeur
+        ?>
+        <p>Votre demande d'ami est en attente</p>
+        <?php
+    } else if (isFriend($account['iduser']) == 12){ // 12 : en attente, utilisateur receveur
+        ?>
+        <button id="acceptFriend" value="<?= htmlspecialchars($account['iduser']) ?>">Accepter la demande d'ami</button>
+        <span id="confirmationMessage"></span>
+        <?php
+    } else {
+        throw new Exception("Nous n'avons pas trouvé cet utilisateur");
     }
 }
 
