@@ -27,7 +27,7 @@ $(document).ready(function(){
     });
 
     function initCrsl(actual){ // Initialisation du carrousel et de son contenu
-        $.post("getContentCrsl.php?categorie='"+actual.attr("data-table")+"'",function(data){
+        $.post("getContentCrsl.php?categorie="+actual.attr("data-table")+"",function(data){
             categorie = JSON.parse(data);
             max = categorie.length;
 
@@ -47,7 +47,7 @@ $(document).ready(function(){
     }
 
     function rotateCrslLeft(actual){ // Rotation à gauche du carrousel
-        $.post("getContentCrsl.php?categorie='"+actual.attr("data-table")+"'",function(data){
+        $.post("getContentCrsl.php?categorie="+actual.attr("data-table")+"",function(data){
             categorie = JSON.parse(data);
             max = categorie.length;
 
@@ -70,7 +70,7 @@ $(document).ready(function(){
     }
 
     function rotateCrslRight(actual){ // Rotation à droite du carrousel
-        $.post("getContentCrsl.php?categorie='"+actual.attr("data-table")+"'",function(data){
+        $.post("getContentCrsl.php?categorie="+actual.attr("data-table")+"",function(data){
             categorie = JSON.parse(data);
             max = categorie.length;
 
