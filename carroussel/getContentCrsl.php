@@ -1,11 +1,13 @@
 <?php
-include('db_config.php');
+require('db_config.php');
 
 if(isset($_GET['categorie'])){
-    $sql = "SELECT titre, `resume`, url_contenu_article, url_image_mise_en_avant FROM blog, categorie_blog WHERE blog.fk_idcategorie=categorie_blog.id AND categorie_blog.nom={$_GET['categorie']}ORDER BY `blog`.`date_publication` ASC";
-    $req = $link -> prepare($sql);
-    $req -> execute();
+    $categorie = htmlspecialchars($_GET['categorie']);
     $result = [];
+    $sql = 'SELECT titre, `resume`, url_contenu_article, url_image_mise_en_avant FROM blog, categorie_blog WHERE blog.fk_idcategorie=categorie_blog.id AND categorie_blog.nom=? ORDER BY `blog`.`date_publication` ASC';
+    $req = $link -> prepare($sql);
+    $req -> bindValue(1, $categorie, PDO::PARAM_STR);
+    $req -> execute();
 
     for($i = 0; $res = $req->fetch(PDO::FETCH_ASSOC); $i++){
         $result[$i] = $res;
