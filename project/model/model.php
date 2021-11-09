@@ -97,6 +97,35 @@ function getPseudoFromId($idUser){
     }
 }
 
+function getIdFromPseudo($pseudo){
+    if (isset($pseudo)){
+
+        require("PDO.php");
+
+        $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
+        (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    
+        $sql = "SELECT idutilisateur id FROM utilisateur WHERE pseudo = ?";
+        $req = $db -> prepare($sql);
+        
+        $req -> execute(array($pseudo));
+
+        if ($req->rowCount() > 1){
+            // throw new Exception("Nous n'avons pas trouvé ce pseudo");
+            return false;
+        } else if ($req->rowCount() <= 0){
+            // throw new Exception("Nous n'avons pas trouvé ce pseudo");
+            return false;
+        }            
+
+        $id = $req -> fetch();
+        
+        return $id['id'];
+    } else {
+        throw new Exception("Aucun pseudo renseigné");
+    }
+}
+
 function getFeed(){
     require("PDO.php");
 
@@ -354,6 +383,38 @@ function getMessages(){ // renvoie toutes les conversations d'un utilisateur
         $req = $db -> prepare($sql);
         
         $req -> execute(array($idUser));
+
+        if ($req->rowCount() <= 0)
+            return false;
+
+        return $req;
+    } else {
+        throw new Exception("Vous êtes déconnecté.");
+    }
+}
+
+function getFilteredMessages($idToSearch){
+    if (isset($_SESSION['idUser']) && isset($idToSearch)){
+        $idUser = $_SESSION['idUser'];
+
+        require("PDO.php");
+
+        $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
+        (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+
+        $sql = "SELECT filter.idconversation, filter.titre
+        FROM (SELECT idconversation, titre
+                FROM `conversation`
+                INNER JOIN conversation_has_utilisateur ON conversation_has_utilisateur.conversation_idconversation = conversation.idconversation
+                WHERE conversation_has_utilisateur.utilisateur_idutilisateur = :idUser) filter
+        INNER JOIN conversation_has_utilisateur ON conversation_has_utilisateur.conversation_idconversation = filter.idconversation
+        WHERE conversation_has_utilisateur.utilisateur_idutilisateur = :idToSearch";
+        $req = $db -> prepare($sql);
+        
+        $req -> execute(array(
+            ':idUser' => $idUser,
+            ':idToSearch' => $idToSearch
+        ));
 
         if ($req->rowCount() <= 0)
             return false;

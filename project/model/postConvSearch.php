@@ -1,15 +1,23 @@
-<?php 
-$pageTitle = 'Mes messages';
-ob_start();
-?>
+<?php
 
-<label for="convSearch">Rechercher une conversation : </label>
-<input type="search" id="convSearch" name="convSearch" aria-label="Rechercher une conversation" placeholder="pseudo ou nom du groupe">
-<span id="confirmationMessage"></span>
+session_start();
+require('model.php');
 
-<div id="convContainer">
-    <?php
-    while ($chat = $messages->fetch())
+$search = safeEntry($_POST['convSearch']);
+
+$idToSearch = getIdFromPseudo($search);
+
+if (!$idToSearch){
+    return false;
+}
+
+$messages = getFilteredMessages($idToSearch);
+
+if (!$messages){
+    return false;
+}
+
+while ($chat = $messages->fetch())
     {
     ?>
         <a href="index.php?action=messages&id=<?= htmlspecialchars($chat['idconversation']) ?>">
@@ -40,8 +48,3 @@ ob_start();
     <?php
     }
     $messages->closeCursor();
-    ?>
-</div>
-<?php 
-    $viewContent = ob_get_clean();
-    require(BASE_URL . 'public/template/template.php');

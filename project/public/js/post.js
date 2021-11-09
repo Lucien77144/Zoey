@@ -121,7 +121,8 @@ $(document).ready(function(){
                 console.log(ReturnedMessage);
 
                 if (ReturnedMessage == "valid"){
-                    window.location.href = "index.php?action=account";
+                    // window.location.href = "index.php?action=account";
+                    location.reload();
                     console.log('valid !!')
                 } else {
                     $('#ConfirmationMessage').html('');
@@ -372,6 +373,36 @@ $(document).ready(function(){
         );
     };
 
+    function postConvSearch(search){
+        console.log("postConvSearch")
+        
+        $.post(
+            'model/postConvSearch.php',
+            {
+                convSearch : search
+            },
+
+            function(ReturnedMessage){
+                console.log("function Received")
+                console.log(ReturnedMessage);
+
+                if (ReturnedMessage){
+                    // window.location.href = "index.php?action=account";
+                    // location.reload();
+                    $('#convContainer').html('');
+                    $('#convContainer').html(ReturnedMessage);
+                    console.log('valid !!')
+                } else {
+                    $('#confirmationMessage').html('');
+                    $('#confirmationMessage').text(
+                        `Nous n'avons trouvé aucune conversation :/`
+                    );
+                }
+            },
+            'text'
+        );
+    };
+
     $("#submitSubscribe").click(function(e){
         e.preventDefault();
 
@@ -465,6 +496,31 @@ $(document).ready(function(){
         console.log("acceptFriend")
 
         postAcceptFriend();
+    });
+
+    // rechercher une conversation (page messages)
+    let searchFlag = false;
+    let convSearch;
+    $("#convSearch").keyup(function(e){
+        // e.preventDefault();
+        console.log("convSearch")
+
+        if (!searchFlag){ // si pas de recherche en cours
+            searchFlag = true;
+            let search = setInterval(() => {
+                            if (convSearch != $("#convSearch").val()){ // si la recherche a changé
+                                convSearch = $("#convSearch").val(); // j'actualise la recherche dans la variable
+                                console.log(convSearch)
+                                if (convSearch) {
+                                    postConvSearch(convSearch); // je recherche en db
+                                }
+                            }
+                        }, 1000); // je teste toutes les secondes l'entrée input search
+            setTimeout(() => {
+                clearInterval(search);
+                searchFlag = false;
+            }, 5000); // je réinitialise la recherche au bout de 5 sec
+        }
     });
 
     // loadMoreMessages on the chat :
