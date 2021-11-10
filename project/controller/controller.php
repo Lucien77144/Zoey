@@ -35,6 +35,11 @@
         require(BASE_URL . "view/disconnectView.php");
     }
 
+    // function printAnimal($idAnimal){
+    //     $animal = getAnimal($idAnimal);
+    //     $animalFeed = getAnimalFeed($idAnimal);
+    //     require(BASE_URL . "view/animalView.php");
+    // }
     function printAccount(){
         $account = getAccount();
         $accountAnimals = getAccountAnimals();
@@ -58,13 +63,7 @@
         $post = getPost();
         require(BASE_URL . "view/postView.php");
     }
-
-    function printAnimal(){
-        $animal = getAnimal();
-        $animalFeed = getAnimalFeed();
-        require(BASE_URL . "view/animalView.php");
-    }
-
+    
     function printAdoption(){
         $feedAdoption = getFeedAdoption();
         require(BASE_URL . "view/adoptionView.php");

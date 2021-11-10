@@ -1,5 +1,6 @@
 <?php 
 $animal = $animal->fetch();
+$pageTitle = "Profil de " . htmlspecialchars($animal['nom_animal']);
 ob_start();
 ?>
 
@@ -22,6 +23,13 @@ if(isset($_SESSION['idUser'])){
     }
 }
 ?>
+
+<h2>Mon maître</h2>
+
+<a href="index.php?action=account&id=<?= htmlspecialchars($animal['iduser']) ?>">
+    <p><?= htmlspecialchars($animal['pseudo_user']) ?></p>
+    <img src="<?= BASE_URL . 'public/images/' . htmlspecialchars($animal['photo_user']) ?>" alt="">
+</a>
 
 <h2>Mes posts</h2>
 
@@ -52,4 +60,5 @@ if (!$animalFeed){ // renvoie vaut false si aucun animal lié à ce compte n'a �
     $animalFeed->closeCursor();
 }
 
-$animalView = ob_get_clean();
+    $viewContent = ob_get_clean();
+    require(BASE_URL . 'public/template/template.php');

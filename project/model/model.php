@@ -146,9 +146,9 @@ function getFeed(){
     return $req;
 }
 
-function getAnimalFeed(){
-    if (isset($_GET['id']) && is_numeric($_GET['id']) && intval($_GET['id']) > 0){
-        $animalId = intval($_GET['id']);
+function getAnimalFeed($animalId){
+    if (isset($animalId) && is_numeric($animalId) && intval($animalId) > 0){
+        $animalId = intval($animalId);
 
         require("PDO.php");
 
@@ -244,9 +244,37 @@ function getPost(){
     }
 }
 
-function getAnimal(){
-    if (isset($_GET['id']) && is_numeric($_GET['id']) && intval($_GET['id']) > 0){
-        $animalId = intval($_GET['id']);
+//    OLD VERSION GET ANIMAL
+
+// function getAnimal(){
+//     if (isset($_GET['id']) && is_numeric($_GET['id']) && intval($_GET['id']) > 0){
+//         $animalId = intval($_GET['id']);
+
+//         require("PDO.php");
+
+//         $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
+//         (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+
+//         $sql = "SELECT idprofil_animal_de_compagnie idanimal, animal.nom nom_animal, animal.url_photo photo_animal, animal.description description_animal, animal.date_naissance, utilisateur_idutilisateur1 iduser, types_animaux_idtypes_animaux, utilisateur.pseudo pseudo_user, utilisateur.url_photo photo_user
+//         FROM profil_animal_de_compagnie animal
+//         INNER JOIN utilisateur ON animal.utilisateur_idutilisateur1 = utilisateur.idutilisateur
+//         WHERE idprofil_animal_de_compagnie = ?;";
+//         $req = $db -> prepare($sql);
+        
+//         $req -> execute(array($animalId));
+
+//         if ($req->rowCount() <= 0)
+//             throw new Exception("Ce profil d'animal de compagnie n'existe pas");
+
+//         return $req;
+//     } else {
+//         throw new Exception("Ce profil d'animal de compagnie n'existe pas");
+//     }
+// }
+
+function getAnimal($animalId){
+    if (isset($animalId) && is_numeric($animalId) && intval($animalId) > 0){
+        $animalId = intval($animalId);
 
         require("PDO.php");
 
@@ -256,7 +284,7 @@ function getAnimal(){
         $sql = "SELECT idprofil_animal_de_compagnie idanimal, animal.nom nom_animal, animal.url_photo photo_animal, animal.description description_animal, animal.date_naissance, utilisateur_idutilisateur1 iduser, types_animaux_idtypes_animaux, utilisateur.pseudo pseudo_user, utilisateur.url_photo photo_user
         FROM profil_animal_de_compagnie animal
         INNER JOIN utilisateur ON animal.utilisateur_idutilisateur1 = utilisateur.idutilisateur
-        WHERE idprofil_animal_de_compagnie = ?;";
+        WHERE idprofil_animal_de_compagnie = ?";
         $req = $db -> prepare($sql);
         
         $req -> execute(array($animalId));
@@ -307,7 +335,7 @@ function getAccountAnimals(){
         $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
         (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-        $sql = "SELECT idprofil_animal_de_compagnie idanimal, nom  nom_animal, url_photo photo_animal FROM profil_animal_de_compagnie WHERE utilisateur_idutilisateur1 = ? ORDER BY `idanimal` ASC";
+        $sql = "SELECT idprofil_animal_de_compagnie idanimal, nom FROM profil_animal_de_compagnie WHERE utilisateur_idutilisateur1 = ? ORDER BY `idanimal` ASC";
         $req = $db -> prepare($sql);
         
         $req -> execute(array($userId));

@@ -56,41 +56,18 @@ if(isset($_SESSION['idUser'])){
 
 if (!$accountAnimals){ // renvoie false si aucun animal lié à ce compte n'a été trouvé en bdd
     ?>
-    <p>Mon panier est vide pour le moment... Je n'ai pas encore d'animaux de compagnie !</p>
+    <p>Mon panier est vide pour le moment... Je n'ai pas encore d'animaux de compagnie !</p>    
     <?php
 } else {
-    ?>
-        <nav id="nav_animal">
-            <ul>
-                <?php
-                    $i = 0;
-                    while ($accountAnimal = $accountAnimals->fetch()) {
-                        $animalId[$i] = htmlspecialchars($accountAnimal['idanimal']);
-                        ?>
-                        <li><a href="" data-animalId="<?= htmlspecialchars($animalId[$i]) ?>"><?= htmlspecialchars($accountAnimal['nom']) ?></a></li>
-                        <?php
-                        $i++;
-                    }
-                    $_SESSION['printAnimal'] = $animalId;
-                ?>
-            </ul>
-        </nav>
-        <div id="animalViewContainer">
-            <?php
-            require('print.php');
-            printAnimal($animalId[0]);
-            ?>
-        </div> 
-        <!-- <span id="confirmationMessage"></span> -->
-    <?php
-    
+    while ($animal = $accountAnimals->fetch()) {
+        ?>
+        <a href="index.php?action=animal&id=<?= htmlspecialchars($animal['idanimal']) ?>">
+            <p><?= htmlspecialchars($animal['nom_animal']) ?></p>
+            <img src="<?= BASE_URL . 'public/images/' . htmlspecialchars($animal['photo_animal']) ?>" alt="">
+        </a>
+        <?php
+    }
 }
 
     $viewContent = ob_get_clean();
-    
-    // SCRIPT BLOCK
-    ob_start(); ?>
-    <script src="public/js/print.js"></script>
-<?php
-    $scriptsBlock = ob_get_clean();
     require(BASE_URL . 'public/template/template.php');
