@@ -1,13 +1,39 @@
-h1 {
-  margin-top: 50px;
+.categorie{
   font-family: "Roboto", sans-serif;
   text-align: center;
+  font-size: 0.75rem;
+  width: fit-content;
+  width: -moz-fit-content;
+  position: relative;
+}
+
+.categorie::before{
+  z-index: -1;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 110%;
+  width: 110%;
   background-color: #ffc800;
-  color: white;
+  border-radius: 2px;
+  transform: translate(-50%, -50%) rotate(2.5deg);
+}
+
+.titleArt{
+  margin-top: 35px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
   font-weight: bold;
   font-size: 1.6rem;
-  padding: 20px;
 }
+
+.intro{
+  font-family: "Montserrat", sans-serif;
+  text-align: justify;
+}
+
+/* 
 h2 {
   margin-top: 50px;
   font-family: "Roboto", sans-serif;
@@ -101,4 +127,4 @@ section a {
         width: 50vw;
     }
 
-}
+} */
