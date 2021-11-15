@@ -33,7 +33,7 @@ function getArticle(){
         $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
         (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
     
-        $sql = "SELECT id, titre, resume, url_contenu_article FROM `blog` WHERE id = ?";
+        $sql = "SELECT * FROM `blog` WHERE id = ?";
         $req = $db -> prepare($sql);
         
         $req -> execute(array($articleId));

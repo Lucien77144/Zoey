@@ -55,62 +55,12 @@ article a{
   padding: 10px 20px 10px 20px;
   border-radius: 30px;
   box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
-  transition: 1s ease-in-out;
+  transition: 0.25s ease-in-out;
   font-weight: bold;
 }
-article a:hover {
-  transform: translateY(5px);
-}
-form {
-  font-family: "Roboto", sans-serif;
-  width: 100%;
-  display: grid;
-  grid-template-areas: " title title title" "a b c";
-  justify-content: space-around;
-  /* a modifier */
-  margin-bottom: 100px;
-}
-label {
-  grid-area: title;
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-input[type="text"] {
-  grid-area: a;
-  width: 200px;
-  border: none;
-  background-color: #F3F3F3;
-  border-radius: 25px;
-  padding: 10px;
-  font-family: "Montserrat", sans-serif;
-  color: #949393;
-}
-input[type="email"] {
-  grid-area: b;
-  width: 230px;
-  border: none;
-  background-color: #F3F3F3;
-  border-radius: 25px;
-  padding: 10px;
-  font-family: "Montserrat", sans-serif;
-  color: #949393;
-}
-input[type="submit"] {
-  grid-area: c;
-  width: 120px;
-  border: none;
-  background: #f3811c;
-  border-radius: 20px;
-  padding: 10px 20px 10px 20px;
-  font-weight: bold;
-  color: white;
-  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
-  transition: 1s ease-in-out;
-}
-input[type="submit"]:hover {
-  transform: translateY(5px);
-  cursor: pointer;
+  
+article a:hover{
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25);
 }
 
 @media (min-width: 800px) {
@@ -142,9 +92,5 @@ input[type="submit"]:hover {
     width: 30vw;
     max-width: 500px;
     padding: 0px 50px;
-  }
-  input[type="submit"] {
-    /* a modifier  */
-    margin-bottom: 50px;
   }
 }
