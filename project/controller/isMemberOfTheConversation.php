@@ -1,4 +1,7 @@
 <?php
+
+// this API checks if the user is the member of a conversation
+
 function isMemberOfTheConversation(){
     $getConversationUsers = getConversationUsers(0);
     if ($getConversationUsers){
@@ -11,6 +14,5 @@ function isMemberOfTheConversation(){
     } else {
         return false;
     }
-
     return false;
 }

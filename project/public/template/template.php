@@ -71,6 +71,8 @@
                 <span id="confirmationMessage"></span>
             </form>
         <?php
+    } else {
+        $printNewsletter = true;
     }
     ?>
 

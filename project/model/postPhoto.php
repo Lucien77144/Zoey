@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+// save uploaded photo to server
+
 require('model.php');
 require_once("verifyToken.php");
 

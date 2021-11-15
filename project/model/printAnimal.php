@@ -1,6 +1,7 @@
 <?php
-
     session_start();
+
+    // print animal on account page
     
     require("model.php");
     require("verifyToken.php");

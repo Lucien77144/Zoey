@@ -1,5 +1,5 @@
 <?php
-// this API checks if the user is connected and that his
+// this API checks if the user is connected and that his token is still valid
 
 function verifyToken_checkFromDb(){
     require("PDO.php");
@@ -17,7 +17,7 @@ function verifyToken_checkFromDb(){
     $explodedToken = explode("-", $storedToken['token']);
     $currentTime = time();
 
-    if (($explodedToken[2] + 300) < $currentTime && ($explodedToken[2] + 900) > $currentTime){ // > 5 min but not expired (15min)
+    if (($explodedToken[2] + 300) < $currentTime && ($explodedToken[2] + 900) > $currentTime){ // > 5 min but not expired (15min) -> give a new token
         require('generateToken.php');
     }
 

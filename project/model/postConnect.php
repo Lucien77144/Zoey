@@ -1,12 +1,7 @@
 <?php
 session_start();
 
-function safeEntry($validate){
-    $validate = trim($validate);
-    $validate = stripslashes($validate);
-    $validate = htmlspecialchars($validate);
-    return $validate;
-}
+require('model.php');
 
 function postConnect(){
     $pseudo = safeEntry($_POST['pseudo']);

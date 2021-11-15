@@ -2,13 +2,6 @@
 
 require("model.php");
 
-// function safeEntry($validate){
-//     $validate = trim($validate);
-//     $validate = stripslashes($validate);
-//     $validate = htmlspecialchars($validate);
-//     return $validate;
-// }
-
 function postSubscibe(){
     $pseudo = safeEntry($_POST['pseudo']);
     $fileName = safeEntry($_POST['media']);

@@ -4,8 +4,6 @@ session_start();
 require("model.php");
 require_once("verifyToken.php");
 
-
-
 function postAddMessage(){
 
     function isUserIdInArray(){

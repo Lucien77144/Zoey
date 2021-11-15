@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+// load more older messages on a conversation page (only the last 10 are printed by default)
+
 require("model.php");
 require_once("verifyToken.php");
 

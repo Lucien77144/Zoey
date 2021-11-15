@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+// this page looks for new messages on the instant messaging page (openend conversations)
+
 require("model.php");
 require_once("verifyToken.php");
 
