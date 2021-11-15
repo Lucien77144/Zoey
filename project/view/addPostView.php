@@ -1,9 +1,11 @@
 <?php 
 $pageTitle = "Publier un post";
-if (!$accountAnimals){
-    throw new Exception("Vous n'avez pas encore ajouté vos animaux de compagnie dans votre profil ! Seuls les propriétaires d'animaux peuvent poster sur Zoey.");
-}
 ob_start();
+if (!$accountAnimals){
+    ?>
+    <p>Vous n'avez pas encore ajouté vos animaux de compagnie dans votre profil ! Seuls les propriétaires d'animaux peuvent poster sur Zoey.</p>
+    <?php
+} else {
 ?>
 
 <form id="addPostForm">
@@ -32,5 +34,6 @@ ob_start();
 <span id="ConfirmationMessage"></span>
 
 <?php 
+}
     $viewContent = ob_get_clean();
     require(BASE_URL . 'public/template/template.php');

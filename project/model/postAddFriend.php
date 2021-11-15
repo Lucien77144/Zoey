@@ -48,9 +48,6 @@ function postAddFriend(){
 
         $alreadyHasAConversation = $req->fetchAll();
 
-        // var_dump($alreadyHasAConversation);
-        // var_dump(count($alreadyHasAConversation));
-
         if ($alreadyHasAConversation){ // il existe déjà une conversation avec cet ami, mettre fin à la fonction postAddFriend()
             return true;
         } else { // il n'existe pas encore de conversation avec cet ami, créer cette conversation

@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_old.css">
 
     <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_header.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_commun.css">
 
     <?php if (isset($stylesBlock)) echo $stylesBlock ?>
     
@@ -14,7 +16,8 @@
     <title><?= $pageTitle ?></title>
 </head>
 <body>
-    <!-- <header>
+    <!-- PAGES EN CONSTRUCTION
+        <header>
         <a href="index.php?action=connect">connexion</a>
         <a href="index.php?action=disconnect">déconnexion</a>
         <a href="index.php?action=subscribe">inscription</a>
@@ -56,14 +59,22 @@
     <!-- CONTENT -->
     <?= $viewContent ?>
 
-    <form class="newsletter" id="newsletterForm">
-        <h1>Rejoignez notre Newsletter !</h1>
-        <input type="text" name="prenom" id="newsletterName" placeholder="Votre prénom">
-        <input type="email" name="email" id="newsletterMail" placeholder="Votre e-mail *" required>
-        <input type="submit" value="S'abonner" id="submitNewsletter">
-        <p>*: Champs obligatoires</p>
-        <span id="confirmationMessage"></span>
-    </form>
+    <?php
+    if ($printNewsletter){
+        ?>
+            <form class="newsletter" id="newsletterForm">
+                <h1>Rejoignez notre Newsletter !</h1>
+                <input type="text" name="prenom" id="newsletterName" placeholder="Votre prénom">
+                <input type="email" name="email" id="newsletterMail" placeholder="Votre e-mail *" required>
+                <input type="submit" value="S'abonner" id="submitNewsletter">
+                <p>*: Champs obligatoires</p>
+                <span id="confirmationMessage"></span>
+            </form>
+        <?php
+    } else {
+        $printNewsletter = true;
+    }
+    ?>
 
     <script src="<?= BASE_URL ?>public/js/post.js"></script>
     <?php if (isset($scriptsBlock)) echo $scriptsBlock ?>

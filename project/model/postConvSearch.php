@@ -1,6 +1,8 @@
 <?php
-
 session_start();
+
+// look for a particular conversation on the messages page (-> via pseudo of other users in the conversation)
+
 require('model.php');
 
 $search = safeEntry($_POST['convSearch']);

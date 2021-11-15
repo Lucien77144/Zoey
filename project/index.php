@@ -7,6 +7,7 @@
     define("BASE_URL","../project/"); //getcwd();
     $pageTitle = "Zoey";
     $viewContent = "";
+    $printNewsletter = true;
     $showModifyLink = false;
     // $requestedFromAPI = false;
     require_once("controller/controller.php");
@@ -14,6 +15,8 @@
 
 try{
 
+    // ROUTER
+    
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'blog') {
             if (isset($_GET['id'])) {

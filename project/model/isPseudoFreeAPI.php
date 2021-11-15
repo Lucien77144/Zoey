@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+// this page handles AJAX calls for the isFriend API
+
 function sendRequest(){
     require('model.php');
 

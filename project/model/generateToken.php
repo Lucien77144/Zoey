@@ -1,5 +1,7 @@
 <?php
 
+// this API generates a personnal token (when connection or verifyToken) to identify a user session
+
 $randomToken = bin2hex(random_bytes(35));
 $creationDate = time();
 $token = $randomToken . "-" . $_SESSION['idUser'] . "-" . $creationDate;

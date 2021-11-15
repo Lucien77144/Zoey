@@ -1,5 +1,7 @@
 <?php
 
+// this API checks the friendship status of a given user
+
 function isFriend_checkFromDb($idDest){
     require("PDO.php");
 

@@ -1,3 +1,5 @@
+// this page is made for all ajax calls (forms and more)
+
 $(document).ready(function(){
     console.log("ready")
 
