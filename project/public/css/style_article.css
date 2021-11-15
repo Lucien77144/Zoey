@@ -10,7 +10,7 @@ body{
   width: 80vw;
 }
 
-section{
+.article, .contentBlog{
   width: 100%;
   padding: 25px 0 50px 0;
   overflow-x: hidden;
@@ -90,17 +90,6 @@ p{
   justify-content: center;
 }
 
-.btn{
-  font-family: "Roboto", sans-serif;
-  font-size: 1rem;
-  text-decoration: none;
-  color: white;
-  background-color: #f3811c;
-  padding: 10px 20px 10px 20px;
-  border-radius: 20px;
-  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.35);
-  transition: 0.25s ease-in-out;
-}
 .descIllu{
   font-family: "Montserrat", sans-serif;
   font-weight: thin;
@@ -123,12 +112,14 @@ p{
   p{
     font-size: 1.15rem;
   }
-  section{
+  .article{
     display: inline-block;
     width: 80vw;
+    margin: 40px 0;
   }
   .illustration{
     width: 50%;
+    z-index: -1;
     float: left;
     margin: 0 25px 25px 25px;
   }
@@ -137,8 +128,7 @@ p{
     display: flex;
     justify-content: flex-end;
   }
-  .btn:hover{
-    border-radius: 10px;
-    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.35);
+  .contentBlog a{
+    align-self: flex-end;
   }
 }

@@ -9,7 +9,7 @@ ob_start();
     <!-- <h2 class="categorie">EVENEMENT</h2> -->
     <p class="intro"><?= nl2br(htmlspecialchars($article['texte1'])) ?></p>
 </section>
-<section>
+<section class="article">
     <div class="illustration">
     <img src="<?= BASE_URL ?>public/images/blog/<?= htmlspecialchars($article['url_image']) ?>" alt="">
     <p class="descIllu"><?= htmlspecialchars($article['description_photo']) ?></p>

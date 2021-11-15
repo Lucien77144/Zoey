@@ -35,23 +35,24 @@
     </header>
     <nav class="menu">
         <div class="menuInner">
-            <!-- <a href=""><img src="assets/img/actus.svg" alt="Page actualitées"><h2>Actus</h2></a> -->
             <a href="index.php?action=blog"><img src="<?= BASE_URL ?>public/images/icons/actus.svg" alt="Page actus"><h2>Actus</h2></a>
+            <!-- <a href=""><img src="<?= BASE_URL ?>public/images/icons/forum.svg" alt="Page actualitées"><h2>Forum</h2></a> -->
         </div>
         <svg width="112px" height="100px" viewBox="0 0 112 100">
             <path fill="white" d="M112 100V0C112 0 100.652 47.3435 54.7663 47.3435C8.88072 47.3435 0 0 0 0V100H112Z"/>
         </svg>
-        <div class="menuInner">
-            <a href="index.php?action=presentation"><img src="" alt="Page qui sommes-nous ?"><h2>Qui sommes-nous ?</h2></a>
-            <!-- <a href=""><img src="assets/img/profil.svg" alt="Page profil"><h2>Profil</h2></a> -->
+        <div class="menuInner"> 
+            <a href="index.php?action=presentation"><img src="<?= BASE_URL ?>public/images/icons/profil.svg" alt="Page qui sommes-nous ?"><h2>Qui sommes-nous ?</h2></a>
+            <!-- <a href=""><img src="<?= BASE_URL ?>public/images/icons/adoption.svg" alt="Page profil"><h2>Adoption</h2></a>
+            <a href=""><img src="<?= BASE_URL ?>public/images/icons/profil.svg" alt="Page profil"><h2>Profil</h2></a> -->
         </div>                           
     </nav>
-    <!-- <a class="feed" href=""><img src="feed.svg" alt=""></a>
+    <a class="feed" href=""><img src="<?= BASE_URL ?>public/images/icons/feed.svg" alt=""></a>
     <nav class="menu menuBlur">
         <svg width="112px" height="100px" viewBox="0 0 112 100">
             <path fill="rgba(0, 0, 0, 0.5)" d="M112 100V0C112 0 100.652 47.3435 54.7663 47.3435C8.88072 47.3435 0 0 0 0V100H112Z"/>
         </svg>                          
-    </nav> -->
+    </nav>
 
     <!-- CONTENT -->
     <?= $viewContent ?>
