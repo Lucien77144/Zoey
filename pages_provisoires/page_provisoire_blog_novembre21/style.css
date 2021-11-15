@@ -74,7 +74,17 @@ label {
   font-weight: bold;
   text-align: center;
 }
-
+input[type="text"] {
+  width: 200px;
+  border: none;
+  background-color: #F3F3F3;
+  border-radius: 25px;
+  padding: 10px;
+  font-family: "Montserrat", sans-serif;
+  color: #949393;
+  /* a modifier */
+  margin-top: 25px;
+}
 input[type="email"] {
   width: 230px;
   border: none;
