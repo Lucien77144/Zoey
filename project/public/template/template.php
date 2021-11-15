@@ -54,7 +54,7 @@
     <!-- CONTENT -->
     <?= $viewContent ?>
 
-    <form class="newletter" action="">
+    <form class="newsletter">
         <h1>Rejoignez notre Newsletter !</h1>
         <input type="text" name="prenom" placeholder="Votre prénom">
         <input type="email" name="email" placeholder="Votre e-mail *" required>
