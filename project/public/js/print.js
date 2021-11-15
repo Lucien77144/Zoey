@@ -1,3 +1,5 @@
+// this page prints the pet's profile on the account page (with an ajax call)
+
 function postPrintAnimal(animalId){
     console.log("postPrintAnimal")
     

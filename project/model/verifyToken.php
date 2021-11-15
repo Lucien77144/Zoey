@@ -1,4 +1,5 @@
 <?php
+// this API checks if the user is connected and that his
 
 function verifyToken_checkFromDb(){
     require("PDO.php");

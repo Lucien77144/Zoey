@@ -1,4 +1,10 @@
 <?php
+
+
+// THIS PAGE IS MADE FOR AJAX CALLS
+
+
+// affichage du profil de l'animal
 function printAnimal($animalId){
         // $idUser = $_SESSION['idUser'];
     

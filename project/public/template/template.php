@@ -16,7 +16,8 @@
     <title><?= $pageTitle ?></title>
 </head>
 <body>
-    <!-- <header>
+    <!-- PAGES EN CONSTRUCTION
+        <header>
         <a href="index.php?action=connect">connexion</a>
         <a href="index.php?action=disconnect">déconnexion</a>
         <a href="index.php?action=subscribe">inscription</a>

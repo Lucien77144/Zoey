@@ -1,3 +1,5 @@
+// this page is made to refresh the messages page (with ajax calls)
+
 $(document).ready(function(){
 
     function getParameterByName(name, url = window.location.href) {

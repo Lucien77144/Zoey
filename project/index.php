@@ -14,6 +14,8 @@
 
 try{
 
+    // ROUTER
+    
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'blog') {
             if (isset($_GET['id'])) {

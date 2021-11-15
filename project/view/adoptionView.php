@@ -4,6 +4,7 @@ ob_start();
 
 while ($animal = $feedAdoption->fetch())
 {
+    // convertir anniversaire en âge
     $date1 = new DateTime(date('Y-m-d', time()));
     $date2 = new DateTime($animal['anniversaire']);
     $interval = $date1->diff($date2);
@@ -27,7 +28,5 @@ while ($animal = $feedAdoption->fetch())
 <?php
 }
 $feedAdoption->closeCursor();
-?>
-<?php 
     $viewContent = ob_get_clean();
     require(BASE_URL . 'public/template/template.php');

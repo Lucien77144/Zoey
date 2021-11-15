@@ -1,5 +1,6 @@
 <?php
 
+// sécuriser les variables d'entrées de script (data utilisateur -> GET, POST...)
 function safeEntry($validate){
     $validate = trim($validate);
     $validate = stripslashes($validate);
