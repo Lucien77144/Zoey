@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style.css" />
     <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_header.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_commun.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_article.css" />
     
     <script src="vendor/jquery-3.6.0.min.js"></script>
     <title><?= $pageTitle ?></title>
