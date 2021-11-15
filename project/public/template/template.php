@@ -61,8 +61,8 @@
         <input type="text" name="prenom" id="newsletterName" placeholder="Votre prénom">
         <input type="email" name="email" id="newsletterMail" placeholder="Votre e-mail *" required>
         <input type="submit" value="S'abonner" id="submitNewsletter">
-        <span id="confirmationMessage"></span>
         <p>*: Champs obligatoires</p>
+        <span id="confirmationMessage"></span>
     </form>
 
     <script src="<?= BASE_URL ?>public/js/post.js"></script>

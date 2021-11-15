@@ -6,28 +6,29 @@ body {
     margin: 0;
     padding: 0 0 165px 0;
 }
-
 .newsletter{
     font-family: "Roboto", sans-serif;
     width: 80%;
-    display: grid;
-    grid-template-areas: "title title title" "a b c" "d d d";
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 225px;
 }
   
   .newsletter h1{
     grid-area: title;
     text-align: center;
     font-weight: bold;
-    font-size: 1.5rem;
-    margin-bottom: 30px;
+    font-size: 1rem;
+    margin: 0;
   }
   
   .newsletter p{
     grid-area: d;
-    font-weight: thin;
     font-size: 0.75rem;
-    margin-top: 15px;
+    margin: 0;
+    align-self: flex-start;
   }
   
   .newsletter input{
@@ -69,5 +70,18 @@ body {
 @media (min-width: 800px){
   body{
     padding: 0;
+  }
+  .newsletter{
+      font-family: "Roboto", sans-serif;
+      display: grid;
+      grid-template-areas: "title title title" "a b c" "d d d";
+      justify-content: center;
+  }
+  .newsletter h1{
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+  .newsletter p{
+    align-self: unset;
   }
 }
