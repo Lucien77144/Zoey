@@ -25,6 +25,8 @@
     </header>
     <?= $viewContent ?>
 
+    
+
     <script src="<?= BASE_URL ?>public/js/post.js"></script>
     <?php if (isset($scriptsBlock)) echo $scriptsBlock ?>
 </body>
