@@ -30,7 +30,7 @@
     </header> -->
 
     <!-- Header / Footer -->
-    <header><h1>ZOEY</h1>
+    <header><h1><a href="index.php">ZOEY</a></h1>
         <!-- <div class="navbar"><a href=""><img src="msg.svg" alt=""></a><a href=""><img src="upload.svg" alt=""></a></div> -->
     </header>
     <nav class="menu">
