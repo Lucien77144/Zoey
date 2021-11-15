@@ -14,6 +14,11 @@
         require(BASE_URL . "view/articleView.php");
     }
 
+    function printPresentation(){
+        // $article = getArticle();
+        require(BASE_URL . "view/presentationView.php");
+    }
+
     function printSubscribe(){
         // postSubscribe en AJAX
         require(BASE_URL . "view/subscribeView.php");

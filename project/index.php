@@ -22,6 +22,8 @@ try{
             else{
                 printBlog();
             }
+        } else if ($_GET['action'] == 'presentation'){
+            printPresentation();
         } else if ($_GET['action'] == 'subscribe'){
             printSubscribe();
         } else if ($_GET['action'] == 'connect'){
