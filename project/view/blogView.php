@@ -25,7 +25,7 @@ $blog->closeCursor();
     
     // styles BLOCK
     ob_start(); ?>
-    <!-- <link rel="stylesheet" href="<?= BASE_URL ?>public/css/ YOUR STYLE GOES HERE " /> -->
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_blog.css" />
 <?php
     $stylesBlock = ob_get_clean();
 

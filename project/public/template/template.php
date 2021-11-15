@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_old.css">
 
     <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_header.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_commun.css">
 
     <?php if (isset($stylesBlock)) echo $stylesBlock ?>
     
