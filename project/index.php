@@ -7,6 +7,7 @@
     define("BASE_URL","../project/"); //getcwd();
     $pageTitle = "Zoey";
     $viewContent = "";
+    $printNewsletter = true;
     $showModifyLink = false;
     // $requestedFromAPI = false;
     require_once("controller/controller.php");
