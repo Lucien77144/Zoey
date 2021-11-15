@@ -1,0 +1,10 @@
+.defaultBlock{
+    background-color: rgba(204, 204, 204, 0.541);
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+img{
+    max-width: 200px;
+}

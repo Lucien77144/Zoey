@@ -1,0 +1,130 @@
+.categorie{
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-size: 0.75rem;
+  width: fit-content;
+  width: -moz-fit-content;
+  position: relative;
+}
+
+.categorie::before{
+  z-index: -1;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 110%;
+  width: 110%;
+  background-color: #ffc800;
+  border-radius: 2px;
+  transform: translate(-50%, -50%) rotate(2.5deg);
+}
+
+.titleArt{
+  margin-top: 35px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.intro{
+  font-family: "Montserrat", sans-serif;
+  text-align: justify;
+}
+
+/* 
+h2 {
+  margin-top: 50px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-size: 1.5rem;
+}
+section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.img_container {
+  position: relative;
+  width: 100vw;
+  height: fit-content;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+.background_bar {
+  position: absolute;
+  width: 120vw;
+  height: 20vw;
+  background-color: #ffc800;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(5deg);
+}
+section img {
+  width: 90vw;
+}
+section p {
+  margin-top: 30px;
+  width: 90vw;
+  font-family: "Montserrat", sans-serif;
+  text-align: justify;
+}
+section a {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  background-color: #f3811c;
+  border-radius: 25px;
+  padding: 15px;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+@media (min-width: 800px) {
+  h1 {
+    font-size: 2.4rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  section img {
+    width: 80vw;
+  }
+  .background_bar {
+    height: 15vw;
+  }
+  section p {
+    font-size: 1.1rem;
+  }
+  section a {
+    padding: 20px;
+    font-size: 1.3rem;
+  }
+}
+@media (min-width: 1200px) {
+    h1 {
+        font-size: 2.5rem;
+        width: 60vw;
+        margin: auto;
+        margin-top: 50px;
+    }
+    h2 {
+        font-size: 2.2rem
+    }
+    section img {
+        width: 50vw;
+    }
+    .background_bar {
+        height: 8vw;
+    }
+    section p {
+        font-size: 1.2rem;
+        width: 50vw;
+    }
+
+} */
