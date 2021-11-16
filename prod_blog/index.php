@@ -1,6 +1,6 @@
 <?php
     session_start();
-    define("BASE_URL","../project/"); //getcwd();
+    define("BASE_URL","../prod_blog/"); //getcwd();
     $pageTitle = "Zoey";
     $viewContent = "";
     $printNewsletter = true;

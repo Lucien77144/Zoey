@@ -1,5 +1,13 @@
 <?php
 
+// sécuriser les variables d'entrées de script (data utilisateur -> GET, POST...)
+function safeEntry($validate){
+    $validate = trim($validate);
+    $validate = stripslashes($validate);
+    $validate = htmlspecialchars($validate);
+    return $validate;
+}
+
 function getBlog(){
         require("PDO.php");
 
