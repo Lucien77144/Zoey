@@ -1,0 +1,125 @@
+.section1{
+  width: 80vw;
+}
+
+.article, .contentBlog{
+  width: 100%;
+  padding: 25px 0 50px 0;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+p{
+  max-width: 80vw;
+  font-family: "Montserrat", sans-serif;
+  text-align: justify;
+}
+
+.categorie{
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-size: 0.75rem;
+  width: fit-content;
+  width: -moz-fit-content;
+  position: relative;
+}
+
+.categorie::before{
+  z-index: -1;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 110%;
+  width: 110%;
+  background-color: #ffc800;
+  border-radius: 2px;
+  transform: translate(-50%, -50%) rotate(2.5deg);
+}
+
+.titleArt{
+  margin-top: 35px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.intro{
+  font-family: "Montserrat", sans-serif;
+  text-align: justify;
+}
+
+.illustration img{
+  width: 100%;
+}
+
+.illustration{
+  position: relative;
+  height: fit-content;
+  height: -moz-fit-content;
+  display: flex;  /* Permet de retirer les quelques pixels de marge en bas de l'image */
+  width: 100%;
+}
+
+.illustration::after{
+  content: "";
+  z-index: -1;
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(2deg);
+  background-color: #FFC800;
+  top: 50%;
+  left: 50%;
+  width: 102.2%;
+  height: 100%;
+}
+
+.btnWrap{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.descIllu{
+  font-family: "Montserrat", sans-serif;
+  font-weight: thin;
+  font-size: 0.75rem;
+  margin: 0;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+@media (min-width: 800px){
+
+  .titleArt{
+    font-size: 2.5rem;
+  }
+  .categorie{
+    font-size: 1rem;
+  }
+  p{
+    font-size: 1.15rem;
+  }
+  .article{
+    display: inline-block;
+    width: 80vw;
+  }
+  .illustration{
+    width: 50%;
+    z-index: -1;
+    float: left;
+    margin: 0 25px 25px 25px;
+  }
+  .btnWrap{
+    width: 95%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .contentBlog a{
+    align-self: flex-end;
+  }
+}
