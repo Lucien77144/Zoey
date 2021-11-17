@@ -4,7 +4,7 @@ require('db_config.php');
 if(isset($_GET['categorie'])){
     $categorie = htmlspecialchars($_GET['categorie']);
     $result = [];
-    $sql = 'SELECT titre, `resume`, url_contenu_article, url_image_mise_en_avant FROM blog, categorie_blog WHERE blog.fk_idcategorie=categorie_blog.id AND categorie_blog.nom=? ORDER BY `blog`.`date_publication` ASC';
+    $sql = 'SELECT titre, `resume`, url_article, url_image FROM blog, categorie_blog WHERE blog.fk_idcategorie=categorie_blog.id AND categorie_blog.nom=? ORDER BY `blog`.`date_publication` ASC';
     $req = $link -> prepare($sql);
     $req -> bindValue(1, $categorie, PDO::PARAM_STR);
     $req -> execute();
