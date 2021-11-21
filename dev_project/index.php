@@ -3,8 +3,8 @@
 
     // var_dump($_SESSION);
 
-    // header('Access-Control-Allow-Origin: *');
-    define("BASE_URL","../project/"); //getcwd();
+    header('Access-Control-Allow-Origin: *');
+    define("BASE_URL","../dev_project/"); //getcwd();
     $pageTitle = "Zoey";
     $viewContent = "";
     $printNewsletter = true;
@@ -12,7 +12,6 @@
     // $requestedFromAPI = false;
     require_once("controller/controller.php");
     verifyToken(); //refresh token
-
 try{
 
     // ROUTER
