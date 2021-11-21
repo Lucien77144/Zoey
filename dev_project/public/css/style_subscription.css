@@ -1,0 +1,105 @@
+.subscribe {
+  width: 100vw;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.subscribe h1 {
+  color: #f3811c;
+  font-size: 1.8rem;
+}
+.subscribeForm {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+}
+.subscribeForm label {
+  font-weight: bold;
+}
+.accountContainer {
+  display: flex;
+  flex-direction: column;
+}
+.mailAndBirthContainer {
+  display: flex;
+  flex-direction: column;
+}
+.localisationContainer {
+  display: flex;
+  flex-direction: column;
+}
+.name {
+  display: flex;
+}
+.name input {
+  width: 30vw;
+}
+.localisation {
+  display: flex;
+}
+#codePostal {
+  width: 40px;
+}
+#date_naissance {
+  width: 130px;
+}
+#media {
+  color: #f3811c;
+  font-weight: bold;
+}
+#mail {
+  width: 200px;
+}
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  width: 60vw;
+}
+.checkboxContainer label {
+  font-weight: lighter;
+  font-size: 0.9rem;
+}
+.cityContainer {
+  display: flex;
+  flex-direction: column;
+}
+.codePostalContainer {
+  display: flex;
+  flex-direction: column;
+}
+.checkboxContainer input {
+  width: 50px;
+}
+.linksContainer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.linksContainer input {
+  width: 150px;
+  font-size: 1rem;
+}
+.linksContainer a {
+  font-size: 0.8rem;
+  color: black;
+}
+.subscribeForm p {
+  font-size: 0.8rem;
+}
+@media screen and (min-width: 800px) {
+  .subscribeForm {
+    width: 600px;
+  }
+  .accountContainer {
+    flex-direction: row;
+  }
+  .mailAndBirthContainer {
+    flex-direction: row;
+  }
+  .localisationContainer {
+    flex-direction: row;
+  }
+}
