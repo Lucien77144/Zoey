@@ -163,6 +163,7 @@ header>img {
 }
 
 .feed {
+  z-index: 1000;
   position: fixed;
   transform: translate(-50%, 50%);
   height: 65px;

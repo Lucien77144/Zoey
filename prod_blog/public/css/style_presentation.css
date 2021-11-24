@@ -66,6 +66,11 @@ section .title2{
     margin: 5vw;
     display: flex;
     position: relative;
+    transition: 0.25s ease-in-out;
+}
+
+.imgWrap:hover{
+    transform: scale(1.05);
 }
 
 .imgWrap:hover::before{
