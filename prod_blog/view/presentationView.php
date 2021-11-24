@@ -108,8 +108,8 @@ ob_start();
       <a class="btn" href="https://www.instagram.com/zoelatortue_/">Mieux me connaître</a>
     </section>
   
-    <section>
-      <h2 class="title2 tres">Nos Réseaux</h2>
+    <section class="resFooter">
+      <h2 class="title2">Nos Réseaux</h2>
       <div class="reseaux">
         <a href="https://www.facebook.com/appli.zoey">
           <img src="<?= BASE_URL ?>public/images/presentation/facebook.svg" alt="">

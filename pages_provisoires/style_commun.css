@@ -270,7 +270,7 @@ header>img {
   body *,
   body *::after,
   body *::before {
-    display: none;
+    display: none !important;
   }
 
   body::before {
@@ -282,6 +282,7 @@ header>img {
     font-family: 'Exo 2', sans-serif;
     height: 100vh;
     position: fixed;
+    top: 0;
   }
 }
 
