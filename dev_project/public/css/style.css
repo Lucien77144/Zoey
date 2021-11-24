@@ -324,3 +324,13 @@ header>img {
     transform: rotate(10deg);
   }
 }
+
+/* lien mentions légales */
+.legalLink{
+  margin-bottom: 50px;
+}
+
+.legalLink a{
+  color: rgb(44, 44, 44);
+  font-size: 0.8rem;
+}
