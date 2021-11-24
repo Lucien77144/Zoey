@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_old.css">
 
     <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_header.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_commun.css">
+    <link rel="shortcut icon" href="<?= BASE_URL ?>public/images/icons/favicon.svg" type="image/x-icon">
 
     <?php if (isset($stylesBlock)) echo $stylesBlock ?>
     
@@ -18,7 +17,7 @@
 <body>
     
     <!-- Header / Footer -->
-    <header><h1><a href="index.php">ZOEY</a></h1>
+    <header><h1><a href="index.php?action=blog">ZOEY</a></h1>
         <!-- <div class="navbar"><a href=""><img src="msg.svg" alt=""></a><a href=""><img src="upload.svg" alt=""></a></div> -->
     </header>
     <nav class="menu">
@@ -62,6 +61,10 @@
         <?php
     }
     ?>
+
+    <div class="legalLink">
+        <a href="index.php?action=legal">Mentions légales</a>
+    </div>
 
     <script src="<?= BASE_URL ?>public/js/post.js"></script>
     <?php if (isset($scriptsBlock)) echo $scriptsBlock ?>

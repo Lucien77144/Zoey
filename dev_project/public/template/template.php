@@ -73,10 +73,13 @@
                 <p>*: Champs obligatoires</p>
                 <span id="confirmationMessage"></span>
             </form>
-            <a href="index.php?=legal">Nos mentions légales</a>
         <?php
     }
     ?>
+
+    <div class="legalLink">
+        <a href="index.php?action=legal">Mentions légales</a>
+    </div>
 
     <script src="<?= BASE_URL ?>public/js/post.js"></script>
     <?php if (isset($scriptsBlock)) echo $scriptsBlock ?>
