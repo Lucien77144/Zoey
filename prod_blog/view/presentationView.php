@@ -38,7 +38,7 @@ ob_start();
       <p class="desc">
         Elle anime les réseaux sociaux Zoey en créant et en réalisant des contenus visuels ou textuels. Elle analyse les posts et communique avec les internautes régulièrement. Elle veille au bon déroulement du projet et organise les réunions d’équipe.
       </p>
-      <a class="btn" href="">Mieux me connaître</a>
+      <a class="btn" href="https://www.linkedin.com/in/clementine-gilama/">Mieux me connaître</a>
     </section>
 
     <section>
@@ -52,7 +52,7 @@ ob_start();
       <p class="desc">
         Il crée l’architecture du site web. Il développe donc toute la partie “back” du site web, afin de définir toutes les fonctionnalités de la plateforme. 
       </p>
-      <a class="btn" href="">Mieux me connaître</a>
+      <a class="btn" href="https://www.linkedin.com/in/marin-bouanchaud/">Mieux me connaître</a>
     </section>
 
     <section>
@@ -68,7 +68,7 @@ ob_start();
         pour tout type d’utilisateurs, afin que le site soit accessible sur un ordinateur aussi bien que sur un
         mobile.
       </p>
-      <a class="btn" href="">Mieux me connaître</a>
+      <a class="btn" href="https://www.linkedin.com/in/lucien-boisseau-sable/">Mieux me connaître</a>
     </section>
 
     <section>
@@ -82,7 +82,7 @@ ob_start();
       <p class="desc">
         Il imagine et crée l’interface visuel du site web. Il cherche une identité graphique pouvant mettre en avant les valeurs du site, tout en proposant un parcours utilisateur intuitif.
       </p>
-      <a class="btn" href="">Mieux me connaître</a>
+      <a class="btn" href="https://www.linkedin.com/in/matthis-rousselle-29b3121b7/">Mieux me connaître</a>
     </section>
 
     <section>
@@ -96,7 +96,7 @@ ob_start();
       <p class="desc">
         Elle crée du contenu textuel pour le site web et contacte les refuges. Elle s’occupe de la newsletter Zoey, rédige les différents aspects marketing et juridique du projet.
       </p>
-      <a class="btn" href="">Mieux me connaître</a>
+      <a class="btn" href="https://www.linkedin.com/in/am%C3%A9lie-rubiales/">Mieux me connaître</a>
     </section>
 
     <section>
@@ -110,13 +110,13 @@ ob_start();
       <p class="desc">
         Notre mascotte préférée, Zoé, est une inspiration quotidienne pour notre projet. Vous l'avez peut-être compris, <strong>Zoey</strong> vient directement de <strong>Zoé</strong>, elle travaille toujours avec nous. (sauf quand elle hiberne !)
       </p>
-      <a class="btn" href="">Mieux me connaître</a>
+      <a class="btn" href="https://www.instagram.com/zoelatortue_/">Mieux me connaître</a>
     </section>
   
     <section>
       <h2 class="title2 tres">Nos Réseaux</h2>
       <div class="reseaux">
-        <a href="https://www.facebook.com/app.zoey">
+        <a href="https://www.facebook.com/appli.zoey">
           <img src="<?= BASE_URL ?>public/images/presentation/facebook.svg" alt="">
           Zoey.app
         </a>
