@@ -17,6 +17,7 @@ ob_start();
     <p>
     <?= nl2br(htmlspecialchars($article['texte2'])) ?>
     </p>
+    <p>Article publié le <?= htmlspecialchars($article['date']) ?>.</p>
     <div class="btnWrap">
     <a href="index.php?action=blog" class="btn">Retourner aux Actualités</a>
     </div>
