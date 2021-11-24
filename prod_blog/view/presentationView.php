@@ -128,7 +128,7 @@ ob_start();
           App_Zoey
         </a>
         <a href="https://www.linkedin.com/company/zoeyapp/about/">
-          <img src="<?= BASE_URL ?>public/images/presentation/LinkedIn.svg" alt="">
+          <img src="<?= BASE_URL ?>public/images/presentation/linkedin.svg" alt="">
           Zoey
         </a>
       </div>
