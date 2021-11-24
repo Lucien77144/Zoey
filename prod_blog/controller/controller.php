@@ -15,3 +15,7 @@
         // $article = getArticle();
         require(BASE_URL . "view/presentationView.php");
     }
+
+    function printLegal(){
+        require(BASE_URL . "view/legalView.php");
+    }

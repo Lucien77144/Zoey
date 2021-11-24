@@ -19,6 +19,8 @@ try{
             else{
                 printBlog();
             }
+        } else if ($_GET['action'] == 'legal'){
+            printLegal();
         } else {
             printPresentation();
         }
