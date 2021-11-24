@@ -45,7 +45,7 @@ ob_start();
         <img src="<?= BASE_URL ?>public/images/presentation/marin.jpg" alt="">
       </div>
       <p class="desc">
-        Il crée l’architecture du site web. Il développe donc toute la partie “back” du site web, afin de définir toutes les fonctionnalités de la plateforme. 
+        Il crée l’architecture du site web. Il développe toute la partie “back” du site web, afin de définir toutes les fonctionnalités de la plateforme. 
       </p>
       <a class="btn" href="https://www.linkedin.com/in/marin-bouanchaud/">Mieux me connaître</a>
     </section>
@@ -75,7 +75,7 @@ ob_start();
         <img src="<?= BASE_URL ?>public/images/presentation/matthis.jpg" alt="">
       </div>
       <p class="desc">
-        Il imagine et crée l’interface visuel du site web. Il cherche une identité graphique pouvant mettre en avant les valeurs du site, tout en proposant un parcours utilisateur intuitif.
+        Il imagine et crée l’interface visuelle du site web. Il cherche une identité graphique pouvant mettre en avant les valeurs du site, tout en proposant un parcours utilisateur intuitif.
       </p>
       <a class="btn" href="https://www.linkedin.com/in/matthis-rousselle-29b3121b7/">Mieux me connaître</a>
     </section>
@@ -83,7 +83,7 @@ ob_start();
     <section>
       <div>
         <h2 class="title2">Amélie Rubiales</h2>
-        <p class="poste">Responsable Marketing</p>
+        <p class="poste">Chargée de communication & marketing</p>
       </div>
       <div class="imgWrap">
         <img src="<?= BASE_URL ?>public/images/presentation/amelie.jpg" alt="">
