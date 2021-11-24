@@ -7,6 +7,31 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  font-family: "Montserrat", sans-serif;
+  scrollbar-color: #f3811c rgb(230, 230, 230);
+  scrollbar-width: thin;
+}
+
+::-moz-selection{ background: #f59644; color:#fff;}
+::selection { background:#f59644; color:#fff; }
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(230, 230, 230);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffd5b0;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f3811c;
+  border-radius: 20px;
 }
 
 .newsletter {
@@ -33,16 +58,29 @@ body {
   align-self: flex-start;
 }
 
-.newsletter input {
+/* general */
+input {
   border: none;
   background-color: #F3F3F3;
   border-radius: 25px;
   padding: 5px 10px;
-  font-family: "Montserrat", sans-serif;
+  margin: 10px;
   color: #949393;
   height: 25px;
 }
 
+input[type="submit"] {
+  width: 120px;
+  height: 35px;
+  background: #f3811c;
+  padding: 10px 20px 10px 20px;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
+  transition: 0.25s ease-in-out;
+}
+
+/* specifique newsletter */
 .newsletter input[name="prenom"] {
   grid-area: a;
   width: 200px;
@@ -56,14 +94,6 @@ body {
 
 .newsletter input[type="submit"] {
   grid-area: c;
-  width: 120px;
-  height: 35px;
-  background: #f3811c;
-  padding: 10px 20px 10px 20px;
-  font-weight: bold;
-  color: white;
-  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
-  transition: 0.25s ease-in-out;
 }
 
 .newsletter input[type="submit"]:hover {
@@ -81,6 +111,8 @@ body {
   padding: 10px 20px 10px 20px;
   height: fit-content;
   height: -moz-fit-content;
+  width: fit-content;
+  width: -moz-fit-content;
   border-radius: 20px;
   box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.35);
   transition: 0.25s ease-in-out;
@@ -131,6 +163,7 @@ header>img {
 }
 
 .feed {
+  z-index: 1000;
   position: fixed;
   transform: translate(-50%, 50%);
   height: 65px;
@@ -185,11 +218,31 @@ header>img {
 }
 
 .menu h2 {
-  font-family: 'Montserrat', sans-serif;
   margin: 5px 0 0 0;
   font-size: 0.75rem;
   text-align: center;
   white-space: nowrap;
+}
+
+.underline{
+  position: relative;
+}
+
+.underline::after{
+  content: "";
+  z-index: -1;
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(2deg);
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  width: 100%;
+  transition: 0.25s ease-in-out;
+  background-color: #FFC800;
+}
+
+.underline:hover::after{
+  width: 110%;
 }
 
 @keyframes animLogo {
@@ -277,6 +330,7 @@ header>img {
   }
 
   header {
+    z-index: 1000;
     top: 0;
     position: fixed;
     width: 90vw;
@@ -315,4 +369,14 @@ header>img {
   .navbar>a:hover {
     transform: rotate(10deg);
   }
+}
+
+/* lien mentions légales */
+.legalLink{
+  margin-bottom: 50px;
+}
+
+.legalLink a{
+  color: rgb(44, 44, 44);
+  font-size: 0.8rem;
 }

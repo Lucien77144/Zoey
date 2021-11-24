@@ -3,7 +3,7 @@ $pageTitle = 'Qui sommes-nous ?';
 ob_start();
 ?>
 
-<h1 class="title">Qui sommes nous?</h1>
+<h1 class="underline title">Qui sommes nous?</h1>
   <h2 class="title2">Le projet étudiant</h2>
   <p class="intro">
     Apporter notre aide aux 100 000 animaux abandonnés chaque année en France en créant un site web 100% gratuit qui aide et incite les Français à adopter dans des refuges.
