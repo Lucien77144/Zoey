@@ -18,12 +18,14 @@ article{
   grid-template-areas:
     "a a"
     "b b"
-    "c c"
-    "auto d";
+    "auto c";
+}
+
+article>div{
+  grid-area: a;
 }
 
 article h1{
-  grid-area: a;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-size: 1.25rem;
@@ -31,7 +33,6 @@ article h1{
 }
 
 article .img{
-  grid-area: b;
   width: min(80vw, 600px);
   height: min(50vw, 375px);
   margin-bottom: 5px;
@@ -42,14 +43,14 @@ article .img{
 }
 
 article p{
-  grid-area: c;
+  grid-area: b;
   font-family: "Montserrat", sans-serif;
   font-size: 0.9rem;
   margin-bottom: 25px;
 }
 
 article a{
-  grid-area: d;
+  grid-area: c;
   font-weight: bold;
 } 
   
@@ -70,7 +71,6 @@ article a:hover{
   }
   section{
     display: flex;
-    flex: 1 1;
     width: 100%;
     flex-wrap: wrap;
     flex-direction: row;
