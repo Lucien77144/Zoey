@@ -113,7 +113,7 @@ ob_start();
       <div class="reseaux">
         <a href="https://www.facebook.com/appli.zoey">
           <img src="<?= BASE_URL ?>public/images/presentation/facebook.svg" alt="">
-          Zoey.app
+          Appli.zoey
         </a>
         <a href="https://www.instagram.com/zoey.app/">
           <img src="<?= BASE_URL ?>public/images/presentation/instagram.svg" alt="">
@@ -123,10 +123,10 @@ ob_start();
           <img src="<?= BASE_URL ?>public/images/presentation/tiktok.svg" alt="">
           Zoey.app
         </a>
-        <a href="https://twitter.com/App_Zoey">
+        <!-- <a href="https://twitter.com/App_Zoey">
           <img src="<?= BASE_URL ?>public/images/presentation/twitter.svg" alt="">
           App_Zoey
-        </a>
+        </a> -->
         <a href="https://www.linkedin.com/company/zoeyapp/about/">
           <img src="<?= BASE_URL ?>public/images/presentation/linkedin.svg" alt="">
           Zoey

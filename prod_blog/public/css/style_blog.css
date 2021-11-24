@@ -67,6 +67,7 @@ article a:hover{
     margin: 5vh;
     min-height: fit-content;
     min-height: -moz-fit-content;
+    max-height: 550px;
     justify-content: space-between;
     align-items: center;
   }
