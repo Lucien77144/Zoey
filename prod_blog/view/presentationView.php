@@ -2,11 +2,6 @@
 $pageTitle = 'Qui sommes-nous ?';
 ob_start();
 ?>
- 
- 
-
- 
-<!-- qui sommes+nous HTML goes here -->
 
 <h1 class="title">Qui sommes nous?</h1>
   <h2 class="title2">Le projet étudiant</h2>

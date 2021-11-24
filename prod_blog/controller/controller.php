@@ -12,7 +12,6 @@
     }
 
     function printPresentation(){
-        // $article = getArticle();
         require(BASE_URL . "view/presentationView.php");
     }
 

@@ -40,8 +40,8 @@ try {
     }
 
 } catch (Exception $e) {
-    echo "catch";
+    // echo "catch";
     $errorMsg = $e->getMessage();
-    echo $errorMsg;
+    // echo $errorMsg;
     // require(BASE_URL . "view/errorView.php");
 }    
