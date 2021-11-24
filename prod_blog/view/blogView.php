@@ -23,7 +23,6 @@ while ($article = $blog->fetch())
 $blog->closeCursor();
 ?>
 </section>
-<p>Rédigé le</p>
 <?php 
     $viewContent = ob_get_clean();
     

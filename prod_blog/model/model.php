@@ -14,7 +14,7 @@ function getBlog(){
         $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
         (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
     
-        $sql = "SELECT id, titre, resume, url_image FROM `blog`";
+        $sql = "SELECT id, titre, resume, url_image FROM `blog` ORDER BY id DESC";
         $req = $db -> prepare($sql);
         
         $req -> execute();
@@ -34,7 +34,7 @@ function getArticle(){
         $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
         (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
     
-        $sql = "SELECT * FROM `blog` WHERE id = ?";
+        $sql = "SELECT *, DATE_FORMAT(date_publication, '%e/%c/%Y') date FROM blog WHERE id = ?";
         $req = $db -> prepare($sql);
         
         $req -> execute(array($articleId));
