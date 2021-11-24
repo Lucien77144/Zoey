@@ -17,6 +17,7 @@ while ($article = $blog->fetch())
         <p><?= nl2br(htmlspecialchars($article['resume'])) ?></p>
         <a class="btn" href="index.php?action=blog&id=<?= htmlspecialchars($article['id']) ?>">Lire la suite</a>
     </article>
+    <p>Rédigé le</p>
 <?php
 }
 $blog->closeCursor();
