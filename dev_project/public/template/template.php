@@ -73,6 +73,7 @@
                 <p>*: Champs obligatoires</p>
                 <span id="confirmationMessage"></span>
             </form>
+            <a href="index.php?=legal">Nos mentions légales</a>
         <?php
     }
     ?>
