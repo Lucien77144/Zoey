@@ -65,7 +65,9 @@ article a:hover{
     width: 40vw;
     max-width: 600px;
     margin: 5vh;
-    height: 65vh;
+    min-height: fit-content;
+    min-height: -moz-fit-content;
+    max-height: 550px;
     justify-content: space-between;
     align-items: center;
   }
@@ -84,7 +86,6 @@ article a:hover{
     font-size: 1rem;
     width: 30vw;
     max-width: 500px;
-    padding: 0px 50px;
   }
   article .img {
     width: min(45vw, 450px);
@@ -96,6 +97,7 @@ article a:hover{
   article{
     width: 30vw;
     max-width: 330px;
+    height: 42.5vw;
   }
   article p{
     max-width: 350px;

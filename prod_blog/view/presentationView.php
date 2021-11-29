@@ -3,7 +3,7 @@ $pageTitle = 'Qui sommes-nous ?';
 ob_start();
 ?>
 
-<h1 class="title">Qui sommes nous?</h1>
+<h1 class="underline title">Qui sommes nous?</h1>
   <h2 class="title2">Le projet étudiant</h2>
   <p class="intro">
     Apporter notre aide aux 100 000 animaux abandonnés chaque année en France en créant un site web 100% gratuit qui aide et incite les Français à adopter dans des refuges.
@@ -113,12 +113,12 @@ ob_start();
       <a class="btn" href="https://www.instagram.com/zoelatortue_/">Mieux me connaître</a>
     </section>
   
-    <section>
-      <h2 class="title2 tres">Nos Réseaux</h2>
+    <section class="resFooter">
+      <h2 class="title2">Nos Réseaux</h2>
       <div class="reseaux">
         <a href="https://www.facebook.com/appli.zoey">
           <img src="<?= BASE_URL ?>public/images/presentation/facebook.svg" alt="">
-          Zoey.app
+          Appli.zoey
         </a>
         <a href="https://www.instagram.com/zoey.app/">
           <img src="<?= BASE_URL ?>public/images/presentation/instagram.svg" alt="">
@@ -128,10 +128,10 @@ ob_start();
           <img src="<?= BASE_URL ?>public/images/presentation/tiktok.svg" alt="">
           Zoey.app
         </a>
-        <a href="https://twitter.com/App_Zoey">
+        <!-- <a href="https://twitter.com/App_Zoey">
           <img src="<?= BASE_URL ?>public/images/presentation/twitter.svg" alt="">
           App_Zoey
-        </a>
+        </a> -->
         <a href="https://www.linkedin.com/company/zoeyapp/about/">
           <img src="<?= BASE_URL ?>public/images/presentation/linkedin.svg" alt="">
           Zoey

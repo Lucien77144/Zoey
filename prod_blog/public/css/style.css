@@ -224,6 +224,27 @@ header>img {
   white-space: nowrap;
 }
 
+.underline{
+  position: relative;
+}
+
+.underline::after{
+  content: "";
+  z-index: -1;
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(2deg);
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  width: 100%;
+  transition: 0.25s ease-in-out;
+  background-color: #FFC800;
+}
+
+.underline:hover::after{
+  width: 110%;
+}
+
 @keyframes animLogo {
 
   0%,
@@ -249,7 +270,7 @@ header>img {
   body *,
   body *::after,
   body *::before {
-    display: none;
+    display: none !important;
   }
 
   body::before {
@@ -261,6 +282,7 @@ header>img {
     font-family: 'Exo 2', sans-serif;
     height: 100vh;
     position: fixed;
+    top: 0;
   }
 }
 
