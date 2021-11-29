@@ -18,6 +18,11 @@ ob_start();
     <br><br>
     > Réseaux : Partager des photos et des vidéos de votre animal de compagnie.
   </p>
+
+  <div class="imgWrap mockupImg">
+        <img src="<?= BASE_URL ?>public/images/presentation/mockupZoey.jpg" alt="">
+  </div>
+  <!-- <img src="<?= BASE_URL ?>public/images/presentation/mockupZoey.jpg" alt="" > -->
   
   <h2 class="title2">Notre équipe</h2>
 

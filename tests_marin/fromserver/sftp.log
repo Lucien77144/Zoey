@@ -1,0 +1,1018 @@
+Nov 24 13:11:06 10.71.57.0 tmp106583684-7468 Connection from 10.71.57.0 port 60556 on 82.165.88.154 port 22
+Nov 24 13:11:06 10.71.57.0 tmp106583684-7468 Accepted password for tmp106583684-7468 from 10.71.57.0 port 60556 ssh2
+Nov 24 13:11:06 10.71.57.0 tmp106583684-7468 Starting session: subsystem 'sftp' for tmp106583684-7468 from 10.71.57.0 port 60556 id 0
+Nov 24 13:11:06 10.71.57.0 tmp106583684-7468 session opened for local user tmp106583684-7468 from [10.71.57.0]
+Nov 24 13:13:18 10.71.57.0 tmp106583684-7468 Connection closed by 10.71.57.0 port 60556
+Nov 24 13:13:18 10.71.57.0 tmp106583684-7468 session closed for local user tmp106583684-7468 from [10.71.57.0]
+Nov 24 13:23:05 10.71.56.0 u106583684 Connection from 10.71.56.0 port 14028 on 82.165.88.154 port 22
+Nov 24 13:23:07 10.71.56.0 u106583684 Accepted password for u106583684 from 10.71.56.0 port 14028 ssh2
+Nov 24 13:23:07 10.71.56.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.56.0 port 14028 id 0
+Nov 24 13:23:07 10.71.56.0 u106583684 session opened for local user u106583684 from [10.71.56.0]
+Nov 24 13:24:11 10.71.56.0 u106583684 Connection from 10.71.56.0 port 44534 on 82.165.88.154 port 22
+Nov 24 13:24:11 10.71.56.0 u106583684 Accepted password for u106583684 from 10.71.56.0 port 44534 ssh2
+Nov 24 13:24:11 10.71.56.0 u106583684 Connection from 10.71.56.0 port 44536 on 82.165.88.154 port 22
+Nov 24 13:24:11 10.71.56.0 u106583684 Accepted password for u106583684 from 10.71.56.0 port 44536 ssh2
+Nov 24 13:24:11 10.71.56.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.56.0 port 44536 id 0
+Nov 24 13:24:11 10.71.56.0 u106583684 session opened for local user u106583684 from [10.71.56.0]
+Nov 24 13:24:11 10.71.56.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.56.0 port 44534 id 0
+Nov 24 13:24:11 10.71.56.0 u106583684 session opened for local user u106583684 from [10.71.56.0]
+Nov 24 13:24:11 10.71.56.0 u106583684 open "/.htaccess" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:11 10.71.56.0 u106583684 close "/.htaccess" bytes read 0 written 1374
+Nov 24 13:24:11 10.71.56.0 u106583684 [10.71.56.0|put|0|1374|0|0|0|2f2e6874616363657373|]
+Nov 24 13:24:11 10.71.56.0 u106583684 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:11 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:24:12 10.71.56.0 u106583684 close "/index.php" bytes read 0 written 851
+Nov 24 13:24:12 10.71.56.0 u106583684 [10.71.56.0|put|1|851|0|0|0|2f696e6465782e706870|]
+Nov 24 13:24:12 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:24:12 10.71.56.0 u106583684 mkdir name "/vendor" mode 0777
+Nov 24 13:24:12 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f76656e646f72|]
+Nov 24 13:24:12 10.71.56.0 u106583684 mkdir name "/view" mode 0777
+Nov 24 13:24:12 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f76696577|]
+Nov 24 13:24:12 10.71.56.0 u106583684 open "/vendor/jquery-3.6.0.min.js" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:12 10.71.56.0 u106583684 open "/view/articleView.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:12 10.71.56.0 u106583684 close "/vendor/jquery-3.6.0.min.js" bytes read 0 written 89503
+Nov 24 13:24:12 10.71.56.0 u106583684 [10.71.56.0|put|0|89503|0|0|0|2f76656e646f722f6a71756572792d332e362e302e6d696e2e6a73|]
+Nov 24 13:24:12 10.71.56.0 u106583684 close "/view/articleView.php" bytes read 0 written 1319
+Nov 24 13:24:12 10.71.56.0 u106583684 [10.71.56.0|put|0|1319|0|0|0|2f766965772f61727469636c65566965772e706870|]
+Nov 24 13:24:13 10.71.56.0 u106583684 open "/view/errorView.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:13 10.71.56.0 u106583684 open "/view/blogView.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:13 10.71.56.0 u106583684 close "/view/errorView.php" bytes read 0 written 938
+Nov 24 13:24:13 10.71.56.0 u106583684 close "/view/blogView.php" bytes read 0 written 1078
+Nov 24 13:24:13 10.71.56.0 u106583684 [10.71.56.0|put|0|938|0|0|0|2f766965772f6572726f72566965772e706870|]
+Nov 24 13:24:13 10.71.56.0 u106583684 [10.71.56.0|put|0|1078|0|0|0|2f766965772f626c6f67566965772e706870|]
+Nov 24 13:24:13 10.71.56.0 u106583684 open "/view/legalView.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:13 10.71.56.0 u106583684 open "/view/presentationView.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:13 10.71.56.0 u106583684 close "/view/legalView.php" bytes read 0 written 3711
+Nov 24 13:24:13 10.71.56.0 u106583684 [10.71.56.0|put|0|3711|0|0|0|2f766965772f6c6567616c566965772e706870|]
+Nov 24 13:24:13 10.71.56.0 u106583684 close "/view/presentationView.php" bytes read 0 written 6341
+Nov 24 13:24:13 10.71.56.0 u106583684 [10.71.56.0|put|0|6341|0|0|0|2f766965772f70726573656e746174696f6e566965772e706870|]
+Nov 24 13:24:13 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:24:13 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:24:13 10.71.56.0 u106583684 mkdir name "/controller" mode 0777
+Nov 24 13:24:13 10.71.56.0 u106583684 mkdir name "/model" mode 0777
+Nov 24 13:24:13 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f636f6e74726f6c6c6572|]
+Nov 24 13:24:13 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f6d6f64656c|]
+Nov 24 13:24:13 10.71.56.0 u106583684 open "/model/model.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:13 10.71.56.0 u106583684 open "/controller/controller.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:14 10.71.56.0 u106583684 close "/model/model.php" bytes read 0 written 1528
+Nov 24 13:24:14 10.71.56.0 u106583684 [10.71.56.0|put|1|1528|0|0|0|2f6d6f64656c2f6d6f64656c2e706870|]
+Nov 24 13:24:14 10.71.56.0 u106583684 close "/controller/controller.php" bytes read 0 written 529
+Nov 24 13:24:14 10.71.56.0 u106583684 [10.71.56.0|put|1|529|0|0|0|2f636f6e74726f6c6c65722f636f6e74726f6c6c65722e706870|]
+Nov 24 13:24:14 10.71.56.0 u106583684 open "/model/postAddNewsletter.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:14 10.71.56.0 u106583684 close "/model/postAddNewsletter.php" bytes read 0 written 1271
+Nov 24 13:24:14 10.71.56.0 u106583684 [10.71.56.0|put|0|1271|0|0|0|2f6d6f64656c2f706f73744164644e6577736c65747465722e706870|]
+Nov 24 13:24:14 10.71.56.0 u106583684 open "/model/PDO.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:14 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:24:14 10.71.56.0 u106583684 close "/model/PDO.php" bytes read 0 written 238
+Nov 24 13:24:14 10.71.56.0 u106583684 [10.71.56.0|put|0|238|0|0|0|2f6d6f64656c2f50444f2e706870|]
+Nov 24 13:24:14 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:24:14 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:24:14 10.71.56.0 u106583684 mkdir name "/public" mode 0777
+Nov 24 13:24:14 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f7075626c6963|]
+Nov 24 13:24:14 10.71.56.0 u106583684 mkdir name "/public/css" mode 0777
+Nov 24 13:24:14 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f7075626c69632f637373|]
+Nov 24 13:24:15 10.71.56.0 u106583684 open "/public/css/style.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:15 10.71.56.0 u106583684 open "/public/css/style_article.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:15 10.71.56.0 u106583684 close "/public/css/style.css" bytes read 0 written 6231
+Nov 24 13:24:15 10.71.56.0 u106583684 [10.71.56.0|put|0|6231|0|0|0|2f7075626c69632f6373732f7374796c652e637373|]
+Nov 24 13:24:15 10.71.56.0 u106583684 close "/public/css/style_article.css" bytes read 0 written 2130
+Nov 24 13:24:15 10.71.56.0 u106583684 [10.71.56.0|put|0|2130|0|0|0|2f7075626c69632f6373732f7374796c655f61727469636c652e637373|]
+Nov 24 13:24:15 10.71.56.0 u106583684 open "/public/css/style_error.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:15 10.71.56.0 u106583684 open "/public/css/style_blog.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:15 10.71.56.0 u106583684 close "/public/css/style_blog.css" bytes read 0 written 1824
+Nov 24 13:24:15 10.71.56.0 u106583684 [10.71.56.0|put|0|1824|0|0|0|2f7075626c69632f6373732f7374796c655f626c6f672e637373|]
+Nov 24 13:24:15 10.71.56.0 u106583684 close "/public/css/style_error.css" bytes read 0 written 1229
+Nov 24 13:24:15 10.71.56.0 u106583684 [10.71.56.0|put|0|1229|0|0|0|2f7075626c69632f6373732f7374796c655f6572726f722e637373|]
+Nov 24 13:24:16 10.71.56.0 u106583684 open "/public/css/style_mentions.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:16 10.71.56.0 u106583684 open "/public/css/style_old.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:16 10.71.56.0 u106583684 close "/public/css/style_mentions.css" bytes read 0 written 290
+Nov 24 13:24:16 10.71.56.0 u106583684 [10.71.56.0|put|0|290|0|0|0|2f7075626c69632f6373732f7374796c655f6d656e74696f6e732e637373|]
+Nov 24 13:24:16 10.71.56.0 u106583684 close "/public/css/style_old.css" bytes read 0 written 180
+Nov 24 13:24:16 10.71.56.0 u106583684 [10.71.56.0|put|0|180|0|0|0|2f7075626c69632f6373732f7374796c655f6f6c642e637373|]
+Nov 24 13:24:16 10.71.56.0 u106583684 open "/public/css/style_presentation.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:16 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:24:16 10.71.56.0 u106583684 close "/public/css/style_presentation.css" bytes read 0 written 3186
+Nov 24 13:24:16 10.71.56.0 u106583684 [10.71.56.0|put|0|3186|0|0|0|2f7075626c69632f6373732f7374796c655f70726573656e746174696f6e2e637373|]
+Nov 24 13:24:16 10.71.56.0 u106583684 mkdir name "/public/js" mode 0777
+Nov 24 13:24:16 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f7075626c69632f6a73|]
+Nov 24 13:24:16 10.71.56.0 u106583684 open "/public/js/script.js" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:16 10.71.56.0 u106583684 open "/public/js/post.js" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:16 10.71.56.0 u106583684 close "/public/js/script.js" bytes read 0 written 0
+Nov 24 13:24:16 10.71.56.0 u106583684 [10.71.56.0|put|0|0|0|0|0|2f7075626c69632f6a732f7363726970742e6a73|]
+Nov 24 13:24:16 10.71.56.0 u106583684 close "/public/js/post.js" bytes read 0 written 21183
+Nov 24 13:24:16 10.71.56.0 u106583684 [10.71.56.0|put|0|21183|0|0|0|2f7075626c69632f6a732f706f73742e6a73|]
+Nov 24 13:24:16 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:24:16 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:24:17 10.71.56.0 u106583684 mkdir name "/public/template" mode 0777
+Nov 24 13:24:17 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f7075626c69632f74656d706c617465|]
+Nov 24 13:24:17 10.71.56.0 u106583684 mkdir name "/public/images" mode 0777
+Nov 24 13:24:17 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f7075626c69632f696d61676573|]
+Nov 24 13:24:17 10.71.56.0 u106583684 mkdir name "/public/images/adoption" mode 0777
+Nov 24 13:24:17 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f7075626c69632f696d616765732f61646f7074696f6e|]
+Nov 24 13:24:17 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:24:17 10.71.56.0 u106583684 open "/public/template/template.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:17 10.71.56.0 u106583684 close "/public/template/template.php" bytes read 0 written 3303
+Nov 24 13:24:17 10.71.56.0 u106583684 [10.71.56.0|put|0|3303|0|0|0|2f7075626c69632f74656d706c6174652f74656d706c6174652e706870|]
+Nov 24 13:24:17 10.71.56.0 u106583684 mkdir name "/public/images/blog" mode 0777
+Nov 24 13:24:17 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f7075626c69632f696d616765732f626c6f67|]
+Nov 24 13:24:17 10.71.56.0 u106583684 open "/public/images/blog/article_2.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:17 10.71.56.0 u106583684 open "/public/images/blog/article_1.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:21 10.71.56.0 u106583684 remove name "/index.html"
+Nov 24 13:24:21 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f696e6465782e68746d6c|]
+Nov 24 13:24:24 10.71.56.0 u106583684 close "/public/images/blog/article_1.jpg" bytes read 0 written 616622
+Nov 24 13:24:24 10.71.56.0 u106583684 [10.71.56.0|put|7|616622|0|0|0|2f7075626c69632f696d616765732f626c6f672f61727469636c655f312e6a7067|]
+Nov 24 13:24:25 10.71.56.0 u106583684 open "/public/images/blog/article_3.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:30 10.71.56.0 u106583684 close "/public/images/blog/article_3.jpg" bytes read 0 written 942121
+Nov 24 13:24:30 10.71.56.0 u106583684 [10.71.56.0|put|5|942121|0|0|0|2f7075626c69632f696d616765732f626c6f672f61727469636c655f332e6a7067|]
+Nov 24 13:24:30 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:24:30 10.71.56.0 u106583684 close "/public/images/blog/article_2.jpg" bytes read 0 written 1785622
+Nov 24 13:24:30 10.71.56.0 u106583684 [10.71.56.0|put|13|1785622|0|0|0|2f7075626c69632f696d616765732f626c6f672f61727469636c655f322e6a7067|]
+Nov 24 13:24:30 10.71.56.0 u106583684 mkdir name "/public/images/icons" mode 0777
+Nov 24 13:24:30 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f7075626c69632f696d616765732f69636f6e73|]
+Nov 24 13:24:31 10.71.56.0 u106583684 open "/public/images/icons/actus.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:31 10.71.56.0 u106583684 open "/public/images/icons/adoption.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:31 10.71.56.0 u106583684 close "/public/images/icons/actus.svg" bytes read 0 written 4248
+Nov 24 13:24:31 10.71.56.0 u106583684 [10.71.56.0|put|0|4248|0|0|0|2f7075626c69632f696d616765732f69636f6e732f61637475732e737667|]
+Nov 24 13:24:31 10.71.56.0 u106583684 close "/public/images/icons/adoption.svg" bytes read 0 written 4674
+Nov 24 13:24:31 10.71.56.0 u106583684 [10.71.56.0|put|0|4674|0|0|0|2f7075626c69632f696d616765732f69636f6e732f61646f7074696f6e2e737667|]
+Nov 24 13:24:31 10.71.56.0 u106583684 open "/public/images/icons/favicon.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:31 10.71.56.0 u106583684 open "/public/images/icons/error.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:31 10.71.56.0 u106583684 close "/public/images/icons/error.svg" bytes read 0 written 2442
+Nov 24 13:24:31 10.71.56.0 u106583684 [10.71.56.0|put|0|2442|0|0|0|2f7075626c69632f696d616765732f69636f6e732f6572726f722e737667|]
+Nov 24 13:24:31 10.71.56.0 u106583684 close "/public/images/icons/favicon.svg" bytes read 0 written 4900
+Nov 24 13:24:31 10.71.56.0 u106583684 [10.71.56.0|put|0|4900|0|0|0|2f7075626c69632f696d616765732f69636f6e732f66617669636f6e2e737667|]
+Nov 24 13:24:31 10.71.56.0 u106583684 open "/public/images/icons/feed.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:31 10.71.56.0 u106583684 open "/public/images/icons/forum.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:31 10.71.56.0 u106583684 close "/public/images/icons/feed.svg" bytes read 0 written 3980
+Nov 24 13:24:31 10.71.56.0 u106583684 [10.71.56.0|put|0|3980|0|0|0|2f7075626c69632f696d616765732f69636f6e732f666565642e737667|]
+Nov 24 13:24:31 10.71.56.0 u106583684 close "/public/images/icons/forum.svg" bytes read 0 written 2308
+Nov 24 13:24:31 10.71.56.0 u106583684 [10.71.56.0|put|0|2308|0|0|0|2f7075626c69632f696d616765732f69636f6e732f666f72756d2e737667|]
+Nov 24 13:24:31 10.71.56.0 u106583684 open "/public/images/icons/msg.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:31 10.71.56.0 u106583684 open "/public/images/icons/profil.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:31 10.71.56.0 u106583684 close "/public/images/icons/msg.svg" bytes read 0 written 1018
+Nov 24 13:24:31 10.71.56.0 u106583684 [10.71.56.0|put|0|1018|0|0|0|2f7075626c69632f696d616765732f69636f6e732f6d73672e737667|]
+Nov 24 13:24:32 10.71.56.0 u106583684 close "/public/images/icons/profil.svg" bytes read 0 written 2757
+Nov 24 13:24:32 10.71.56.0 u106583684 open "/public/images/icons/upload.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:32 10.71.56.0 u106583684 [10.71.56.0|put|1|2757|0|0|0|2f7075626c69632f696d616765732f69636f6e732f70726f66696c2e737667|]
+Nov 24 13:24:32 10.71.56.0 u106583684 close "/public/images/icons/upload.svg" bytes read 0 written 360
+Nov 24 13:24:32 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:24:32 10.71.56.0 u106583684 [10.71.56.0|put|0|360|0|0|0|2f7075626c69632f696d616765732f69636f6e732f75706c6f61642e737667|]
+Nov 24 13:24:32 10.71.56.0 u106583684 mkdir name "/public/images/presentation" mode 0777
+Nov 24 13:24:32 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e|]
+Nov 24 13:24:32 10.71.56.0 u106583684 open "/public/images/presentation/amelie.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:32 10.71.56.0 u106583684 open "/public/images/presentation/clementine.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:34 10.71.56.0 u106583684 close "/public/images/presentation/clementine.jpg" bytes read 0 written 87177
+Nov 24 13:24:34 10.71.56.0 u106583684 [10.71.56.0|put|2|87177|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f636c656d656e74696e652e6a7067|]
+Nov 24 13:24:34 10.71.56.0 u106583684 open "/public/images/presentation/coworking.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:34 10.71.56.0 u106583684 close "/public/images/presentation/amelie.jpg" bytes read 0 written 232976
+Nov 24 13:24:34 10.71.56.0 u106583684 [10.71.56.0|put|2|232976|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f616d656c69652e6a7067|]
+Nov 24 13:24:35 10.71.56.0 u106583684 open "/public/images/presentation/facebook.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:35 10.71.56.0 u106583684 close "/public/images/presentation/facebook.svg" bytes read 0 written 474
+Nov 24 13:24:35 10.71.56.0 u106583684 [10.71.56.0|put|0|474|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f66616365626f6f6b2e737667|]
+Nov 24 13:24:35 10.71.56.0 u106583684 open "/public/images/presentation/instagram.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:35 10.71.56.0 u106583684 close "/public/images/presentation/coworking.jpg" bytes read 0 written 112184
+Nov 24 13:24:35 10.71.56.0 u106583684 [10.71.56.0|put|1|112184|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f636f776f726b696e672e6a7067|]
+Nov 24 13:24:35 10.71.56.0 u106583684 close "/public/images/presentation/instagram.svg" bytes read 0 written 2944
+Nov 24 13:24:35 10.71.56.0 u106583684 open "/public/images/presentation/linkedin.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:35 10.71.56.0 u106583684 [10.71.56.0|put|0|2944|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f696e7374616772616d2e737667|]
+Nov 24 13:24:36 10.71.56.0 u106583684 open "/public/images/presentation/logo.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:36 10.71.56.0 u106583684 close "/public/images/presentation/linkedin.svg" bytes read 0 written 840
+Nov 24 13:24:36 10.71.56.0 u106583684 [10.71.56.0|put|1|840|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f6c696e6b6564696e2e737667|]
+Nov 24 13:24:36 10.71.56.0 u106583684 close "/public/images/presentation/logo.svg" bytes read 0 written 5088
+Nov 24 13:24:36 10.71.56.0 u106583684 [10.71.56.0|put|0|5088|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f6c6f676f2e737667|]
+Nov 24 13:24:36 10.71.56.0 u106583684 open "/public/images/presentation/lucien.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:36 10.71.56.0 u106583684 open "/public/images/presentation/marin.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:37 10.71.56.0 u106583684 close "/public/images/presentation/marin.jpg" bytes read 0 written 59488
+Nov 24 13:24:37 10.71.56.0 u106583684 [10.71.56.0|put|1|59488|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f6d6172696e2e6a7067|]
+Nov 24 13:24:38 10.71.56.0 u106583684 open "/public/images/presentation/matthis.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:40 10.71.56.0 u106583684 close "/public/images/presentation/lucien.jpg" bytes read 0 written 405773
+Nov 24 13:24:40 10.71.56.0 u106583684 [10.71.56.0|put|4|405773|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f6c756369656e2e6a7067|]
+Nov 24 13:24:42 10.71.56.0 u106583684 open "/public/images/presentation/tiktok.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:43 10.71.56.0 u106583684 close "/public/images/presentation/tiktok.svg" bytes read 0 written 519
+Nov 24 13:24:43 10.71.56.0 u106583684 [10.71.56.0|put|1|519|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f74696b746f6b2e737667|]
+Nov 24 13:24:44 10.71.56.0 u106583684 open "/public/images/presentation/twitter.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:45 10.71.56.0 u106583684 close "/public/images/presentation/matthis.jpg" bytes read 0 written 897691
+Nov 24 13:24:45 10.71.56.0 u106583684 [10.71.56.0|put|7|897691|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f6d6174746869732e6a7067|]
+Nov 24 13:24:45 10.71.56.0 u106583684 close "/public/images/presentation/twitter.svg" bytes read 0 written 1382
+Nov 24 13:24:45 10.71.56.0 u106583684 [10.71.56.0|put|1|1382|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f747769747465722e737667|]
+Nov 24 13:24:45 10.71.56.0 u106583684 open "/public/images/presentation/zoe.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:24:55 10.71.56.0 u106583684 close "/public/images/presentation/zoe.jpg" bytes read 0 written 3328347
+Nov 24 13:24:55 10.71.56.0 u106583684 [10.71.56.0|put|10|3328347|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f7a6f652e6a7067|]
+Nov 24 13:25:45 10.71.56.0 u106583684 session closed for local user u106583684 from [10.71.56.0]
+Nov 24 13:25:45 10.71.56.0 u106583684 Connection closed by 10.71.56.0 port 44534
+Nov 24 13:25:55 10.71.56.0 u106583684 session closed for local user u106583684 from [10.71.56.0]
+Nov 24 13:25:55 10.71.56.0 u106583684 Connection closed by 10.71.56.0 port 44536
+Nov 24 13:35:35 10.71.56.0 u106583684 Connection from 10.71.56.0 port 61096 on 82.165.88.154 port 22
+Nov 24 13:35:35 10.71.56.0 u106583684 Accepted password for u106583684 from 10.71.56.0 port 61096 ssh2
+Nov 24 13:35:35 10.71.56.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.56.0 port 61096 id 0
+Nov 24 13:35:36 10.71.56.0 u106583684 session opened for local user u106583684 from [10.71.56.0]
+Nov 24 13:35:40 10.71.56.0 u106583684 open "/model/PDO.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:35:40 10.71.56.0 u106583684 close "/model/PDO.php" bytes read 0 written 241
+Nov 24 13:35:40 10.71.56.0 u106583684 [10.71.56.0|put|0|241|0|0|0|2f6d6f64656c2f50444f2e706870|]
+Nov 24 13:36:40 10.71.56.0 u106583684 session closed for local user u106583684 from [10.71.56.0]
+Nov 24 13:36:40 10.71.56.0 u106583684 Connection closed by 10.71.56.0 port 61096
+Nov 24 13:38:02 10.71.56.0 u106583684 Connection from 10.71.56.0 port 34216 on 82.165.88.154 port 22
+Nov 24 13:38:03 10.71.56.0 u106583684 Accepted password for u106583684 from 10.71.56.0 port 34216 ssh2
+Nov 24 13:38:03 10.71.56.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.56.0 port 34216 id 0
+Nov 24 13:38:03 10.71.56.0 u106583684 session opened for local user u106583684 from [10.71.56.0]
+Nov 24 13:38:06 10.71.56.0 u106583684 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:38:06 10.71.56.0 u106583684 close "/index.php" bytes read 0 written 846
+Nov 24 13:38:06 10.71.56.0 u106583684 [10.71.56.0|put|0|846|0|0|0|2f696e6465782e706870|]
+Nov 24 13:38:38 10.71.56.0 u106583684 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:38:39 10.71.56.0 u106583684 close "/index.php" bytes read 0 written 843
+Nov 24 13:38:39 10.71.56.0 u106583684 [10.71.56.0|put|0|843|0|0|0|2f696e6465782e706870|]
+Nov 24 13:39:39 10.71.56.0 u106583684 session closed for local user u106583684 from [10.71.56.0]
+Nov 24 13:39:39 10.71.56.0 u106583684 Connection closed by 10.71.56.0 port 34216
+Nov 24 13:41:49 10.71.56.0 u106583684 Connection from 10.71.56.0 port 50896 on 82.165.88.154 port 22
+Nov 24 13:41:51 10.71.56.0 u106583684 Accepted password for u106583684 from 10.71.56.0 port 50896 ssh2
+Nov 24 13:41:53 10.71.56.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.56.0 port 50896 id 0
+Nov 24 13:41:53 10.71.56.0 u106583684 session opened for local user u106583684 from [10.71.56.0]
+Nov 24 13:41:55 10.71.56.0 u106583684 open "/view/articleView.php" flags READ mode 0666
+Nov 24 13:41:55 10.71.56.0 u106583684 close "/view/articleView.php" bytes read 1319 written 0
+Nov 24 13:41:55 10.71.56.0 u106583684 [10.71.56.0|get|0|1319|0|0|0|2f766965772f61727469636c65566965772e706870|]
+Nov 24 13:42:21 10.71.56.0 u106583684 open "/view/articleView.php" flags READ mode 0666
+Nov 24 13:42:22 10.71.56.0 u106583684 close "/view/articleView.php" bytes read 1319 written 0
+Nov 24 13:42:22 10.71.56.0 u106583684 [10.71.56.0|get|1|1319|0|0|0|2f766965772f61727469636c65566965772e706870|]
+Nov 24 13:43:07 10.71.56.0 u106583684 remove name "/index.php"
+Nov 24 13:43:07 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f696e6465782e706870|]
+Nov 24 13:43:07 10.71.56.0 u106583684 remove name "/.htaccess"
+Nov 24 13:43:07 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f2e6874616363657373|]
+Nov 24 13:43:09 10.71.56.0 u106583684 remove name "/controller/controller.php"
+Nov 24 13:43:09 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f636f6e74726f6c6c65722f636f6e74726f6c6c65722e706870|]
+Nov 24 13:43:10 10.71.56.0 u106583684 rmdir name "/controller"
+Nov 24 13:43:10 10.71.56.0 u106583684 [10.71.56.0|rmdir|0|0|0|0|0|2f636f6e74726f6c6c6572|]
+Nov 24 13:43:21 10.71.56.0 u106583684 open "/.htaccess" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:43:22 10.71.56.0 u106583684 remove name "/logs/.htaccess"
+Nov 24 13:43:22 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|13|2f6c6f67732f2e6874616363657373|]
+Nov 24 13:43:22 10.71.56.0 u106583684 sent status Permission denied
+Nov 24 13:43:17 10.71.56.0 u106583684 Connection from 10.71.56.0 port 61282 on 82.165.88.154 port 22
+Nov 24 13:43:22 10.71.56.0 u106583684 Accepted password for u106583684 from 10.71.56.0 port 61282 ssh2
+Nov 24 13:43:23 10.71.56.0 u106583684 remove name "/logs/info.pl"
+Nov 24 13:43:23 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|13|2f6c6f67732f696e666f2e706c|]
+Nov 24 13:43:23 10.71.56.0 u106583684 sent status Permission denied
+Nov 24 13:43:23 10.71.56.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.56.0 port 61282 id 0
+Nov 24 13:43:23 10.71.56.0 u106583684 session opened for local user u106583684 from [10.71.56.0]
+Nov 24 13:43:24 10.71.56.0 u106583684 close "/.htaccess" bytes read 0 written 1374
+Nov 24 13:43:24 10.71.56.0 u106583684 [10.71.56.0|put|3|1374|0|0|0|2f2e6874616363657373|]
+Nov 24 13:43:24 10.71.56.0 u106583684 remove name "/logs/info.php5"
+Nov 24 13:43:24 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|13|2f6c6f67732f696e666f2e70687035|]
+Nov 24 13:43:24 10.71.56.0 u106583684 sent status Permission denied
+Nov 24 13:43:25 10.71.56.0 u106583684 remove name "/logs/info.py"
+Nov 24 13:43:25 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|13|2f6c6f67732f696e666f2e7079|]
+Nov 24 13:43:25 10.71.56.0 u106583684 sent status Permission denied
+Nov 24 13:43:26 10.71.56.0 u106583684 remove name "/logs/access.log.47.3"
+Nov 24 13:43:26 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|13|2f6c6f67732f6163636573732e6c6f672e34372e33|]
+Nov 24 13:43:26 10.71.56.0 u106583684 sent status Permission denied
+Nov 24 13:43:26 10.71.56.0 u106583684 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:43:27 10.71.56.0 u106583684 remove name "/logs/access.log.current"
+Nov 24 13:43:27 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|13|2f6c6f67732f6163636573732e6c6f672e63757272656e74|]
+Nov 24 13:43:27 10.71.56.0 u106583684 sent status Permission denied
+Nov 24 13:43:28 10.71.56.0 u106583684 close "/index.php" bytes read 0 written 843
+Nov 24 13:43:28 10.71.56.0 u106583684 [10.71.56.0|put|2|843|0|0|0|2f696e6465782e706870|]
+Nov 24 13:43:28 10.71.56.0 u106583684 remove name "/logs/sftp.log"
+Nov 24 13:43:28 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|13|2f6c6f67732f736674702e6c6f67|]
+Nov 24 13:43:28 10.71.56.0 u106583684 sent status Permission denied
+Nov 24 13:43:35 10.71.56.0 u106583684 rmdir name "/logs/traffic.html"
+Nov 24 13:43:35 10.71.56.0 u106583684 [10.71.56.0|rmdir|0|0|0|0|13|2f6c6f67732f747261666669632e68746d6c|]
+Nov 24 13:43:35 10.71.56.0 u106583684 sent status Permission denied
+Nov 24 13:43:37 10.71.56.0 u106583684 rmdir name "/logs"
+Nov 24 13:43:37 10.71.56.0 u106583684 [10.71.56.0|rmdir|0|0|0|0|39|2f6c6f6773|]
+Nov 24 13:43:37 10.71.56.0 u106583684 sent status Failure
+Nov 24 13:43:41 10.71.56.0 u106583684 open "/public/css/style.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:43:41 10.71.56.0 u106583684 open "/public/css/style_article.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:43:42 10.71.56.0 u106583684 close "/public/css/style.css" bytes read 0 written 6231
+Nov 24 13:43:42 10.71.56.0 u106583684 [10.71.56.0|put|1|6231|0|0|0|2f7075626c69632f6373732f7374796c652e637373|]
+Nov 24 13:43:42 10.71.56.0 u106583684 close "/public/css/style_article.css" bytes read 0 written 2130
+Nov 24 13:43:42 10.71.56.0 u106583684 [10.71.56.0|put|1|2130|0|0|0|2f7075626c69632f6373732f7374796c655f61727469636c652e637373|]
+Nov 24 13:43:42 10.71.56.0 u106583684 remove name "/model/model.php"
+Nov 24 13:43:42 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f6d6f64656c2f6d6f64656c2e706870|]
+Nov 24 13:43:43 10.71.56.0 u106583684 remove name "/model/postAddNewsletter.php"
+Nov 24 13:43:43 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f6d6f64656c2f706f73744164644e6577736c65747465722e706870|]
+Nov 24 13:43:45 10.71.56.0 u106583684 remove name "/model/PDO.php"
+Nov 24 13:43:45 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f6d6f64656c2f50444f2e706870|]
+Nov 24 13:43:45 10.71.56.0 u106583684 open "/public/css/style_error.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:43:47 10.71.56.0 u106583684 open "/public/css/style_blog.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:43:49 10.71.56.0 u106583684 close "/public/css/style_error.css" bytes read 0 written 1229
+Nov 24 13:43:49 10.71.56.0 u106583684 [10.71.56.0|put|4|1229|0|0|0|2f7075626c69632f6373732f7374796c655f6572726f722e637373|]
+Nov 24 13:43:50 10.71.56.0 u106583684 close "/public/css/style_blog.css" bytes read 0 written 1824
+Nov 24 13:43:50 10.71.56.0 u106583684 [10.71.56.0|put|3|1824|0|0|0|2f7075626c69632f6373732f7374796c655f626c6f672e637373|]
+Nov 24 13:43:51 10.71.56.0 u106583684 rmdir name "/model"
+Nov 24 13:43:51 10.71.56.0 u106583684 [10.71.56.0|rmdir|0|0|0|0|0|2f6d6f64656c|]
+Nov 24 13:43:55 10.71.56.0 u106583684 open "/public/css/style_old.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:43:55 10.71.56.0 u106583684 open "/public/css/style_mentions.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:43:55 10.71.56.0 u106583684 close "/public/css/style_mentions.css" bytes read 0 written 290
+Nov 24 13:43:55 10.71.56.0 u106583684 [10.71.56.0|put|0|290|0|0|0|2f7075626c69632f6373732f7374796c655f6d656e74696f6e732e637373|]
+Nov 24 13:43:55 10.71.56.0 u106583684 close "/public/css/style_old.css" bytes read 0 written 180
+Nov 24 13:43:55 10.71.56.0 u106583684 [10.71.56.0|put|0|180|0|0|0|2f7075626c69632f6373732f7374796c655f6f6c642e637373|]
+Nov 24 13:43:56 10.71.56.0 u106583684 open "/public/css/style_presentation.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:43:57 10.71.56.0 u106583684 close "/public/css/style_presentation.css" bytes read 0 written 3186
+Nov 24 13:43:57 10.71.56.0 u106583684 [10.71.56.0|put|1|3186|0|0|0|2f7075626c69632f6373732f7374796c655f70726573656e746174696f6e2e637373|]
+Nov 24 13:43:59 10.71.56.0 u106583684 open "/public/js/post.js" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:44:00 10.71.56.0 u106583684 close "/public/js/post.js" bytes read 0 written 1334
+Nov 24 13:44:00 10.71.56.0 u106583684 [10.71.56.0|put|1|1334|0|0|0|2f7075626c69632f6a732f706f73742e6a73|]
+Nov 24 13:44:00 10.71.56.0 u106583684 remove name "/public/css/style.css"
+Nov 24 13:44:00 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f6373732f7374796c652e637373|]
+Nov 24 13:44:01 10.71.56.0 u106583684 remove name "/public/css/style_article.css"
+Nov 24 13:44:01 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f6373732f7374796c655f61727469636c652e637373|]
+Nov 24 13:44:02 10.71.56.0 u106583684 mkdir name "/public/images/adoption" mode 0777
+Nov 24 13:44:02 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|17|2f7075626c69632f696d616765732f61646f7074696f6e|]
+Nov 24 13:44:02 10.71.56.0 u106583684 remove name "/public/css/style_error.css"
+Nov 24 13:44:02 10.71.56.0 u106583684 sent status Failure
+Nov 24 13:44:02 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f6373732f7374796c655f6572726f722e637373|]
+Nov 24 13:44:02 10.71.56.0 u106583684 open "/public/template/template.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:44:02 10.71.56.0 u106583684 remove name "/public/css/style_blog.css"
+Nov 24 13:44:02 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f6373732f7374796c655f626c6f672e637373|]
+Nov 24 13:44:03 10.71.56.0 u106583684 mkdir name "/public/images/adoption" mode 0777
+Nov 24 13:44:03 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|17|2f7075626c69632f696d616765732f61646f7074696f6e|]
+Nov 24 13:44:03 10.71.56.0 u106583684 sent status Failure
+Nov 24 13:44:03 10.71.56.0 u106583684 close "/public/template/template.php" bytes read 0 written 3303
+Nov 24 13:44:03 10.71.56.0 u106583684 [10.71.56.0|put|1|3303|0|0|0|2f7075626c69632f74656d706c6174652f74656d706c6174652e706870|]
+Nov 24 13:44:03 10.71.56.0 u106583684 remove name "/public/css/style_mentions.css"
+Nov 24 13:44:03 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f6373732f7374796c655f6d656e74696f6e732e637373|]
+Nov 24 13:44:04 10.71.56.0 u106583684 remove name "/public/css/style_old.css"
+Nov 24 13:44:04 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f6373732f7374796c655f6f6c642e637373|]
+Nov 24 13:44:05 10.71.56.0 u106583684 remove name "/public/css/style_presentation.css"
+Nov 24 13:44:05 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f6373732f7374796c655f70726573656e746174696f6e2e637373|]
+Nov 24 13:44:06 10.71.56.0 u106583684 rmdir name "/public/css"
+Nov 24 13:44:06 10.71.56.0 u106583684 [10.71.56.0|rmdir|0|0|0|0|0|2f7075626c69632f637373|]
+Nov 24 13:44:07 10.71.56.0 u106583684 open "/public/images/blog/article_2.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:44:10 10.71.56.0 u106583684 open "/public/images/blog/article_1.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:44:11 10.71.56.0 u106583684 close "/public/images/blog/article_2.jpg" bytes read 0 written 191350
+Nov 24 13:44:11 10.71.56.0 u106583684 [10.71.56.0|put|4|191350|0|0|0|2f7075626c69632f696d616765732f626c6f672f61727469636c655f322e6a7067|]
+Nov 24 13:44:13 10.71.56.0 u106583684 open "/public/images/blog/article_3.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:44:17 10.71.56.0 u106583684 remove name "/public/js/script.js"
+Nov 24 13:44:17 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f6a732f7363726970742e6a73|]
+Nov 24 13:44:30 10.71.56.0 u106583684 remove name "/public/js/post.js"
+Nov 24 13:44:30 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f6a732f706f73742e6a73|]
+Nov 24 13:44:31 10.71.56.0 u106583684 rmdir name "/public/js"
+Nov 24 13:44:31 10.71.56.0 u106583684 [10.71.56.0|rmdir|0|0|0|0|0|2f7075626c69632f6a73|]
+Nov 24 13:44:48 10.71.56.0 u106583684 remove name "/public/template/template.php"
+Nov 24 13:44:48 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f74656d706c6174652f74656d706c6174652e706870|]
+Nov 24 13:44:50 10.71.56.0 u106583684 rmdir name "/public/template"
+Nov 24 13:44:50 10.71.56.0 u106583684 [10.71.56.0|rmdir|0|0|0|0|0|2f7075626c69632f74656d706c617465|]
+Nov 24 13:45:08 10.71.56.0 u106583684 close "/public/images/blog/article_3.jpg" bytes read 0 written 942121
+Nov 24 13:45:08 10.71.56.0 u106583684 [10.71.56.0|put|55|942121|0|0|0|2f7075626c69632f696d616765732f626c6f672f61727469636c655f332e6a7067|]
+Nov 24 13:45:12 10.71.56.0 u106583684 close "/public/images/blog/article_1.jpg" bytes read 0 written 616622
+Nov 24 13:45:12 10.71.56.0 u106583684 [10.71.56.0|put|62|616622|0|0|0|2f7075626c69632f696d616765732f626c6f672f61727469636c655f312e6a7067|]
+Nov 24 13:45:12 10.71.56.0 u106583684 open "/public/images/icons/actus.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:13 10.71.56.0 u106583684 close "/public/images/icons/actus.svg" bytes read 0 written 4248
+Nov 24 13:45:13 10.71.56.0 u106583684 [10.71.56.0|put|1|4248|0|0|0|2f7075626c69632f696d616765732f69636f6e732f61637475732e737667|]
+Nov 24 13:45:13 10.71.56.0 u106583684 open "/public/images/icons/adoption.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:13 10.71.56.0 u106583684 Connection closed by 10.71.56.0 port 14028
+Nov 24 13:45:13 10.71.56.0 u106583684 session closed for local user u106583684 from [10.71.56.0]
+Nov 24 13:45:14 10.71.56.0 u106583684 close "/public/images/icons/adoption.svg" bytes read 0 written 4674
+Nov 24 13:45:14 10.71.56.0 u106583684 open "/public/images/icons/error.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:14 10.71.56.0 u106583684 [10.71.56.0|put|1|4674|0|0|0|2f7075626c69632f696d616765732f69636f6e732f61646f7074696f6e2e737667|]
+Nov 24 13:45:15 10.71.56.0 u106583684 open "/public/images/icons/favicon.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:16 10.71.56.0 u106583684 close "/public/images/icons/error.svg" bytes read 0 written 2442
+Nov 24 13:45:16 10.71.56.0 u106583684 [10.71.56.0|put|2|2442|0|0|0|2f7075626c69632f696d616765732f69636f6e732f6572726f722e737667|]
+Nov 24 13:45:16 10.71.56.0 u106583684 close "/public/images/icons/favicon.svg" bytes read 0 written 4900
+Nov 24 13:45:16 10.71.56.0 u106583684 [10.71.56.0|put|1|4900|0|0|0|2f7075626c69632f696d616765732f69636f6e732f66617669636f6e2e737667|]
+Nov 24 13:45:17 10.71.56.0 u106583684 open "/public/images/icons/feed.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:14 10.71.56.0 u106583684 Connection from 10.71.56.0 port 47004 on 82.165.88.154 port 22
+Nov 24 13:45:17 10.71.56.0 u106583684 Accepted password for u106583684 from 10.71.56.0 port 47004 ssh2
+Nov 24 13:45:17 10.71.56.0 u106583684 open "/public/images/icons/forum.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:18 10.71.56.0 u106583684 close "/public/images/icons/feed.svg" bytes read 0 written 3980
+Nov 24 13:45:18 10.71.56.0 u106583684 [10.71.56.0|put|1|3980|0|0|0|2f7075626c69632f696d616765732f69636f6e732f666565642e737667|]
+Nov 24 13:45:18 10.71.56.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.56.0 port 47004 id 0
+Nov 24 13:45:18 10.71.56.0 u106583684 session opened for local user u106583684 from [10.71.56.0]
+Nov 24 13:45:18 10.71.56.0 u106583684 close "/public/images/icons/forum.svg" bytes read 0 written 2308
+Nov 24 13:45:18 10.71.56.0 u106583684 [10.71.56.0|put|1|2308|0|0|0|2f7075626c69632f696d616765732f69636f6e732f666f72756d2e737667|]
+Nov 24 13:45:19 10.71.56.0 u106583684 open "/public/images/icons/msg.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:19 10.71.56.0 u106583684 open "/public/images/icons/profil.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:19 10.71.56.0 u106583684 close "/public/images/icons/msg.svg" bytes read 0 written 1018
+Nov 24 13:45:19 10.71.56.0 u106583684 [10.71.56.0|put|0|1018|0|0|0|2f7075626c69632f696d616765732f69636f6e732f6d73672e737667|]
+Nov 24 13:45:19 10.71.56.0 u106583684 close "/public/images/icons/profil.svg" bytes read 0 written 2757
+Nov 24 13:45:19 10.71.56.0 u106583684 [10.71.56.0|put|0|2757|0|0|0|2f7075626c69632f696d616765732f69636f6e732f70726f66696c2e737667|]
+Nov 24 13:45:19 10.71.56.0 u106583684 open "/public/images/icons/upload.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:20 10.71.56.0 u106583684 close "/public/images/icons/upload.svg" bytes read 0 written 360
+Nov 24 13:45:20 10.71.56.0 u106583684 [10.71.56.0|put|1|360|0|0|0|2f7075626c69632f696d616765732f69636f6e732f75706c6f61642e737667|]
+Nov 24 13:45:23 10.71.56.0 u106583684 open "/public/images/presentation/clementine.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:23 10.71.56.0 u106583684 open "/public/images/presentation/amelie.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:25 10.71.56.0 u106583684 close "/public/images/presentation/clementine.jpg" bytes read 0 written 87177
+Nov 24 13:45:25 10.71.56.0 u106583684 [10.71.56.0|put|2|87177|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f636c656d656e74696e652e6a7067|]
+Nov 24 13:45:26 10.71.56.0 u106583684 close "/public/images/presentation/amelie.jpg" bytes read 0 written 232976
+Nov 24 13:45:26 10.71.56.0 u106583684 [10.71.56.0|put|3|232976|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f616d656c69652e6a7067|]
+Nov 24 13:45:26 10.71.56.0 u106583684 open "/public/images/presentation/facebook.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:28 10.71.56.0 u106583684 open "/public/images/presentation/coworking.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:28 10.71.56.0 u106583684 close "/public/images/presentation/facebook.svg" bytes read 0 written 474
+Nov 24 13:45:28 10.71.56.0 u106583684 [10.71.56.0|put|2|474|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f66616365626f6f6b2e737667|]
+Nov 24 13:45:28 10.71.56.0 u106583684 rmdir name "/public/images/adoption"
+Nov 24 13:45:28 10.71.56.0 u106583684 [10.71.56.0|rmdir|0|0|0|0|0|2f7075626c69632f696d616765732f61646f7074696f6e|]
+Nov 24 13:45:30 10.71.56.0 u106583684 open "/public/images/presentation/instagram.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:31 10.71.56.0 u106583684 close "/public/images/presentation/coworking.jpg" bytes read 0 written 112184
+Nov 24 13:45:31 10.71.56.0 u106583684 [10.71.56.0|put|3|112184|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f636f776f726b696e672e6a7067|]
+Nov 24 13:45:31 10.71.56.0 u106583684 close "/public/images/presentation/instagram.svg" bytes read 0 written 2944
+Nov 24 13:45:31 10.71.56.0 u106583684 [10.71.56.0|put|1|2944|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f696e7374616772616d2e737667|]
+Nov 24 13:45:31 10.71.56.0 u106583684 open "/public/images/presentation/linkedin.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:32 10.71.56.0 u106583684 open "/public/images/presentation/logo.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:32 10.71.56.0 u106583684 close "/public/images/presentation/linkedin.svg" bytes read 0 written 840
+Nov 24 13:45:32 10.71.56.0 u106583684 [10.71.56.0|put|1|840|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f6c696e6b6564696e2e737667|]
+Nov 24 13:45:34 10.71.56.0 u106583684 open "/public/images/presentation/lucien.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:44 10.71.56.0 u106583684 remove name "/public/images/blog/article_2.jpg"
+Nov 24 13:45:44 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f626c6f672f61727469636c655f322e6a7067|]
+Nov 24 13:45:45 10.71.56.0 u106583684 remove name "/public/images/blog/article_1.jpg"
+Nov 24 13:45:45 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f626c6f672f61727469636c655f312e6a7067|]
+Nov 24 13:45:46 10.71.56.0 u106583684 remove name "/public/images/blog/article_3.jpg"
+Nov 24 13:45:46 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f626c6f672f61727469636c655f332e6a7067|]
+Nov 24 13:45:46 10.71.56.0 u106583684 rmdir name "/public/images/blog"
+Nov 24 13:45:46 10.71.56.0 u106583684 [10.71.56.0|rmdir|0|0|0|0|0|2f7075626c69632f696d616765732f626c6f67|]
+Nov 24 13:45:51 10.71.56.0 u106583684 remove name "/public/images/icons/actus.svg"
+Nov 24 13:45:51 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f69636f6e732f61637475732e737667|]
+Nov 24 13:45:52 10.71.56.0 u106583684 remove name "/public/images/icons/adoption.svg"
+Nov 24 13:45:52 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f69636f6e732f61646f7074696f6e2e737667|]
+Nov 24 13:45:52 10.71.56.0 u106583684 close "/public/images/presentation/lucien.jpg" bytes read 0 written 405773
+Nov 24 13:45:52 10.71.56.0 u106583684 [10.71.56.0|put|18|405773|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f6c756369656e2e6a7067|]
+Nov 24 13:45:52 10.71.56.0 u106583684 remove name "/public/images/icons/favicon.svg"
+Nov 24 13:45:52 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f69636f6e732f66617669636f6e2e737667|]
+Nov 24 13:45:53 10.71.56.0 u106583684 Connection closed by 10.71.56.0 port 61282
+Nov 24 13:45:53 10.71.56.0 u106583684 forced close "/public/images/presentation/logo.svg" bytes read 0 written 0
+Nov 24 13:45:53 10.71.56.0 u106583684 [10.71.56.0|put|21|0|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f6c6f676f2e737667|]
+Nov 24 13:45:53 10.71.56.0 u106583684 session closed for local user u106583684 from [10.71.56.0]
+Nov 24 13:45:53 10.71.56.0 u106583684 remove name "/public/images/icons/error.svg"
+Nov 24 13:45:53 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f69636f6e732f6572726f722e737667|]
+Nov 24 13:45:53 10.71.56.0 u106583684 open "/public/images/presentation/marin.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:53 10.71.56.0 u106583684 Connection from 10.71.56.0 port 34956 on 82.165.88.154 port 22
+Nov 24 13:45:54 10.71.56.0 u106583684 Accepted password for u106583684 from 10.71.56.0 port 34956 ssh2
+Nov 24 13:45:54 10.71.56.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.56.0 port 34956 id 0
+Nov 24 13:45:54 10.71.56.0 u106583684 session opened for local user u106583684 from [10.71.56.0]
+Nov 24 13:45:54 10.71.56.0 u106583684 open "/public/images/presentation/logo.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:55 10.71.56.0 u106583684 close "/public/images/presentation/logo.svg" bytes read 0 written 5088
+Nov 24 13:45:55 10.71.56.0 u106583684 [10.71.56.0|put|1|5088|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f6c6f676f2e737667|]
+Nov 24 13:45:55 10.71.56.0 u106583684 open "/public/images/presentation/matthis.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:56 10.71.56.0 u106583684 remove name "/public/images/icons/feed.svg"
+Nov 24 13:45:56 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f69636f6e732f666565642e737667|]
+Nov 24 13:45:56 10.71.56.0 u106583684 remove name "/public/images/icons/forum.svg"
+Nov 24 13:45:56 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f69636f6e732f666f72756d2e737667|]
+Nov 24 13:45:57 10.71.56.0 u106583684 remove name "/public/images/icons/msg.svg"
+Nov 24 13:45:57 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f69636f6e732f6d73672e737667|]
+Nov 24 13:45:57 10.71.56.0 u106583684 remove name "/public/images/icons/profil.svg"
+Nov 24 13:45:57 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f69636f6e732f70726f66696c2e737667|]
+Nov 24 13:45:57 10.71.56.0 u106583684 remove name "/public/images/icons/upload.svg"
+Nov 24 13:45:57 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f69636f6e732f75706c6f61642e737667|]
+Nov 24 13:45:58 10.71.56.0 u106583684 close "/public/images/presentation/matthis.jpg" bytes read 0 written 897691
+Nov 24 13:45:58 10.71.56.0 u106583684 [10.71.56.0|put|3|897691|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f6d6174746869732e6a7067|]
+Nov 24 13:45:58 10.71.56.0 u106583684 open "/public/images/presentation/tiktok.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:58 10.71.56.0 u106583684 close "/public/images/presentation/tiktok.svg" bytes read 0 written 519
+Nov 24 13:45:58 10.71.56.0 u106583684 [10.71.56.0|put|0|519|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f74696b746f6b2e737667|]
+Nov 24 13:45:59 10.71.56.0 u106583684 open "/public/images/presentation/twitter.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:59 10.71.56.0 u106583684 close "/public/images/presentation/twitter.svg" bytes read 0 written 1382
+Nov 24 13:45:59 10.71.56.0 u106583684 [10.71.56.0|put|0|1382|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f747769747465722e737667|]
+Nov 24 13:45:59 10.71.56.0 u106583684 open "/public/images/presentation/zoe.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:45:59 10.71.56.0 u106583684 rmdir name "/public/images/icons"
+Nov 24 13:45:59 10.71.56.0 u106583684 [10.71.56.0|rmdir|0|0|0|0|0|2f7075626c69632f696d616765732f69636f6e73|]
+Nov 24 13:46:02 10.71.56.0 u106583684 close "/public/images/presentation/marin.jpg" bytes read 0 written 59488
+Nov 24 13:46:02 10.71.56.0 u106583684 [10.71.56.0|put|9|59488|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f6d6172696e2e6a7067|]
+Nov 24 13:46:06 10.71.56.0 u106583684 remove name "/public/images/presentation/amelie.jpg"
+Nov 24 13:46:06 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f616d656c69652e6a7067|]
+Nov 24 13:46:07 10.71.56.0 u106583684 remove name "/public/images/presentation/clementine.jpg"
+Nov 24 13:46:07 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f636c656d656e74696e652e6a7067|]
+Nov 24 13:46:08 10.71.56.0 u106583684 remove name "/public/images/presentation/coworking.jpg"
+Nov 24 13:46:08 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f636f776f726b696e672e6a7067|]
+Nov 24 13:46:09 10.71.56.0 u106583684 remove name "/public/images/presentation/facebook.svg"
+Nov 24 13:46:09 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f66616365626f6f6b2e737667|]
+Nov 24 13:46:09 10.71.56.0 u106583684 open "/vendor/jquery-3.6.0.min.js" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:46:09 10.71.56.0 u106583684 remove name "/public/images/presentation/instagram.svg"
+Nov 24 13:46:09 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f696e7374616772616d2e737667|]
+Nov 24 13:46:11 10.71.56.0 u106583684 close "/public/images/presentation/zoe.jpg" bytes read 0 written 3328347
+Nov 24 13:46:11 10.71.56.0 u106583684 [10.71.56.0|put|12|3328347|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f7a6f652e6a7067|]
+Nov 24 13:46:11 10.71.56.0 u106583684 open "/view/articleView.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:46:11 10.71.56.0 u106583684 close "/view/articleView.php" bytes read 0 written 1283
+Nov 24 13:46:11 10.71.56.0 u106583684 [10.71.56.0|put|0|1283|0|0|0|2f766965772f61727469636c65566965772e706870|]
+Nov 24 13:46:11 10.71.56.0 u106583684 open "/view/blogView.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:46:11 10.71.56.0 u106583684 close "/view/blogView.php" bytes read 0 written 1078
+Nov 24 13:46:11 10.71.56.0 u106583684 [10.71.56.0|put|0|1078|0|0|0|2f766965772f626c6f67566965772e706870|]
+Nov 24 13:46:11 10.71.56.0 u106583684 open "/view/errorView.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:46:12 10.71.56.0 u106583684 close "/view/errorView.php" bytes read 0 written 938
+Nov 24 13:46:12 10.71.56.0 u106583684 [10.71.56.0|put|1|938|0|0|0|2f766965772f6572726f72566965772e706870|]
+Nov 24 13:46:12 10.71.56.0 u106583684 open "/view/legalView.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:46:12 10.71.56.0 u106583684 close "/view/legalView.php" bytes read 0 written 3711
+Nov 24 13:46:12 10.71.56.0 u106583684 [10.71.56.0|put|0|3711|0|0|0|2f766965772f6c6567616c566965772e706870|]
+Nov 24 13:46:12 10.71.56.0 u106583684 open "/view/presentationView.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:46:12 10.71.56.0 u106583684 remove name "/public/images/presentation/linkedin.svg"
+Nov 24 13:46:12 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f6c696e6b6564696e2e737667|]
+Nov 24 13:46:12 10.71.56.0 u106583684 close "/view/presentationView.php" bytes read 0 written 6289
+Nov 24 13:46:12 10.71.56.0 u106583684 [10.71.56.0|put|0|6289|0|0|0|2f766965772f70726573656e746174696f6e566965772e706870|]
+Nov 24 13:46:12 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:46:13 10.71.56.0 u106583684 close "/vendor/jquery-3.6.0.min.js" bytes read 0 written 89503
+Nov 24 13:46:13 10.71.56.0 u106583684 [10.71.56.0|put|4|89503|0|0|0|2f76656e646f722f6a71756572792d332e362e302e6d696e2e6a73|]
+Nov 24 13:46:13 10.71.56.0 u106583684 remove name "/public/images/presentation/logo.svg"
+Nov 24 13:46:13 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f6c6f676f2e737667|]
+Nov 24 13:46:13 10.71.56.0 u106583684 mkdir name "/controller" mode 0777
+Nov 24 13:46:13 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f636f6e74726f6c6c6572|]
+Nov 24 13:46:13 10.71.56.0 u106583684 remove name "/public/images/presentation/lucien.jpg"
+Nov 24 13:46:13 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:46:13 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f6c756369656e2e6a7067|]
+Nov 24 13:46:13 10.71.56.0 u106583684 open "/controller/controller.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:46:13 10.71.56.0 u106583684 remove name "/public/images/presentation/marin.jpg"
+Nov 24 13:46:13 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f6d6172696e2e6a7067|]
+Nov 24 13:46:13 10.71.56.0 u106583684 close "/controller/controller.php" bytes read 0 written 492
+Nov 24 13:46:13 10.71.56.0 u106583684 [10.71.56.0|put|0|492|0|0|0|2f636f6e74726f6c6c65722f636f6e74726f6c6c65722e706870|]
+Nov 24 13:46:14 10.71.56.0 u106583684 remove name "/public/images/presentation/matthis.jpg"
+Nov 24 13:46:14 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f6d6174746869732e6a7067|]
+Nov 24 13:46:15 10.71.56.0 u106583684 remove name "/public/images/presentation/tiktok.svg"
+Nov 24 13:46:15 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f74696b746f6b2e737667|]
+Nov 24 13:46:16 10.71.56.0 u106583684 remove name "/public/images/presentation/twitter.svg"
+Nov 24 13:46:16 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f747769747465722e737667|]
+Nov 24 13:46:16 10.71.56.0 u106583684 mkdir name "/model" mode 0777
+Nov 24 13:46:16 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f6d6f64656c|]
+Nov 24 13:46:16 10.71.56.0 u106583684 remove name "/public/images/presentation/zoe.jpg"
+Nov 24 13:46:16 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f7a6f652e6a7067|]
+Nov 24 13:46:16 10.71.56.0 u106583684 rmdir name "/public/images/presentation"
+Nov 24 13:46:16 10.71.56.0 u106583684 [10.71.56.0|rmdir|0|0|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e|]
+Nov 24 13:46:17 10.71.56.0 u106583684 rmdir name "/public/images"
+Nov 24 13:46:17 10.71.56.0 u106583684 [10.71.56.0|rmdir|0|0|0|0|0|2f7075626c69632f696d61676573|]
+Nov 24 13:46:17 10.71.56.0 u106583684 rmdir name "/public"
+Nov 24 13:46:17 10.71.56.0 u106583684 [10.71.56.0|rmdir|0|0|0|0|0|2f7075626c6963|]
+Nov 24 13:46:18 10.71.56.0 u106583684 open "/model/PDO.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:46:18 10.71.56.0 u106583684 close "/model/PDO.php" bytes read 0 written 241
+Nov 24 13:46:18 10.71.56.0 u106583684 [10.71.56.0|put|0|241|0|0|0|2f6d6f64656c2f50444f2e706870|]
+Nov 24 13:46:18 10.71.56.0 u106583684 open "/model/model.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:46:18 10.71.56.0 u106583684 open "/model/postAddNewsletter.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:46:18 10.71.56.0 u106583684 close "/model/postAddNewsletter.php" bytes read 0 written 1277
+Nov 24 13:46:18 10.71.56.0 u106583684 [10.71.56.0|put|0|1277|0|0|0|2f6d6f64656c2f706f73744164644e6577736c65747465722e706870|]
+Nov 24 13:46:19 10.71.56.0 u106583684 close "/model/model.php" bytes read 0 written 1528
+Nov 24 13:46:19 10.71.56.0 u106583684 [10.71.56.0|put|1|1528|0|0|0|2f6d6f64656c2f6d6f64656c2e706870|]
+Nov 24 13:46:23 10.71.56.0 u106583684 remove name "/vendor/jquery-3.6.0.min.js"
+Nov 24 13:46:23 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f76656e646f722f6a71756572792d332e362e302e6d696e2e6a73|]
+Nov 24 13:46:24 10.71.56.0 u106583684 rmdir name "/vendor"
+Nov 24 13:46:24 10.71.56.0 u106583684 [10.71.56.0|rmdir|0|0|0|0|0|2f76656e646f72|]
+Nov 24 13:46:27 10.71.56.0 u106583684 remove name "/view/articleView.php"
+Nov 24 13:46:27 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f766965772f61727469636c65566965772e706870|]
+Nov 24 13:46:28 10.71.56.0 u106583684 remove name "/view/errorView.php"
+Nov 24 13:46:28 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f766965772f6572726f72566965772e706870|]
+Nov 24 13:46:28 10.71.56.0 u106583684 remove name "/view/blogView.php"
+Nov 24 13:46:28 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f766965772f626c6f67566965772e706870|]
+Nov 24 13:46:29 10.71.56.0 u106583684 remove name "/view/legalView.php"
+Nov 24 13:46:29 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f766965772f6c6567616c566965772e706870|]
+Nov 24 13:46:31 10.71.56.0 u106583684 remove name "/view/presentationView.php"
+Nov 24 13:46:31 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f766965772f70726573656e746174696f6e566965772e706870|]
+Nov 24 13:46:32 10.71.56.0 u106583684 rmdir name "/view"
+Nov 24 13:46:32 10.71.56.0 u106583684 [10.71.56.0|rmdir|0|0|0|0|0|2f76696577|]
+Nov 24 13:47:02 10.71.56.0 u106583684 remove name "/index.php"
+Nov 24 13:47:02 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f696e6465782e706870|]
+Nov 24 13:47:02 10.71.56.0 u106583684 remove name "/.htaccess"
+Nov 24 13:47:02 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f2e6874616363657373|]
+Nov 24 13:47:09 10.71.56.0 u106583684 remove name "/controller/controller.php"
+Nov 24 13:47:09 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f636f6e74726f6c6c65722f636f6e74726f6c6c65722e706870|]
+Nov 24 13:47:10 10.71.56.0 u106583684 rmdir name "/controller"
+Nov 24 13:47:10 10.71.56.0 u106583684 [10.71.56.0|rmdir|0|0|0|0|0|2f636f6e74726f6c6c6572|]
+Nov 24 13:47:14 10.71.56.0 u106583684 remove name "/logs/.htaccess"
+Nov 24 13:47:14 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|13|2f6c6f67732f2e6874616363657373|]
+Nov 24 13:47:14 10.71.56.0 u106583684 sent status Permission denied
+Nov 24 13:47:15 10.71.56.0 u106583684 remove name "/logs/info.pl"
+Nov 24 13:47:15 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|13|2f6c6f67732f696e666f2e706c|]
+Nov 24 13:47:15 10.71.56.0 u106583684 sent status Permission denied
+Nov 24 13:47:15 10.71.56.0 u106583684 remove name "/logs/info.php5"
+Nov 24 13:47:15 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|13|2f6c6f67732f696e666f2e70687035|]
+Nov 24 13:47:15 10.71.56.0 u106583684 sent status Permission denied
+Nov 24 13:47:15 10.71.56.0 u106583684 remove name "/logs/info.py"
+Nov 24 13:47:15 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|13|2f6c6f67732f696e666f2e7079|]
+Nov 24 13:47:15 10.71.56.0 u106583684 sent status Permission denied
+Nov 24 13:47:17 10.71.56.0 u106583684 remove name "/logs/access.log.47.3"
+Nov 24 13:47:17 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|13|2f6c6f67732f6163636573732e6c6f672e34372e33|]
+Nov 24 13:47:17 10.71.56.0 u106583684 sent status Permission denied
+Nov 24 13:47:17 10.71.56.0 u106583684 remove name "/logs/access.log.current"
+Nov 24 13:47:17 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|13|2f6c6f67732f6163636573732e6c6f672e63757272656e74|]
+Nov 24 13:47:17 10.71.56.0 u106583684 sent status Permission denied
+Nov 24 13:47:18 10.71.56.0 u106583684 session closed for local user u106583684 from [10.71.56.0]
+Nov 24 13:47:18 10.71.56.0 u106583684 Connection closed by 10.71.56.0 port 34956
+Nov 24 13:47:19 10.71.56.0 u106583684 remove name "/logs/sftp.log"
+Nov 24 13:47:19 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|13|2f6c6f67732f736674702e6c6f67|]
+Nov 24 13:47:19 10.71.56.0 u106583684 sent status Permission denied
+Nov 24 13:47:19 10.71.56.0 u106583684 session closed for local user u106583684 from [10.71.56.0]
+Nov 24 13:47:20 10.71.56.0 u106583684 Connection closed by 10.71.56.0 port 50896
+Nov 24 13:47:25 10.71.56.0 u106583684 rmdir name "/logs/traffic.html"
+Nov 24 13:47:25 10.71.56.0 u106583684 [10.71.56.0|rmdir|0|0|0|0|13|2f6c6f67732f747261666669632e68746d6c|]
+Nov 24 13:47:25 10.71.56.0 u106583684 sent status Permission denied
+Nov 24 13:47:25 10.71.56.0 u106583684 rmdir name "/logs"
+Nov 24 13:47:25 10.71.56.0 u106583684 [10.71.56.0|rmdir|0|0|0|0|39|2f6c6f6773|]
+Nov 24 13:47:25 10.71.56.0 u106583684 sent status Failure
+Nov 24 13:47:32 10.71.56.0 u106583684 remove name "/model/PDO.php"
+Nov 24 13:47:32 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f6d6f64656c2f50444f2e706870|]
+Nov 24 13:47:34 10.71.56.0 u106583684 remove name "/model/model.php"
+Nov 24 13:47:34 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f6d6f64656c2f6d6f64656c2e706870|]
+Nov 24 13:47:38 10.71.56.0 u106583684 remove name "/model/postAddNewsletter.php"
+Nov 24 13:47:38 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f6d6f64656c2f706f73744164644e6577736c65747465722e706870|]
+Nov 24 13:47:40 10.71.56.0 u106583684 rmdir name "/model"
+Nov 24 13:47:40 10.71.56.0 u106583684 [10.71.56.0|rmdir|0|0|0|0|0|2f6d6f64656c|]
+Nov 24 13:47:54 10.71.56.0 u106583684 Connection from 10.71.56.0 port 36310 on 82.165.88.154 port 22
+Nov 24 13:47:54 10.71.56.0 u106583684 Accepted password for u106583684 from 10.71.56.0 port 36310 ssh2
+Nov 24 13:47:54 10.71.56.0 u106583684 Connection from 10.71.56.0 port 36298 on 82.165.88.154 port 22
+Nov 24 13:47:54 10.71.56.0 u106583684 Accepted password for u106583684 from 10.71.56.0 port 36298 ssh2
+Nov 24 13:47:54 10.71.56.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.56.0 port 36298 id 0
+Nov 24 13:47:54 10.71.56.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.56.0 port 36310 id 0
+Nov 24 13:47:54 10.71.56.0 u106583684 session opened for local user u106583684 from [10.71.56.0]
+Nov 24 13:47:54 10.71.56.0 u106583684 session opened for local user u106583684 from [10.71.56.0]
+Nov 24 13:47:55 10.71.56.0 u106583684 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:47:55 10.71.56.0 u106583684 close "/index.php" bytes read 0 written 843
+Nov 24 13:47:55 10.71.56.0 u106583684 [10.71.56.0|put|0|843|0|0|0|2f696e6465782e706870|]
+Nov 24 13:47:55 10.71.56.0 u106583684 open "/.htaccess" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:47:55 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:47:55 10.71.56.0 u106583684 close "/.htaccess" bytes read 0 written 1374
+Nov 24 13:47:55 10.71.56.0 u106583684 [10.71.56.0|put|0|1374|0|0|0|2f2e6874616363657373|]
+Nov 24 13:47:55 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:47:55 10.71.56.0 u106583684 mkdir name "/controller" mode 0777
+Nov 24 13:47:55 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f636f6e74726f6c6c6572|]
+Nov 24 13:47:55 10.71.56.0 u106583684 mkdir name "/model" mode 0777
+Nov 24 13:47:55 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f6d6f64656c|]
+Nov 24 13:47:56 10.71.56.0 u106583684 open "/controller/controller.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:47:56 10.71.56.0 u106583684 open "/model/model.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:47:56 10.71.56.0 u106583684 close "/controller/controller.php" bytes read 0 written 492
+Nov 24 13:47:56 10.71.56.0 u106583684 [10.71.56.0|put|0|492|0|0|0|2f636f6e74726f6c6c65722f636f6e74726f6c6c65722e706870|]
+Nov 24 13:47:56 10.71.56.0 u106583684 close "/model/model.php" bytes read 0 written 1528
+Nov 24 13:47:56 10.71.56.0 u106583684 [10.71.56.0|put|0|1528|0|0|0|2f6d6f64656c2f6d6f64656c2e706870|]
+Nov 24 13:47:56 10.71.56.0 u106583684 open "/model/postAddNewsletter.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:47:56 10.71.56.0 u106583684 open "/model/PDO.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:47:56 10.71.56.0 u106583684 close "/model/PDO.php" bytes read 0 written 241
+Nov 24 13:47:56 10.71.56.0 u106583684 close "/model/postAddNewsletter.php" bytes read 0 written 1277
+Nov 24 13:47:56 10.71.56.0 u106583684 [10.71.56.0|put|0|241|0|0|0|2f6d6f64656c2f50444f2e706870|]
+Nov 24 13:47:56 10.71.56.0 u106583684 [10.71.56.0|put|0|1277|0|0|0|2f6d6f64656c2f706f73744164644e6577736c65747465722e706870|]
+Nov 24 13:47:56 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:47:57 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:47:57 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:47:57 10.71.56.0 u106583684 mkdir name "/public" mode 0777
+Nov 24 13:47:57 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f7075626c6963|]
+Nov 24 13:47:57 10.71.56.0 u106583684 mkdir name "/public/css" mode 0777
+Nov 24 13:47:57 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f7075626c69632f637373|]
+Nov 24 13:47:58 10.71.56.0 u106583684 open "/public/css/style.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:47:58 10.71.56.0 u106583684 open "/public/css/style_article.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:47:58 10.71.56.0 u106583684 close "/public/css/style.css" bytes read 0 written 6231
+Nov 24 13:47:58 10.71.56.0 u106583684 [10.71.56.0|put|0|6231|0|0|0|2f7075626c69632f6373732f7374796c652e637373|]
+Nov 24 13:47:58 10.71.56.0 u106583684 close "/public/css/style_article.css" bytes read 0 written 2130
+Nov 24 13:47:58 10.71.56.0 u106583684 [10.71.56.0|put|0|2130|0|0|0|2f7075626c69632f6373732f7374796c655f61727469636c652e637373|]
+Nov 24 13:47:58 10.71.56.0 u106583684 open "/public/css/style_error.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:47:58 10.71.56.0 u106583684 open "/public/css/style_blog.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:47:58 10.71.56.0 u106583684 close "/public/css/style_error.css" bytes read 0 written 1229
+Nov 24 13:47:58 10.71.56.0 u106583684 [10.71.56.0|put|0|1229|0|0|0|2f7075626c69632f6373732f7374796c655f6572726f722e637373|]
+Nov 24 13:47:58 10.71.56.0 u106583684 close "/public/css/style_blog.css" bytes read 0 written 1824
+Nov 24 13:47:58 10.71.56.0 u106583684 [10.71.56.0|put|0|1824|0|0|0|2f7075626c69632f6373732f7374796c655f626c6f672e637373|]
+Nov 24 13:47:58 10.71.56.0 u106583684 open "/public/css/style_mentions.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:47:58 10.71.56.0 u106583684 open "/public/css/style_old.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:47:58 10.71.56.0 u106583684 close "/public/css/style_mentions.css" bytes read 0 written 290
+Nov 24 13:47:58 10.71.56.0 u106583684 [10.71.56.0|put|0|290|0|0|0|2f7075626c69632f6373732f7374796c655f6d656e74696f6e732e637373|]
+Nov 24 13:47:58 10.71.56.0 u106583684 close "/public/css/style_old.css" bytes read 0 written 180
+Nov 24 13:47:58 10.71.56.0 u106583684 [10.71.56.0|put|0|180|0|0|0|2f7075626c69632f6373732f7374796c655f6f6c642e637373|]
+Nov 24 13:47:59 10.71.56.0 u106583684 open "/public/css/style_presentation.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:47:59 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:47:59 10.71.56.0 u106583684 close "/public/css/style_presentation.css" bytes read 0 written 3186
+Nov 24 13:47:59 10.71.56.0 u106583684 [10.71.56.0|put|0|3186|0|0|0|2f7075626c69632f6373732f7374796c655f70726573656e746174696f6e2e637373|]
+Nov 24 13:47:59 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:47:59 10.71.56.0 u106583684 mkdir name "/public/js" mode 0777
+Nov 24 13:47:59 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f7075626c69632f6a73|]
+Nov 24 13:47:59 10.71.56.0 u106583684 mkdir name "/public/template" mode 0777
+Nov 24 13:47:59 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f7075626c69632f74656d706c617465|]
+Nov 24 13:47:59 10.71.56.0 u106583684 open "/public/js/post.js" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:00 10.71.56.0 u106583684 close "/public/js/post.js" bytes read 0 written 1334
+Nov 24 13:48:00 10.71.56.0 u106583684 [10.71.56.0|put|1|1334|0|0|0|2f7075626c69632f6a732f706f73742e6a73|]
+Nov 24 13:48:00 10.71.56.0 u106583684 open "/public/template/template.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:00 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:48:00 10.71.56.0 u106583684 close "/public/template/template.php" bytes read 0 written 3303
+Nov 24 13:48:00 10.71.56.0 u106583684 [10.71.56.0|put|0|3303|0|0|0|2f7075626c69632f74656d706c6174652f74656d706c6174652e706870|]
+Nov 24 13:48:00 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:48:00 10.71.56.0 u106583684 mkdir name "/public/images" mode 0777
+Nov 24 13:48:00 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f7075626c69632f696d61676573|]
+Nov 24 13:48:00 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:48:00 10.71.56.0 u106583684 mkdir name "/public/images/blog" mode 0777
+Nov 24 13:48:00 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f7075626c69632f696d616765732f626c6f67|]
+Nov 24 13:48:00 10.71.56.0 u106583684 mkdir name "/public/images/adoption" mode 0777
+Nov 24 13:48:00 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f7075626c69632f696d616765732f61646f7074696f6e|]
+Nov 24 13:48:01 10.71.56.0 u106583684 open "/public/images/blog/article_1.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:01 10.71.56.0 u106583684 open "/public/images/blog/article_2.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:03 10.71.56.0 u106583684 close "/public/images/blog/article_2.jpg" bytes read 0 written 191350
+Nov 24 13:48:03 10.71.56.0 u106583684 [10.71.56.0|put|2|191350|0|0|0|2f7075626c69632f696d616765732f626c6f672f61727469636c655f322e6a7067|]
+Nov 24 13:48:03 10.71.56.0 u106583684 open "/public/images/blog/article_3.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:05 10.71.56.0 u106583684 close "/public/images/blog/article_1.jpg" bytes read 0 written 616622
+Nov 24 13:48:05 10.71.56.0 u106583684 [10.71.56.0|put|4|616622|0|0|0|2f7075626c69632f696d616765732f626c6f672f61727469636c655f312e6a7067|]
+Nov 24 13:48:05 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:48:05 10.71.56.0 u106583684 close "/public/images/blog/article_3.jpg" bytes read 0 written 942121
+Nov 24 13:48:05 10.71.56.0 u106583684 [10.71.56.0|put|2|942121|0|0|0|2f7075626c69632f696d616765732f626c6f672f61727469636c655f332e6a7067|]
+Nov 24 13:48:06 10.71.56.0 u106583684 mkdir name "/public/images/icons" mode 0777
+Nov 24 13:48:06 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f7075626c69632f696d616765732f69636f6e73|]
+Nov 24 13:48:06 10.71.56.0 u106583684 open "/public/images/icons/actus.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:06 10.71.56.0 u106583684 open "/public/images/icons/adoption.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:06 10.71.56.0 u106583684 close "/public/images/icons/adoption.svg" bytes read 0 written 4674
+Nov 24 13:48:06 10.71.56.0 u106583684 [10.71.56.0|put|0|4674|0|0|0|2f7075626c69632f696d616765732f69636f6e732f61646f7074696f6e2e737667|]
+Nov 24 13:48:06 10.71.56.0 u106583684 close "/public/images/icons/actus.svg" bytes read 0 written 4248
+Nov 24 13:48:06 10.71.56.0 u106583684 [10.71.56.0|put|0|4248|0|0|0|2f7075626c69632f696d616765732f69636f6e732f61637475732e737667|]
+Nov 24 13:48:06 10.71.56.0 u106583684 open "/public/images/icons/error.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:06 10.71.56.0 u106583684 open "/public/images/icons/favicon.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:06 10.71.56.0 u106583684 close "/public/images/icons/error.svg" bytes read 0 written 2442
+Nov 24 13:48:06 10.71.56.0 u106583684 [10.71.56.0|put|0|2442|0|0|0|2f7075626c69632f696d616765732f69636f6e732f6572726f722e737667|]
+Nov 24 13:48:06 10.71.56.0 u106583684 close "/public/images/icons/favicon.svg" bytes read 0 written 4900
+Nov 24 13:48:06 10.71.56.0 u106583684 [10.71.56.0|put|0|4900|0|0|0|2f7075626c69632f696d616765732f69636f6e732f66617669636f6e2e737667|]
+Nov 24 13:48:07 10.71.56.0 u106583684 open "/public/images/icons/feed.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:07 10.71.56.0 u106583684 open "/public/images/icons/forum.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:07 10.71.56.0 u106583684 close "/public/images/icons/feed.svg" bytes read 0 written 3980
+Nov 24 13:48:07 10.71.56.0 u106583684 [10.71.56.0|put|0|3980|0|0|0|2f7075626c69632f696d616765732f69636f6e732f666565642e737667|]
+Nov 24 13:48:07 10.71.56.0 u106583684 close "/public/images/icons/forum.svg" bytes read 0 written 2308
+Nov 24 13:48:07 10.71.56.0 u106583684 [10.71.56.0|put|0|2308|0|0|0|2f7075626c69632f696d616765732f69636f6e732f666f72756d2e737667|]
+Nov 24 13:48:07 10.71.56.0 u106583684 open "/public/images/icons/msg.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:07 10.71.56.0 u106583684 open "/public/images/icons/profil.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:07 10.71.56.0 u106583684 close "/public/images/icons/profil.svg" bytes read 0 written 2757
+Nov 24 13:48:07 10.71.56.0 u106583684 [10.71.56.0|put|0|2757|0|0|0|2f7075626c69632f696d616765732f69636f6e732f70726f66696c2e737667|]
+Nov 24 13:48:07 10.71.56.0 u106583684 close "/public/images/icons/msg.svg" bytes read 0 written 1018
+Nov 24 13:48:07 10.71.56.0 u106583684 [10.71.56.0|put|0|1018|0|0|0|2f7075626c69632f696d616765732f69636f6e732f6d73672e737667|]
+Nov 24 13:48:07 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:48:07 10.71.56.0 u106583684 open "/public/images/icons/upload.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:07 10.71.56.0 u106583684 close "/public/images/icons/upload.svg" bytes read 0 written 360
+Nov 24 13:48:07 10.71.56.0 u106583684 [10.71.56.0|put|0|360|0|0|0|2f7075626c69632f696d616765732f69636f6e732f75706c6f61642e737667|]
+Nov 24 13:48:07 10.71.56.0 u106583684 mkdir name "/public/images/presentation" mode 0777
+Nov 24 13:48:07 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e|]
+Nov 24 13:48:08 10.71.56.0 u106583684 open "/public/images/presentation/amelie.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:08 10.71.56.0 u106583684 open "/public/images/presentation/clementine.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:09 10.71.56.0 u106583684 close "/public/images/presentation/clementine.jpg" bytes read 0 written 87177
+Nov 24 13:48:09 10.71.56.0 u106583684 [10.71.56.0|put|1|87177|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f636c656d656e74696e652e6a7067|]
+Nov 24 13:48:09 10.71.56.0 u106583684 open "/public/images/presentation/coworking.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:10 10.71.56.0 u106583684 close "/public/images/presentation/coworking.jpg" bytes read 0 written 112184
+Nov 24 13:48:10 10.71.56.0 u106583684 [10.71.56.0|put|1|112184|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f636f776f726b696e672e6a7067|]
+Nov 24 13:48:10 10.71.56.0 u106583684 open "/public/images/presentation/facebook.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:10 10.71.56.0 u106583684 close "/public/images/presentation/facebook.svg" bytes read 0 written 474
+Nov 24 13:48:10 10.71.56.0 u106583684 [10.71.56.0|put|0|474|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f66616365626f6f6b2e737667|]
+Nov 24 13:48:10 10.71.56.0 u106583684 open "/public/images/presentation/instagram.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:11 10.71.56.0 u106583684 close "/public/images/presentation/instagram.svg" bytes read 0 written 2944
+Nov 24 13:48:11 10.71.56.0 u106583684 [10.71.56.0|put|0|2944|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f696e7374616772616d2e737667|]
+Nov 24 13:48:11 10.71.56.0 u106583684 open "/public/images/presentation/linkedin.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:11 10.71.56.0 u106583684 close "/public/images/presentation/linkedin.svg" bytes read 0 written 840
+Nov 24 13:48:11 10.71.56.0 u106583684 [10.71.56.0|put|0|840|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f6c696e6b6564696e2e737667|]
+Nov 24 13:48:11 10.71.56.0 u106583684 open "/public/images/presentation/logo.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:11 10.71.56.0 u106583684 close "/public/images/presentation/amelie.jpg" bytes read 0 written 232976
+Nov 24 13:48:11 10.71.56.0 u106583684 [10.71.56.0|put|3|232976|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f616d656c69652e6a7067|]
+Nov 24 13:48:11 10.71.56.0 u106583684 close "/public/images/presentation/logo.svg" bytes read 0 written 5088
+Nov 24 13:48:11 10.71.56.0 u106583684 [10.71.56.0|put|0|5088|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f6c6f676f2e737667|]
+Nov 24 13:48:11 10.71.56.0 u106583684 open "/public/images/presentation/lucien.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:11 10.71.56.0 u106583684 open "/public/images/presentation/marin.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:12 10.71.56.0 u106583684 close "/public/images/presentation/marin.jpg" bytes read 0 written 59488
+Nov 24 13:48:12 10.71.56.0 u106583684 [10.71.56.0|put|1|59488|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f6d6172696e2e6a7067|]
+Nov 24 13:48:12 10.71.56.0 u106583684 open "/public/images/presentation/matthis.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:14 10.71.56.0 u106583684 close "/public/images/presentation/lucien.jpg" bytes read 0 written 405773
+Nov 24 13:48:14 10.71.56.0 u106583684 [10.71.56.0|put|3|405773|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f6c756369656e2e6a7067|]
+Nov 24 13:48:14 10.71.56.0 u106583684 open "/public/images/presentation/tiktok.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:15 10.71.56.0 u106583684 close "/public/images/presentation/tiktok.svg" bytes read 0 written 519
+Nov 24 13:48:15 10.71.56.0 u106583684 [10.71.56.0|put|1|519|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f74696b746f6b2e737667|]
+Nov 24 13:48:16 10.71.56.0 u106583684 open "/public/images/presentation/twitter.svg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:16 10.71.56.0 u106583684 close "/public/images/presentation/twitter.svg" bytes read 0 written 1382
+Nov 24 13:48:16 10.71.56.0 u106583684 [10.71.56.0|put|0|1382|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f747769747465722e737667|]
+Nov 24 13:48:16 10.71.56.0 u106583684 close "/public/images/presentation/matthis.jpg" bytes read 0 written 897691
+Nov 24 13:48:16 10.71.56.0 u106583684 [10.71.56.0|put|4|897691|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f6d6174746869732e6a7067|]
+Nov 24 13:48:16 10.71.56.0 u106583684 open "/public/images/presentation/zoe.jpg" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:16 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:48:19 10.71.56.0 u106583684 mkdir name "/vendor" mode 0777
+Nov 24 13:48:19 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f76656e646f72|]
+Nov 24 13:48:25 10.71.56.0 u106583684 open "/vendor/jquery-3.6.0.min.js" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:26 10.71.56.0 u106583684 close "/vendor/jquery-3.6.0.min.js" bytes read 0 written 89503
+Nov 24 13:48:26 10.71.56.0 u106583684 [10.71.56.0|put|1|89503|0|0|0|2f76656e646f722f6a71756572792d332e362e302e6d696e2e6a73|]
+Nov 24 13:48:27 10.71.56.0 u106583684 sent status No such file
+Nov 24 13:48:28 10.71.56.0 u106583684 close "/public/images/presentation/zoe.jpg" bytes read 0 written 3328347
+Nov 24 13:48:28 10.71.56.0 u106583684 [10.71.56.0|put|12|3328347|0|0|0|2f7075626c69632f696d616765732f70726573656e746174696f6e2f7a6f652e6a7067|]
+Nov 24 13:48:28 10.71.56.0 u106583684 mkdir name "/view" mode 0777
+Nov 24 13:48:28 10.71.56.0 u106583684 [10.71.56.0|mkdir|0|0|511|0|0|2f76696577|]
+Nov 24 13:48:29 10.71.56.0 u106583684 open "/view/articleView.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:29 10.71.56.0 u106583684 open "/view/blogView.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:29 10.71.56.0 u106583684 close "/view/articleView.php" bytes read 0 written 1283
+Nov 24 13:48:29 10.71.56.0 u106583684 close "/view/blogView.php" bytes read 0 written 1078
+Nov 24 13:48:29 10.71.56.0 u106583684 [10.71.56.0|put|0|1283|0|0|0|2f766965772f61727469636c65566965772e706870|]
+Nov 24 13:48:29 10.71.56.0 u106583684 [10.71.56.0|put|0|1078|0|0|0|2f766965772f626c6f67566965772e706870|]
+Nov 24 13:48:29 10.71.56.0 u106583684 open "/view/errorView.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:29 10.71.56.0 u106583684 open "/view/legalView.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:29 10.71.56.0 u106583684 close "/view/errorView.php" bytes read 0 written 938
+Nov 24 13:48:29 10.71.56.0 u106583684 [10.71.56.0|put|0|938|0|0|0|2f766965772f6572726f72566965772e706870|]
+Nov 24 13:48:29 10.71.56.0 u106583684 close "/view/legalView.php" bytes read 0 written 3711
+Nov 24 13:48:29 10.71.56.0 u106583684 [10.71.56.0|put|0|3711|0|0|0|2f766965772f6c6567616c566965772e706870|]
+Nov 24 13:48:29 10.71.56.0 u106583684 open "/view/presentationView.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 13:48:29 10.71.56.0 u106583684 close "/view/presentationView.php" bytes read 0 written 6289
+Nov 24 13:48:29 10.71.56.0 u106583684 [10.71.56.0|put|0|6289|0|0|0|2f766965772f70726573656e746174696f6e566965772e706870|]
+Nov 24 13:49:29 10.71.56.0 u106583684 session closed for local user u106583684 from [10.71.56.0]
+Nov 24 13:49:29 10.71.56.0 u106583684 Connection closed by 10.71.56.0 port 36310
+Nov 24 13:49:30 10.71.56.0 u106583684 session closed for local user u106583684 from [10.71.56.0]
+Nov 24 13:49:30 10.71.56.0 u106583684 Connection closed by 10.71.56.0 port 36298
+Nov 24 13:59:45 10.71.57.0 tmp106583684-3387 Connection from 10.71.57.0 port 53928 on 82.165.88.154 port 22
+Nov 24 13:59:46 10.71.57.0 tmp106583684-3387 Accepted password for tmp106583684-3387 from 10.71.57.0 port 53928 ssh2
+Nov 24 13:59:46 10.71.57.0 tmp106583684-3387 Starting session: subsystem 'sftp' for tmp106583684-3387 from 10.71.57.0 port 53928 id 0
+Nov 24 13:59:46 10.71.57.0 tmp106583684-3387 session opened for local user tmp106583684-3387 from [10.71.57.0]
+Nov 24 14:10:11 10.71.57.0 tmp106583684-2773 Connection from 10.71.57.0 port 21260 on 82.165.88.154 port 22
+Nov 24 14:10:11 10.71.57.0 tmp106583684-2773 Accepted password for tmp106583684-2773 from 10.71.57.0 port 21260 ssh2
+Nov 24 14:10:11 10.71.57.0 tmp106583684-3387 open "/_.zoeyapp.fr_private_key.key" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 14:10:11 10.71.57.0 tmp106583684-3387 close "/_.zoeyapp.fr_private_key.key" bytes read 0 written 1674
+Nov 24 14:10:11 10.71.57.0 tmp106583684-3387 [10.71.57.0|put|0|1674|0|0|0|2f5f2e7a6f65796170702e66725f707269766174655f6b65792e6b6579|]
+Nov 24 14:31:01 10.71.56.0 u106583684 Connection from 10.71.56.0 port 18542 on 82.165.88.154 port 22
+Nov 24 14:31:02 10.71.56.0 u106583684 Accepted password for u106583684 from 10.71.56.0 port 18542 ssh2
+Nov 24 14:31:01 10.71.56.0 u106583684 Connection from 10.71.56.0 port 18536 on 82.165.88.154 port 22
+Nov 24 14:31:02 10.71.56.0 u106583684 Accepted password for u106583684 from 10.71.56.0 port 18536 ssh2
+Nov 24 14:31:02 10.71.56.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.56.0 port 18542 id 0
+Nov 24 14:31:02 10.71.56.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.56.0 port 18536 id 0
+Nov 24 14:31:02 10.71.56.0 u106583684 session opened for local user u106583684 from [10.71.56.0]
+Nov 24 14:31:02 10.71.56.0 u106583684 session opened for local user u106583684 from [10.71.56.0]
+Nov 24 14:31:02 10.71.56.0 u106583684 open "/php.ini" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 14:31:03 10.71.56.0 u106583684 close "/php.ini" bytes read 0 written 64
+Nov 24 14:31:03 10.71.56.0 u106583684 [10.71.56.0|put|1|64|0|0|0|2f7068702e696e69|]
+Nov 24 14:31:04 10.71.56.0 u106583684 open "/.htaccess" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 14:31:04 10.71.56.0 u106583684 close "/.htaccess" bytes read 0 written 528
+Nov 24 14:31:04 10.71.56.0 u106583684 [10.71.56.0|put|0|528|0|0|0|2f2e6874616363657373|]
+Nov 24 14:32:03 10.71.56.0 u106583684 session closed for local user u106583684 from [10.71.56.0]
+Nov 24 14:32:03 10.71.56.0 u106583684 Connection closed by 10.71.56.0 port 18536
+Nov 24 14:32:04 10.71.56.0 u106583684 session closed for local user u106583684 from [10.71.56.0]
+Nov 24 14:32:04 10.71.56.0 u106583684 Connection closed by 10.71.56.0 port 18542
+Nov 24 14:33:06 10.71.56.0 u106583684 remove name "/php.ini"
+Nov 24 14:33:06 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f7068702e696e69|]
+Nov 24 14:33:25 10.71.56.0 u106583684 remove name "/.htaccess"
+Nov 24 14:33:25 10.71.56.0 u106583684 [10.71.56.0|rm|0|0|0|0|0|2f2e6874616363657373|]
+Nov 24 14:33:56 10.71.56.0 u106583684 Connection from 10.71.56.0 port 37756 on 82.165.88.154 port 22
+Nov 24 14:33:57 10.71.56.0 u106583684 Accepted password for u106583684 from 10.71.56.0 port 37756 ssh2
+Nov 24 14:33:56 10.71.56.0 u106583684 Connection from 10.71.56.0 port 37758 on 82.165.88.154 port 22
+Nov 24 14:33:57 10.71.56.0 u106583684 Accepted password for u106583684 from 10.71.56.0 port 37758 ssh2
+Nov 24 14:33:57 10.71.56.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.56.0 port 37756 id 0
+Nov 24 14:33:57 10.71.56.0 u106583684 session opened for local user u106583684 from [10.71.56.0]
+Nov 24 14:33:57 10.71.56.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.56.0 port 37758 id 0
+Nov 24 14:33:57 10.71.56.0 u106583684 session opened for local user u106583684 from [10.71.56.0]
+Nov 24 14:33:57 10.71.56.0 u106583684 open "/php.ini" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 14:33:57 10.71.56.0 u106583684 close "/php.ini" bytes read 0 written 64
+Nov 24 14:33:57 10.71.56.0 u106583684 [10.71.56.0|put|0|64|0|0|0|2f7068702e696e69|]
+Nov 24 14:33:57 10.71.56.0 u106583684 open "/.htaccess" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 14:33:57 10.71.56.0 u106583684 close "/.htaccess" bytes read 0 written 528
+Nov 24 14:33:57 10.71.56.0 u106583684 [10.71.56.0|put|0|528|0|0|0|2f2e6874616363657373|]
+Nov 24 14:34:57 10.71.56.0 u106583684 session closed for local user u106583684 from [10.71.56.0]
+Nov 24 14:34:57 10.71.56.0 u106583684 Connection closed by 10.71.56.0 port 37756
+Nov 24 14:34:57 10.71.56.0 u106583684 session closed for local user u106583684 from [10.71.56.0]
+Nov 24 14:34:57 10.71.56.0 u106583684 Connection closed by 10.71.56.0 port 37758
+Nov 24 14:41:11 10.71.56.0 u106583684 Connection from 10.71.56.0 port 39360 on 82.165.88.154 port 22
+Nov 24 14:41:11 10.71.56.0 u106583684 Accepted password for u106583684 from 10.71.56.0 port 39360 ssh2
+Nov 24 14:41:11 10.71.56.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.56.0 port 39360 id 0
+Nov 24 14:41:11 10.71.56.0 u106583684 session opened for local user u106583684 from [10.71.56.0]
+Nov 24 14:41:17 10.71.57.0 u106583684 Connection from 10.71.57.0 port 56810 on 82.165.88.154 port 22
+Nov 24 14:41:21 10.71.57.0 u106583684 Accepted password for u106583684 from 10.71.57.0 port 56810 ssh2
+Nov 24 14:41:21 10.71.57.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.57.0 port 56810 id 0
+Nov 24 14:41:21 10.71.57.0 u106583684 session opened for local user u106583684 from [10.71.57.0]
+Nov 24 14:42:03 10.71.57.0 u106583684 mkdir name "/zoey" mode 0777
+Nov 24 14:42:03 10.71.57.0 u106583684 [10.71.57.0|mkdir|0|0|511|0|0|2f7a6f6579|]
+Nov 24 14:42:14 10.71.57.0 u106583684 rename old "/controller" new "/zoey/controller"
+Nov 24 14:42:14 10.71.57.0 u106583684 [10.71.57.0|rename|0|0|0|0|0|2f636f6e74726f6c6c6572|2f7a6f65792f636f6e74726f6c6c6572]
+Nov 24 14:42:14 10.71.57.0 u106583684 rename old "/model" new "/zoey/model"
+Nov 24 14:42:14 10.71.57.0 u106583684 [10.71.57.0|rename|0|0|0|0|0|2f6d6f64656c|2f7a6f65792f6d6f64656c]
+Nov 24 14:42:14 10.71.57.0 u106583684 rename old "/public" new "/zoey/public"
+Nov 24 14:42:14 10.71.57.0 u106583684 [10.71.57.0|rename|0|0|0|0|0|2f7075626c6963|2f7a6f65792f7075626c6963]
+Nov 24 14:42:14 10.71.57.0 u106583684 rename old "/vendor" new "/zoey/vendor"
+Nov 24 14:42:14 10.71.57.0 u106583684 [10.71.57.0|rename|0|0|0|0|0|2f76656e646f72|2f7a6f65792f76656e646f72]
+Nov 24 14:42:14 10.71.57.0 u106583684 rename old "/view" new "/zoey/view"
+Nov 24 14:42:14 10.71.57.0 u106583684 [10.71.57.0|rename|0|0|0|0|0|2f76696577|2f7a6f65792f76696577]
+Nov 24 14:42:14 10.71.57.0 u106583684 rename old "/.htaccess" new "/zoey/.htaccess"
+Nov 24 14:42:14 10.71.57.0 u106583684 [10.71.57.0|rename|0|0|0|0|0|2f2e6874616363657373|2f7a6f65792f2e6874616363657373]
+Nov 24 14:42:14 10.71.57.0 u106583684 rename old "/index.php" new "/zoey/index.php"
+Nov 24 14:42:14 10.71.57.0 u106583684 [10.71.57.0|rename|0|0|0|0|0|2f696e6465782e706870|2f7a6f65792f696e6465782e706870]
+Nov 24 14:42:15 10.71.57.0 u106583684 rename old "/php.ini" new "/zoey/php.ini"
+Nov 24 14:42:15 10.71.57.0 u106583684 [10.71.57.0|rename|0|0|0|0|0|2f7068702e696e69|2f7a6f65792f7068702e696e69]
+Nov 24 14:42:30 10.71.57.0 u106583684 Connection from 10.71.57.0 port 62970 on 82.165.88.154 port 22
+Nov 24 14:42:31 10.71.57.0 u106583684 Accepted password for u106583684 from 10.71.57.0 port 62970 ssh2
+Nov 24 14:42:31 10.71.57.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.57.0 port 62970 id 0
+Nov 24 14:42:31 10.71.57.0 u106583684 session opened for local user u106583684 from [10.71.57.0]
+Nov 24 14:42:31 10.71.57.0 u106583684 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 14:42:31 10.71.57.0 u106583684 close "/index.php" bytes read 0 written 13
+Nov 24 14:42:31 10.71.57.0 u106583684 [10.71.57.0|put|0|13|0|0|0|2f696e6465782e706870|]
+Nov 24 14:43:31 10.71.57.0 u106583684 Connection closed by 10.71.57.0 port 62970
+Nov 24 14:43:31 10.71.57.0 u106583684 session closed for local user u106583684 from [10.71.57.0]
+Nov 24 14:44:03 10.71.57.0 u106583684 Connection from 10.71.57.0 port 45842 on 82.165.88.154 port 22
+Nov 24 14:44:04 10.71.57.0 u106583684 Accepted password for u106583684 from 10.71.57.0 port 45842 ssh2
+Nov 24 14:44:04 10.71.57.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.57.0 port 45842 id 0
+Nov 24 14:44:04 10.71.57.0 u106583684 session opened for local user u106583684 from [10.71.57.0]
+Nov 24 14:44:06 10.71.57.0 u106583684 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 14:44:06 10.71.57.0 u106583684 close "/index.php" bytes read 0 written 15
+Nov 24 14:44:06 10.71.57.0 u106583684 [10.71.57.0|put|0|15|0|0|0|2f696e6465782e706870|]
+Nov 24 14:45:06 10.71.57.0 u106583684 Connection closed by 10.71.57.0 port 45842
+Nov 24 14:45:06 10.71.57.0 u106583684 session closed for local user u106583684 from [10.71.57.0]
+Nov 24 14:48:08 10.71.57.0 u106583684 Connection closed by 10.71.57.0 port 56810
+Nov 24 14:48:08 10.71.57.0 u106583684 session closed for local user u106583684 from [10.71.57.0]
+Nov 24 14:48:09 10.71.57.0 u106583684 Connection from 10.71.57.0 port 23188 on 82.165.88.154 port 22
+Nov 24 14:48:09 10.71.57.0 u106583684 Accepted password for u106583684 from 10.71.57.0 port 23188 ssh2
+Nov 24 14:48:09 10.71.57.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.57.0 port 23188 id 0
+Nov 24 14:48:09 10.71.57.0 u106583684 session opened for local user u106583684 from [10.71.57.0]
+Nov 24 14:48:16 10.71.57.0 u106583684 Connection from 10.71.57.0 port 35768 on 82.165.88.154 port 22
+Nov 24 14:48:16 10.71.57.0 u106583684 Accepted password for u106583684 from 10.71.57.0 port 35768 ssh2
+Nov 24 14:48:16 10.71.57.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.57.0 port 35768 id 0
+Nov 24 14:48:16 10.71.57.0 u106583684 session opened for local user u106583684 from [10.71.57.0]
+Nov 24 14:48:19 10.71.57.0 u106583684 open "/index.php" flags READ mode 0666
+Nov 24 14:48:19 10.71.57.0 u106583684 close "/index.php" bytes read 15 written 0
+Nov 24 14:48:19 10.71.57.0 u106583684 [10.71.57.0|get|0|15|0|0|0|2f696e6465782e706870|]
+Nov 24 14:49:19 10.71.57.0 u106583684 Connection closed by 10.71.57.0 port 35768
+Nov 24 14:49:19 10.71.57.0 u106583684 session closed for local user u106583684 from [10.71.57.0]
+Nov 24 14:55:11 10.71.57.0 u106583684 Connection from 10.71.57.0 port 38954 on 82.165.88.154 port 22
+Nov 24 14:55:11 10.71.57.0 u106583684 Accepted password for u106583684 from 10.71.57.0 port 38954 ssh2
+Nov 24 14:55:11 10.71.57.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.57.0 port 38954 id 0
+Nov 24 14:55:11 10.71.57.0 u106583684 session opened for local user u106583684 from [10.71.57.0]
+Nov 24 14:55:13 10.71.57.0 u106583684 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 14:55:13 10.71.57.0 u106583684 close "/index.php" bytes read 0 written 13
+Nov 24 14:55:13 10.71.57.0 u106583684 [10.71.57.0|put|0|13|0|0|0|2f696e6465782e706870|]
+Nov 24 14:55:22 10.71.56.0 u106583684 sent status No such file
+Nov 24 14:55:23 10.71.56.0 u106583684 sent status No such file
+Nov 24 14:55:27 10.71.57.0 u106583684 open "/php.ini" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 14:55:27 10.71.57.0 u106583684 close "/php.ini" bytes read 0 written 63
+Nov 24 14:55:27 10.71.57.0 u106583684 [10.71.57.0|put|0|63|0|0|0|2f7068702e696e69|]
+Nov 24 14:55:27 10.71.57.0 u106583684 Connection from 10.71.57.0 port 13634 on 82.165.88.154 port 22
+Nov 24 14:55:27 10.71.57.0 u106583684 Accepted password for u106583684 from 10.71.57.0 port 13634 ssh2
+Nov 24 14:55:27 10.71.57.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.57.0 port 13634 id 0
+Nov 24 14:55:27 10.71.57.0 u106583684 session opened for local user u106583684 from [10.71.57.0]
+Nov 24 14:55:27 10.71.57.0 u106583684 open "/.htaccess" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 14:55:27 10.71.57.0 u106583684 close "/.htaccess" bytes read 0 written 509
+Nov 24 14:55:27 10.71.57.0 u106583684 [10.71.57.0|put|0|509|0|0|0|2f2e6874616363657373|]
+Nov 24 14:55:32 10.71.56.0 u106583684 sent status No such file
+Nov 24 14:55:37 10.71.56.0 u106583684 Connection from 10.71.56.0 port 27096 on 82.165.88.154 port 22
+Nov 24 14:55:37 10.71.56.0 u106583684 Accepted password for u106583684 from 10.71.56.0 port 27096 ssh2
+Nov 24 14:55:37 10.71.56.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.56.0 port 27096 id 0
+Nov 24 14:55:37 10.71.56.0 u106583684 session opened for local user u106583684 from [10.71.56.0]
+Nov 24 14:56:02 10.71.57.0 u106583684 remove name "/php.ini"
+Nov 24 14:56:02 10.71.57.0 u106583684 [10.71.57.0|rm|0|0|0|0|0|2f7068702e696e69|]
+Nov 24 14:56:17 10.71.56.0 u106583684 Connection from 10.71.56.0 port 31626 on 82.165.88.154 port 22
+Nov 24 14:56:17 10.71.56.0 u106583684 Accepted password for u106583684 from 10.71.56.0 port 31626 ssh2
+Nov 24 14:56:17 10.71.56.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.56.0 port 31626 id 0
+Nov 24 14:56:17 10.71.56.0 u106583684 session opened for local user u106583684 from [10.71.56.0]
+Nov 24 14:56:20 10.71.56.0 u106583684 open "/zoey/public/css/style.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 14:56:20 10.71.56.0 u106583684 close "/zoey/public/css/style.css" bytes read 0 written 6532
+Nov 24 14:56:20 10.71.56.0 u106583684 [10.71.56.0|put|0|6532|0|0|0|2f7a6f65792f7075626c69632f6373732f7374796c652e637373|]
+Nov 24 14:56:26 10.71.56.0 u106583684 open "/zoey/public/css/style_presentation.css" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 14:56:26 10.71.56.0 u106583684 close "/zoey/public/css/style_presentation.css" bytes read 0 written 2871
+Nov 24 14:56:26 10.71.56.0 u106583684 [10.71.56.0|put|0|2871|0|0|0|2f7a6f65792f7075626c69632f6373732f7374796c655f70726573656e746174696f6e2e637373|]
+Nov 24 14:56:28 10.71.57.0 u106583684 Connection closed by 10.71.57.0 port 13634
+Nov 24 14:56:28 10.71.57.0 u106583684 session closed for local user u106583684 from [10.71.57.0]
+Nov 24 14:56:46 10.71.57.0 u106583684 open "/.htaccess" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 14:56:46 10.71.57.0 u106583684 close "/.htaccess" bytes read 0 written 1326
+Nov 24 14:56:46 10.71.57.0 u106583684 [10.71.57.0|put|0|1326|0|0|0|2f2e6874616363657373|]
+Nov 24 14:56:51 10.71.56.0 u106583684 open "/zoey/view/presentationView.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 14:56:52 10.71.56.0 u106583684 close "/zoey/view/presentationView.php" bytes read 0 written 6312
+Nov 24 14:56:52 10.71.56.0 u106583684 [10.71.56.0|put|1|6312|0|0|0|2f7a6f65792f766965772f70726573656e746174696f6e566965772e706870|]
+Nov 24 14:57:25 10.71.57.0 u106583684 open "/php.ini" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 14:57:25 10.71.57.0 u106583684 close "/php.ini" bytes read 0 written 63
+Nov 24 14:57:25 10.71.57.0 u106583684 [10.71.57.0|put|0|63|0|0|0|2f7068702e696e69|]
+Nov 24 14:57:52 10.71.56.0 u106583684 session closed for local user u106583684 from [10.71.56.0]
+Nov 24 14:57:52 10.71.56.0 u106583684 Connection closed by 10.71.56.0 port 31626
+Nov 24 14:58:25 10.71.57.0 u106583684 Connection closed by 10.71.57.0 port 38954
+Nov 24 14:58:25 10.71.57.0 u106583684 session closed for local user u106583684 from [10.71.57.0]
+Nov 24 15:00:55 10.71.57.0 u106583684 Connection from 10.71.57.0 port 55638 on 82.165.88.154 port 22
+Nov 24 15:00:55 10.71.57.0 u106583684 Accepted password for u106583684 from 10.71.57.0 port 55638 ssh2
+Nov 24 15:00:55 10.71.57.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.57.0 port 55638 id 0
+Nov 24 15:00:55 10.71.57.0 u106583684 session opened for local user u106583684 from [10.71.57.0]
+Nov 24 15:00:56 10.71.57.0 u106583684 open "/.htaccess" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 15:00:57 10.71.57.0 u106583684 close "/.htaccess" bytes read 0 written 513
+Nov 24 15:00:57 10.71.57.0 u106583684 [10.71.57.0|put|1|513|0|0|0|2f2e6874616363657373|]
+Nov 24 15:01:57 10.71.57.0 u106583684 Connection closed by 10.71.57.0 port 55638
+Nov 24 15:01:57 10.71.57.0 u106583684 session closed for local user u106583684 from [10.71.57.0]
+Nov 24 15:03:40 10.71.57.0 u106583684 remove name "/.htaccess"
+Nov 24 15:03:40 10.71.57.0 u106583684 [10.71.57.0|rm|0|0|0|0|0|2f2e6874616363657373|]
+Nov 24 15:03:42 10.71.57.0 u106583684 Connection from 10.71.57.0 port 54280 on 82.165.88.154 port 22
+Nov 24 15:03:43 10.71.57.0 u106583684 Accepted password for u106583684 from 10.71.57.0 port 54280 ssh2
+Nov 24 15:03:43 10.71.57.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.57.0 port 54280 id 0
+Nov 24 15:03:43 10.71.57.0 u106583684 session opened for local user u106583684 from [10.71.57.0]
+Nov 24 15:03:44 10.71.57.0 u106583684 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 15:03:44 10.71.57.0 u106583684 close "/index.php" bytes read 0 written 809
+Nov 24 15:03:44 10.71.57.0 u106583684 [10.71.57.0|put|0|809|0|0|0|2f696e6465782e706870|]
+Nov 24 15:04:05 10.71.57.0 u106583684 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 15:04:05 10.71.57.0 u106583684 close "/index.php" bytes read 0 written 27
+Nov 24 15:04:05 10.71.57.0 u106583684 [10.71.57.0|put|0|27|0|0|0|2f696e6465782e706870|]
+Nov 24 15:05:05 10.71.57.0 u106583684 Connection closed by 10.71.57.0 port 54280
+Nov 24 15:05:05 10.71.57.0 u106583684 session closed for local user u106583684 from [10.71.57.0]
+Nov 24 15:05:31 10.71.57.0 u106583684 rename old "/php.ini" new "/user.ini"
+Nov 24 15:05:31 10.71.57.0 u106583684 [10.71.57.0|rename|0|0|0|0|0|2f7068702e696e69|2f757365722e696e69]
+Nov 24 15:06:23 10.71.57.0 u106583684 Connection from 10.71.57.0 port 51448 on 82.165.88.154 port 22
+Nov 24 15:06:23 10.71.57.0 u106583684 Accepted password for u106583684 from 10.71.57.0 port 51448 ssh2
+Nov 24 15:06:24 10.71.57.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.57.0 port 51448 id 0
+Nov 24 15:06:24 10.71.57.0 u106583684 session opened for local user u106583684 from [10.71.57.0]
+Nov 24 15:06:26 10.71.57.0 u106583684 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 15:06:26 10.71.57.0 u106583684 close "/index.php" bytes read 0 written 16
+Nov 24 15:06:26 10.71.57.0 u106583684 [10.71.57.0|put|0|16|0|0|0|2f696e6465782e706870|]
+Nov 24 15:06:42 10.71.57.0 u106583684 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Nov 24 15:06:42 10.71.57.0 u106583684 close "/index.php" bytes read 0 written 13
+Nov 24 15:06:42 10.71.57.0 u106583684 [10.71.57.0|put|0|13|0|0|0|2f696e6465782e706870|]
+Nov 24 15:07:42 10.71.57.0 u106583684 Connection closed by 10.71.57.0 port 51448
+Nov 24 15:07:42 10.71.57.0 u106583684 session closed for local user u106583684 from [10.71.57.0]
+Nov 24 15:07:56 10.71.57.0 u106583684 sent status No such file
+Nov 24 15:07:57 10.71.57.0 u106583684 Connection from 10.71.57.0 port 40694 on 82.165.88.154 port 22
+Nov 24 15:07:57 10.71.57.0 u106583684 Accepted password for u106583684 from 10.71.57.0 port 40694 ssh2
+Nov 24 15:07:57 10.71.57.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.57.0 port 40694 id 0
+Nov 24 15:07:57 10.71.57.0 u106583684 session opened for local user u106583684 from [10.71.57.0]
+Nov 24 15:07:57 10.71.57.0 u106583684 open "/logs/access.log.47.3" flags READ mode 0666
+Nov 24 15:07:58 10.71.57.0 u106583684 close "/logs/access.log.47.3" bytes read 146440 written 0
+Nov 24 15:07:58 10.71.57.0 u106583684 [10.71.57.0|get|1|146440|0|0|0|2f6c6f67732f6163636573732e6c6f672e34372e33|]
+Nov 24 15:08:58 10.71.57.0 u106583684 Connection closed by 10.71.57.0 port 40694
+Nov 24 15:08:58 10.71.57.0 u106583684 session closed for local user u106583684 from [10.71.57.0]
+Nov 24 15:13:18 10.71.57.0 u106583684 Connection from 10.71.57.0 port 14106 on 82.165.88.154 port 22
+Nov 24 15:13:18 10.71.57.0 u106583684 Accepted password for u106583684 from 10.71.57.0 port 14106 ssh2
+Nov 24 15:13:18 10.71.57.0 u106583684 Connection from 10.71.57.0 port 14088 on 82.165.88.154 port 22
+Nov 24 15:13:18 10.71.57.0 u106583684 Accepted password for u106583684 from 10.71.57.0 port 14088 ssh2
+Nov 24 15:13:18 10.71.57.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.57.0 port 14088 id 0
+Nov 24 15:13:18 10.71.57.0 u106583684 Starting session: subsystem 'sftp' for u106583684 from 10.71.57.0 port 14106 id 0
+Nov 24 15:13:18 10.71.57.0 u106583684 session opened for local user u106583684 from [10.71.57.0]
+Nov 24 15:13:18 10.71.57.0 u106583684 session opened for local user u106583684 from [10.71.57.0]
+Nov 24 15:13:18 10.71.57.0 u106583684 open "/logs/.htaccess" flags READ mode 0666
+Nov 24 15:13:18 10.71.57.0 u106583684 open "/logs/access.log.47.3" flags READ mode 0666
+Nov 24 15:13:18 10.71.57.0 u106583684 close "/logs/.htaccess" bytes read 268 written 0
+Nov 24 15:13:18 10.71.57.0 u106583684 [10.71.57.0|get|0|268|0|0|0|2f6c6f67732f2e6874616363657373|]
+Nov 24 15:13:19 10.71.57.0 u106583684 open "/logs/info.php5" flags READ mode 0666
+Nov 24 15:13:19 10.71.57.0 u106583684 close "/logs/access.log.47.3" bytes read 149349 written 0
+Nov 24 15:13:19 10.71.57.0 u106583684 [10.71.57.0|get|1|149349|0|0|0|2f6c6f67732f6163636573732e6c6f672e34372e33|]
+Nov 24 15:13:19 10.71.57.0 u106583684 open "/logs/info.pl" flags READ mode 0666
+Nov 24 15:13:19 10.71.57.0 u106583684 close "/logs/info.php5" bytes read 21 written 0
+Nov 24 15:13:19 10.71.57.0 u106583684 [10.71.57.0|get|0|21|0|0|0|2f6c6f67732f696e666f2e70687035|]
+Nov 24 15:13:19 10.71.57.0 u106583684 open "/logs/info.py" flags READ mode 0666
+Nov 24 15:13:19 10.71.57.0 u106583684 close "/logs/info.pl" bytes read 4176 written 0
+Nov 24 15:13:19 10.71.57.0 u106583684 [10.71.57.0|get|0|4176|0|0|0|2f6c6f67732f696e666f2e706c|]
+Nov 24 15:13:19 10.71.57.0 u106583684 open "/logs/sftp.log" flags READ mode 0666
+Nov 24 15:13:19 10.71.57.0 u106583684 close "/logs/info.py" bytes read 6384 written 0
+Nov 24 15:13:19 10.71.57.0 u106583684 [10.71.57.0|get|0|6384|0|0|0|2f6c6f67732f696e666f2e7079|]

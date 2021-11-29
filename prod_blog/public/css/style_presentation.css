@@ -186,3 +186,13 @@ main{
         justify-content: space-between;
     }
 }
+
+.mockupImg{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.mockupImg img{
+    width: 50vw;
+    height: auto;
+}
