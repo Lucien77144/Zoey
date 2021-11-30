@@ -24,7 +24,7 @@ ob_start();
             <input type="text" name="prenom" id="prenom" placeholder="prenom" required='required'>
         </div>
 
-        <div class="localisationContainer">
+        <!-- <div class="localisationContainer">
             <div class="cityContainer">
                 <label for="ville">Localisation </label>
                 <input type="text" name="ville" id="ville" placeholder="ville" required='required'>
@@ -33,7 +33,7 @@ ob_start();
                 <label for="codePostal">Code postal </label>
                 <input type="number" name="codePostal" id="codePostal" pattern="[0-9]{5}" placeholder="00000" required='required'>
             </div>
-        </div>
+        </div> -->
 
         <div class="mailAndBirthContainer">
             <div class="mailContainer">
