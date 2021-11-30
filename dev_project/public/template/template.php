@@ -33,23 +33,23 @@
 
     <!-- Header / Footer -->
     <header><h1><a href="index.php">ZOEY</a></h1>
-        <!-- <div class="navbar"><a href=""><img src="msg.svg" alt=""></a><a href=""><img src="upload.svg" alt=""></a></div> -->
+        <div class="navbar"><a href="index.php?action=messages"><img src="<?= BASE_URL ?>public/images/icons/msg.svg" alt=""></a><a href="index.php?action=addpost"><img src="<?= BASE_URL ?>public/images/icons/upload.svg" alt=""></a></div>
     </header>
     <nav class="menu">
         <div class="menuInner">
             <a href="index.php?action=blog"><img src="<?= BASE_URL ?>public/images/icons/actus.svg" alt="Page actus"><h2>Actus</h2></a>
-            <!-- <a href=""><img src="<?= BASE_URL ?>public/images/icons/forum.svg" alt="Page actualitées"><h2>Forum</h2></a> -->
+            <a href=""><img src="<?= BASE_URL ?>public/images/icons/forum.svg" alt="Page actualitées"><h2>Forum</h2></a> <!-- forum lien à rajouter -->
         </div>
         <svg width="112px" height="100px" viewBox="0 0 112 100">
             <path fill="white" d="M112 100V0C112 0 100.652 47.3435 54.7663 47.3435C8.88072 47.3435 0 0 0 0V100H112Z"/>
         </svg>
         <div class="menuInner"> 
-            <a href="index.php?action=presentation"><img src="<?= BASE_URL ?>public/images/icons/profil.svg" alt="Page qui sommes-nous ?"><h2>Qui sommes-nous ?</h2></a>
-            <!-- <a href=""><img src="<?= BASE_URL ?>public/images/icons/adoption.svg" alt="Page profil"><h2>Adoption</h2></a>
-            <a href=""><img src="<?= BASE_URL ?>public/images/icons/profil.svg" alt="Page profil"><h2>Profil</h2></a> -->
+            <!-- <a href="index.php?action=presentation"><img src="<?= BASE_URL ?>public/images/icons/profil.svg" alt="Page qui sommes-nous ?"><h2>Qui sommes-nous ?</h2></a> -->
+            <a href="index.php?action=adoption"><img src="<?= BASE_URL ?>public/images/icons/adoption.svg" alt="Page profil"><h2>Adoption</h2></a>
+            <a href="index.php?action=account"><img src="<?= BASE_URL ?>public/images/icons/profil.svg" alt="Page profil"><h2>Profil</h2></a>
         </div>                           
     </nav>
-    <a class="feed" href=""><img src="<?= BASE_URL ?>public/images/icons/feed.svg" alt=""></a>
+    <a class="feed" href="index.php"><img src="<?= BASE_URL ?>public/images/icons/feed.svg" alt=""></a>
     <nav class="menu menuBlur">
         <svg width="112px" height="100px" viewBox="0 0 112 100">
             <path fill="rgba(0, 0, 0, 0.5)" d="M112 100V0C112 0 100.652 47.3435 54.7663 47.3435C8.88072 47.3435 0 0 0 0V100H112Z"/>
