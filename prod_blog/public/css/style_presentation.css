@@ -93,7 +93,7 @@ section .title2{
     color: black;
     font-weight: 700;
     font-family: "Roboto", sans-serif;
-    margin: 10px 0;
+    margin: 10px 0 10px 0;
     transition: 0.25s ease-in-out;
 }
 
@@ -151,11 +151,11 @@ main{
     .reseaux{
         flex-direction: row;
         justify-content: space-around;
-        margin: 35px 0;
+        margin: 35px 0 35px 0;
     }
     .reseaux a{
         justify-content: space-around;
-        margin: 0 1vw;
+        margin: 0 1vw 0 1vw;
         width: 135px;
     }
     .tres{
@@ -177,6 +177,11 @@ main{
     section{
         padding: 2vw;
         justify-content: space-between;
+    }
+    .mockupImg::before{
+        height: 101%;
+        width: 100.5%;
+        transform: translate(-50%,-50%) rotate(2deg);
     }
 }
 
