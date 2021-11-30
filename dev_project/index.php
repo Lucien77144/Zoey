@@ -26,6 +26,8 @@ try{
             }
         } else if ($_GET['action'] == 'presentation'){
             printPresentation();
+        } else if ($_GET['action'] == 'quizz'){
+            printQuizz();
         } else if ($_GET['action'] == 'legal'){
             printLegal();
         } else if ($_GET['action'] == 'subscribe'){

@@ -71,7 +71,7 @@
                 <input type="email" name="email" id="newsletterMail" placeholder="Votre e-mail *" required>
                 <input type="submit" value="S'abonner" id="submitNewsletter">
                 <p>*: Champs obligatoires</p>
-                <span id="confirmationMessage"></span>
+                <span id="confirmationMessageNewsletter"></span>
             </form>
         <?php
     }

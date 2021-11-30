@@ -227,8 +227,8 @@ $(document).ready(function(){
                     );
                     console.log('valid 1 !!')
                 } else {
-                    $('#confirmationMessage').html('');
-                    $('#confirmationMessage').text(
+                    $('#confirmationMessageNewsletter').html('');
+                    $('#confirmationMessageNewsletter').text(
                         `Cette adresse mail n'est pas valide`
                     );
                 }

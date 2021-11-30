@@ -5,15 +5,14 @@ ob_start();
 
 <div class="subscribe">
     <h1>Inscrivez vous !</h1>
-    <form class="subscribeForm" action="">
-
+    <form class="subscribeForm">
 
         <div class="accountContainer">
             <div class="pseudoContainer formContent">
                 <label for="pseudo">Pseudo / photo de profil *</label>
                 <input type="text" name="pseudo" id="pseudoSubscribe" placeholder="pseudo" required='required'>
-                <input type="file" id="upload" hidden />
-                <label class="choose_photo" for="upload">Choisir une photo</label>
+                <input type="file" id="media" hidden />
+                <label class="choose_photo" for="media">Choisir une photo</label>
             </div>
         </div>
 
