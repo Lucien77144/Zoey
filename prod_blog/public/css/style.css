@@ -363,7 +363,12 @@ header>img {
   .menu {
     height: 60px;
     width: 50vw;
-    margin: 0 25vw 0 25vw;
+    margin: auto;
+    /* margin: 0 25vw 0 25vw; */
+    margin-top: 0;
+    /* margin-left: 25vw;
+    margin-right: 25vw; */
+    margin-bottom: 0;
     top: 0;
   }
 
