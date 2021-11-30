@@ -4,51 +4,39 @@ ob_start();
 ?>
 
 <div class="subscribe">
-    <h1>Bienvenue sur Zoey !</h1>
+    <h1>Inscrivez vous !</h1>
     <form class="subscribeForm" action="">
 
 
         <div class="accountContainer">
-            <div class="pseudoContainer">
-                <label for="pseudo">Pseudonyme *</label>
+            <div class="pseudoContainer formContent">
+                <label for="pseudo">Pseudo / photo de profil *</label>
                 <input type="text" name="pseudo" id="pseudoSubscribe" placeholder="pseudo" required='required'>
                 <input type="file" id="upload" hidden />
                 <label class="choose_photo" for="upload">Choisir une photo</label>
             </div>
         </div>
 
-
-        <label for="nom">Nom et prénom *</label>
-        <div class="name">
+        <div class="name formContent">
+            <label for="nom">Nom et prénom *</label>
             <input type="text" name="nom" id="nom" placeholder="nom" required='required'>
             <input type="text" name="prenom" id="prenom" placeholder="prenom" required='required'>
         </div>
-
-        <!-- <div class="localisationContainer">
-            <div class="cityContainer">
-                <label for="ville">Localisation </label>
-                <input type="text" name="ville" id="ville" placeholder="ville" required='required'>
-            </div>
-            <div class="codePostalContainer">
-                <label for="codePostal">Code postal </label>
-                <input type="number" name="codePostal" id="codePostal" pattern="[0-9]{5}" placeholder="00000" required='required'>
-            </div>
-        </div> -->
-
         <div class="mailAndBirthContainer">
-            <div class="mailContainer">
+            <div class="mailContainer formContent">
                 <label for="mail">Adresse e-mail *</label>
                 <input type="email" name="mail" id="mail" placeholder="example@zoey.fr" required='required'>
             </div>
-            <div class="dateOfBirthContainer">
+            <div class="dateOfBirthContainer formContent">
                 <label for="date_naissance">date de naissance *</label>
                 <input type="date" name="date_naissance" id="date_naissance" required='required'>
             </div>
         </div>
 
-
-        <label for="password">mot de passe</label>
-        <input type="password" name="password" id="password" required='required'>
+        <div class="formContent">
+            <label for="password">mot de passe</label>
+            <input type="password" name="password" id="password" required='required'>
+        </div>
 
         <div class="checkboxContainer">
             <input type="checkbox" name="checkbox" required='required'>
@@ -67,11 +55,12 @@ ob_start();
 <span id="ConfirmationMessage"></span>
 
 <?php
+$viewContent = ob_get_clean();
+
 // styles BLOCK
 ob_start(); ?>
 <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_subscription.css">
 <?php
 $stylesBlock = ob_get_clean();
 
-$viewContent = ob_get_clean();
 require(BASE_URL . 'public/template/template.php');
