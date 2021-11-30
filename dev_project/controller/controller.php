@@ -18,6 +18,10 @@
         require(BASE_URL . "view/presentationView.php");
     }
 
+    function printQuizz(){
+        require(BASE_URL . "view/quizzView.php");
+    }
+
     function printLegal(){
         require(BASE_URL . "view/legalView.php");
     }
