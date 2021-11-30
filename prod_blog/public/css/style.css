@@ -162,6 +162,10 @@ header>img {
   z-index: 1000000;
 }
 
+.menu svg{
+  margin: 0 -2px;
+}
+
 .feed {
   z-index: 1000;
   position: fixed;
@@ -179,9 +183,8 @@ header>img {
 }
 
 .menuInner {
-  height: 100px;
   background-color: white;
-  width: calc(50vw - 56px);
+  width: calc(50vw - 54px);
   height: 100px;
   display: flex;
   justify-content: center;

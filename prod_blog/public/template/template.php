@@ -25,8 +25,8 @@
             <a href="index.php?action=blog"><img src="<?= BASE_URL ?>public/images/icons/actus.svg" alt="Page actus"><h2>Actus</h2></a>
             <!-- <a href=""><img src="<?= BASE_URL ?>public/images/icons/forum.svg" alt="Page actualitées"><h2>Forum</h2></a> -->
         </div>
-        <svg width="112px" height="100px" viewBox="0 0 112 100">
-            <path fill="white" d="M112 100V0C112 0 100.652 47.3435 54.7663 47.3435C8.88072 47.3435 0 0 0 0V100H112Z"/>
+        <svg width="115" height="100" viewBox="0 0 115 100">
+            <path fill="white" d="M115 100V0H113C113 0 101.403 47 56 47C10.5967 47 2 0 2 0H0V100H115Z"/>
         </svg>
         <div class="menuInner"> 
             <a href="index.php?action=presentation"><img src="<?= BASE_URL ?>public/images/icons/profil.svg" alt="Page qui sommes-nous ?"><h2>Qui sommes-nous ?</h2></a>
@@ -36,9 +36,9 @@
     </nav>
     <a class="feed" href=""><img src="<?= BASE_URL ?>public/images/icons/feed.svg" alt=""></a>
     <nav class="menu menuBlur">
-        <svg width="112px" height="100px" viewBox="0 0 112 100">
-            <path fill="rgba(0, 0, 0, 0.5)" d="M112 100V0C112 0 100.652 47.3435 54.7663 47.3435C8.88072 47.3435 0 0 0 0V100H112Z"/>
-        </svg>                          
+        <svg width="115" height="100" viewBox="0 0 115 100">
+            <path fill="rgba(0, 0, 0, 0.5)" d="M115 100V0H113C113 0 101.403 47 56 47C10.5967 47 2 0 2 0H0V100H115Z"/>
+        </svg>                     
     </nav>
 
     <!-- CONTENT -->
