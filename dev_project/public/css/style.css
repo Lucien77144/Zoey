@@ -249,6 +249,56 @@ header>img {
 .underline:hover::after{
   width: 110%;
 }
+/* Spécifiques aux popUp */
+.wrapperPopUp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+  .popUp {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    width: 90vw;
+    height: 500px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+.underline{
+  position: relative;
+}
+.croix {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
+.croix img {
+  width: 30px;
+}
+@media screen and (min-width: 660px) {
+  .popUp {
+      width: 60vw;
+  }
+}
+@media screen and (min-width: 800px) {
+.popUp {
+      width: 500px;
+  }
+
+.underline:hover::after{
+  width: 110%;
+}
 
 @keyframes animLogo {
 
@@ -390,4 +440,5 @@ header>img {
 .legalLink a{
   color: rgb(44, 44, 44);
   font-size: 0.8rem;
+}
 }
