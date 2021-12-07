@@ -26,9 +26,11 @@ function postPhoto(){
 
     $uploadName = $_SESSION['idUser'] . time() . "." . $fileExtension;
     $uploadPath = "../" . $uploadDirectory . $uploadName;
+    // $uploadPath = strval($uploadPath);
+    // "../../" . $uploadDirectory . $uploadName;
 
     if (! in_array($fileExtension,$fileExtensionsAllowed)) {
-    // throw new Exception("Zoey n'accepte que des photos JPEG ou PNG pour le moment.");s
+    // throw new Exception("Zoey n'accepte que des photos JPEG ou PNG pour le moment.");
         $errors[] = "Zoey n'accepte que des photos JPEG ou PNG pour le moment.";
     }
 
@@ -46,8 +48,12 @@ function postPhoto(){
             return strval($uploadName);
 
         } else {
-            // echo "Erreur";
-            return false;
+            var_dump($fileTmpName);
+            var_dump($didUpload);
+
+
+            echo "Erreur";
+            // return false;
         }
 
     } else {

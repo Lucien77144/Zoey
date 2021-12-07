@@ -515,7 +515,9 @@ $(document).ready(function(){
 
         let postedMedia = postPhoto();
 
-        postModifyAccount("media",postedMedia);
+        console.log(postedMedia);
+
+        // postModifyAccount("media",postedMedia);
     });
     $("#submitModifyAccountNom").click(function(e){
         e.preventDefault();
