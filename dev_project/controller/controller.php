@@ -83,6 +83,7 @@
 
     function printAdoptionAnimal(){
         $adoptionAnimal = getAdoptionAnimal();
+        // $adoptionAnimalBadges = getAdoptionAnimalBadges($idaa);
         require(BASE_URL . "view/adoptionAnimalView.php");
     }
 

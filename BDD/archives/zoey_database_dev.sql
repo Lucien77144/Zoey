@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost
--- Généré le : mar. 07 déc. 2021 à 16:15
+-- Hôte : 127.0.0.1
+-- Généré le : mar. 16 nov. 2021 à 22:11
 -- Version du serveur : 10.4.21-MariaDB
--- Version de PHP : 8.0.12
+-- Version de PHP : 7.4.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,21 +30,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `animal_a_adopter` (
   `idanimal_a_adopter` int(11) NOT NULL,
   `nom` varchar(45) DEFAULT NULL,
-  `sexe` tinyint(1) NOT NULL,
   `photo` varchar(45) DEFAULT NULL,
   `description` mediumtext DEFAULT NULL,
   `date_anniversaire` date DEFAULT NULL,
-  `refuge_idrefuge` int(11) NOT NULL,
-  `idtype` int(11) DEFAULT NULL
+  `refuge_idrefuge` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `animal_a_adopter`
 --
 
-INSERT INTO `animal_a_adopter` (`idanimal_a_adopter`, `nom`, `sexe`, `photo`, `description`, `date_anniversaire`, `refuge_idrefuge`, `idtype`) VALUES
-(3, 'Titou', 0, 'titou.jpg', 'Titou est un chat affectueux et proche de son maître. Il réclame des caresses (surtout des grosses gratouilles derrière les oreilles, il saura vous montrer).\r\n \r\nIl n’aime pas etre pris dans les bras et ne vient pas sur les genoux mais vous accompagne volontiers dans la salle de bains ou reste a vos côtés sur le canapé. \r\n \r\nIl accourt très facilement quand on l’appelle. Il ADORE être brossé.\r\n \r\nC’est un grand gourmand qui devrait pouvoir apprendre des petits tours pour obtenir une croquette. Il faudra progressivement lui apporter une nourriture de bonne qualité car habitué aux bonbons et autres friandises il peut faire le difficile devant des marques pourtant mieux adaptées à sa santé. \r\n \r\nTitou est un vrai chasseur ! Il a besoin de beaucoup jouer et de personnes présentes à la maison.\r\n \r\nIl a besoin d’être stimulé, sinon ce seront vos orteils ou vos plantes vertes qui l’amuseront beaucoup. \r\n \r\nTitou n’a pas été testé avec d’autres chats mais peut-être qu’un compagnon aussi actif que lui pourrait être bénéfique.', '2019-10-01', 1, 2),
-(4, 'Pee-wee', 0, 'peewee.jpg', 'Histoire : \r\n\r\nPee-wee est né en mars 2019. Il a été trouvé dans un entrepôt en Bretagne. Non réclamé.\r\nPee-wee est FIV+ et fait un peu d’asthme.\r\nCaractère : \r\n\r\nCe petit loulou de 2 ans est très attachant. Il se laisse caresser sans problème et il est extrêmement sociable !\r\nIl se pavane et aime venir dire bonjour à tout le monde !\r\n \r\nPee-wee est joueur. Il a besoin d’être stimulé et que l’on s’occupe de lui. Pee-wee est sociable avec les autres chats et il peut sans problème être adopté avec un copain négatif au FIV car il ne ferait pas de mal à une mouche ! \r\n(Quoi que, pour la mouche…).\r\n \r\nPee-wee apprécie sortir. Un espace extérieur bien sécurisé (terrasse, jardin) est important pour son bien être et pour qu’il se dore la pilule au soleil.\r\n \r\nPee-wee est aussi indépendant. Au gré de ses humeurs il aime changer régulièrement de couchage, une nuit sur le lit, ou l’autre sur le canapé.\r\n \r\nC‘est un compagnon de vie adorable qui vous attend !', '2019-03-01', 1, 2);
+INSERT INTO `animal_a_adopter` (`idanimal_a_adopter`, `nom`, `photo`, `description`, `date_anniversaire`, `refuge_idrefuge`) VALUES
+(3, 'Titou', 'titou.jpg', 'Titou est un chat affectueux et proche de son maître. Il réclame des caresses (surtout des grosses gratouilles derrière les oreilles, il saura vous montrer).\r\n \r\nIl n’aime pas etre pris dans les bras et ne vient pas sur les genoux mais vous accompagne volontiers dans la salle de bains ou reste a vos côtés sur le canapé. \r\n \r\nIl accourt très facilement quand on l’appelle. Il ADORE être brossé.\r\n \r\nC’est un grand gourmand qui devrait pouvoir apprendre des petits tours pour obtenir une croquette. Il faudra progressivement lui apporter une nourriture de bonne qualité car habitué aux bonbons et autres friandises il peut faire le difficile devant des marques pourtant mieux adaptées à sa santé. \r\n \r\nTitou est un vrai chasseur ! Il a besoin de beaucoup jouer et de personnes présentes à la maison.\r\n \r\nIl a besoin d’être stimulé, sinon ce seront vos orteils ou vos plantes vertes qui l’amuseront beaucoup. \r\n \r\nTitou n’a pas été testé avec d’autres chats mais peut-être qu’un compagnon aussi actif que lui pourrait être bénéfique.', '2019-10-01', 1),
+(4, 'Pee-wee', 'peewee.jpg', 'Histoire : \r\n\r\nPee-wee est né en mars 2019. Il a été trouvé dans un entrepôt en Bretagne. Non réclamé.\r\nPee-wee est FIV+ et fait un peu d’asthme.\r\nCaractère : \r\n\r\nCe petit loulou de 2 ans est très attachant. Il se laisse caresser sans problème et il est extrêmement sociable !\r\nIl se pavane et aime venir dire bonjour à tout le monde !\r\n \r\nPee-wee est joueur. Il a besoin d’être stimulé et que l’on s’occupe de lui. Pee-wee est sociable avec les autres chats et il peut sans problème être adopté avec un copain négatif au FIV car il ne ferait pas de mal à une mouche ! \r\n(Quoi que, pour la mouche…).\r\n \r\nPee-wee apprécie sortir. Un espace extérieur bien sécurisé (terrasse, jardin) est important pour son bien être et pour qu’il se dore la pilule au soleil.\r\n \r\nPee-wee est aussi indépendant. Au gré de ses humeurs il aime changer régulièrement de couchage, une nuit sur le lit, ou l’autre sur le canapé.\r\n \r\nC‘est un compagnon de vie adorable qui vous attend !', '2019-03-01', 1);
 
 -- --------------------------------------------------------
 
@@ -54,19 +52,9 @@ INSERT INTO `animal_a_adopter` (`idanimal_a_adopter`, `nom`, `sexe`, `photo`, `d
 
 CREATE TABLE `animal_a_adopter_has_badge` (
   `animal_a_adopter_idanimal_a_adopter` int(11) NOT NULL,
+  `animal_a_adopter_refuge_idrefuge` int(11) NOT NULL,
   `badge_idbadge` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `animal_a_adopter_has_badge`
---
-
-INSERT INTO `animal_a_adopter_has_badge` (`animal_a_adopter_idanimal_a_adopter`, `badge_idbadge`) VALUES
-(3, 1),
-(3, 2),
-(3, 3),
-(4, 1),
-(4, 2);
 
 -- --------------------------------------------------------
 
@@ -77,19 +65,8 @@ INSERT INTO `animal_a_adopter_has_badge` (`animal_a_adopter_idanimal_a_adopter`,
 CREATE TABLE `badge` (
   `idbadge` int(11) NOT NULL,
   `nom` varchar(45) DEFAULT NULL,
-  `url_icone` varchar(45) DEFAULT NULL,
-  `titre` varchar(255) NOT NULL,
-  `description` text NOT NULL
+  `url_icone` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `badge`
---
-
-INSERT INTO `badge` (`idbadge`, `nom`, `url_icone`, `titre`, `description`) VALUES
-(1, 'Jouer', 'jouer.svg', '', ''),
-(2, 'Enfant(s)', 'enfants.svg', '', ''),
-(3, 'Extérieur', 'exterieur.svg', '', '');
 
 -- --------------------------------------------------------
 
@@ -482,7 +459,6 @@ CREATE TABLE `refuge` (
   `lien` varchar(45) DEFAULT NULL,
   `adresse_mail` varchar(45) DEFAULT NULL,
   `telephone` int(11) DEFAULT NULL,
-  `lien_maps` text NOT NULL,
   `adresse` varchar(45) DEFAULT NULL,
   `url_logo` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -491,8 +467,8 @@ CREATE TABLE `refuge` (
 -- Déchargement des données de la table `refuge`
 --
 
-INSERT INTO `refuge` (`idrefuge`, `nom`, `description`, `lien`, `adresse_mail`, `telephone`, `lien_maps`, `adresse`, `url_logo`) VALUES
-(1, 'Association Nine Lives Paris', 'ADOPTION D\'ANIMAUX DE COMPAGNIE A PARIS ET EN ILE-DE-FRANCE', 'https://ninelives.fr/', NULL, NULL, 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d674378.907713388!2d2.5026636!3d48.68077!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfe7df6a0dd3e8e74!2sNine%20Lives%20Paris!5e0!3m2!1sfr!2sfr!4v1638873872859!5m2!1sfr!2sfr\" width=\"600\" height=\"450\" style=\"border:0;', NULL, NULL);
+INSERT INTO `refuge` (`idrefuge`, `nom`, `description`, `lien`, `adresse_mail`, `telephone`, `adresse`, `url_logo`) VALUES
+(1, 'Association Nine Lives Paris', 'ADOPTION D\'ANIMAUX DE COMPAGNIE A PARIS ET EN ILE-DE-FRANCE', 'https://ninelives.fr/', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -718,15 +694,15 @@ CREATE TABLE `utilisateur_has_centres_interet` (
 --
 ALTER TABLE `animal_a_adopter`
   ADD PRIMARY KEY (`idanimal_a_adopter`,`refuge_idrefuge`),
-  ADD KEY `idtype` (`idtype`);
+  ADD KEY `fk_animal_a_adopter_refuge1_idx` (`refuge_idrefuge`);
 
 --
 -- Index pour la table `animal_a_adopter_has_badge`
 --
 ALTER TABLE `animal_a_adopter_has_badge`
-  ADD PRIMARY KEY (`animal_a_adopter_idanimal_a_adopter`,`badge_idbadge`),
+  ADD PRIMARY KEY (`animal_a_adopter_idanimal_a_adopter`,`animal_a_adopter_refuge_idrefuge`,`badge_idbadge`),
   ADD KEY `fk_animal_a_adopter_has_badge_badge1_idx` (`badge_idbadge`),
-  ADD KEY `fk_animal_a_adopter_has_badge_animal_a_adopter1_idx` (`animal_a_adopter_idanimal_a_adopter`);
+  ADD KEY `fk_animal_a_adopter_has_badge_animal_a_adopter1_idx` (`animal_a_adopter_idanimal_a_adopter`,`animal_a_adopter_refuge_idrefuge`);
 
 --
 -- Index pour la table `badge`
@@ -914,7 +890,7 @@ ALTER TABLE `animal_a_adopter`
 -- AUTO_INCREMENT pour la table `badge`
 --
 ALTER TABLE `badge`
-  MODIFY `idbadge` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idbadge` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `blog`
@@ -1038,13 +1014,13 @@ ALTER TABLE `utilisateur`
 -- Contraintes pour la table `animal_a_adopter`
 --
 ALTER TABLE `animal_a_adopter`
-  ADD CONSTRAINT `animal_a_adopter_ibfk_1` FOREIGN KEY (`idtype`) REFERENCES `types_animaux` (`idtypes_animaux`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_animal_a_adopter_refuge1` FOREIGN KEY (`refuge_idrefuge`) REFERENCES `refuge` (`idrefuge`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `animal_a_adopter_has_badge`
 --
 ALTER TABLE `animal_a_adopter_has_badge`
-  ADD CONSTRAINT `fk_animal_a_adopter_has_badge_animal_a_adopter1` FOREIGN KEY (`animal_a_adopter_idanimal_a_adopter`) REFERENCES `animal_a_adopter` (`idanimal_a_adopter`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_animal_a_adopter_has_badge_animal_a_adopter1` FOREIGN KEY (`animal_a_adopter_idanimal_a_adopter`,`animal_a_adopter_refuge_idrefuge`) REFERENCES `animal_a_adopter` (`idanimal_a_adopter`, `refuge_idrefuge`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_animal_a_adopter_has_badge_badge1` FOREIGN KEY (`badge_idbadge`) REFERENCES `badge` (`idbadge`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
