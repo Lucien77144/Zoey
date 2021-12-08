@@ -1,0 +1,72 @@
+.container {
+    width: 300px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "profileName profileName editProfile"
+        "profilePicture profileDescription profileDescription"
+        "profilePicture profileDescription profileDescription"
+        "ButtonContainer ButtonContainer ButtonContainer";
+}
+
+.profileName {
+    grid-area: profileName;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+}
+
+.profileDescription {
+    grid-area: profileDescription;
+    display: flex;
+    justify-content: center;
+    text-align: justify;
+}
+.profileDescription p {
+    font-size: 0.7rem;
+}
+.editProfile {
+    grid-area: editProfile;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.ButtonContainer {
+    grid-area: ButtonContainer;
+    display: flex;
+    justify-content: space-around;
+}
+
+.profilePicture {
+    width: 150px;
+    grid-area: profilePicture;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profilePicture img {
+    width: 100px;
+}
+@media screen and (min-width:800px) {
+    .container {
+        width: 800px;
+        height: 300px;
+        grid-template-areas:
+        "profilePicture profileName editProfile"
+        "profilePicture profileDescription profileDescription"
+        "profilePicture profileDescription profileDescription"
+        "ButtonContainer ButtonContainer ButtonContainer";
+    }
+    .profilePicture img {
+        width: 150px;
+    }
+    .profileDescription p {
+        font-size: 1rem;
+    }
+}
