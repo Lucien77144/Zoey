@@ -6,6 +6,7 @@ main{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .card{
@@ -18,6 +19,7 @@ main{
     width: 95vw;
     max-width: 450px;
     height: 60vw;
+    min-height: 250px;
     max-height: 270px;
     display: flex;
     justify-content: space-between;
