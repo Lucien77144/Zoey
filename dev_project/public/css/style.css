@@ -13,8 +13,15 @@ body {
   scrollbar-width: thin;
 }
 
-::-moz-selection{ background: #f59644; color:#fff;}
-::selection { background:#f59644; color:#fff; }
+::-moz-selection {
+  background: #f59644;
+  color: #fff;
+}
+
+::selection {
+  background: #f59644;
+  color: #fff;
+}
 
 ::-webkit-scrollbar {
   width: 6px;
@@ -34,31 +41,6 @@ body {
   border-radius: 20px;
 }
 
-.newsletter {
-  font-family: "Roboto", sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  height: 225px;
-}
-
-.newsletter h1 {
-  grid-area: title;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1rem;
-  margin: 30px 0;
-}
-
-.newsletter p {
-  grid-area: d;
-  font-size: 0.75rem;
-  margin: 0;
-  align-self: flex-start;
-}
-
-/* general */
 input {
   border: none;
   background-color: #F3F3F3;
@@ -66,12 +48,15 @@ input {
   padding: 5px 10px;
   margin: 10px;
   color: #949393;
-  height: 25px;
+  height: fit-content;
+  height: -moz-fit-content;
+  min-height: 25px;
 }
 
 input[type="submit"] {
   width: 120px;
-  height: 35px;
+  height: fit-content;
+  height: -moz-fit-content;
   background: #f3811c;
   padding: 10px 20px 10px 20px;
   font-weight: bold;
@@ -80,25 +65,8 @@ input[type="submit"] {
   transition: 0.25s ease-in-out;
 }
 
-/* specifique newsletter */
-.newsletter input[name="prenom"] {
-  grid-area: a;
-  width: 200px;
-}
-
-.newsletter input[name="email"] {
-  grid-area: b;
+input[name="email"], input[name="prenom"]{
   width: 230px;
-  margin: 0 5vw;
-}
-
-.newsletter input[type="submit"] {
-  grid-area: c;
-}
-
-.newsletter input[type="submit"]:hover {
-  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
 }
 
 .btn {
@@ -127,7 +95,7 @@ header {
   padding: 0 5vw;
 }
 
-header>h1 a {
+header>h1 a{
   text-decoration: none;
   font-family: 'Exo 2', sans-serif;
   margin: 0;
@@ -163,7 +131,7 @@ header>img {
   z-index: 1000000;
 }
 
-.menu svg{
+.menu svg {
   margin: 0 -2px;
 }
 
@@ -231,12 +199,13 @@ header>img {
 
 .underline{
   position: relative;
+  z-index: 1;
 }
 
-.underline::after{
+.underline::after {
   content: "";
-  z-index: -1;
   position: absolute;
+  z-index: -1;
   transform: translate(-50%, -50%) rotate(2deg);
   top: 50%;
   left: 50%;
@@ -246,10 +215,12 @@ header>img {
   background-color: #FFC800;
 }
 
-.underline:hover::after{
+.underline:hover::after {
   width: 110%;
 }
+
 /* Spécifiques aux popUp */
+
 .wrapperPopUp {
   position: fixed;
   top: 0;
@@ -260,43 +231,58 @@ header>img {
   align-content: center;
   align-items: center;
   justify-content: center;
+  background-color: rgba(0, 0, 0, 0.75);
 }
-  .popUp {
-    font-family: "Roboto", sans-serif;
-    position: relative;
-    width: 90vw;
-    height: 500px;
-    border-radius: 50px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-  }
-.underline{
+
+.popUp {
+  font-family: "Roboto", sans-serif;
   position: relative;
+  width: 90vw;
+  min-width: 300px;
+  max-width: 500px;
+  height: 500px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  background-color: #F6F6F6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
+
+.popUp h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+  width: calc(100% - 40px);
+}
+
+.popUp form{
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.popUp span{
+  white-space: nowrap;
+}
+
 .croix {
   content: "";
-  z-index: -1;
   position: absolute;
   top: 25px;
   left: 25px;
+  cursor: pointer;
 }
+
 .croix img {
   width: 30px;
+  height: 30px;
 }
-@media screen and (min-width: 660px) {
-  .popUp {
-      width: 60vw;
-  }
-}
-@media screen and (min-width: 800px) {
-.popUp {
-      width: 500px;
-  }
 
-.underline:hover::after{
+.underline:hover::after {
   width: 110%;
 }
 
@@ -415,10 +401,7 @@ header>img {
     height: 60px;
     width: 50vw;
     margin: auto;
-    /* margin: 0 25vw 0 25vw; */
     margin-top: 0;
-    /* margin-left: 25vw;
-    margin-right: 25vw; */
     margin-bottom: 0;
     top: 0;
   }
@@ -433,12 +416,11 @@ header>img {
 }
 
 /* lien mentions légales */
-.legalLink{
+.legalLink {
   margin-bottom: 50px;
 }
 
-.legalLink a{
+.legalLink a {
   color: rgb(44, 44, 44);
   font-size: 0.8rem;
-}
 }

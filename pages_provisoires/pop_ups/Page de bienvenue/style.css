@@ -1,6 +1,3 @@
-.popUp {
-    height: 700px;
-}
 .welcome {
     font-family: 'Exo 2', sans-serif;
     font-weight: bold;
@@ -17,19 +14,19 @@
     align-content: center;
     align-items: center;
 }
-.zoey_container h1 {
+.zoey_container h2 {
     font-family: 'Exo 2', sans-serif;
     color: #f3811c;
-    font-size: 20vw;
+    font-size: 5rem;
     margin: 0;
 }
 .zoey_container img {
-    width: 30%;
+    width: 20%;
 }
 
 .redirection {
     color: black;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     font-family: "Roboto", sans-serif;
 }
 @media screen and (min-width: 500px) {
