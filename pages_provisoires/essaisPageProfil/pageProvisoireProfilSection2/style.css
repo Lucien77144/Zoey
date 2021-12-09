@@ -1,0 +1,80 @@
+.animalProfileContainer {
+    width: 350px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.5fr 1.5fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "b b"
+        "a d"
+        "c c";
+}
+
+.profilePictureContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: a;
+}
+
+.profilePictureContainer img {
+    width: 150px;
+    border-radius: 50%;
+}
+
+.profileNameContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    grid-area: b;
+}
+
+.profileNameContainer h2 {
+    font-size: 1.6rem;
+}
+
+.descriptionContainer {
+    grid-area: c;
+    display: flex;
+    justify-content: center;
+}
+.subscribeContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: d;
+    width: 90%;
+}
+
+
+@media screen and (min-width:800px) {
+    .animalProfileContainer {
+        width: 600px;
+        display: grid;
+        grid-template-columns: 0.6fr 1.4fr;
+        grid-template-rows: 1.25fr 1.25fr 1fr;
+        gap: 0px 0px;
+        grid-template-areas:
+            "a b"
+            "a c"
+            "a d";
+
+    }
+
+    .profilePictureContainer img {
+        width: 200px;
+        border-radius: 50%;
+    }
+
+    .profileNameContainer h2 {
+        font-size: 2rem;
+    }
+    .descriptionContainer p {
+        width: 90%;
+    }
+    .subscribeContainer {
+        justify-content: flex-end;
+        align-items: flex-start;
+        width: 90%;
+    }
+}
