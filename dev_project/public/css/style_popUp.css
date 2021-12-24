@@ -1,0 +1,163 @@
+/* popUp de bienvenue */
+.welcome {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.description {
+    width: 95%;
+    font-size: 0.9rem;
+}
+
+.zoey_container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+}
+
+.zoey_container h2 {
+    font-family: 'Exo 2', sans-serif;
+    color: #f3811c;
+    font-size: 5rem;
+    margin: 0;
+}
+
+.zoey_container img {
+    width: 20%;
+}
+
+.redirection {
+    color: black;
+    font-size: 0.9rem;
+    font-family: "Roboto", sans-serif;
+}
+
+/* Spécifiques aux popUp */
+
+.wrapperPopUp {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.popUp {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    width: 90vw;
+    min-width: 300px;
+    max-width: 500px;
+    height: calc(500px+10%);
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    background-color: #F6F6F6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.popUp h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    width: calc(100% - 40px);
+}
+
+.popUp form {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.popUp span {
+    white-space: nowrap;
+}
+
+.croix {
+    content: "";
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    cursor: pointer;
+}
+
+.croix img {
+    width: 30px;
+    height: 30px;
+}
+
+
+@media screen and (min-width: 500px) {
+    .popUp {
+        width: 480px;
+    }
+
+    .welcome {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+
+    .description {
+        width: 95%;
+        font-size: 0.95rem;
+    }
+
+    .zoey_container img {
+        width: 100px;
+    }
+
+    .zoey_container h1 {
+        font-size: 5rem;
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 650px) {
+    .zoey_container h1 {
+        font-size: 7rem;
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .popUp {
+        width: 600px;
+    }
+}
+
+/* popUp page refuge contact */
+.contactContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactContainer .icon {
+    width: 40px;
+}
+
+@media screen and (min-width: 660px) {
+    .contactContainer {
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .contactContainer img {
+        margin-right: 50px;
+    }
+}
