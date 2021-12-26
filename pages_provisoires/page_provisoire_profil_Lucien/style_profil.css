@@ -1,0 +1,404 @@
+body{
+    margin: 0;
+}
+
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+
+.profil{
+    display: flex;
+    justify-content: center;
+    margin: 0px 20px 0px 20px;
+}
+
+.wrapProfil{
+    display: grid;
+    grid-template-areas: "a b" "a c" "d d";
+    align-items: center;
+}
+
+.avatar{
+    grid-area: a;
+    justify-self: flex-end;
+    min-width: 110px;
+    min-height: 110px;
+    width: 22.5vw;
+    height: 22.5vw;
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 100vw;
+    overflow: hidden;
+    margin-right: min(5vw, 50px);
+    position: relative;
+}
+
+.avatar img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.25s ease-in-out;
+}
+
+.avatar:hover img{
+    transform: scale(1.1);
+}
+
+.modifAvatar{
+    background-color: #f3801c;
+    opacity: 0.4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: 0.25s ease-in-out;
+    cursor: pointer;
+}
+
+.modifAvatar:hover{
+    opacity: 0.6;
+}
+
+.modifAvatar path{
+    transform-origin: center;
+    transform: scale(0.35) rotate(-5deg);
+    pointer-events: none;
+    transition: 0.25s ease-in-out;
+}
+
+.modifAvatar:hover path{
+    transform-origin: center;
+    transform: scale(0.35) rotate(5deg);
+}
+
+.username{
+    grid-area: b;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 400px;
+    width: 50vw;
+    justify-content: space-between;
+}
+
+.username h1{
+    width: fit-content;
+    width: -moz-fit-content;
+    display: inline-block;
+    margin: 0;
+    margin-right: 10px;
+    font-size: 1.5rem;
+    font-family: "Roboto", sans-serif;
+}
+
+.iconModif, .iconSubmit{
+    height: 25px;
+    width: 25px;
+    transition: 0.25s ease-in-out;
+    cursor: pointer;
+}
+
+.iconModif:hover .pen{
+    transform-origin: center;
+    animation: write 1s ease-in-out infinite;
+}
+
+.iconModif:hover, .iconSubmit:hover{
+    fill: #F3811C;
+    transform: scale(1.2);
+}
+
+.desc{
+    grid-area: c;
+    max-width: 400px;
+    width: 50vw;
+}
+
+.controls{
+    grid-area: d;
+    white-space: nowrap;
+    padding: 0;
+    margin: 0;
+}
+
+.controlBtn{
+    display: inline-block;
+    font-weight: 600;
+    color: white;
+    font-size: 0.8rem;
+    padding: 5px 20px 5px 20px;
+    margin: 15px 5px 25px 5px;
+    height: fit-content;
+    height: -moz-fit-content;
+    border-radius: 100vw;
+    background-color: #F3811C;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.controlBtn:hover{
+    background-color: #fd9030;
+    box-shadow: 0 0 0 2px rgba(243, 128, 28, 0.7);
+}
+
+.username .controlBtn{
+    margin: 0;
+    justify-self: flex-end;
+}
+
+.menuAnimaux{
+    width: 100%;
+    position: relative;
+}
+
+.menuAnimauxInner{
+    width: 95%;
+    align-self: center;
+    overflow: auto;
+    margin: auto;
+}
+
+.menuAnimaux::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 2.5%;
+    height: calc(100% - 8px);
+    width: 15px;
+    background: rgb(255,255,255);
+    background: linear-gradient(270deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    pointer-events: none;
+}
+
+.menuAnimaux::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 2.5%;
+    height: calc(100% - 8px);
+    width: 15px;
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    pointer-events: none;
+}
+
+.menuAnimauxWrapper{
+    min-width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.addAnimal{
+    box-sizing: content-box;
+    height: 22px;
+    width: 22px;
+    cursor: pointer;
+    margin: 17.5px 17.5px 17.5px 17.5px;
+    padding: 7.5px 15px 7.5px 15px;
+    border-radius: 100vw;
+    background-color: #FFC800;
+    box-shadow: 0px 0px 7.5px #f3801c50;
+    transition: 0.25s ease-in-out;
+}
+
+.addAnimal:hover{
+    animation: pulse 0.75s ease-in-out;
+}
+
+.menuAnimaux li{
+    display: inline-block;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 17.5px 17.5px 17.5px 17.5px;
+    padding: 7.5px 15px 7.5px 15px;
+    border-radius: 100vw;
+    background-color: rgb(240, 240, 240);
+    box-shadow: 0px 0px 7.5px rgba(0, 0, 0, 0.25);
+    transition: 0.25s ease-in-out;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.menuAnimaux li:hover{
+    box-shadow: 0px 0px 7.5px #f3801c;
+    color: #c76000;
+    background-color: #fff5eb;
+}
+
+.profilAnimal{
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 90%;
+}
+
+.profilAnimal .profil{
+    width: 100%;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.profilAnimal .profil::before{
+    content: "";
+    position: absolute;
+    height: 3px;
+    border-radius: 3px;
+    width: 100%;
+    top: -50px;
+}
+
+.profilAnimal .avatar{
+    min-width: 90px;
+    min-height: 90px;
+    width: 20vw;
+    height: 20vw;
+    max-width: 120px;
+    max-height: 120px;
+}
+
+.innerUsername{
+    display: inline-flex;
+}
+
+.menuAnimaux .active{
+    background-color: #f3801c;
+    color: white;
+}
+
+.menuAnimaux .active:hover{
+    background-color: #f3801c;
+    color: white;
+}
+
+.publiContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.publiWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.publi{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: auto;
+    margin: 5px;
+    min-width: 155px;
+    min-height: 250px;
+    width: 28vw;
+    height: 46.065vw;
+    max-width: 283px;
+    max-height: 465.5px;
+    position: relative;
+    transition: 0.25s;
+    border-radius: 2px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.15);
+}
+
+.publi:hover{
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
+}
+
+.rate{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    display: flex;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+}
+
+.rate svg{
+    margin-left: 5px;
+    height: 16px;
+    width: 16px;
+    fill: white;
+}
+
+.innerUsername input{
+    background-color: transparent;
+    outline: none;
+    padding: 0;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    margin-right: 10px;
+    border-bottom: 2px solid #f3801c;
+    border-radius: 0px;
+    font-family: "Roboto", sans-serif;
+    width: 100%;
+}
+
+.desc textarea{
+    resize: none;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    outline: none;
+    padding: 5px;
+    margin: 0;
+    border: 2px solid #f3801c;
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+}
+
+@keyframes write {
+    0%,100%{
+        transform: rotate(0deg);
+    }25%{
+        transform: rotate(5deg);
+    }50%{
+        transform: rotate(0deg);
+    }75%{
+        transform: rotate(-5deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0px 0px 7.5px #f3801c50;
+    }
+
+    10% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(243, 128, 28, 0.7);
+    }
+
+    80% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(243, 128, 28, 0);
+    }
+
+    91%{
+        box-shadow: 0px 0px 7.5px #f3801c00;
+    }
+    
+    100% {
+        transform: scale(1);
+        box-shadow: 0px 0px 7.5px #f3801c50;
+    }
+}
