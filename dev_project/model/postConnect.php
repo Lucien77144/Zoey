@@ -11,7 +11,7 @@ function postConnect(){
     $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
     (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-    $sql = 'SELECT idutilisateur, pseudo, mot_de_passe FROM utilisateur WHERE pseudo = ?';
+    $sql = 'SELECT idutilisateur, pseudo, mot_de_passe, statut FROM utilisateur WHERE pseudo = ?';
     $req = $db -> prepare($sql);
     
     $req -> execute(array($pseudo));
@@ -23,6 +23,7 @@ function postConnect(){
             
             $_SESSION['idUser'] = $user['idutilisateur'];
             $_SESSION['pseudo'] = $user['pseudo'];
+            $_SESSION['statut'] = $user['statut'];
             require('generateToken.php');
 
             return "valid";

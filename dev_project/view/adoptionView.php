@@ -4,7 +4,7 @@ ob_start();
 
 ?>
 <main>
-<?php    
+<?php
 
 while ($animal = $feedAdoption->fetch())
 {
@@ -16,7 +16,7 @@ while ($animal = $feedAdoption->fetch())
     $ageAA = $interval->y;
 ?>
     <article class="card">  
-        <div class="img" style="background-image: url('<?= BASE_URL . 'public/images/' . htmlspecialchars($animal['photo']) ?>');"></div>
+        <div class="img" style="background-image: url('<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($animal['photo']) ?>');"></div>
         <div class="desc">
             <h2 class="title2"><?= htmlspecialchars($animal['nom']) ?></h2>
             <div class="badges">
@@ -27,14 +27,27 @@ while ($animal = $feedAdoption->fetch())
                         break;
                     $i++;
                     ?>
-                        <img class="badge" src="public/images/badges/<?= $badge['url_icone'] ?>" alt="">
-                    <?php
+                         <img class="badge" src="public/images/badges/<?= $badge['url_icone'] ?>" alt="">
+                        <?php
                 }
                 ?>
             </div>
             <p>
                 <strong>Catégorie : </strong><?= htmlspecialchars($animal['type_nom']) ?><br>
-                <strong>Sexe : </strong><?= $animal['sexe'] == 0 ? 'Mâle' : 'Femelle' ?><br>
+                <strong>Sexe : </strong>
+                <?php
+                    switch ($animal['sexe']){
+                        case 0:
+                            echo 'Mâle';
+                            break;
+                        case 1:
+                            echo 'Femelle';
+                            break;
+                        case 2:
+                            echo 'Autre ou inconnu';
+                            break;
+                    }
+                ?><br>
                 <strong>Age : </strong><?= $ageAA ?> ans<br>
             </p>
             <a href="index.php?action=adoption&id=<?= htmlspecialchars($animal['idaa']) ?>" class="btn">En savoir plus</a>

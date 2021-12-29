@@ -38,6 +38,8 @@ $(document).ready(function(){
             async: false
         });
 
+        console.log(returnedFromAjax);
+
         return returnedFromAjax;
     };
 
@@ -414,6 +416,138 @@ $(document).ready(function(){
         );
     };
 
+    function postAjouterRefuge(postedMedia){
+        console.log("postAjouterRefuge")
+        
+        $.post(
+            'model/postAjouterRefuge.php',
+            {
+                nom : $("#nom").val(),
+                description : $("#description").val(),
+                lien : $("#lien").val(),
+                mail : $("#mail").val(),
+                tel : $("#tel").val(),
+                maps : $("#maps").val(),
+                adresse : $("#adresse").val(),
+                logo : postedMedia
+            },
+
+            function(ReturnedMessage){
+                console.log("function Received")
+                console.log(ReturnedMessage);
+
+                if (ReturnedMessage == "valid"){
+                    $('#confirmationMessage').html('');
+                    $('#confirmationMessage').text(
+                        `Le refuge a bien été ajouté.`
+                    );
+                } else {
+                    $('#confirmationMessage').html('');
+                    $('#confirmationMessage').text(
+                        `Il y a une erreur dans un des champs remplis.`
+                    );
+                }
+            },
+            'text'
+        );
+    };
+
+    function postAjouterAA(postedMedia){
+        console.log("postAjouterAA")
+        
+        $.post(
+            'model/postAjouterAA.php',
+            {
+                nom : $("#nom").val(),
+                sexe : $("#sexe").val(),
+                description : $("#description").val(),
+                idtype : $("#idtype").val(),
+                idrefuge : $("#idrefuge").val(),
+                date_anniversaire : $("#date_anniversaire").val(),
+                photo : postedMedia,
+                badge1 : $("#badge1").val(),
+                badge2 : $("#badge2").val(),
+                badge3 : $("#badge3").val()
+            },
+
+            function(ReturnedMessage){
+                console.log("function Received")
+                console.log(ReturnedMessage);
+
+                if (ReturnedMessage == "valid"){
+                    $('#confirmationMessage').html('');
+                    $('#confirmationMessage').text(
+                        `L'animal à adopter a bien été ajouté.`
+                    );
+                } else {
+                    $('#confirmationMessage').html('');
+                    $('#confirmationMessage').text(
+                        `Il y a une erreur dans un des champs remplis.`
+                    );
+                }
+            },
+            'text'
+        );
+    };
+    function postDeleteAA(){
+        console.log("postDeleteAA")
+        
+        $.post(
+            'model/postDeleteAA.php',
+            {
+                idanimal : $("#idanimal").val()
+            },
+
+            function(ReturnedMessage){
+                console.log("function Received")
+                console.log(ReturnedMessage);
+
+                if (ReturnedMessage == "valid"){
+                    $('#confirmationMessageAA').html('');
+                    $('#confirmationMessageAA').text(
+                        `L'animal à adopter a bien été supprimé.`
+                    );
+                } else {
+                    $('#confirmationMessageAA').html('');
+                    $('#confirmationMessageAA').text(
+                        `L'animal à adopter n'a pas pu être supprimé.`
+                    );
+                }
+            },
+            'text'
+        );
+    };
+
+    function postDeleteRefuge(){
+        console.log("postDeleteRefuge")
+        
+        $.post(
+            'model/postDeleteRefuge.php',
+            {
+                idrefuge : $("#idrefuge").val()
+            },
+
+            function(ReturnedMessage){
+                console.log("function Received")
+                console.log(ReturnedMessage);
+
+                if (ReturnedMessage == "valid"){
+                    $('#confirmationMessageRefuge').html('');
+                    $('#confirmationMessageRefuge').text(
+                        `Le refuge a bien été supprimé.`
+                    );
+                } else {
+                    $('#confirmationMessageRefuge').html('');
+                    $('#confirmationMessageRefuge').text(
+                        `Le refuge a bien été supprimé.`
+                    );
+                }
+            },
+            'text'
+        );
+    };
+
+
     function postConvSearch(search){
         console.log("postConvSearch")
         
@@ -600,6 +734,39 @@ $(document).ready(function(){
         console.log("acceptFriend")
 
         postAcceptFriend();
+    });
+
+    $("#submitAjouterRefuge").click(function(e){
+        e.preventDefault();
+
+        console.log("click");
+
+        let postedMedia = postPhoto();
+
+        postAjouterRefuge(postedMedia);
+    });
+    $("#submitAjouterAnimalAdopter").click(function(e){
+        e.preventDefault();
+
+        console.log("click");
+
+        let postedMedia = postPhoto();
+
+        postAjouterAA(postedMedia);
+    });
+    $("#deleteRefuge").click(function(e){
+        e.preventDefault();
+
+        console.log("click");
+
+        postDeleteRefuge();
+    });
+    $("#deleteAA").click(function(e){
+        e.preventDefault();
+
+        console.log("click");
+
+        postDeleteAA();
     });
 
     // rechercher une conversation (page messages)

@@ -171,7 +171,6 @@ function getAnimalFeed($animalId){
     } else {
         throw new Exception("Aucun animal n'a été trouvé");
     }
-    
 }
 
 function getFeedAdoption(){
@@ -180,10 +179,10 @@ function getFeedAdoption(){
     $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
     (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-    $sql = "SELECT idanimal_a_adopter idaa, aa.nom, aa.sexe, aa.photo, aa.description, aa.date_anniversaire anniversaire, refuge_idrefuge, refuge.nom refuge_nom, refuge.lien refuge_lien, types_animaux.nom type_nom
+    $sql = "SELECT idanimal_a_adopter idaa, aa.nom, aa.sexe, aa.photo, aa.description, aa.date_anniversaire anniversaire,
+    types_animaux.nom type_nom
     FROM animal_a_adopter aa
-    INNER JOIN types_animaux ON types_animaux.idtypes_animaux = aa.idtype
-    INNER JOIN refuge ON refuge.idrefuge = aa.refuge_idrefuge;";
+    INNER JOIN types_animaux ON types_animaux.idtypes_animaux = aa.idtype";
     $req = $db -> prepare($sql);
     
     $req -> execute();
@@ -203,7 +202,8 @@ function getAdoptionAnimal(){
         $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
         (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-        $sql = "SELECT idanimal_a_adopter idaa, aa.nom, aa.sexe, aa.photo, aa.description, aa.date_anniversaire anniversaire, refuge_idrefuge, refuge.nom refuge_nom, refuge.lien refuge_lien, refuge.lien_maps maps
+        $sql = "SELECT idanimal_a_adopter idaa, aa.nom, aa.sexe, aa.photo, aa.description, aa.date_anniversaire anniversaire, 
+        refuge_idrefuge, refuge.nom refuge_nom, refuge.lien refuge_lien, refuge.url_logo refuge_logo, refuge.adresse refuge_adresse, refuge.telephone refuge_telephone, refuge.adresse_mail refuge_mail, refuge.lien_maps maps
         FROM animal_a_adopter aa
         INNER JOIN refuge ON refuge.idrefuge = aa.refuge_idrefuge
         WHERE idanimal_a_adopter = ?";
@@ -387,6 +387,57 @@ function getAnimalTypes(){
     
     if ($req->rowCount() <= 0)
         throw new Exception("Aucune catégorie n'a été trouvée");
+
+    return $req;
+}
+
+function getRefugesList(){
+    require("PDO.php");
+
+    $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
+    (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+
+    $sql = "SELECT idrefuge id, nom FROM refuge";
+    $req = $db -> prepare($sql);
+    
+    $req -> execute();
+    
+    if ($req->rowCount() <= 0)
+        throw new Exception("Aucun refuge n'a été trouvé");
+
+    return $req;
+}
+
+function getAAList(){
+    require("PDO.php");
+
+    $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
+    (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+
+    $sql = "SELECT 	idanimal_a_adopter id, animal_a_adopter.nom nom, refuge.nom refuge FROM `animal_a_adopter` INNER JOIN refuge ON animal_a_adopter.refuge_idrefuge = refuge.idrefuge";
+    $req = $db -> prepare($sql);
+    
+    $req -> execute();
+    
+    if ($req->rowCount() <= 0)
+        throw new Exception("Aucun animal à adopter n'a été trouvé");
+
+    return $req;
+}
+
+function getBadgesList(){
+    require("PDO.php");
+
+    $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
+    (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+
+    $sql = "SELECT idbadge id, nom FROM `badge`";
+    $req = $db -> prepare($sql);
+    
+    $req -> execute();
+    
+    if ($req->rowCount() <= 0)
+        throw new Exception("Aucun animal à adopter n'a été trouvé");
 
     return $req;
 }

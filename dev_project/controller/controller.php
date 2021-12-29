@@ -136,3 +136,40 @@
             printConnect();
         }
     }
+
+// PAGES ADMIN
+
+    function printAdmin(){
+        if (verifyToken()
+        && $_SESSION['statut'] == 1
+        ){
+            $liste_refuges = getRefugesList();
+            $liste_aa = getAAList();
+            require(BASE_URL . "view/adminView.php");
+        } else {
+            printConnect();
+        }
+    }
+
+    function printAdminAjouterRefuge(){
+        if (verifyToken()
+        && $_SESSION['statut'] == 1
+        ){
+            require(BASE_URL . "view/adminAjouterRefugeView.php");
+        } else {
+            printConnect();
+        }
+    }
+
+    function printAdminAjouterAnimalAdopter(){
+        if (verifyToken()
+        && $_SESSION['statut'] == 1
+        ){
+            $types_animaux = getAnimalTypes();
+            $liste_refuges = getRefugesList();
+            $badges_list = getBadgesList();
+            require(BASE_URL . "view/adminAjouterAnimalAdopterView.php");
+        } else {
+            printConnect();
+        }
+    }

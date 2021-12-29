@@ -33,7 +33,7 @@ main{
     justify-content: space-around;
 }
 
-.btn{
+div.desc>.btn{
     align-self: flex-end;
     margin-right: 12px;
 }

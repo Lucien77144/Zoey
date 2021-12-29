@@ -17,11 +17,11 @@ function verifyToken_checkFromDb(){
     $explodedToken = explode("-", $storedToken['token']);
     $currentTime = time();
 
-    if (($explodedToken[2] + 300) < $currentTime && ($explodedToken[2] + 900) > $currentTime){ // > 5 min but not expired (15min) -> give a new token
+    if (($explodedToken[2] + 300) < $currentTime && ($explodedToken[2] + 900) > $currentTime){ // > 5 min but not expired (30min) -> give a new token
         require('generateToken.php');
     }
 
-    if (($explodedToken[2] + 900) < $currentTime){
+    if (($explodedToken[2] + 1800) < $currentTime){ // expire : >30min
         return false;
     } else {
         if($_SESSION['token'] == $storedToken['token']){

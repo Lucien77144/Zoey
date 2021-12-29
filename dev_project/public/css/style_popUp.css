@@ -1,3 +1,8 @@
+/* JS HANDLER */
+#popUpContainer{
+    display: none;
+}
+
 /* popUp de bienvenue */
 .welcome {
     font-family: 'Exo 2', sans-serif;
@@ -48,6 +53,7 @@
     align-items: center;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.75);
+    z-index: 100000;
 }
 
 .popUp {
@@ -56,7 +62,6 @@
     width: 90vw;
     min-width: 300px;
     max-width: 500px;
-    height: calc(500px+10%);
     border-radius: 50px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
     background-color: #F6F6F6;
@@ -64,6 +69,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    padding-bottom: 30px;
 }
 
 .popUp h1 {
@@ -85,6 +91,11 @@
     white-space: nowrap;
 }
 
+.logoRefuge{
+    margin-top: 20px;
+    max-width: 40%;
+}
+
 .croix {
     content: "";
     position: absolute;
@@ -97,6 +108,7 @@
     width: 30px;
     height: 30px;
 }
+
 
 
 @media screen and (min-width: 500px) {
@@ -144,6 +156,7 @@
     width: 100%;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
 }
 
 .contactContainer .icon {

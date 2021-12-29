@@ -11,7 +11,7 @@ if (!verifyToken()){
 }
 
 function postPhoto(){
-    $uploadDirectory = "public/images/";
+    $uploadDirectory = "public/images/upload/";
 
     $errors = [];
 

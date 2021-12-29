@@ -13,7 +13,7 @@ ob_start();
 ?>
 
 <h1 class="nom"><?= htmlspecialchars($animal['nom']) ?></h1>
-    <a href="<?= BASE_URL . 'public/images/' . htmlspecialchars($animal['photo']) ?>" class="image" style="background-image: url('<?= BASE_URL . 'public/images/' . htmlspecialchars($animal['photo']) ?>');"></a>
+    <a href="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($animal['photo']) ?>" class="image" style="background-image: url('<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($animal['photo']) ?>');"></a>
     
     <h1 class="underline">Qui suis-je ?</h1>
     <p class="descAnimal">
@@ -131,43 +131,52 @@ ob_start();
             <?php
         }
     ?>
-        <!-- <div class="badgeDesc">
-            <div class="illus">
-                <img src="medias/badges/enfants.svg" alt="">
-                <h2>
-                    S'entend bien avec les enfants
-                </h2>
-            </div>
-            <div class="descWrap">
-                <p>
-                    [NOM] est très énergique et ne demande qu’à jouer. [PRONOM] a besoin de faire beaucoup d’exercice pour évacuer son énergie et fait un[e] partenaire de jeu idéal.
-                </p>
-            </div>
-        </div>
-        <div class="badgeDesc close">
-            <div class="illus">
-                <img src="medias/badges/enfants.svg" alt="">
-            </div>
-            <div class="descWrap">
-                <p>
-                    [NOM] est très énergique et ne demandant qu’à jouer.
-                </p>
-            </div>
-        </div>
-        <div class="badgeDesc close">
-            <div class="illus">
-                <img src="medias/badges/enfants.svg" alt="">
-            </div>
-            <div class="descWrap">
-                <p>
-                    [NOM] est très énergique et ne demandant qu’à jouer. [PRONOM] a besoin de faire beaucoup d’exercice pour évacuer son énergie et fait un compagnon de jeu idéal.
-                </p>
-            </div>
-        </div> -->
     </div>
     <h1 class="underline">Où me trouver ?</h1>
     <iframe src="<?= htmlspecialchars($animal['maps']) ?>" allowfullscreen="" loading="lazy"></iframe>
-    <a href="" class="btn refuge">Contacter le refuge</a>
+    <a class="btn refuge" id="popUpLauncher">Contacter le refuge</a>
+
+    <!-- popUp Refuge : hidden by default -->
+    <div class="wrapperPopUp" id="popUpContainer">
+        <div class="popUp">
+            <div class="croix" id="popUpClose"><img src="<?= BASE_URL . 'public/images/icons/popUp/croix.svg'?>" alt=""></div>
+            <h1 class="contact"><?= htmlspecialchars($animal['refuge_nom']) ?></h1>
+
+            <?php if (isset($animal['refuge_logo'])){
+                ?>
+                <img src="public/images/upload/<?= htmlspecialchars($animal['refuge_logo']) ?>" alt="" class="logoRefuge">
+                
+            <?php } ?>
+
+            <?php if (isset($animal['refuge_mail'])){
+                ?>
+                <div class="contactContainer mail">
+                    <img src="<?= BASE_URL . 'public/images/icons/popUp/mail.svg'?>" class="icon" alt="">
+                    <p>Mail : <?= htmlspecialchars($animal['refuge_mail']) ?></p>
+                </div>
+                <a href="mailto:<?= htmlspecialchars($animal['refuge_mail']) ?>" class="btn">Contacter par mail</a>
+
+            <?php } ?>
+            
+            <div class="contactContainer web">
+                <img src="<?= BASE_URL . 'public/images/icons/popUp/web.svg'?>" class="icon" alt="">
+                <p>Site web : <?= htmlspecialchars($animal['refuge_lien']) ?></p>
+            </div>
+            <a href="<?= htmlspecialchars($animal['refuge_lien']) ?>" target="_blank" class="btn">Voir le site web</a>
+
+            <?php if (isset($animal['refuge_adresse'])){
+                ?>
+                <div class="contactContainer location">
+                    <img src="<?= BASE_URL . 'public/images/icons/popUp/location.svg'?>" class="icon" alt="">
+                    <p>Adresse : <?= htmlspecialchars($animal['refuge_adresse']) ?></p>
+                </div>
+
+            <?php } ?>
+
+            
+
+        </div>
+    </div>
     
 <?php
     $adoptionAnimal->closeCursor();
@@ -176,12 +185,14 @@ ob_start();
     // styles BLOCK
     ob_start(); ?>
     <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_adoption.css" />
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_popUp.css" />
 <?php
     $stylesBlock = ob_get_clean();
 
     // SCRIPT BLOCK
     ob_start(); ?>
     <script src="public/js/adoption-animation-badge.js"></script>
+    <script src="public/js/script.js"></script>
 <?php
     $scriptsBlock = ob_get_clean();
 

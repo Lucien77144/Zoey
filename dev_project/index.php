@@ -77,13 +77,19 @@ try{
             echo 'page en construction';
             
 
-        } else if ($_GET['action'] == 'adoption'){            
+        } else if ($_GET['action'] == 'adoption'){
             if (isset($_GET['id'])) {
                 printAdoptionAnimal();
             }
             else{
                 printAdoption();
             }
+        } else if ($_GET['action'] == 'admin'){
+            printAdmin();
+        } else if ($_GET['action'] == 'adminAjouterRefuge'){
+            printAdminAjouterRefuge();
+        } else if ($_GET['action'] == 'adminAjouterAnimalAdopter'){
+            printAdminAjouterAnimalAdopter();
         }
     }
     else {
