@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 30 déc. 2021 à 00:52
+-- Généré le : mar. 07 déc. 2021 à 16:15
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.0.12
 
@@ -483,7 +483,7 @@ CREATE TABLE `refuge` (
   `adresse_mail` varchar(45) DEFAULT NULL,
   `telephone` int(11) DEFAULT NULL,
   `lien_maps` text NOT NULL,
-  `adresse` varchar(255) DEFAULT NULL,
+  `adresse` varchar(45) DEFAULT NULL,
   `url_logo` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -492,7 +492,7 @@ CREATE TABLE `refuge` (
 --
 
 INSERT INTO `refuge` (`idrefuge`, `nom`, `description`, `lien`, `adresse_mail`, `telephone`, `lien_maps`, `adresse`, `url_logo`) VALUES
-(1, 'Association Nine Lives Paris', 'ADOPTION D\'ANIMAUX DE COMPAGNIE A PARIS ET EN ILE-DE-FRANCE', 'https://ninelives.fr/', 'asso@ninelives.fr', 111111111, 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d674378.907713388!2d2.5026636!3d48.68077!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfe7df6a0dd3e8e74!2sNine%20Lives%20Paris!5e0!3m2!1sfr!2sfr!4v1638873872859!5m2!1sfr!2sfr', '11 rue lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem 11111 paris', '651640199401.png');
+(1, 'Association Nine Lives Paris', 'ADOPTION D\'ANIMAUX DE COMPAGNIE A PARIS ET EN ILE-DE-FRANCE', 'https://ninelives.fr/', NULL, NULL, 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d674378.907713388!2d2.5026636!3d48.68077!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfe7df6a0dd3e8e74!2sNine%20Lives%20Paris!5e0!3m2!1sfr!2sfr!4v1638873872859!5m2!1sfr!2sfr\" width=\"600\" height=\"450\" style=\"border:0;', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -595,13 +595,7 @@ INSERT INTO `types_animaux` (`idtypes_animaux`, `nom`, `url_icone`) VALUES
 (1, 'poule', NULL),
 (2, 'chat', NULL),
 (3, 'chien', NULL),
-(4, 'autre', NULL),
-(5, 'Rongeurs', NULL),
-(6, 'Reptiles', NULL),
-(7, 'Poissons', NULL),
-(8, 'Crustacés', NULL),
-(9, 'Insectes', NULL),
-(10, 'Amphibiens', NULL);
+(4, 'autre', NULL);
 
 -- --------------------------------------------------------
 
@@ -622,77 +616,75 @@ CREATE TABLE `utilisateur` (
   `description` mediumtext DEFAULT NULL,
   `date_creation` datetime DEFAULT current_timestamp(),
   `date_derniere_connexion` datetime DEFAULT NULL,
-  `token` varchar(255) DEFAULT NULL,
-  `statut` tinyint(4) DEFAULT NULL
+  `token` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`idutilisateur`, `pseudo`, `mot_de_passe`, `prenom`, `nom`, `adresse_mail`, `url_photo`, `date_naissance`, `adresse`, `description`, `date_creation`, `date_derniere_connexion`, `token`, `statut`) VALUES
-(2, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:15:24', NULL, NULL, NULL),
-(3, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:15:26', NULL, NULL, NULL),
-(4, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:16:39', NULL, NULL, NULL),
-(5, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:16:53', NULL, NULL, NULL),
-(6, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:17:01', NULL, NULL, NULL),
-(7, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:17:01', NULL, NULL, NULL),
-(8, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:17:21', NULL, NULL, NULL),
-(9, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:17:31', NULL, NULL, NULL),
-(10, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:26:05', NULL, NULL, NULL),
-(11, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:26:46', NULL, NULL, NULL),
-(12, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:27:12', NULL, NULL, NULL),
-(13, NULL, '$argon2i$v=19$m=2048,t=4,p=3$dUtXa29hVEt2eDhJbjJ0eQ$/+I4XqKPjjHkQf+h9SRMDGDQ9CEx2MUn2fNcoOW6NzU', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:27:50', '2021-10-11 21:27:45', NULL, NULL),
-(14, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:29:29', NULL, NULL, NULL),
-(15, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:29:35', NULL, NULL, NULL),
-(16, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:29:36', NULL, NULL, NULL),
-(17, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:31:34', NULL, NULL, NULL),
-(18, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:31:52', NULL, NULL, NULL),
-(19, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:32:06', NULL, NULL, NULL),
-(20, NULL, '=19=2048,t=4,p=3+BRptAhGziq2I', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:32:36', NULL, NULL, NULL),
-(21, NULL, ':mot_de_passe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:33:57', NULL, NULL, NULL),
-(22, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:34:24', NULL, NULL, NULL),
-(23, NULL, 'test', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:37:05', NULL, NULL, NULL),
-(24, NULL, '=19=2048,t=4,p=3$39MWwuk1lt2sITkfayWCnivyQXgGcX89ojPzoucmkAU', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:47:59', NULL, NULL, NULL),
-(25, NULL, ':mot_de_passe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:49:10', NULL, NULL, NULL),
-(26, NULL, ':mot_de_passe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:49:36', NULL, NULL, NULL),
-(27, NULL, ':mot_de_passe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:49:43', NULL, NULL, NULL),
-(28, NULL, ':mot_de_passe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:50:02', NULL, NULL, NULL),
-(29, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:50:33', NULL, NULL, NULL),
-(30, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:51:15', NULL, NULL, NULL),
-(31, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:51:26', NULL, NULL, NULL),
-(32, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:52:55', NULL, NULL, NULL),
-(33, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:53:09', NULL, NULL, NULL),
-(34, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:53:18', NULL, NULL, NULL),
-(35, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:54:52', NULL, NULL, NULL),
-(36, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:55:46', NULL, NULL, NULL),
-(37, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:55:57', NULL, NULL, NULL),
-(38, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:56:09', NULL, NULL, NULL),
-(39, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:57:14', NULL, NULL, NULL),
-(40, NULL, 'pass', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:57:25', NULL, NULL, NULL),
-(41, NULL, 'passwordddhere', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:57:48', NULL, NULL, NULL),
-(42, NULL, 'passwordddhere', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:58:45', NULL, '424242', NULL),
-(43, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:59:42', NULL, NULL, NULL),
-(44, NULL, 'aaaaaa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:59:56', NULL, NULL, NULL),
-(45, NULL, '42ksdfhzçepoikriughzeojufoihfiudhfn', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:00:16', NULL, NULL, NULL),
-(46, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:00:31', NULL, NULL, NULL),
-(47, NULL, '42ksdfhzçepoikriughzeojufoihfiudhfn', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:00:53', NULL, NULL, NULL),
-(48, NULL, '42ksdfhzçepoikriughzeojufoihfiudhfn', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:01:25', NULL, NULL, NULL),
-(49, NULL, '$argon2i$v=19$m=2048,t=4,p=3$WlExaVRCU3BHTUFKTDFWSQ$lyDHyXkg+aKauZHinbxkLHSgWaDBXHlt3dHjzHnRh+U', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:01:40', NULL, NULL, NULL),
-(50, 'Marin', '$argon2i$v=19$m=2048,t=4,p=3$Q05uSXFmV05TMjNPWmhRSw$qlG7lkcoKmy5KyGNorKpwZroT/kJzaE+Qjg6ExNhIRc', 'az', 'az', 'az', NULL, '2021-10-11', NULL, NULL, '2021-10-11 22:02:43', NULL, NULL, NULL),
-(51, 'Marin', '$argon2i$v=19$m=2048,t=4,p=3$aU9JN1lueXN0MmJ0NC5lcQ$hWN2HUNE5EGfDiAvjUWXxc8JDe8b/r1KBNTirnS5/Kg', 'az', 'az', 'az', NULL, '2021-10-11', NULL, NULL, '2021-10-11 22:03:10', NULL, NULL, NULL),
-(52, 'pseudo', '$argon2i$v=19$m=2048,t=4,p=3$aXNMYVZUalBKVXBrZWpodA$iJVVOSyeYIXQMl9tjmcEkVTCRqf+nTlQMgeiaJEmd58', 'pseudo', 'pseudo', 'pseudo', NULL, '2021-10-11', NULL, NULL, '2021-10-11 23:03:55', NULL, '12a343c3aedd2568abebad71d65391ab18f1c5ea14e78974bc66b9fc01145b0dd8ab18-52-1634068665', NULL),
-(54, 'matthis', '$argon2i$v=19$m=2048,t=4,p=3$N3FYT1lqcFRudU4wanoxMw$n/t1XIvr5VvbjXCqlTNq/7awPHS1YT/mITckS4BIXo8', 'matthis', 'matthis', 'matthis', 'profil.jpg', '0005-04-05', NULL, 'Jeune propriétaire de poules du 77', '2021-10-12 10:20:36', NULL, '335f2520da38fc1bb22ab612e618424abe60bb3667a1848e550de77969174eefc30bb7-54-1636455708', 1),
-(55, 'maaa', '$argon2i$v=19$m=2048,t=4,p=3$b0VnREI0TUxkSG50TDVjZA$90IKf0fK9U0FRJciVPv+nobhL6cjOe+FJ6M4jfPXJCg', 'a', 'a', 'a', NULL, '2021-10-12', NULL, NULL, '2021-10-12 12:43:40', NULL, NULL, NULL),
-(56, 'msqdlksqkhdsqd', '$argon2i$v=19$m=2048,t=4,p=3$VFRhMTlmTlBsUlJsRXkzMA$iBQSxxmYWcBQuOyB4oUYgwjmYqxDgnAqUhjYZPbKGjs', 'a', 'a', 'a', NULL, '2021-10-12', NULL, NULL, '2021-10-12 12:44:10', NULL, NULL, NULL),
-(58, 'testt', '$argon2i$v=19$m=2048,t=4,p=3$RU5jV1hYN3laQWFqdWNPQg$X9MRs3KIP/NUCnj5TcOQ1xbqT+ui5SkmoPbJSS7x1D0', 'test', 'test', 'test', NULL, '2021-10-04', NULL, NULL, '2021-10-12 15:06:47', NULL, '5ec4d4b64a26edbc179bf0e544fa66b1188e1972a71aeae694dc12a0d3ef9dc1c73b14-58-1634044036', NULL),
-(59, 'test', '$argon2i$v=19$m=2048,t=4,p=3$OVIxSmFPZXBjaVNKQWVjSA$adFKdFpM4UoPPrm1FL4PEJ1jG5EcCgc8isxc3tVga+A', 'testttt', 'testttt', 'test@psqodskdml', NULL, '0001-01-01', NULL, NULL, '2021-10-12 15:19:52', NULL, '92fa14bc9ef41cd1a496a114714163f0247d1f070778aca9b6180b1a1da260353201af-59-1634044798', NULL),
-(60, 'testhash', '$2y$10$qxTOsJZWW507dhLOZT/SEOLT8.IJXZ/vvwxDgBkwqiRrwXUoih3zm', 'testhash', 'testhash', 'testhash', NULL, '2021-10-21', NULL, NULL, '2021-10-13 01:58:22', NULL, '330ea81dce81d8275da9dd3ce0e97d900ae7e774f02d42624ee0141f7d79a013bae4a9-60-1634083112', NULL),
-(61, 'lucien', '$2y$10$dmkRoSdUp2xZ/QLS1MAEmeUKoJKmrrQzFRu8cGwkUwwpUStX0PLJO', 'lucien', 'lucien', 'lucien', NULL, '2222-12-21', NULL, NULL, '2021-10-18 09:21:30', NULL, 'f1def9ce20bd17f72ec9823b398b42a318687b7c4f871ff5d42e57f2a7306d7282c460-61-1636455693', NULL),
-(62, 'Elon', '$2y$10$PgpcUxsz5xhy/pQlWd0AYu1Rhh8vcQKWJDJfVCYfy9Qoz/6zX36Ui', 'elon', 'elon', 'elon', NULL, '0001-11-11', NULL, NULL, '2021-10-19 19:06:13', NULL, '8577a2bc96ce89ab224c503927b6019f9ceb755341e0a0240c1ee541c6c721691ed60b-62-1634663770', NULL),
-(63, 'testtest', '$2y$10$hzIy1WSrfXHfLORkZKu7Ke91dsCipr45bRVEkPzQGWS394eMshBIe', 'testtest', 'testtest', 'testtest', 'déconnecté', '0000-00-00', NULL, NULL, '2021-10-19 20:07:10', NULL, 'b498b38682a6d01eb5ae0fd03fa9c663d920954a76e3eb565b6a46cfad71e8345bbf56-63-1636061066', NULL),
-(64, 'a', '$argon2i$v=19$m=2048,t=4,p=3$T0UzbXVJOWozY3hSSmg4Lw$YOmfB0jUVNJqUjoL8YclXQHxtjG4Wzir1PqqCZ1Rgj8', 'testtesttest', 'testtesttest', 'testtesttest', 'uploadedOn1634667264_by_64_peewee.jpg', '0008-08-08', NULL, NULL, '2021-10-19 20:07:48', NULL, '903c970b017c3109170fe39e89bb64fa5f0fcad5e00a157313d3a63a12554e3be6ff4b-64-1634670563', NULL),
-(65, 'admin', '$2y$10$zZTUX6mXg0b0rDwcYGHWjeHIrPzU/LZ64.uUiQajUsrrYaDS1rwZa', 'admin', 'admin', 'admin', 'déconnecté', '0001-01-01', NULL, NULL, '2021-12-22 19:05:11', NULL, '68dc3ad39752338eac1c105071d0cdbcf385f0285b358e9925a8c3794e18442276d0fa-65-1640821926', 1);
+INSERT INTO `utilisateur` (`idutilisateur`, `pseudo`, `mot_de_passe`, `prenom`, `nom`, `adresse_mail`, `url_photo`, `date_naissance`, `adresse`, `description`, `date_creation`, `date_derniere_connexion`, `token`) VALUES
+(2, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:15:24', NULL, NULL),
+(3, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:15:26', NULL, NULL),
+(4, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:16:39', NULL, NULL),
+(5, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:16:53', NULL, NULL),
+(6, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:17:01', NULL, NULL),
+(7, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:17:01', NULL, NULL),
+(8, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:17:21', NULL, NULL),
+(9, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:17:31', NULL, NULL),
+(10, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:26:05', NULL, NULL),
+(11, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:26:46', NULL, NULL),
+(12, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:27:12', NULL, NULL),
+(13, NULL, '$argon2i$v=19$m=2048,t=4,p=3$dUtXa29hVEt2eDhJbjJ0eQ$/+I4XqKPjjHkQf+h9SRMDGDQ9CEx2MUn2fNcoOW6NzU', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:27:50', '2021-10-11 21:27:45', NULL),
+(14, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:29:29', NULL, NULL),
+(15, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:29:35', NULL, NULL),
+(16, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:29:36', NULL, NULL),
+(17, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:31:34', NULL, NULL),
+(18, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:31:52', NULL, NULL),
+(19, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:32:06', NULL, NULL),
+(20, NULL, '=19=2048,t=4,p=3+BRptAhGziq2I', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:32:36', NULL, NULL),
+(21, NULL, ':mot_de_passe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:33:57', NULL, NULL),
+(22, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:34:24', NULL, NULL),
+(23, NULL, 'test', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:37:05', NULL, NULL),
+(24, NULL, '=19=2048,t=4,p=3$39MWwuk1lt2sITkfayWCnivyQXgGcX89ojPzoucmkAU', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:47:59', NULL, NULL),
+(25, NULL, ':mot_de_passe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:49:10', NULL, NULL),
+(26, NULL, ':mot_de_passe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:49:36', NULL, NULL),
+(27, NULL, ':mot_de_passe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:49:43', NULL, NULL),
+(28, NULL, ':mot_de_passe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:50:02', NULL, NULL),
+(29, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:50:33', NULL, NULL),
+(30, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:51:15', NULL, NULL),
+(31, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:51:26', NULL, NULL),
+(32, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:52:55', NULL, NULL),
+(33, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:53:09', NULL, NULL),
+(34, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:53:18', NULL, NULL),
+(35, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:54:52', NULL, NULL),
+(36, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:55:46', NULL, NULL),
+(37, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:55:57', NULL, NULL),
+(38, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:56:09', NULL, NULL),
+(39, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:57:14', NULL, NULL),
+(40, NULL, 'pass', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:57:25', NULL, NULL),
+(41, NULL, 'passwordddhere', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:57:48', NULL, NULL),
+(42, NULL, 'passwordddhere', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:58:45', NULL, '424242'),
+(43, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:59:42', NULL, NULL),
+(44, NULL, 'aaaaaa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:59:56', NULL, NULL),
+(45, NULL, '42ksdfhzçepoikriughzeojufoihfiudhfn', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:00:16', NULL, NULL),
+(46, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:00:31', NULL, NULL),
+(47, NULL, '42ksdfhzçepoikriughzeojufoihfiudhfn', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:00:53', NULL, NULL),
+(48, NULL, '42ksdfhzçepoikriughzeojufoihfiudhfn', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:01:25', NULL, NULL),
+(49, NULL, '$argon2i$v=19$m=2048,t=4,p=3$WlExaVRCU3BHTUFKTDFWSQ$lyDHyXkg+aKauZHinbxkLHSgWaDBXHlt3dHjzHnRh+U', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:01:40', NULL, NULL),
+(50, 'Marin', '$argon2i$v=19$m=2048,t=4,p=3$Q05uSXFmV05TMjNPWmhRSw$qlG7lkcoKmy5KyGNorKpwZroT/kJzaE+Qjg6ExNhIRc', 'az', 'az', 'az', NULL, '2021-10-11', NULL, NULL, '2021-10-11 22:02:43', NULL, NULL),
+(51, 'Marin', '$argon2i$v=19$m=2048,t=4,p=3$aU9JN1lueXN0MmJ0NC5lcQ$hWN2HUNE5EGfDiAvjUWXxc8JDe8b/r1KBNTirnS5/Kg', 'az', 'az', 'az', NULL, '2021-10-11', NULL, NULL, '2021-10-11 22:03:10', NULL, NULL),
+(52, 'pseudo', '$argon2i$v=19$m=2048,t=4,p=3$aXNMYVZUalBKVXBrZWpodA$iJVVOSyeYIXQMl9tjmcEkVTCRqf+nTlQMgeiaJEmd58', 'pseudo', 'pseudo', 'pseudo', NULL, '2021-10-11', NULL, NULL, '2021-10-11 23:03:55', NULL, '12a343c3aedd2568abebad71d65391ab18f1c5ea14e78974bc66b9fc01145b0dd8ab18-52-1634068665'),
+(54, 'matthis', '$argon2i$v=19$m=2048,t=4,p=3$N3FYT1lqcFRudU4wanoxMw$n/t1XIvr5VvbjXCqlTNq/7awPHS1YT/mITckS4BIXo8', 'matthis', 'matthis', 'matthis', 'profil.jpg', '0005-04-05', NULL, 'Jeune propriétaire de poules du 77', '2021-10-12 10:20:36', NULL, '335f2520da38fc1bb22ab612e618424abe60bb3667a1848e550de77969174eefc30bb7-54-1636455708'),
+(55, 'maaa', '$argon2i$v=19$m=2048,t=4,p=3$b0VnREI0TUxkSG50TDVjZA$90IKf0fK9U0FRJciVPv+nobhL6cjOe+FJ6M4jfPXJCg', 'a', 'a', 'a', NULL, '2021-10-12', NULL, NULL, '2021-10-12 12:43:40', NULL, NULL),
+(56, 'msqdlksqkhdsqd', '$argon2i$v=19$m=2048,t=4,p=3$VFRhMTlmTlBsUlJsRXkzMA$iBQSxxmYWcBQuOyB4oUYgwjmYqxDgnAqUhjYZPbKGjs', 'a', 'a', 'a', NULL, '2021-10-12', NULL, NULL, '2021-10-12 12:44:10', NULL, NULL),
+(58, 'testt', '$argon2i$v=19$m=2048,t=4,p=3$RU5jV1hYN3laQWFqdWNPQg$X9MRs3KIP/NUCnj5TcOQ1xbqT+ui5SkmoPbJSS7x1D0', 'test', 'test', 'test', NULL, '2021-10-04', NULL, NULL, '2021-10-12 15:06:47', NULL, '5ec4d4b64a26edbc179bf0e544fa66b1188e1972a71aeae694dc12a0d3ef9dc1c73b14-58-1634044036'),
+(59, 'test', '$argon2i$v=19$m=2048,t=4,p=3$OVIxSmFPZXBjaVNKQWVjSA$adFKdFpM4UoPPrm1FL4PEJ1jG5EcCgc8isxc3tVga+A', 'testttt', 'testttt', 'test@psqodskdml', NULL, '0001-01-01', NULL, NULL, '2021-10-12 15:19:52', NULL, '92fa14bc9ef41cd1a496a114714163f0247d1f070778aca9b6180b1a1da260353201af-59-1634044798'),
+(60, 'testhash', '$2y$10$qxTOsJZWW507dhLOZT/SEOLT8.IJXZ/vvwxDgBkwqiRrwXUoih3zm', 'testhash', 'testhash', 'testhash', NULL, '2021-10-21', NULL, NULL, '2021-10-13 01:58:22', NULL, '330ea81dce81d8275da9dd3ce0e97d900ae7e774f02d42624ee0141f7d79a013bae4a9-60-1634083112'),
+(61, 'lucien', '$2y$10$dmkRoSdUp2xZ/QLS1MAEmeUKoJKmrrQzFRu8cGwkUwwpUStX0PLJO', 'lucien', 'lucien', 'lucien', NULL, '2222-12-21', NULL, NULL, '2021-10-18 09:21:30', NULL, 'f1def9ce20bd17f72ec9823b398b42a318687b7c4f871ff5d42e57f2a7306d7282c460-61-1636455693'),
+(62, 'Elon', '$2y$10$PgpcUxsz5xhy/pQlWd0AYu1Rhh8vcQKWJDJfVCYfy9Qoz/6zX36Ui', 'elon', 'elon', 'elon', NULL, '0001-11-11', NULL, NULL, '2021-10-19 19:06:13', NULL, '8577a2bc96ce89ab224c503927b6019f9ceb755341e0a0240c1ee541c6c721691ed60b-62-1634663770'),
+(63, 'testtest', '$2y$10$hzIy1WSrfXHfLORkZKu7Ke91dsCipr45bRVEkPzQGWS394eMshBIe', 'testtest', 'testtest', 'testtest', 'déconnecté', '0000-00-00', NULL, NULL, '2021-10-19 20:07:10', NULL, 'b498b38682a6d01eb5ae0fd03fa9c663d920954a76e3eb565b6a46cfad71e8345bbf56-63-1636061066'),
+(64, 'a', '$argon2i$v=19$m=2048,t=4,p=3$T0UzbXVJOWozY3hSSmg4Lw$YOmfB0jUVNJqUjoL8YclXQHxtjG4Wzir1PqqCZ1Rgj8', 'testtesttest', 'testtesttest', 'testtesttest', 'uploadedOn1634667264_by_64_peewee.jpg', '0008-08-08', NULL, NULL, '2021-10-19 20:07:48', NULL, '903c970b017c3109170fe39e89bb64fa5f0fcad5e00a157313d3a63a12554e3be6ff4b-64-1634670563');
 
 -- --------------------------------------------------------
 
@@ -916,7 +908,7 @@ ALTER TABLE `utilisateur_has_centres_interet`
 -- AUTO_INCREMENT pour la table `animal_a_adopter`
 --
 ALTER TABLE `animal_a_adopter`
-  MODIFY `idanimal_a_adopter` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `idanimal_a_adopter` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `badge`
@@ -994,7 +986,7 @@ ALTER TABLE `profil_animal_de_compagnie`
 -- AUTO_INCREMENT pour la table `refuge`
 --
 ALTER TABLE `refuge`
-  MODIFY `idrefuge` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idrefuge` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `reinitialisation_mot_de_passe`
@@ -1030,13 +1022,13 @@ ALTER TABLE `sujet_forum_favoris`
 -- AUTO_INCREMENT pour la table `types_animaux`
 --
 ALTER TABLE `types_animaux`
-  MODIFY `idtypes_animaux` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idtypes_animaux` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `idutilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `idutilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- Contraintes pour les tables déchargées
