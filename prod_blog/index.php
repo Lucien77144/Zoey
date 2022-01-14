@@ -6,7 +6,7 @@
     $viewContent = "";
     $printNewsletter = true;
     $showModifyLink = false;
-    require_once("controller/controller.php");
+    require("controller/controller.php");
 
 try{
 
@@ -23,12 +23,27 @@ try{
         } else if ($_GET['action'] == 'legal'){
             printLegal();
         } else if ($_GET['action'] == 'adoption'){
-            printAdoption();
+            if (isset($_GET['id'])) {
+                printAdoptionAnimal();
+            }
+            else{
+                printAdoption();
+            }
         } else if ($_GET['action'] == 'newsletter'){
             printNewsletter();
+        } else if ($_GET['action'] == 'subscribe'){
+            printSubscribe();
+        } else if ($_GET['action'] == 'connect'){
+            printConnect();
+        } else if ($_GET['action'] == 'admin'){
+            printAdmin();
+        } else if ($_GET['action'] == 'adminAjouterRefuge'){
+            printAdminAjouterRefuge();
+        } else if ($_GET['action'] == 'adminAjouterAnimalAdopter'){
+            printAdminAjouterAnimalAdopter();
         } else {
             printPresentation();
-        }
+        } 
     } else {
         printPresentation();
     }

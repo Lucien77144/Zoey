@@ -1,0 +1,51 @@
+.connexion {
+  width: 100vw;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.connexion h1 {
+  color: #f3811c;
+  font-size: 1.8rem;
+}
+.connectForm {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+}
+.connectForm label {
+  font-weight: bold;
+}
+
+.linksContainer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.linksContainer input {
+  width: 150px;
+  font-size: 1rem;
+}
+.linksContainer a {
+  font-size: 0.8rem;
+  color: black;
+}
+.subscribeForm p {
+  font-size: 0.8rem;
+}
+@media screen and (min-width: 800px) {
+    .inputContainer {
+        flex-direction: row;
+    }
+    .pseudoContainer {
+        display: flex;
+        flex-direction: column;
+    }
+    .passwordContainer {
+        display: flex;
+        flex-direction: column;
+    }
+}

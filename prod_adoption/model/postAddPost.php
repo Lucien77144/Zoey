@@ -1,0 +1,69 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['idUser']) && isnumeric($_SESSION['idUser'])){
+  exit('déconnecté');
+}
+
+require("model.php");
+
+function postAddPost(){
+
+    $description = safeEntry($_POST['description']);
+    $fileName = safeEntry($_POST['media']);
+    $postedIdAnimal = intval(safeEntry($_POST['idAnimal']));
+    $idUser = $_SESSION['idUser'];
+
+    $accountAnimals = getAccountAnimals();
+
+    if (!$accountAnimals){ // renvoie false si aucun animal lié à ce compte n'a été trouvé en bdd
+        throw new Exception("Nous n'avons pas trouvé cet animal !");
+    } else {
+        $animal = $accountAnimals->fetchAll();
+
+        if ($postedIdAnimal <= $accountAnimals->rowCount()){
+            $idAnimal = $animal[$postedIdAnimal]['idanimal'];
+        } else {
+            throw new Exception("Nous n'avons pas trouvé cet animal ! 2");
+        }
+    }
+    
+    require("PDO.php");
+
+    $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
+    (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+
+    $sql = "INSERT INTO post (description, media, profil_animal_de_compagnie_idprofil_animal_de_compagnie, profil_animal_de_compagnie_utilisateur_idutilisateur1) VALUES (:description, :media, :idAnimal, :idUser)";
+    $req = $db -> prepare($sql);
+    
+    $valid = $req -> execute(array(
+        ':description' => $description,
+        ':media' => $fileName,
+        ':idAnimal' => $idAnimal,
+        ':idUser' => $idUser));
+        
+    if (!$valid)
+        throw new Exception("L'importation a échoué.1");
+
+    return "valid";
+}
+
+try {
+    if (is_numeric($_POST['idAnimal'])
+      && isset($_POST['description'])
+    )
+    {
+        $postAddPost = postAddPost();
+        echo $postAddPost;
+    } else {        
+        throw new Exception("L'importation a échoué.2");
+    }
+
+} catch (Exception $e) {
+    echo "catch";
+    $errorMsg = $e->getMessage();
+    echo $errorMsg;
+    // require(BASE_URL . "view/errorView.php");
+}
+
+    

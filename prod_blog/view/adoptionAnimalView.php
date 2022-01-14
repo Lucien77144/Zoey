@@ -1,7 +1,8 @@
 <?php 
 $animal = $adoptionAnimal->fetch();
 $adoptionAnimalBadges = getAdoptionAnimalBadges($animal['idaa']);
-var_dump($adoptionAnimalBadges);
+
+// var_dump($adoptionAnimalBadges);
 
 // convertir anniversaire en âge
 $date1 = new DateTime(date('Y-m-d', time()));
