@@ -223,6 +223,11 @@ header>img {
 .underline:hover::after {
   width: 110%;
 }
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 /* Fin spécificité popUp */
 @keyframes animLogo {
 
@@ -272,9 +277,13 @@ header>img {
   }
 
   .newsletter {
-    font-family: "Roboto", sans-serif;
+    /* font-family: "Roboto", sans-serif;
     display: grid;
-    grid-template-areas: "title title title""a b c""d d d";
+    grid-template-areas: "title title title"
+                          "a b c"
+                          "d d d"; */
+    /* display: flex;
+    flex-direction: column; */
     justify-content: center;
   }
 
