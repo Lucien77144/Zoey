@@ -346,7 +346,7 @@ header>img {
   .menuInner {
     background-color: initial;
     height: 100%;
-    width: 25vw;
+    /* width: 25vw; enlever pour version provisoire */
   }
 
   .menuInner>a {
@@ -363,7 +363,8 @@ header>img {
 
   .menu {
     height: 60px;
-    width: 50vw;
+    /* width: 50vw; enlever pour version provisoire */
+    width: 75vw;
     margin: auto;
     /* margin: 0 25vw 0 25vw; */
     margin-top: 0;

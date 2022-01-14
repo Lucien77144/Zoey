@@ -18,3 +18,12 @@
     function printLegal(){
         require(BASE_URL . "view/legalView.php");
     }
+
+    function printNewsletter(){
+        require(BASE_URL . "view/newsletterView.php");
+    }
+
+    function printAdoption(){
+        $feedAdoption = getFeedAdoption();
+        require(BASE_URL . "view/adoptionView.php");
+    }

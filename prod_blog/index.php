@@ -22,6 +22,10 @@ try{
             }
         } else if ($_GET['action'] == 'legal'){
             printLegal();
+        } else if ($_GET['action'] == 'adoption'){
+            printAdoption();
+        } else if ($_GET['action'] == 'newsletter'){
+            printNewsletter();
         } else {
             printPresentation();
         }
