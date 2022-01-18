@@ -12,6 +12,18 @@ function postDeleteAA(){
     $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
     (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
+    // get and delete its image
+    $sql = "SELECT photo FROM `animal_a_adopter` where idanimal_a_adopter = :idanimal";
+    $req = $db -> prepare($sql);
+    
+    $req -> execute(array(
+        ':idanimal' => $idanimal
+    ));
+
+    $photo = $req->fetch();
+    $deletePhoto = $photo["photo"];
+    require('deletePhoto.php');
+
     // delete animal_has_badges (foreign keys)
     $sql = "DELETE FROM `animal_a_adopter_has_badge` WHERE `animal_a_adopter_has_badge`.`animal_a_adopter_idanimal_a_adopter` = :idanimal";
     $req = $db -> prepare($sql);
