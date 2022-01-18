@@ -28,12 +28,14 @@ ob_start();
             $pronom3 = 'il';
             $terminaison1 = '';            
             $terminaison2 = 'x';
+            $terminaison3 = 'x';
         } else {
             $pronom1 = 'Elle';
             $pronom2 = 'la';
             $pronom3 = 'elle';
             $terminaison1 = 'e';
             $terminaison2 = 'ce';
+            $terminaison3 = 'se';
         }
 
         $badge1_titre = 'Jouer';
@@ -49,7 +51,7 @@ ob_start();
         $badge4_desc = 'Quand les températures chutent, '. htmlspecialchars($animal['nom']) .' a besoin d’hiberner pour survivre à la saison froide.';
 
         $badge5_titre = 'Caresses';
-        $badge5_desc = htmlspecialchars($animal['nom']) . ' est affectueu'. $terminaison2 .', '. $pronom3 .' aime les contacts physiques avec son maître. Des caresses et des gratouilles '. $pronom2 .' le comblera.';
+        $badge5_desc = htmlspecialchars($animal['nom']) . ' est affectueu'. $terminaison3 .', '. $pronom3 .' aime les contacts physiques avec son maître. Des caresses et des gratouilles '. $pronom2 .' comblera.';
 
         $badge6_titre = 'Balades et promenades';
         $badge6_desc = 'Les promenades et les balades sont essentielles pour '. htmlspecialchars($animal['nom']) .'. En forêt, dans un bois ou dans un parc.';

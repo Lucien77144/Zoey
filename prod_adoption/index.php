@@ -33,7 +33,17 @@ try{
             printNewsletter();
         } else if ($_GET['action'] == 'connect'){
             printConnect();
-        } else if ($_GET['action'] == 'disconnect'){
+        }  
+
+        
+        else if ($_GET['action'] == 'subscribe'){
+            printSubscribe();
+        } else if ($_GET['action'] == 'modifyAccount'){
+            printModifyAccount();
+        }
+
+
+        else if ($_GET['action'] == 'disconnect'){
             printDisconnect();
         } else if ($_GET['action'] == 'admin'){
             printAdmin();
