@@ -27,7 +27,9 @@ ob_start();
     <textarea name="description" id="description" cols="30" rows="10"></textarea> <br>
 
     <label for="date_anniversaire">date de naissance</label>
-    <input type="date" name="date_naissance" id="date_anniversaire"> <br>
+    <input type="date" name="date_naissance" id="date_anniversaire"> 
+    <p><em>- Indiquer une date qui permette de calculer un âge à 1 an près<br>- Si son âge est inconnu, remplir la date de 0 (ou une date de plus de 200 ans, l'âge ne s'affichera pas).</em></p>
+    <br>
     
     <label for="badge1">Badge 1 (obligatoire)</label>
     

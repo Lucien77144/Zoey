@@ -48,7 +48,13 @@ while ($animal = $feedAdoption->fetch())
                             break;
                     }
                 ?><br>
-                <strong>Age : </strong><?= $ageAA ?> ans<br>
+                <?php
+                if ($ageAA < 200){
+                    ?>
+                    <strong>Age : </strong><?= $ageAA ?> ans<br>
+                    <?php
+                }
+                ?>
             </p>
             <a href="index.php?action=adoption&id=<?= htmlspecialchars($animal['idaa']) ?>" class="btn">En savoir plus</a>
         </div>

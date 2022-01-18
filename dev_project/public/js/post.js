@@ -464,6 +464,7 @@ $(document).ready(function(){
                 idtype : $("#idtype").val(),
                 idrefuge : $("#idrefuge").val(),
                 date_anniversaire : $("#date_anniversaire").val(),
+                unknownAge : $("#unknownAge").val(),
                 photo : postedMedia,
                 badge1 : $("#badge1").val(),
                 badge2 : $("#badge2").val(),

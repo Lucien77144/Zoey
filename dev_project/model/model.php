@@ -14,7 +14,7 @@ function getBlog(){
         $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
         (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
     
-        $sql = "SELECT id, titre, resume, url_image FROM `blog`";
+        $sql = "SELECT id, titre, resume, url_image FROM `blog` ORDER BY date_publication DESC";
         $req = $db -> prepare($sql);
         
         $req -> execute();
@@ -402,8 +402,8 @@ function getRefugesList(){
     
     $req -> execute();
     
-    if ($req->rowCount() <= 0)
-        throw new Exception("Aucun refuge n'a été trouvé");
+    // if ($req->rowCount() <= 0)
+    //     throw new Exception("Aucun refuge n'a été trouvé");
 
     return $req;
 }
@@ -419,8 +419,8 @@ function getAAList(){
     
     $req -> execute();
     
-    if ($req->rowCount() <= 0)
-        throw new Exception("Aucun animal à adopter n'a été trouvé");
+    // if ($req->rowCount() <= 0)
+    //     throw new Exception("Aucun animal à adopter n'a été trouvé");
 
     return $req;
 }

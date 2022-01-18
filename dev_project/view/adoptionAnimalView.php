@@ -28,16 +28,20 @@ ob_start();
             $pronom3 = 'il';
             $terminaison1 = '';            
             $terminaison2 = 'x';
+            $terminaison3 = 'x';
+            $terminaison4 = 'f';
         } else {
             $pronom1 = 'Elle';
             $pronom2 = 'la';
             $pronom3 = 'elle';
             $terminaison1 = 'e';
             $terminaison2 = 'ce';
+            $terminaison3 = 'se';
+            $terminaison4 = 've';
         }
 
         $badge1_titre = 'Jouer';
-        $badge1_desc = htmlspecialchars($animal['nom']) . ' est très énergique et ne demande qu’à jouer. '. $pronom1 .' a besoin de faire beaucoup d’exercice pour évacuer son énergie et fait un'.$terminaison1 .' partenaire de jeu idéal.';
+        $badge1_desc = htmlspecialchars($animal['nom']) . ' est très acti'. $terminaison4 .' et ne demande qu’à jouer. '. $pronom1 .' a besoin de faire beaucoup d’exercice pour évacuer son énergie et fait un'.$terminaison1 .' partenaire de jeu idéal.';
 
         $badge2_titre = 'S’entend bien avec enfants';
         $badge2_desc = htmlspecialchars($animal['nom']) . ' est sociable, dou'. $terminaison2 .', fidèle et attachant'. $terminaison1 .'. '. $pronom1 .' deviendra vite '. $pronom2 .' meilleur'. $terminaison1 .' ami'. $terminaison1 .' de vos enfants.';
@@ -49,7 +53,7 @@ ob_start();
         $badge4_desc = 'Quand les températures chutent, '. htmlspecialchars($animal['nom']) .' a besoin d’hiberner pour survivre à la saison froide.';
 
         $badge5_titre = 'Caresses';
-        $badge5_desc = htmlspecialchars($animal['nom']) . ' est affectueu'. $terminaison2 .', '. $pronom3 .' aime les contacts physiques avec son maître. Des caresses et des gratouilles '. $pronom2 .' le comblera.';
+        $badge5_desc = htmlspecialchars($animal['nom']) . ' est affectueu'. $terminaison3 .', '. $pronom3 .' aime les contacts physiques avec son maître. Des caresses et des gratouilles '. $pronom2 .' comblera.';
 
         $badge6_titre = 'Balades et promenades';
         $badge6_desc = 'Les promenades et les balades sont essentielles pour '. htmlspecialchars($animal['nom']) .'. En forêt, dans un bois ou dans un parc.';
