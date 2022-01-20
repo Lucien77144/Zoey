@@ -19,7 +19,12 @@
     }
 
     function printQuizz(){
-        require(BASE_URL . "view/quizzView.php");
+        if (verifyToken()){
+            $types_animaux = getAnimalTypes();
+            require(BASE_URL . "view/quizzView.php");
+        } else {
+            printConnect();
+        }
     }
 
     function printLegal(){
@@ -75,6 +80,8 @@
         $post = getPost();
         require(BASE_URL . "view/postView.php");
     }
+
+    
     
     function printAdoption(){
         $feedAdoption = getFeedAdoption();
