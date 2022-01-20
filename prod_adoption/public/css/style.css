@@ -92,8 +92,8 @@ header {
   align-items: center;
   justify-content: space-between;
   height: 60px;
-  width: 85vw;
-  padding: 0 5vw;
+  width: 90%;
+  padding: 0 5%;
 }
 
 header>h1 a{

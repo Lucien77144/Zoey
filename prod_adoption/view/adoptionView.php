@@ -51,7 +51,7 @@ while ($animal = $feedAdoption->fetch())
                 <?php
                 if ($ageAA < 200){
                     ?>
-                    <strong>Age : </strong><?= $ageAA ?> ans<br>
+                    <strong>Âge : </strong><?= $ageAA ?> ans<br>
                     <?php
                 }
                 ?>
