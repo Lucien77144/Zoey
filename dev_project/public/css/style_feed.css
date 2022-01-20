@@ -1,24 +1,6 @@
-header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 90%;
-}
-
-.defaultBlock{
-    height: 100vh;
-    width: 100%;
+body{
     padding: 0;
-    scroll-snap-align: start;
-    position: relative;
-}
-
-.blockIllus{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+    background: rgb(34, 34, 34);
 }
 
 main{
@@ -29,6 +11,100 @@ main{
     overflow-y: scroll;
 }
 
-body{
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 90%;
+    z-index: 10;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: unset;
+}
+
+.defaultBlock{
+    height: calc(100vh - 40px);
+    width: 100%;
+    max-width: 500px;
     padding: 0;
+    scroll-snap-align: start;
+    position: relative;
+    margin: auto;
+}
+
+.textContent{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+    left: 0;
+    width: 90%;
+    padding: 0 5% 70px 5%;
+    background: rgb(255,163,25);
+    background: linear-gradient(180deg, rgba(255,163,25,0) 0%, rgba(255,163,25,0.1) 40%, rgba(255,163,25,0.25) 60%, rgba(255,163,25,0.4) 100%);
+}
+
+.textContent>*{
+    color: white;
+    text-decoration: none;
+}
+
+.blockIllus{
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.seeMore{
+    padding: 7.5px 10px 7.5px 10px;
+    border: solid 2px white;
+    border-radius: 10px;
+    margin-left: auto;
+    transition: 0.25s ease-in-out;
+}
+
+.seeMore:hover{
+    border: solid 2px #FFA319;
+}
+
+.textContent h1{
+    margin: 0;
+    margin-bottom: 10px;
+    display: inline-block;
+    padding: 2.5px 25px 2.5px 25px;
+    font-size: 1.1em;
+    font-weight: 600;
+    border-radius: 10px;
+    background: #FFA319;
+}
+
+@media (min-width: 800px){
+    body{
+        background: rgb(27, 27, 27);
+    }
+    main{
+        margin-top: 60px;
+        height: calc(100vh - 60px);
+    }
+    .defaultBlock{
+        height: 100%;
+        background: rgb(34, 34, 34);
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 10px;
+    }
+    header{
+        background: unset;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px;
+    }
+    .menuInner h2{
+        color: rgb(235, 235, 235);
+        transition: 0.25s ease-in-out;
+    }
+    .menuInner h2:hover{
+        color: #FFA319;
+    }
+    .textContent{
+        padding: 0 5% 5% 5%;
+    }
 }
