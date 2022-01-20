@@ -84,10 +84,7 @@ div.desc>.btn{
     text-align: center;
 }
 
-
-
-
-h1{
+.nom, h1.underline{
     font-family: 'Roboto', sans-serif;
     font-size: 1.5rem;
     margin: 0;
