@@ -7,4 +7,22 @@ document.addEventListener("DOMContentLoaded", function(){
             e.style.objectFit="cover";
         }
     });
+
+    let numPosts=1;
+    document.querySelector("main").addEventListener("scroll", function(){
+        if(this.scrollTop>window.innerHeight*(numPosts*5)){
+            numPosts++;
+            $.post(
+                'model/loadFeed.php',
+                {
+                    posts : numPosts
+                },
+    
+                function(ReturnedMessage){
+                    document.querySelector("main").innerHTML+=ReturnedMessage;
+                },
+                'text'
+            );
+        }
+    });
 });
