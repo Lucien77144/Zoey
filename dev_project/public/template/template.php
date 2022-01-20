@@ -77,9 +77,9 @@
     }
     ?>
 
-    <div class="legalLink">
+    <!-- <div class="legalLink">
         <a href="index.php?action=legal">Mentions légales</a>
-    </div>
+    </div> -->
 
     <script src="<?= BASE_URL ?>public/js/post.js"></script>
     <?php if (isset($scriptsBlock)) echo $scriptsBlock ?>
