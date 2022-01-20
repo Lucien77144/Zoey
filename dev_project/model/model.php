@@ -182,7 +182,8 @@ function getFeedAdoption(){
     $sql = "SELECT idanimal_a_adopter idaa, aa.nom, aa.sexe, aa.photo, aa.description, aa.date_anniversaire anniversaire,
     types_animaux.nom type_nom
     FROM animal_a_adopter aa
-    INNER JOIN types_animaux ON types_animaux.idtypes_animaux = aa.idtype";
+    INNER JOIN types_animaux ON types_animaux.idtypes_animaux = aa.idtype
+    ORDER BY idaa";
     $req = $db -> prepare($sql);
     
     $req -> execute();

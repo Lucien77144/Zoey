@@ -10,7 +10,7 @@ ob_start();
         <div class="accountContainer">
             <div class="pseudoContainer formContent">
                 <label for="pseudo">Pseudo / photo de profil *</label>
-                <input type="text" name="pseudo" id="pseudoSubscribe" placeholder="pseudo" required='required'>
+                <input type="text" name="pseudo" id="pseudoSubscribe" placeholder="pseudo" required='required'> <span id="pseudoConfirmationMessage"></span>
                 <input type="file" id="media" hidden />
                 <label class="choose_photo" for="media">Choisir une photo</label>
             </div>
