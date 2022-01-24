@@ -80,7 +80,14 @@ div.desc>.btn{
 
 
 
-
+.back {
+    position: absolute;
+    top: 70px;
+    left: 50px;
+}
+.back svg {
+    transform: scale(2);
+}
 h1{
     font-family: 'Roboto', sans-serif;
     font-size: 1.5rem;

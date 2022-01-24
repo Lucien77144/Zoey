@@ -146,6 +146,7 @@
 @media screen and (min-width: 500px) {
     .popUp {
         width: 480px;
+        height: fit-content;
     }
 
     .welcome {
@@ -183,6 +184,7 @@
 @media screen and (min-width: 800px) {
     .popUp {
         width: 600px;
+        height: 600px
     }
 
     .description {
