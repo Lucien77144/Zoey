@@ -20,7 +20,7 @@ input[type='submit'] {
     width: 80px;
 }
 
-a[href="index.php?action=account"] {
+.seeAccount {
     margin-top: 30px;
 }
 
