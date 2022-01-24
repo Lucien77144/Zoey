@@ -3,6 +3,15 @@ $pageTitle = 'Animaux à adopter';
 ob_start();
 
 ?>
+<div class="filter">
+        <div class="animalBreed">LUCIEN CHIEN</div>
+        <div class="animalBreed">LUCIEN RONGEUR</div>
+        <div class="animalBreed">LUCIEN CACA</div>
+        <div class="animalBreed">LUCIEN CHAT</div>
+        <div class="animalBreed">BATON</div>
+        <div class="animalBreed">LUCIEN POISSON</div>
+        <div class="animalBreed">DRAGON</div>
+    </div>
 <main>
 <?php
 
@@ -15,6 +24,7 @@ while ($animal = $feedAdoption->fetch())
     $interval = $date1->diff($date2);
     $ageAA = $interval->y;
 ?>
+
     <article class="card">  
         <div class="img" style="background-image: url('<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($animal['photo']) ?>');"></div>
         <div class="desc">
