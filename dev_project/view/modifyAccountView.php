@@ -43,14 +43,17 @@ ob_start();
 
 <a class="btn seeAccount" href="index.php?action=account">voir mon compte</a>
 
-
-
-<?php 
-    $viewContent = ob_get_clean();
-    require(BASE_URL . 'public/template/template.php');
-?>
-<?php 
+<?php
     $viewContent = ob_get_clean();
     
+    // styles BLOCK
     ob_start(); ?>
     <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_modifyAccount.css" />
+<?php
+    $stylesBlock = ob_get_clean();
+
+    // SCRIPT BLOCK
+    ob_start(); ?>
+    <!-- <script src="public/js/ YOUR SCRIPT GOES HERE "></script> -->
+<?php    
+    require(BASE_URL . 'public/template/template.php');
