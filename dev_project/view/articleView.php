@@ -7,7 +7,7 @@ ob_start();
 <section class="section1">
     <h1 class="titleArt"><?= htmlspecialchars($article['titre']) ?></h1>
     <!-- <h2 class="categorie">EVENEMENT</h2> -->
-    <p class="intro"><?= nl2br(htmlspecialchars($article['texte1'])) ?></p>
+    <p class="intro"><?= nl2br($article['texte1']) ?></p>
 </section>
 <section class="article">
     <div class="illustration">
@@ -15,7 +15,7 @@ ob_start();
     <p class="descIllu"><?= htmlspecialchars($article['description_photo']) ?></p>
     </div>
     <p>
-    <?= nl2br(htmlspecialchars($article['texte2'])) ?>
+    <?= nl2br($article['texte2']) ?>
     </p>
     <div class="btnWrap">
     <a href="index.php?action=blog" class="btn">Retourner aux Actualités</a>

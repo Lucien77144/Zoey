@@ -92,8 +92,8 @@ header {
   align-items: center;
   justify-content: space-between;
   height: 60px;
-  width: 85vw;
-  padding: 0 5vw;
+  width: 90%;
+  padding: 0 5%;
 }
 
 header>h1 a{
@@ -341,6 +341,7 @@ header>img {
 
   .menuInner h2 {
     font-size: 1rem;
+    margin: 0;
   }
 
   .menuInner>a:hover {
@@ -360,8 +361,26 @@ header>img {
     transition: 0.15s ease-in-out;
   }
 
-  .navbar>a:hover {
+  .navbar>a:nth-child(1):hover {
     transform: rotate(10deg);
+  }
+
+  .navbar>a:nth-child(2) rect, .navbar .cross{
+    transform-origin: center;
+    transition: 0.5s;
+  }
+
+  .navbar>a:nth-child(2):hover .cross {
+    transform: rotate(180deg);
+    fill: #FFC800;
+  }
+
+  .navbar>a:nth-child(2):hover .cross rect{
+    fill: #FFC800;
+  }
+
+  .navbar>a:nth-child(2):hover>svg>rect {
+    transform: scale(0.9);
   }
 }
 

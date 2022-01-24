@@ -8,6 +8,7 @@ function postAjouterAA(){
     $nom = safeEntry($_POST['nom']);
     $description = safeEntry($_POST['description']);
     $date_anniversaire = safeEntry($_POST['date_anniversaire']);
+    // $unknownAge = safeEntry($_POST['unknownAge']);
     $sexe = safeEntry($_POST['sexe']);
     $photo = safeEntry($_POST['photo']);
     $idrefuge = safeEntry($_POST['idrefuge']);
@@ -104,7 +105,7 @@ try {
     &&is_numeric($_POST['idtype'])
     &&isset($_POST['idrefuge'])
     &&is_numeric($_POST['idrefuge'])
-    &&isset($_POST['date_anniversaire'])
+    && (isset($_POST['date_anniversaire']) || isset($_POST['unknownAge']))
     &&isset($_POST['badge1'])
     &&is_numeric($_POST['badge1'])
     ){

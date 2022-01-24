@@ -40,7 +40,19 @@ $(document).ready(function(){
 
         console.log(returnedFromAjax);
 
-        return returnedFromAjax;
+        if (returnedFromAjax == "déconnecté"){
+            $('#confirmationMessage').html('');
+            $('#confirmationMessage').html(
+                `Votre session a expirée, veuillez <a href="index.php?action=connect" target="_blanck">vous reconnecter</a> puis retenter d'envoyer le formulaire.`
+            );
+            $('#ConfirmationMessage').html('');
+            $('#ConfirmationMessage').html(
+                `Votre session a expirée, veuillez <a href="index.php?action=connect" target="_blanck">vous reconnecter</a> puis retenter d'envoyer le formulaire.`
+            );
+            return returnedFromAjax;
+        } else {
+            return returnedFromAjax;
+        }
     };
 
     function postSubscribe(postedMedia){
@@ -464,6 +476,7 @@ $(document).ready(function(){
                 idtype : $("#idtype").val(),
                 idrefuge : $("#idrefuge").val(),
                 date_anniversaire : $("#date_anniversaire").val(),
+                unknownAge : $("#unknownAge").val(),
                 photo : postedMedia,
                 badge1 : $("#badge1").val(),
                 badge2 : $("#badge2").val(),
@@ -584,6 +597,9 @@ $(document).ready(function(){
         console.log("click")
 
         let postedMedia = postPhoto();
+        if (postedMedia == "déconnecté"){
+            return;
+        }
         postSubscribe(postedMedia);
     });
 
@@ -593,6 +609,9 @@ $(document).ready(function(){
         console.log("click");
 
         let postedMedia = postPhoto();
+        if (postedMedia == "déconnecté"){
+            return;
+        }
 
         postAddPost(postedMedia);
     });
@@ -611,6 +630,9 @@ $(document).ready(function(){
         console.log("click");
 
         let postedMedia = postPhoto();
+        if (postedMedia == "déconnecté"){
+            return;
+        }
 
         postAddMessage(postedMedia);
     });
@@ -621,6 +643,9 @@ $(document).ready(function(){
         console.log("click");
 
         let postedMedia = postPhoto();
+        if (postedMedia == "déconnecté"){
+            return;
+        }
 
         postAddAnimal(postedMedia);
     });
@@ -648,6 +673,9 @@ $(document).ready(function(){
         console.log("click")
 
         let postedMedia = postPhoto();
+        if (postedMedia == "déconnecté"){
+            return;
+        }
 
         console.log(postedMedia);
 
@@ -700,6 +728,9 @@ $(document).ready(function(){
         const id = urlGetParameters.get('id');
 
         let postedMedia = postPhoto();
+        if (postedMedia == "déconnecté"){
+            return;
+        }
 
         postModifyAnimal(postedMedia, id);
     });
@@ -742,6 +773,9 @@ $(document).ready(function(){
         console.log("click");
 
         let postedMedia = postPhoto();
+        if (postedMedia == "déconnecté"){
+            return;
+        }
 
         postAjouterRefuge(postedMedia);
     });
@@ -751,6 +785,9 @@ $(document).ready(function(){
         console.log("click");
 
         let postedMedia = postPhoto();
+        if (postedMedia == "déconnecté"){
+            return;
+        }
 
         postAjouterAA(postedMedia);
     });

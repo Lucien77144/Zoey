@@ -10,7 +10,7 @@ ob_start();
         <div class="accountContainer">
             <div class="pseudoContainer formContent">
                 <label for="pseudo">Pseudo / photo de profil *</label>
-                <input type="text" name="pseudo" id="pseudoSubscribe" placeholder="pseudo" required='required'>
+                <input type="text" name="pseudo" id="pseudoSubscribe" placeholder="pseudo" required='required'> <span id="pseudoConfirmationMessage"></span>
                 <input type="file" id="media" hidden />
                 <label class="choose_photo" for="media">Choisir une photo</label>
             </div>
@@ -38,7 +38,7 @@ ob_start();
         </div>
 
         <div class="checkboxContainer">
-            <input type="checkbox" name="checkbox" required='required'>
+            <input type="checkbox" name="checkbox" id="legalAge" required='required'>
             <label for="checkbox">Je certifie être majeur, ou dans le cas contraire, j’utilise ZOEY sous la supervision d’un responsable légale.</label>
         </div>
 

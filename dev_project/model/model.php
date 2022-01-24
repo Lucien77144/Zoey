@@ -14,7 +14,7 @@ function getBlog(){
         $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
         (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
     
-        $sql = "SELECT id, titre, resume, url_image FROM `blog`";
+        $sql = "SELECT id, titre, resume, url_image FROM `blog` ORDER BY date_publication DESC";
         $req = $db -> prepare($sql);
         
         $req -> execute();
@@ -127,22 +127,21 @@ function getIdFromPseudo($pseudo){
     }
 }
 
-function getFeed(){
+function getFeed($num=1){
     require("PDO.php");
 
     $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
     (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
+    $start = ($num-1)*10;
+    
     $sql = "SELECT idpost, post.description, media, date_publication, profil_animal_de_compagnie_idprofil_animal_de_compagnie idanimal, profil_animal_de_compagnie.nom
     FROM post
     INNER JOIN profil_animal_de_compagnie ON post.profil_animal_de_compagnie_idprofil_animal_de_compagnie = profil_animal_de_compagnie.idprofil_animal_de_compagnie
-    ORDER BY date_publication DESC;";
+    ORDER BY date_publication DESC LIMIT 10 OFFSET $start";
     $req = $db -> prepare($sql);
     
     $req -> execute();
-
-    if ($req->rowCount() <= 0)
-        throw new Exception("Aucun post n'a été trouvé");
 
     return $req;
 }
@@ -182,7 +181,8 @@ function getFeedAdoption(){
     $sql = "SELECT idanimal_a_adopter idaa, aa.nom, aa.sexe, aa.photo, aa.description, aa.date_anniversaire anniversaire,
     types_animaux.nom type_nom
     FROM animal_a_adopter aa
-    INNER JOIN types_animaux ON types_animaux.idtypes_animaux = aa.idtype";
+    INNER JOIN types_animaux ON types_animaux.idtypes_animaux = aa.idtype
+    ORDER BY idaa";
     $req = $db -> prepare($sql);
     
     $req -> execute();
@@ -402,8 +402,8 @@ function getRefugesList(){
     
     $req -> execute();
     
-    if ($req->rowCount() <= 0)
-        throw new Exception("Aucun refuge n'a été trouvé");
+    // if ($req->rowCount() <= 0)
+    //     throw new Exception("Aucun refuge n'a été trouvé");
 
     return $req;
 }
@@ -419,8 +419,8 @@ function getAAList(){
     
     $req -> execute();
     
-    if ($req->rowCount() <= 0)
-        throw new Exception("Aucun animal à adopter n'a été trouvé");
+    // if ($req->rowCount() <= 0)
+    //     throw new Exception("Aucun animal à adopter n'a été trouvé");
 
     return $req;
 }

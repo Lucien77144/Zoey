@@ -29,6 +29,7 @@ ob_start();
             $terminaison1 = '';            
             $terminaison2 = 'x';
             $terminaison3 = 'x';
+            $terminaison4 = 'f';
         } else {
             $pronom1 = 'Elle';
             $pronom2 = 'la';
@@ -36,10 +37,11 @@ ob_start();
             $terminaison1 = 'e';
             $terminaison2 = 'ce';
             $terminaison3 = 'se';
+            $terminaison4 = 've';
         }
 
         $badge1_titre = 'Jouer';
-        $badge1_desc = htmlspecialchars($animal['nom']) . ' est très énergique et ne demande qu’à jouer. '. $pronom1 .' a besoin de faire beaucoup d’exercice pour évacuer son énergie et fait un'.$terminaison1 .' partenaire de jeu idéal.';
+        $badge1_desc = htmlspecialchars($animal['nom']) . ' est très acti'. $terminaison4 .' et ne demande qu’à jouer. '. $pronom1 .' a besoin de faire beaucoup d’exercice pour évacuer son énergie et fait un'.$terminaison1 .' partenaire de jeu idéal.';
 
         $badge2_titre = 'S’entend bien avec enfants';
         $badge2_desc = htmlspecialchars($animal['nom']) . ' est sociable, dou'. $terminaison2 .', fidèle et attachant'. $terminaison1 .'. '. $pronom1 .' deviendra vite '. $pronom2 .' meilleur'. $terminaison1 .' ami'. $terminaison1 .' de vos enfants.';

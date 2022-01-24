@@ -4,11 +4,33 @@ session_start();
 // save uploaded photo to server
 
 require('model.php');
-require_once("verifyToken.php");
+require("verifyToken.php");
 
 if (!verifyToken()){
-  exit('déconnecté');
+//   exit('déconnecté');
 }
+
+require_once("../vendor/lib/Tinify/Exception.php");
+require_once("../vendor/lib/Tinify/ResultMeta.php");
+require_once("../vendor/lib/Tinify/Result.php");
+require_once("../vendor/lib/Tinify/Source.php");
+require_once("../vendor/lib/Tinify/Client.php");
+require_once("../vendor/lib/Tinify.php");
+
+
+// function compressImage($source_url, $destination_url, $quality) {
+//     $info = getimagesize($source_url);
+
+//     if ($info['mime'] == 'image/jpeg') $image = imagecreatefromjpeg($source_url);
+//     elseif ($info['mime'] == 'image/gif') $image = imagecreatefromgif($source_url);
+//     elseif ($info['mime'] == 'image/png') $image = imagecreatefrompng($source_url);
+
+//     //save file
+//     imagejpeg($image, $destination_url, $quality);
+
+//     //return destination file
+//     return $destination_url;
+// }
 
 function postPhoto(){
     $uploadDirectory = "public/images/upload/";
@@ -45,6 +67,17 @@ function postPhoto(){
         if ($didUpload) {
             // echo "Le fichier " . basename($fileName) . " a bien été uploadé";
             // return "valid";
+
+            // compress
+
+            \Tinify\setKey("pSM69JsH2zKBrydR7x6dpdJdfsBXx3CM");
+            $source = \Tinify\fromFile($uploadPath);
+            $resized = $source->resize(array(
+                "method" => "scale",
+                "width" => 800
+            ));
+            $resized->toFile($uploadPath);
+
             return strval($uploadName);
 
         } else {

@@ -4,7 +4,7 @@ session_start();
 // save uploaded photo to server
 
 require('model.php');
-require_once("verifyToken.php");
+require("verifyToken.php");
 
 if (!verifyToken()){
   exit('déconnecté');

@@ -18,7 +18,12 @@ function verifyToken_checkFromDb(){
     $currentTime = time();
 
     if (($explodedToken[2] + 300) < $currentTime && ($explodedToken[2] + 3600) > $currentTime){ // > 5 min but not expired (60min) -> give a new token
-        require('generateToken.php');
+        if($_SESSION['token'] == $storedToken['token']){
+            require('generateToken.php');
+            return true;
+        } else {
+            return false;
+        }
     }
 
     if (($explodedToken[2] + 3600) < $currentTime){ // expire : >60min
