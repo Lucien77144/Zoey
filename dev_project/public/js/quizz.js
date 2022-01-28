@@ -14,7 +14,10 @@ $(document).ready(function(){
                 travel : $("input:radio[name=travel]:checked").val(),
                 personality : $("input:radio[name=personality]:checked").val(),
                 animals : $("input:radio[name=animals]:checked").val(),
-                walk : $("input:radio[name=walk]:checked").val()
+                walk : $("input:radio[name=walk]:checked").val(),
+                animal1 : $("#idtype1").val(),
+                animal2 : $("#idtype2").val(),
+                animal3 : $("#idtype3").val()
             },
 
             function(ReturnedMessage){

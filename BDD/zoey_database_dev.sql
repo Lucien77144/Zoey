@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 30 déc. 2021 à 00:55
+-- Généré le : ven. 28 jan. 2022 à 12:13
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.0.12
 
@@ -439,6 +439,17 @@ INSERT INTO `post` (`idpost`, `media`, `description`, `date_publication`, `id_li
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `post_likes`
+--
+
+CREATE TABLE `post_likes` (
+  `id_post` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `profil_animal_de_compagnie`
 --
 
@@ -692,7 +703,10 @@ INSERT INTO `utilisateur` (`idutilisateur`, `pseudo`, `mot_de_passe`, `prenom`, 
 (62, 'Elon', '$2y$10$PgpcUxsz5xhy/pQlWd0AYu1Rhh8vcQKWJDJfVCYfy9Qoz/6zX36Ui', 'elon', 'elon', 'elon', NULL, '0001-11-11', NULL, NULL, '2021-10-19 19:06:13', NULL, '8577a2bc96ce89ab224c503927b6019f9ceb755341e0a0240c1ee541c6c721691ed60b-62-1634663770', NULL),
 (63, 'testtest', '$2y$10$hzIy1WSrfXHfLORkZKu7Ke91dsCipr45bRVEkPzQGWS394eMshBIe', 'testtest', 'testtest', 'testtest', 'déconnecté', '0000-00-00', NULL, NULL, '2021-10-19 20:07:10', NULL, 'b498b38682a6d01eb5ae0fd03fa9c663d920954a76e3eb565b6a46cfad71e8345bbf56-63-1636061066', NULL),
 (64, 'a', '$argon2i$v=19$m=2048,t=4,p=3$T0UzbXVJOWozY3hSSmg4Lw$YOmfB0jUVNJqUjoL8YclXQHxtjG4Wzir1PqqCZ1Rgj8', 'testtesttest', 'testtesttest', 'testtesttest', 'uploadedOn1634667264_by_64_peewee.jpg', '0008-08-08', NULL, NULL, '2021-10-19 20:07:48', NULL, '903c970b017c3109170fe39e89bb64fa5f0fcad5e00a157313d3a63a12554e3be6ff4b-64-1634670563', NULL),
-(65, 'admin', '$2y$10$zZTUX6mXg0b0rDwcYGHWjeHIrPzU/LZ64.uUiQajUsrrYaDS1rwZa', 'admin', 'admin', 'admin', 'déconnecté', '0001-01-01', NULL, NULL, '2021-12-22 19:05:11', NULL, '68dc3ad39752338eac1c105071d0cdbcf385f0285b358e9925a8c3794e18442276d0fa-65-1640821926', 1);
+(65, 'admin', '$2y$10$zZTUX6mXg0b0rDwcYGHWjeHIrPzU/LZ64.uUiQajUsrrYaDS1rwZa', 'admin', 'admin', 'admin', 'déconnecté', '0001-01-01', NULL, NULL, '2021-12-22 19:05:11', NULL, '68dc3ad39752338eac1c105071d0cdbcf385f0285b358e9925a8c3794e18442276d0fa-65-1640821926', 1),
+(66, 'Zoey', '$2y$10$jhRHP68VNZ/1snIW9TL07uk78ZhiUxu5J2HUbRAtrLOt2F6BaJH9q', 'zoey', 'zoey', 'zoey', '', '0001-01-01', NULL, NULL, '2022-01-19 01:22:55', NULL, NULL, NULL),
+(67, 'zozo', '$2y$10$3sfZi36PiXoxIFEQAir8GeXixLSkCYVgrGx0/ZTQEidtpQ7IYzD3q', 'zozo', 'zozo', 'zozo', '', '0007-06-05', NULL, NULL, '2022-01-19 01:28:38', NULL, 'f66ffc919df28b85487b6923765cd4f22cb7032d0cba81b3369de70f56170a5f670124-67-1642554479', 1),
+(68, 'aa', '$2y$10$57y61d0jtqkiGmBDFZ/rSunC2HrCcetvPt4Eba45.6OBroIutxqUu', 'aa', 'aa', '', '', '4567-03-01', NULL, NULL, '2022-01-20 17:51:48', NULL, '815a1680e90ebd2c72e2071e81b502893fb9394a031f9e7176210bb5a481d84c19345e-68-1643368361', NULL);
 
 -- --------------------------------------------------------
 
@@ -709,12 +723,23 @@ CREATE TABLE `utilisateur_has_animal_a_adopter` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `utilisateur_has_centres_interet`
+-- Structure de la table `utilisateur_has_badge`
 --
 
-CREATE TABLE `utilisateur_has_centres_interet` (
-  `utilisateur_idutilisateur` int(11) NOT NULL,
-  `centres_interet_idcentres_interet` int(11) NOT NULL
+CREATE TABLE `utilisateur_has_badge` (
+  `id_user` int(11) DEFAULT NULL,
+  `id_badge` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `utilisateur_has_favorite_animal`
+--
+
+CREATE TABLE `utilisateur_has_favorite_animal` (
+  `id_user` int(11) DEFAULT NULL,
+  `id_favoriteAnimal` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -825,6 +850,13 @@ ALTER TABLE `post`
   ADD KEY `fk_post_profil_animal_de_compagnie1_idx` (`profil_animal_de_compagnie_idprofil_animal_de_compagnie`,`profil_animal_de_compagnie_utilisateur_idutilisateur1`);
 
 --
+-- Index pour la table `post_likes`
+--
+ALTER TABLE `post_likes`
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_post` (`id_post`);
+
+--
 -- Index pour la table `profil_animal_de_compagnie`
 --
 ALTER TABLE `profil_animal_de_compagnie`
@@ -901,12 +933,18 @@ ALTER TABLE `utilisateur_has_animal_a_adopter`
   ADD KEY `fk_utilisateur_has_animal_a_adopter_utilisateur1_idx` (`utilisateur_idutilisateur`);
 
 --
--- Index pour la table `utilisateur_has_centres_interet`
+-- Index pour la table `utilisateur_has_badge`
 --
-ALTER TABLE `utilisateur_has_centres_interet`
-  ADD PRIMARY KEY (`utilisateur_idutilisateur`,`centres_interet_idcentres_interet`),
-  ADD KEY `fk_utilisateur_has_centres_interet_centres_interet1_idx` (`centres_interet_idcentres_interet`),
-  ADD KEY `fk_utilisateur_has_centres_interet_utilisateur1_idx` (`utilisateur_idutilisateur`);
+ALTER TABLE `utilisateur_has_badge`
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_badge` (`id_badge`);
+
+--
+-- Index pour la table `utilisateur_has_favorite_animal`
+--
+ALTER TABLE `utilisateur_has_favorite_animal`
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_badge` (`id_favoriteAnimal`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -1036,7 +1074,7 @@ ALTER TABLE `types_animaux`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `idutilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `idutilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- Contraintes pour les tables déchargées
@@ -1096,6 +1134,13 @@ ALTER TABLE `post`
   ADD CONSTRAINT `fk_post_profil_animal_de_compagnie1` FOREIGN KEY (`profil_animal_de_compagnie_idprofil_animal_de_compagnie`,`profil_animal_de_compagnie_utilisateur_idutilisateur1`) REFERENCES `profil_animal_de_compagnie` (`idprofil_animal_de_compagnie`, `utilisateur_idutilisateur1`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
+-- Contraintes pour la table `post_likes`
+--
+ALTER TABLE `post_likes`
+  ADD CONSTRAINT `post_likes_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `post_likes_ibfk_2` FOREIGN KEY (`id_post`) REFERENCES `post` (`idpost`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Contraintes pour la table `profil_animal_de_compagnie`
 --
 ALTER TABLE `profil_animal_de_compagnie`
@@ -1136,11 +1181,11 @@ ALTER TABLE `utilisateur_has_animal_a_adopter`
   ADD CONSTRAINT `fk_utilisateur_has_animal_a_adopter_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `utilisateur_has_centres_interet`
+-- Contraintes pour la table `utilisateur_has_badge`
 --
-ALTER TABLE `utilisateur_has_centres_interet`
-  ADD CONSTRAINT `fk_utilisateur_has_centres_interet_centres_interet1` FOREIGN KEY (`centres_interet_idcentres_interet`) REFERENCES `centres_interet` (`idcentres_interet`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_utilisateur_has_centres_interet_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `utilisateur_has_badge`
+  ADD CONSTRAINT `utilisateur_has_badge_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `utilisateur_has_badge_ibfk_2` FOREIGN KEY (`id_badge`) REFERENCES `badge` (`idbadge`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
