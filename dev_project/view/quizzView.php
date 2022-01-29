@@ -69,12 +69,10 @@ ob_start();
                 <select name="idtype<?= $i+1 ?>" id="idtype<?= $i+1 ?>">
                         <option value=""></option>
                         <?php
-                        $categoryCounter = 0;
                         foreach ($categorie as $c) {
                             ?>
-                                <option value="<?= $categoryCounter ?>"><?= htmlspecialchars($c['nom']) ?></option>
+                                <option value="<?= htmlspecialchars($c['id']) ?>"><?= htmlspecialchars($c['nom']) ?></option>
                             <?php
-                            $categoryCounter++;
                         }
                         ?>
                     </select> <br>

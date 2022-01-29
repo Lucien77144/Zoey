@@ -65,9 +65,11 @@ try{
             }
         } else if ($_GET['action'] == 'addpost'){
             printAddPost();
-        } else if ($_GET['action'] == 'animal'){
-            printAnimal();
-        } else if ($_GET['action'] == 'addAnimal'){
+        } 
+        // else if ($_GET['action'] == 'animal'){
+        //     printAnimal();
+        // } 
+        else if ($_GET['action'] == 'addAnimal'){
             printAddAnimal();
         } else if ($_GET['action'] == 'modifyAnimal'){
             printModifyAnimal();

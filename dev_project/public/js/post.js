@@ -552,7 +552,7 @@ $(document).ready(function(){
                 } else {
                     $('#confirmationMessageRefuge').html('');
                     $('#confirmationMessageRefuge').text(
-                        `Le refuge a bien été supprimé.`
+                        `Le refuge n'a pas pu être supprimé.`
                     );
                 }
             },

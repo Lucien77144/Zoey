@@ -81,8 +81,8 @@ function postPhoto(){
             return strval($uploadName);
 
         } else {
-            var_dump($fileTmpName);
-            var_dump($didUpload);
+            // var_dump($fileTmpName);
+            // var_dump($didUpload);
 
 
             echo "Erreur";
@@ -111,11 +111,9 @@ try {
     }
 
 } catch (Exception $e) {
-    echo "catch";
+    // echo "catch";
     $errorMsg = $e->getMessage();
     // echo $errorMsg;
     return false;
     // require(BASE_URL . "view/errorView.php");
 }
-
-    

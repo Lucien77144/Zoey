@@ -52,11 +52,12 @@
         require(BASE_URL . "view/disconnectView.php");
     }
 
-    // function printAnimal($idAnimal){
-    //     $animal = getAnimal($idAnimal);
-    //     $animalFeed = getAnimalFeed($idAnimal);
+    // function printAnimal(){
+    //     $animal = getAnimal($_GET['id']);
+    //     $animalFeed = getAnimalFeed($_GET['id']);
     //     require(BASE_URL . "view/animalView.php");
     // }
+
     function printAccount(){
         $account = getAccount();
         $accountAnimals = getAccountAnimals();

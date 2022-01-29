@@ -1,8 +1,8 @@
-body{
+body {
     margin: 0;
 }
 
-main{
+main {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -10,7 +10,35 @@ main{
     margin: auto;
 }
 
-.card{
+.filter {
+    display: flex;
+    width: 100vw;
+    max-width: 600px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.animalBreed {
+    align-self: flex-start;
+    padding: 5px 10px 5px 10px;
+    margin-top: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 25px;
+    background-color: rgb(240, 240, 240);
+    transition: 0.4s ease-in-out;
+    -webkit-box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+}
+
+.animalBreed:hover{
+    background-color: #fd9030;
+    box-shadow: 0 0 5px 5px rgba(243, 128, 28, 0.7);
+    -webkit-box-shadow: 0 0 4px 4px rgba(243, 128, 28, 0.7);
+}
+
+.card {
     border-radius: 25px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
     margin-top: 25px;
@@ -26,7 +54,7 @@ main{
     justify-content: space-between;
 }
 
-.desc{
+.desc {
     width: 60%;
     display: flex;
     flex-direction: column;
@@ -34,18 +62,18 @@ main{
     justify-content: space-around;
 }
 
-div.desc>.btn{
+div.desc>.btn {
     align-self: flex-end;
     margin-right: 12px;
 }
 
-.badges{
+.badges {
     width: 90%;
     display: flex;
     justify-content: space-around;
 }
 
-.badge{
+.badge {
     width: 25%;
     height: auto;
     min-width: 40px;
@@ -58,17 +86,17 @@ div.desc>.btn{
     background-color: #FFC800;
 }
 
-.badge:hover{
+.badge:hover {
     box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.35);
 }
 
-.desc p{
+.desc p {
     margin: 0;
     font-family: "Montserrat", sans-serif;
     text-align: center;
 }
 
-.img{
+.img {
     height: 100%;
     width: 40%;
     background-repeat: no-repeat;
@@ -77,14 +105,27 @@ div.desc>.btn{
     border-radius: 25px 0px 0px 25px;
 }
 
-.title2{
+.title2 {
     font-family: 'Exo 2', sans-serif;
     font-size: 1.5rem;
     margin: 0;
     text-align: center;
 }
 
-.nom, h1.underline{
+.back {
+    position: absolute;
+    top: 95px;
+    left: 50px;
+    transform: translate(-50%, -50%);
+}
+
+.back svg {
+    width: 42px;
+    height: 32px;
+}
+
+.nom,
+h1.underline {
     font-family: 'Roboto', sans-serif;
     font-size: 1.5rem;
     margin: 0;
@@ -92,7 +133,7 @@ div.desc>.btn{
     margin-top: 25px;
 }
 
-.illus{
+.illus {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,12 +141,12 @@ div.desc>.btn{
     width: 80px;
 }
 
-.illus img{
+.illus img {
     width: 80%;
     margin: -10%;
 }
 
-.illus h2{
+.illus h2 {
     font-size: 0.6rem;
     font-weight: bold;
     text-align: center;
@@ -115,7 +156,7 @@ div.desc>.btn{
     color: white;
 }
 
-.descWrap{
+.descWrap {
     width: calc(100% - 100px);
     background-color: #F6F6F6;
     padding: 10px;
@@ -124,11 +165,11 @@ div.desc>.btn{
     justify-content: center;
     box-shadow: 0px 0px 10px #00000030;
     max-height: 100px;
-    
+
     transition: 0.5s ease-in-out;
 }
 
-.badgeDesc{
+.badgeDesc {
     margin: 5px 0 5px 0;
     background-color: #FFC800;
     display: flex;
@@ -142,24 +183,24 @@ div.desc>.btn{
     transition: 0.5s ease-in-out;
 }
 
-.WrapBadge{
+.WrapBadge {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.descWrap p{
+.descWrap p {
     font-family: 'Roboto', sans-serif;
     font-size: 0.85rem;
     transition: opacity 0.25s ease-in-out 0.4s;
 }
 
-.close{
+.close {
     max-width: 80px;
     transition: 0.5S ease-in-out 0.25s;
 }
 
-.close .descWrap{
+.close .descWrap {
     opacity: 0;
     box-shadow: 0px 0px 0px #00000000;
     width: 0;
@@ -168,21 +209,21 @@ div.desc>.btn{
     transition: 0.5S ease-in-out 0.25s;
 }
 
-.close p{
+.close p {
     opacity: 0;
     transition: opacity 0.25s ease-in-out;
 }
 
-.close .illus{
+.close .illus {
     width: 80px;
 }
 
-.nom{
+.nom {
     font-size: 1.75rem;
     margin: 15px 0 15px 0;
 }
 
-.descAnimal{
+.descAnimal {
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     width: 85%;
@@ -191,7 +232,7 @@ div.desc>.btn{
     text-align: justify;
 }
 
-.image{
+.image {
     width: 95%;
     height: 55vw;
     max-width: 800px;
@@ -202,7 +243,7 @@ div.desc>.btn{
     background-position: center;
 }
 
-iframe{
+iframe {
     margin-top: 25px;
     margin-bottom: 25px;
     width: 100%;
@@ -213,17 +254,18 @@ iframe{
     border: 0;
 }
 
-.refuge{
+.refuge {
     align-self: center;
 }
 
 @media (min-width: 800px) {
-    .WrapBadge{
+    .WrapBadge {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
     }
-    .badgeDesc{
+
+    .badgeDesc {
         margin-left: 20px;
         margin-right: 20px;
     }
