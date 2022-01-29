@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     let numPosts=1;
     document.querySelector("main").addEventListener("scroll", function(){
+
         if(this.scrollTop>window.innerHeight*(numPosts*5)){
             numPosts++;
             $.post(
@@ -19,10 +20,26 @@ document.addEventListener("DOMContentLoaded", function(){
                 },
     
                 function(ReturnedMessage){
-                    document.querySelector("main").innerHTML+=ReturnedMessage;
+                    addContent(ReturnedMessage);
                 },
                 'text'
             );
         }
     });
+
+    function scrollEnd(element, content){
+        let scrollPos = element.scrollTop;
+        setTimeout(() => {
+            if(scrollPos != element.scrollTop){
+                addContent(content);
+            }else{
+                document.querySelector("main").innerHTML+=content;
+            }
+        }, 150);
+    }
+
+    function addContent(content){
+        scrollEnd(document.querySelector("main"), content);
+    }
+
 });
