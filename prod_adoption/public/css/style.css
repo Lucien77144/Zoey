@@ -228,6 +228,9 @@ header>img {
   flex-direction: column;
   align-items: center;
 }
+#submitNewsletter {
+  cursor: pointer;
+}
 /* Fin spécificité popUp */
 @keyframes animLogo {
 

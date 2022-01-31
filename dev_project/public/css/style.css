@@ -231,6 +231,9 @@ header>img {
 .newsletter h1 {
   text-align: center;
 }
+#submitNewsletter {
+  cursor: pointer;
+}
 /* Fin spécificité popUp */
 @keyframes animLogo {
 

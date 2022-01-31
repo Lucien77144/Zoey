@@ -23,7 +23,7 @@ if ($chat){
             <?php
             if (isset($message['media'])){
                 ?>
-                    <img src="<?= BASE_URL . 'public/images/' . htmlspecialchars($message['media']) ?>" alt="">
+                    <img src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['media']) ?>" alt="">
                 <?php
             }
             ?>
