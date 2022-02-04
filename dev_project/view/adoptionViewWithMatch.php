@@ -3,8 +3,7 @@ $pageTitle = 'Animaux à adopter';
 ob_start();
 
 ?>
-<p>Répondez au quizz ou connectez-vous pour avoir des résultats plus adaptés !</p>
-    <div class="filter">
+<div class="filter">
         <div class="animalBreed">CHIEN</div>
         <div class="animalBreed">RONGEUR</div>
         <div class="animalBreed">CHAT</div>
