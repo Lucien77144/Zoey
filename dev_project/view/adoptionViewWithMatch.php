@@ -12,8 +12,7 @@ ob_start();
     </div>
 <main>
 <?php
-
-while ($animal = $feedAdoption->fetch())
+foreach ($feedAdoption as $animal)
 {
     $adoptionAnimalBadges = getAdoptionAnimalBadges($animal['idaa']);
     // convertir anniversaire en âge
@@ -73,7 +72,6 @@ while ($animal = $feedAdoption->fetch())
 ?>
 </main>
 <?php
-    $feedAdoption->closeCursor();
     $viewContent = ob_get_clean();
     
     // styles BLOCK

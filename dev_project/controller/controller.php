@@ -82,11 +82,29 @@
         require(BASE_URL . "view/postView.php");
     }
 
-    
-    
+    // function printAdoptionWithMatch(){
+    //     if (verifyToken()){
+    //         $feedAdoption = getFeedAdoptionByMatch($_SESSION['idUser']);
+    //     } else {
+    //         $feedAdoption = getFeedAdoption();
+    //     }
+    //     require(BASE_URL . "view/adoptionViewWithMatch.php");
+    // }
+
     function printAdoption(){
-        $feedAdoption = getFeedAdoption();
-        require(BASE_URL . "view/adoptionView.php");
+        if (verifyToken()){
+            if (checkQuizz($_SESSION['idUser'])){
+                $feedAdoption = getFeedAdoptionByMatch($_SESSION['idUser']);
+                require(BASE_URL . "view/adoptionViewWithMatch.php");
+            } else {
+                // $quizzCTA = true;
+                $feedAdoption = getFeedAdoption();
+                require(BASE_URL . "view/adoptionView.php");
+            }
+        } else {
+            $feedAdoption = getFeedAdoption();
+            require(BASE_URL . "view/adoptionView.php");
+        }
     }
 
     function printAdoptionAnimal(){
