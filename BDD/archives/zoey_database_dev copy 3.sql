@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : sam. 05 fév. 2022 à 18:19
+-- Généré le : ven. 28 jan. 2022 à 12:13
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.0.12
 
@@ -62,9 +62,9 @@ CREATE TABLE `animal_a_adopter_has_badge` (
 --
 
 INSERT INTO `animal_a_adopter_has_badge` (`animal_a_adopter_idanimal_a_adopter`, `badge_idbadge`) VALUES
+(3, 1),
 (3, 2),
 (3, 3),
-(3, 8),
 (4, 1),
 (4, 2);
 
@@ -89,14 +89,7 @@ CREATE TABLE `badge` (
 INSERT INTO `badge` (`idbadge`, `nom`, `url_icone`, `titre`, `description`) VALUES
 (1, 'Jouer', 'jouer.svg', '', ''),
 (2, 'Enfant(s)', 'enfants.svg', '', ''),
-(3, 'Extérieur', 'exterieur.svg', '', ''),
-(4, 'hiberner', 'hiberner.svg', '', ''),
-(5, 'caresser', 'caresser.svg', '', ''),
-(6, 'balade', 'balade.svg', '', ''),
-(7, 'autonomie', 'autonomie.svg', '', ''),
-(8, 'calme', 'calme.svg', '', ''),
-(9, 'contact', 'contact.svg', '', ''),
-(10, 'securise', 'securise.svg', '', '');
+(3, 'Extérieur', 'exterieur.svg', '', '');
 
 -- --------------------------------------------------------
 
@@ -713,7 +706,7 @@ INSERT INTO `utilisateur` (`idutilisateur`, `pseudo`, `mot_de_passe`, `prenom`, 
 (65, 'admin', '$2y$10$zZTUX6mXg0b0rDwcYGHWjeHIrPzU/LZ64.uUiQajUsrrYaDS1rwZa', 'admin', 'admin', 'admin', 'déconnecté', '0001-01-01', NULL, NULL, '2021-12-22 19:05:11', NULL, '68dc3ad39752338eac1c105071d0cdbcf385f0285b358e9925a8c3794e18442276d0fa-65-1640821926', 1),
 (66, 'Zoey', '$2y$10$jhRHP68VNZ/1snIW9TL07uk78ZhiUxu5J2HUbRAtrLOt2F6BaJH9q', 'zoey', 'zoey', 'zoey', '', '0001-01-01', NULL, NULL, '2022-01-19 01:22:55', NULL, NULL, NULL),
 (67, 'zozo', '$2y$10$3sfZi36PiXoxIFEQAir8GeXixLSkCYVgrGx0/ZTQEidtpQ7IYzD3q', 'zozo', 'zozo', 'zozo', '', '0007-06-05', NULL, NULL, '2022-01-19 01:28:38', NULL, 'f66ffc919df28b85487b6923765cd4f22cb7032d0cba81b3369de70f56170a5f670124-67-1642554479', 1),
-(68, 'aa', '$2y$10$57y61d0jtqkiGmBDFZ/rSunC2HrCcetvPt4Eba45.6OBroIutxqUu', 'aa', 'aa', '', '', '4567-03-01', NULL, NULL, '2022-01-20 17:51:48', NULL, '2befff07f6be99744c263afd90b9954c79823a607dd9c4065e4da726a66c3278202aab-68-1644081453', NULL);
+(68, 'aa', '$2y$10$57y61d0jtqkiGmBDFZ/rSunC2HrCcetvPt4Eba45.6OBroIutxqUu', 'aa', 'aa', '', '', '4567-03-01', NULL, NULL, '2022-01-20 17:51:48', NULL, '815a1680e90ebd2c72e2071e81b502893fb9394a031f9e7176210bb5a481d84c19345e-68-1643368361', NULL);
 
 -- --------------------------------------------------------
 
@@ -730,47 +723,24 @@ CREATE TABLE `utilisateur_has_animal_a_adopter` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `utilisateur_has_badges`
+-- Structure de la table `utilisateur_has_badge`
 --
 
-CREATE TABLE `utilisateur_has_badges` (
+CREATE TABLE `utilisateur_has_badge` (
   `id_user` int(11) DEFAULT NULL,
   `id_badge` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Déchargement des données de la table `utilisateur_has_badges`
---
-
-INSERT INTO `utilisateur_has_badges` (`id_user`, `id_badge`) VALUES
-(68, 2),
-(68, 3),
-(68, 4),
-(68, 9),
-(68, 8);
-
 -- --------------------------------------------------------
 
 --
--- Structure de la table `utilisateur_has_favorite_animals`
+-- Structure de la table `utilisateur_has_favorite_animal`
 --
 
-CREATE TABLE `utilisateur_has_favorite_animals` (
+CREATE TABLE `utilisateur_has_favorite_animal` (
   `id_user` int(11) DEFAULT NULL,
   `id_favoriteAnimal` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `utilisateur_has_favorite_animals`
---
-
-INSERT INTO `utilisateur_has_favorite_animals` (`id_user`, `id_favoriteAnimal`) VALUES
-(68, 1),
-(68, 3),
-(68, 4),
-(68, 2),
-(68, 9),
-(68, 5);
 
 --
 -- Index pour les tables déchargées
@@ -963,18 +933,18 @@ ALTER TABLE `utilisateur_has_animal_a_adopter`
   ADD KEY `fk_utilisateur_has_animal_a_adopter_utilisateur1_idx` (`utilisateur_idutilisateur`);
 
 --
--- Index pour la table `utilisateur_has_badges`
+-- Index pour la table `utilisateur_has_badge`
 --
-ALTER TABLE `utilisateur_has_badges`
+ALTER TABLE `utilisateur_has_badge`
   ADD KEY `id_user` (`id_user`),
   ADD KEY `id_badge` (`id_badge`);
 
 --
--- Index pour la table `utilisateur_has_favorite_animals`
+-- Index pour la table `utilisateur_has_favorite_animal`
 --
-ALTER TABLE `utilisateur_has_favorite_animals`
+ALTER TABLE `utilisateur_has_favorite_animal`
   ADD KEY `id_user` (`id_user`),
-  ADD KEY `id_favoriteAnimal` (`id_favoriteAnimal`);
+  ADD KEY `id_badge` (`id_favoriteAnimal`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -990,7 +960,7 @@ ALTER TABLE `animal_a_adopter`
 -- AUTO_INCREMENT pour la table `badge`
 --
 ALTER TABLE `badge`
-  MODIFY `idbadge` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idbadge` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `blog`
@@ -1211,18 +1181,11 @@ ALTER TABLE `utilisateur_has_animal_a_adopter`
   ADD CONSTRAINT `fk_utilisateur_has_animal_a_adopter_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `utilisateur_has_badges`
+-- Contraintes pour la table `utilisateur_has_badge`
 --
-ALTER TABLE `utilisateur_has_badges`
-  ADD CONSTRAINT `utilisateur_has_badges_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `utilisateur_has_badges_ibfk_2` FOREIGN KEY (`id_badge`) REFERENCES `badge` (`idbadge`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Contraintes pour la table `utilisateur_has_favorite_animals`
---
-ALTER TABLE `utilisateur_has_favorite_animals`
-  ADD CONSTRAINT `utilisateur_has_favorite_animals_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `utilisateur_has_favorite_animals_ibfk_2` FOREIGN KEY (`id_favoriteAnimal`) REFERENCES `types_animaux` (`idtypes_animaux`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `utilisateur_has_badge`
+  ADD CONSTRAINT `utilisateur_has_badge_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `utilisateur_has_badge_ibfk_2` FOREIGN KEY (`id_badge`) REFERENCES `badge` (`idbadge`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
