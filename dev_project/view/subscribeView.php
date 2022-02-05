@@ -1,4 +1,5 @@
 <?php
+$printNewsletter = false;
 $pageTitle = "S'inscrire";
 ob_start();
 ?>

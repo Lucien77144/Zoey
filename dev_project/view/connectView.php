@@ -1,4 +1,5 @@
 <?php 
+$printNewsletter = false;
 $pageTitle = "Se connecter";
 ob_start();
 ?>
