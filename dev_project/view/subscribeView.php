@@ -40,7 +40,7 @@ ob_start();
 
         <div class="checkboxContainer">
             <input type="checkbox" name="checkbox" id="legalAge" required='required'>
-            <label for="checkbox">Je certifie être majeur, ou dans le cas contraire, j’utilise ZOEY sous la supervision d’un responsable légale.</label>
+            <label for="checkbox">Je certifie être majeur, ou dans le cas contraire, j’utilise ZOEY sous la supervision d’un responsable légal.</label>
         </div>
 
         <div class="linksContainer">

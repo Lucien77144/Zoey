@@ -26,6 +26,8 @@ $(document).ready(function(){
 
                 if (ReturnedMessage == "valid"){
                     window.location.href = "index.php?action=adoption";
+                } else if (ReturnedMessage == "connect"){
+                    window.location.href = "index.php?action=connect&src=quizz";
                 } else {
                     $('#confirmationMessage').html('');
                     $('#confirmationMessage').text(

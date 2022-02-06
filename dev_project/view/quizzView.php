@@ -1,5 +1,6 @@
 <?php 
-$pageTitle = 'Qui sommes-nous ?';
+$printNewsletter = false;
+$pageTitle = 'Trouver votre compagnon idéal';
 ob_start();
 ?>
  
@@ -65,7 +66,7 @@ ob_start();
             $categorie = $types_animaux -> fetchAll();
             for ($i=0; $i < 3; $i++) {
                 ?>
-                <label for="idtype<?= $i+1 ?>">Votre animal <?= $i+1 ?> :</label>
+                <label for="idtype<?= $i+1 ?>">Votre animal <?= $i+1; echo $i > 0 ? " (facultatif)" : null ?> :</label>
                 <select name="idtype<?= $i+1 ?>" id="idtype<?= $i+1 ?>">
                         <option value=""></option>
                         <?php

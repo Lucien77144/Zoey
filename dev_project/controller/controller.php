@@ -19,12 +19,8 @@
     }
 
     function printQuizz(){
-        if (verifyToken()){
-            $types_animaux = getAnimalTypes();
-            require(BASE_URL . "view/quizzView.php");
-        } else {
-            printConnect();
-        }
+        $types_animaux = getAnimalTypes();
+        require(BASE_URL . "view/quizzView.php");
     }
 
     function printLegal(){
@@ -92,12 +88,12 @@
     // }
 
     function printAdoption(){
+        $types_animaux = getAnimalTypes();
         if (verifyToken()){
             if (checkQuizz($_SESSION['idUser'])){
                 $feedAdoption = getFeedAdoptionByMatch($_SESSION['idUser']);
                 require(BASE_URL . "view/adoptionViewWithMatch.php");
             } else {
-                // $quizzCTA = true;
                 $feedAdoption = getFeedAdoption();
                 require(BASE_URL . "view/adoptionView.php");
             }

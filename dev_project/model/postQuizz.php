@@ -1,39 +1,31 @@
 <?php
 session_start();
 
+require("model.php");
+require("verifyToken.php");
+
 // this script handles quizz answers and is called with ajax
 
 function postQuizz(){
 
     function executeAddBadge($idBadge){
-        global $insertReq, $verifyReq; // use $req in this context
-        $verify = $verifyReq -> execute(array(
+        global $insertReq; // use $req in this context
+
+        $valid = $insertReq -> execute(array(
             ':idUser' => $_SESSION['idUser'],
             ':idBadge' => $idBadge));
-
-        if ($verifyReq->rowCount() == 0){ // doesn't have this badge yet
-            $valid = $insertReq -> execute(array(
-                ':idUser' => $_SESSION['idUser'],
-                ':idBadge' => $idBadge));
-            if (!$valid)
-                throw new Exception("Nous n'avons pas réussi à envoyer vos réponses, il y a eu une erreur :/2");
-        }
+        if (!$valid)
+            throw new Exception("Nous n'avons pas réussi à envoyer vos réponses, il y a eu une erreur :/2");
     }
 
     function executeAddAnimal($idAnimal){
-        global $insertAnimalReq, $verifyAnimalReq; // use $req in this context
+        global $insertAnimalReq; // use $req in this context
 
-        $verify = $verifyAnimalReq -> execute(array(
+        $valid = $insertAnimalReq -> execute(array(
             ':idUser' => $_SESSION['idUser'],
             ':idAnimal' => $idAnimal));
-
-        if ($verifyAnimalReq->rowCount() == 0){ // doesn't have this animal yet
-            $valid = $insertAnimalReq -> execute(array(
-                ':idUser' => $_SESSION['idUser'],
-                ':idAnimal' => $idAnimal));
-            if (!$valid)
-                throw new Exception("Nous n'avons pas réussi à envoyer vos réponses, il y a eu une erreur :/3");
-        }
+        if (!$valid)
+            throw new Exception("Nous n'avons pas réussi à envoyer vos réponses, il y a eu une erreur :/3");
     }
 
     // badges
@@ -45,14 +37,13 @@ function postQuizz(){
     $animalsPost = safeEntry($_POST['animals']);
     $walkPost = safeEntry($_POST['walk']);
 
-    // animals
-    // $idAnimal1 = safeEntry($_POST['animal1']);
-    // $idAnimal2 = safeEntry($_POST['animal2']);
-    // $idAnimal3 = safeEntry($_POST['animal3']);
-
     executeAddAnimal(safeEntry($_POST['animal1']));
-    executeAddAnimal(safeEntry($_POST['animal2']));
-    executeAddAnimal(safeEntry($_POST['animal3']));
+    if (!empty($_POST['animal2'])){
+        executeAddAnimal(safeEntry($_POST['animal2']));
+    }
+    if (!empty($_POST['animal2'])){
+        executeAddAnimal(safeEntry($_POST['animal3']));
+    }
 
     // test badges obtained
     if ($spacePost == 1){
@@ -117,37 +108,36 @@ try {
     && isset($_POST['animals'])
     && isset($_POST['walk'])
     && isset($_POST['animal1'])
-    && isset($_POST['animal2'])
-    && isset($_POST['animal3'])
     )
     {
-        // connect to db and prepare request
-        require("PDO.php");
-        $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
-        (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
-        $sql = "INSERT INTO `utilisateur_has_badges` (`id_user`, `id_badge`) VALUES (:idUser, :idBadge);";
-        $insertReq = $db -> prepare($sql);
+        if (verifyToken()){
+            // connect to db and prepare request
+            require("PDO.php");
+            $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
+            (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+            $sql = "INSERT INTO `utilisateur_has_badges` (`id_user`, `id_badge`) VALUES (:idUser, :idBadge);";
+            $insertReq = $db -> prepare($sql);
 
-        $sql = "SELECT id_badge
-        FROM utilisateur_has_badges 
-        WHERE utilisateur_has_badges.id_user = :idUser
-        AND utilisateur_has_badges.id_badge = :idBadge";
-        $verifyReq = $db -> prepare($sql);
+            $sql = "DELETE FROM utilisateur_has_badges WHERE id_user = :idUser";
+            $emptyBadges = $db -> prepare($sql);
+            $emptyBadges -> execute(array(':idUser' => $_SESSION['idUser']));
 
-        $sql = "INSERT INTO `utilisateur_has_favorite_animals` (`id_user`, `id_favoriteAnimal`) VALUES (:idUser, :idAnimal);";
-        $insertAnimalReq = $db -> prepare($sql);
+            $sql = "DELETE FROM utilisateur_has_favorite_animals WHERE id_user = :idUser";
+            $emptyFav = $db -> prepare($sql);
+            $emptyFav -> execute(array(':idUser' => $_SESSION['idUser']));
 
-        $sql = "SELECT id_favoriteAnimal
-        FROM utilisateur_has_favorite_animals 
-        WHERE id_user = :idUser
-        AND id_favoriteAnimal = :idAnimal";
-        $verifyAnimalReq = $db -> prepare($sql);
+            $sql = "INSERT INTO `utilisateur_has_favorite_animals` (`id_user`, `id_favoriteAnimal`) VALUES (:idUser, :idAnimal);";
+            $insertAnimalReq = $db -> prepare($sql);
 
-        require("model.php");
+            // execute script
+            $postQuizz = postQuizz();
+            echo $postQuizz;
 
-        // execute script
-        $postQuizz = postQuizz();
-        echo $postQuizz;
+            setcookie("quizz","", time()-3600, "/"); // unset the cookie
+        } else {
+            setcookie("quizz",json_encode($_POST), time()+86400, "/");
+            echo "connect";
+        }
     } else {        
         throw new Exception("Nous n'avons pas réussi à envoyer vos réponses, il y a eu une erreur :/1");
     }

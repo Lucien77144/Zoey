@@ -5,11 +5,13 @@ ob_start();
 ?>
 <p><a href="index.php?action=quizz">Répondez au quizz </a>ou <a href="index.php?action=connect">connectez-vous</a> pour avoir des résultats plus adaptés !</p>
     <div class="filter">
-        <div class="animalBreed">CHIEN</div>
-        <div class="animalBreed">RONGEUR</div>
-        <div class="animalBreed">CHAT</div>
-        <div class="animalBreed">POISSON</div>
-        <div class="animalBreed">DRAGON</div>
+        <?php
+            while ($categorie = $types_animaux -> fetch()){
+                ?>
+                    <div class="animalBreed" id="filterType0<?= $categorie['id'] ?>"><?= mb_strtoupper($categorie['nom']) ?></div>
+                <?php
+            }
+        ?>
     </div>
 <main>
 <?php
@@ -85,7 +87,7 @@ while ($animal = $feedAdoption->fetch())
 
     // SCRIPT BLOCK
     ob_start(); ?>
-    <!-- <script src="public/js/ YOUR SCRIPT GOES HERE "></script> -->
+    <script src="public/js/filter.js"></script>
 <?php
     $scriptsBlock = ob_get_clean();
 

@@ -3,12 +3,15 @@ $pageTitle = 'Animaux à adopter';
 ob_start();
 
 ?>
-<div class="filter">
-        <div class="animalBreed">CHIEN</div>
-        <div class="animalBreed">RONGEUR</div>
-        <div class="animalBreed">CHAT</div>
-        <div class="animalBreed">POISSON</div>
-        <div class="animalBreed">DRAGON</div>
+<p>Découvrez les animaux à adopter les plus adaptés à vos préférences ! Vous pouvez mettre à jour ces préférences en envoyant <a href="index.php?action=quizz">de nouvelles réponses au quizz</a>.</p>
+    <div class="filter">
+        <?php
+            while ($categorie = $types_animaux -> fetch()){
+                ?>
+                    <div class="animalBreed" id="filterType0<?= $categorie['id'] ?>"><?= mb_strtoupper($categorie['nom']) ?></div>
+                <?php
+            }
+        ?>
     </div>
 <main>
 <?php
@@ -82,7 +85,7 @@ foreach ($feedAdoption as $animal)
 
     // SCRIPT BLOCK
     ob_start(); ?>
-    <!-- <script src="public/js/ YOUR SCRIPT GOES HERE "></script> -->
+    <script src="public/js/filter.js"></script>
 <?php
     $scriptsBlock = ob_get_clean();
 

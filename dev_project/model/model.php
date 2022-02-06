@@ -178,17 +178,27 @@ function getFeedAdoption(){
     $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
     (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-    $sql = "SELECT idanimal_a_adopter idaa, aa.nom, aa.sexe, aa.photo, aa.description, aa.date_anniversaire anniversaire,
-    types_animaux.nom type_nom
-    FROM animal_a_adopter aa
-    INNER JOIN types_animaux ON types_animaux.idtypes_animaux = aa.idtype
-    ORDER BY idaa";
-    $req = $db -> prepare($sql);
-    
-    $req -> execute();
+    if (isset($_GET['filter']) && is_numeric($_GET['filter'])){
+        $sql = "SELECT idanimal_a_adopter idaa, aa.nom, aa.sexe, aa.photo, aa.description, aa.date_anniversaire anniversaire,
+        types_animaux.nom type_nom
+        FROM animal_a_adopter aa
+        INNER JOIN types_animaux ON types_animaux.idtypes_animaux = aa.idtype
+        WHERE types_animaux.idtypes_animaux = ?
+        ORDER BY idaa";
+        $req = $db -> prepare($sql);
+        $req -> execute(array(safeEntry($_GET['filter'])));
+    } else {
+        $sql = "SELECT idanimal_a_adopter idaa, aa.nom, aa.sexe, aa.photo, aa.description, aa.date_anniversaire anniversaire,
+        types_animaux.nom type_nom
+        FROM animal_a_adopter aa
+        INNER JOIN types_animaux ON types_animaux.idtypes_animaux = aa.idtype
+        ORDER BY idaa";
+        $req = $db -> prepare($sql);
+        $req -> execute();
+    }
 
-    if ($req->rowCount() <= 0)
-        throw new Exception("Aucun animal n'a été trouvé");
+    // if ($req->rowCount() <= 0)
+    //     throw new Exception("Aucun animal n'a été trouvé");
 
     return $req;
 }
@@ -262,21 +272,37 @@ function getFeedAdoptionByMatch($userId){
     }
 
     arsort($matchList);
+    $filter = 1;
 
-    $sql = "SELECT idanimal_a_adopter idaa, aa.nom, aa.sexe, aa.photo, aa.description, aa.date_anniversaire anniversaire,
-    types_animaux.nom type_nom
-    FROM animal_a_adopter aa
-    INNER JOIN types_animaux ON types_animaux.idtypes_animaux = aa.idtype
-    WHERE idanimal_a_adopter = ?";
+    if (isset($_GET['filter']) && is_numeric($_GET['filter'])){
+        $filter = safeEntry($_GET['filter']);
+        $sql = "SELECT idanimal_a_adopter idaa, aa.nom, aa.sexe, aa.photo, aa.description, aa.date_anniversaire anniversaire,
+        types_animaux.nom type_nom
+        FROM animal_a_adopter aa
+        INNER JOIN types_animaux ON types_animaux.idtypes_animaux = aa.idtype
+        WHERE idanimal_a_adopter = :idMatch AND types_animaux.idtypes_animaux = :idFilter";
+    } else {
+        $sql = "SELECT idanimal_a_adopter idaa, aa.nom, aa.sexe, aa.photo, aa.description, aa.date_anniversaire anniversaire,
+        types_animaux.nom type_nom
+        FROM animal_a_adopter aa
+        INNER JOIN types_animaux ON types_animaux.idtypes_animaux = aa.idtype
+        WHERE idanimal_a_adopter = :idMatch AND :idFilter=:idFilter";
+    }
+    
     $req = $db -> prepare($sql);
 
     $listeAnimaux = [];
     foreach ($matchList as $id => $score) {
-        $req -> execute(array($id));
-        $animal = $req -> fetch();
-        array_push($listeAnimaux, $animal);
-    }
+        $req -> execute(array(
+            ':idMatch' => $id,
+            ':idFilter' => $filter
+        ));
 
+        if (!$req->rowCount() <= 0) {
+            $animal = $req -> fetch();
+            array_push($listeAnimaux, $animal);
+        }        
+    }
     return $listeAnimaux;
 }
 
