@@ -19,12 +19,8 @@
     }
 
     function printQuizz(){
-        if (verifyToken()){
-            $types_animaux = getAnimalTypes();
-            require(BASE_URL . "view/quizzView.php");
-        } else {
-            printConnect();
-        }
+        $types_animaux = getAnimalTypes();
+        require(BASE_URL . "view/quizzView.php");
     }
 
     function printLegal(){
@@ -82,11 +78,29 @@
         require(BASE_URL . "view/postView.php");
     }
 
-    
-    
+    // function printAdoptionWithMatch(){
+    //     if (verifyToken()){
+    //         $feedAdoption = getFeedAdoptionByMatch($_SESSION['idUser']);
+    //     } else {
+    //         $feedAdoption = getFeedAdoption();
+    //     }
+    //     require(BASE_URL . "view/adoptionViewWithMatch.php");
+    // }
+
     function printAdoption(){
-        $feedAdoption = getFeedAdoption();
-        require(BASE_URL . "view/adoptionView.php");
+        $types_animaux = getAnimalTypes();
+        if (verifyToken()){
+            if (checkQuizz($_SESSION['idUser'])){
+                $feedAdoption = getFeedAdoptionByMatch($_SESSION['idUser']);
+                require(BASE_URL . "view/adoptionViewWithMatch.php");
+            } else {
+                $feedAdoption = getFeedAdoption();
+                require(BASE_URL . "view/adoptionView.php");
+            }
+        } else {
+            $feedAdoption = getFeedAdoption();
+            require(BASE_URL . "view/adoptionView.php");
+        }
     }
 
     function printAdoptionAnimal(){

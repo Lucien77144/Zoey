@@ -1,4 +1,5 @@
 <?php 
+$printNewsletter = false;
 $pageTitle = "Vous avez bien été déconnecté";
 ob_start();
 ?>

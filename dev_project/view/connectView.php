@@ -1,9 +1,17 @@
 <?php 
+$printNewsletter = false;
 $pageTitle = "Se connecter";
 ob_start();
 ?>
 <div class="connexion">
 <h1>Connectez vous !</h1>
+<?php
+    if (isset($_GET["src"]) && $_GET["src"]="quizz"){
+        ?>
+        <h2>Pour sauvegarder vos résultats du quizz et découvrir votre compagnon idéal.</h2>
+        <?php
+    }
+?>
     <form class="connectForm">
 
     <div class="inputContainer">
@@ -20,7 +28,7 @@ ob_start();
  
         <div class="linksContainer">
             <input type="submit" id="submitConnect" value="se connecter">
-            <a href="">Pas encore inscrit ?</a>
+            <a href="index.php?action=subscribe">Pas encore inscrit ?</a>
         </div>
 
         <p>*: Champs obligatoires</p>

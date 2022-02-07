@@ -1,5 +1,21 @@
 // this page is made for all ajax calls (forms and more)
 
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
 $(document).ready(function(){
     console.log("ready")
 
@@ -140,12 +156,48 @@ $(document).ready(function(){
                 console.log(ReturnedMessage);
 
                 if (ReturnedMessage == "valid"){
+                    if (getCookie("quizz")){
+                        let quizz = JSON.parse(getCookie("quizz"));
+                        console.log(quizz);
+                        console.log(quizz.space);
+                        $.post(
+                            'model/postQuizz.php',
+                            {
+                                space : quizz.space,
+                                secure : quizz.secure,
+                                children : quizz.children,
+                                travel : quizz.travel,
+                                personality : quizz.personality,
+                                animals : quizz.animals,
+                                walk : quizz.walk,
+                                animal1 : quizz.animal1,
+                                animal2 : quizz.animal2,
+                                animal3 : quizz.animal3
+                            },
+                
+                            function(ReturnedMessage){
+                                console.log(ReturnedMessage);
+                
+                                // if (ReturnedMessage == "valid"){
+                                //     window.location.href = "index.php?action=adoption";
+                                // } else if (ReturnedMessage == "connect"){
+                                //     window.location.href = "index.php?action=connect&src=quizz";
+                                // } else {
+                                //     $('#confirmationMessage').html('');
+                                //     $('#confirmationMessage').text(
+                                //         `Nous n'avons pas réussi à envoyer vos réponses, il y a eu une erreur :/`
+                                //     );
+                                // }
+                            },
+                            'text'
+                        );
+                    }
                     // recharger la page pour retourner à la page demandée avant redirection vers connexion, sauf si page demandée = connexion, et aller vers profil
                     if (getParameterByName("action") == "connect"){
                         window.location.href = "index.php?action=account";
                     } else {
                         location.reload(); // renvoie vers la page initialement demandée
-                    }                    
+                    }
                     console.log('valid !!')
                 } else {
                     $('#ConfirmationMessage').html('');

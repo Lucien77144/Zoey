@@ -3,7 +3,7 @@ $pageTitle = 'Animaux à adopter';
 ob_start();
 
 ?>
-<p><a href="index.php?action=quizz">Répondez au quizz </a>ou <a href="index.php?action=connect">connectez-vous</a> pour avoir des résultats plus adaptés !</p>
+<p>Découvrez les animaux à adopter les plus adaptés à vos préférences ! Vous pouvez mettre à jour ces préférences en envoyant <a href="index.php?action=quizz">de nouvelles réponses au quizz</a>.</p>
     <div class="filter">
         <?php
             while ($categorie = $types_animaux -> fetch()){
@@ -15,8 +15,7 @@ ob_start();
     </div>
 <main>
 <?php
-
-while ($animal = $feedAdoption->fetch())
+foreach ($feedAdoption as $animal)
 {
     $adoptionAnimalBadges = getAdoptionAnimalBadges($animal['idaa']);
     // convertir anniversaire en âge
@@ -76,7 +75,6 @@ while ($animal = $feedAdoption->fetch())
 ?>
 </main>
 <?php
-    $feedAdoption->closeCursor();
     $viewContent = ob_get_clean();
     
     // styles BLOCK
