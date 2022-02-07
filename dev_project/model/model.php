@@ -564,7 +564,7 @@ function getDirectConversation($idToSearch){
         $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
         (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-        $sql = "SELECT *
+        $sql = "SELECT idconversation
         FROM `conversation`
         INNER JOIN conversation_has_utilisateur ON conversation_has_utilisateur.conversation_idconversation = conversation.idconversation
          WHERE conversation_has_utilisateur.utilisateur_idutilisateur = :idToSearch AND conversation.idconversation IN (
