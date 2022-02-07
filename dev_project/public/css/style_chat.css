@@ -1,0 +1,57 @@
+.inputMessage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #f3f3f3;
+}
+.legalLink {
+    background-color: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    margin: 0;
+    padding-top: 20px;
+}
+input {
+    background-color: white;
+}
+#addMessageForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+textarea {
+    background: white;
+    border: none;
+    border-radius: 15px;
+}
+#media {
+    display: none;
+}
+.mediaContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.labelForMedia {
+    width: 180px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #F3811C;
+}
+.currentPicture {
+    margin: auto;
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 50px;
+}
+label[for="media"] {
+    margin-top: 10px;
+    cursor: pointer;
+    width: fit-content;
+}
