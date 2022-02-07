@@ -7,49 +7,51 @@ ob_start();
     <?php
     if ($messages) {
     ?>
-        <form action="">
+        <form id="formSearch">
             <label for="convSearch">Rechercher une conversation : </label>
             <input type="search" id="convSearch" name="convSearch" aria-label="Rechercher une conversation" placeholder="pseudo ou nom du groupe">
-            <!-- <input type="submit" class="btn" value="Rechercher"> -->
             <span id="confirmationMessage"></span>
         </form>
 
-
-        <?php
-        while ($chat = $messages->fetch()) {
-        ?>
-            <a href="index.php?action=messages&id=<?= htmlspecialchars($chat['idconversation']) ?>">
-                <!-- <a href="blog/<?= htmlspecialchars($chat['id']) ?>"> -->
-                <article class="defaultBlock">
-                    <h1>
-                        <?= htmlspecialchars($chat['titre']) ?>
-                    </h1>
-                    <p> <span>Membres de la conversation :</span> </br>
-                        <?php
-                        $getConversationUsers = getConversationUsers($chat['idconversation']);
-                        if ($getConversationUsers) { // pas d'erreur envoyée si false !! le champ sera vide.
-                            $user = $getConversationUsers->fetchAll();
-                            for ($i = 0; $i < count($user); $i++) {
-                                echo htmlspecialchars(getPseudoFromId($user[$i]['user']));
-                                if ($i < count($user) - 1) {
-                                    echo ", ";
-                                } else {
-                                    echo ".";
+        <div id="messagesContainer">
+            <?php
+            while ($chat = $messages->fetch()) {
+            ?>
+                <a href="index.php?action=messages&id=<?= htmlspecialchars($chat['idconversation']) ?>">
+                    <!-- <a href="blog/<?= htmlspecialchars($chat['id']) ?>"> -->
+                    <article class="defaultBlock">
+                        <h1>
+                            <?= htmlspecialchars($chat['titre']) ?>
+                        </h1>
+                        <p> <span>Membres de la conversation :</span> </br>
+                            <?php
+                            $getConversationUsers = getConversationUsers($chat['idconversation']);
+                            if ($getConversationUsers) { // pas d'erreur envoyée si false !! le champ sera vide.
+                                $user = $getConversationUsers->fetchAll();
+                                for ($i = 0; $i < count($user); $i++) {
+                                    echo htmlspecialchars(getPseudoFromId($user[$i]['user']));
+                                    if ($i < count($user) - 1) {
+                                        echo ", ";
+                                    } else {
+                                        echo ".";
+                                    }
                                 }
                             }
-                        }
-                        ?>
-                    </p>
-                </article>
-            </a>
+                            ?>
+                        </p>
+                    </article>
+                </a>
+            <?php
+            }
+            $messages->closeCursor();
+            ?>
+        </div>
+        <?php
+        } else {
+            ?>
+            <p>Ajoutez des amis pour commencer des conversations !</p>
         <?php
         }
-        $messages->closeCursor();
-    } else {
-        ?>
-        <p>Ajoutez des amis pour commencer des conversations !</p>
-    <?php
-    }
     ?>
 </div>
 <?php
