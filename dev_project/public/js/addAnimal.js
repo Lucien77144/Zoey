@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     function changeAvatar(current) {
-        console.log(current)
+        // console.log(current)
         let file = current.files[0];
         let reader = new FileReader();
 
