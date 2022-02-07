@@ -629,10 +629,12 @@ $(document).ready(function(){
                 if (ReturnedMessage){
                     // window.location.href = "index.php?action=account";
                     // location.reload();
-                    $('#convContainer').html('');
-                    $('#convContainer').html(ReturnedMessage);
+                    $('#confirmationMessage').html('');
+                    $('#messagesContainer').html('');
+                    $('#messagesContainer').html(ReturnedMessage);
                     console.log('valid !!')
                 } else {
+                    $('#messagesContainer').html('');
                     $('#confirmationMessage').html('');
                     $('#confirmationMessage').text(
                         `Nous n'avons trouvé aucune conversation :/`
@@ -862,7 +864,7 @@ $(document).ready(function(){
     let searchFlag = false;
     let convSearch;
     $("#convSearch").keyup(function(e){
-        // e.preventDefault();
+        e.preventDefault();
         console.log("convSearch")
 
         if (!searchFlag){ // si pas de recherche en cours
@@ -882,6 +884,10 @@ $(document).ready(function(){
             }, 5000); // je réinitialise la recherche au bout de 5 sec
         }
     });
+
+    document.getElementById('formSearch').onsubmit = (e) => {
+        e.preventDefault();
+    }
 
     // loadMoreMessages on the chat :
     offsetCoef = 1;
