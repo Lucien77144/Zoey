@@ -9,46 +9,46 @@ ob_start();
 <form>
     <div>
         <h2>1. De quel espace de vie disposez-vous ?</h2>
-        <div><input type="radio" name="space" id="" value="0"><label>un studio</label><br></div>
-        <div><input type="radio" name="space" id="" value="0"><label>un appartement spacieux</label><br></div>
-        <div><input type="radio" name="space" id="" value="0"><label>une maison sans jardin</label><br></div>
-        <div><input type="radio" name="space" id="" value="1"><label>une maison avec jardin</label></div>
+        <div><input type="radio" name="space" id="space1" value="0"><label for="space1">un studio</label><br></div>
+        <div><input type="radio" name="space" id="space2" value="0"><label for="space2">un appartement spacieux</label><br></div>
+        <div><input type="radio" name="space" id="space3" value="0"><label for="space3">une maison sans jardin</label><br></div>
+        <div><input type="radio" name="space" id="space4" value="1"><label for="space4">une maison avec jardin</label></div>
     </div>
     <div>
         <h2>2. Votre espace de vie est-il sécurisé (balcons, fenêtres etc..) ?</h2>
-        <div><input type="radio" name="secure" id="" value="1"><label>oui</label><br></div>
-        <div><input type="radio" name="secure" id="" value="0"><label>non</label></div>
+        <div><input type="radio" name="secure" id="secure1" value="1"><label for="secure1">oui</label><br></div>
+        <div><input type="radio" name="secure" id="secure2" value="0"><label for="secure2">non</label></div>
     </div>
     <div>
         <h2>Votre futur animal de compagnie devra-il cohabiter avec des enfants ?</h2>
-        <div><input type="radio" name="children" id="" value="1"><label>oui</label><br></div>
-        <div><input type="radio" name="children" id="" value="0"><label>non</label></div>
+        <div><input type="radio" name="children" id="cohabite1" value="1"><label for="cohabite1">oui</label><br></div>
+        <div><input type="radio" name="children" id="cohabite2" value="0"><label for="cohabite2">non</label></div>
     </div>
     <div>
         <h2>3. A quelle fréquence voyagez-vous ?</h2>
-        <div><input type="radio" name="travel" id="" value="1" s><label>régulièrement, à chaque occasion</label><br></div>
-        <div><input type="radio" name="travel" id="" value="0"><label>rarement</label><br></div>
-        <div><input type="radio" name="travel" id="" value="0"><label>jamais, une fois par mois et encore...</label></div>
+        <div><input type="radio" name="travel" id="trip1" value="1"><label for="trip1">régulièrement, à chaque occasion</label><br></div>
+        <div><input type="radio" name="travel" id="trip2" value="0"><label for="trip2">rarement</label><br></div>
+        <div><input type="radio" name="travel" id="trip3" value="0"><label for="trip3">jamais, une fois par mois et encore...</label></div>
     </div>
     <div>
         <h2>4. Quelle est la chose la plus importante selon vous dans un animal de compagnie ?
         </h2>
-        <div><input type="radio" name="personality" id="" value="1"><label>un animal joueur</label><br></div>
-        <div><input type="radio" name="personality" id="" value="2"><label>un animal tendre et affectueux </label><br></div>
-        <div><input type="radio" name="personality" id="" value="3"><label>un animal indépendant </label><br></div>
-        <div><input type="radio" name="personality" id="" value="4"><label>un animal calme</label></div>
+        <div><input type="radio" name="personality" id="important1" value="1"><label for="important1">un animal joueur</label><br></div>
+        <div><input type="radio" name="personality" id="important2" value="2"><label for="important2">un animal tendre et affectueux </label><br></div>
+        <div><input type="radio" name="personality" id="important3" value="3"><label for="important3">un animal indépendant </label><br></div>
+        <div><input type="radio" name="personality" id="important4" value="4"><label for="important4">un animal calme</label></div>
     </div>
     <div>
         <h2>5. Votre futur animal de compagnie vivra-t-il avec d’autres animaux au sein de votre foyer ?
         </h2>
-        <div><input type="radio" name="animals" id="" value="1"><label>oui</label><br></div>
-        <div><input type="radio" name="animals" id="" value="0"><label>non</label></div>
+        <div><input type="radio" name="animals" id="foyer1" value="1"><label for="foyer1">oui</label><br></div>
+        <div><input type="radio" name="animals" id="foyer2" value="0"><label for="foyer2">non</label></div>
     </div>
     <div>
         <h2>6. Le meilleur moyen de vous détendre ?</h2>
-        <div><input type="radio" name="walk" id="" value="1"><label>une longue balade en forêt</label><br></div>
-        <div><input type="radio" name="walk" id="" value="0"><label>une séance de sport</label><br></div>
-        <div><input type="radio" name="walk" id="" value="0"><label>rejoindre mes amis</label></div>
+        <div><input type="radio" name="walk" id="detente1" value="1"><label for="detente1">une longue balade en forêt</label><br></div>
+        <div><input type="radio" name="walk" id="detente2" value="0"><label for="detente2">une séance de sport</label><br></div>
+        <div><input type="radio" name="walk" id="detente3" value="0"><label for="detente3">rejoindre mes amis</label></div>
     </div>
 
     <div>
