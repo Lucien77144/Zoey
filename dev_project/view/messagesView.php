@@ -18,7 +18,6 @@ ob_start();
             while ($chat = $messages->fetch()) {
             ?>
                 <a href="index.php?action=messages&id=<?= htmlspecialchars($chat['idconversation']) ?>">
-                    <!-- <a href="blog/<?= htmlspecialchars($chat['id']) ?>"> -->
                     <article class="defaultBlock">
                         <h1>
                             <?= htmlspecialchars($chat['titre']) ?>
@@ -35,6 +34,11 @@ ob_start();
                                     } else {
                                         echo ".";
                                     }
+                                }
+                                for ($i = 0; $i < count($user); $i++) {
+                                    ?>
+                                    <img src="../dev_project/public/images/upload/<?= htmlspecialchars($user[$i]['url_photo']) ?>" alt="">
+                                    <?php
                                 }
                             }
                             ?>
