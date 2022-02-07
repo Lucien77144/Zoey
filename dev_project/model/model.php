@@ -555,6 +555,42 @@ function getBadgesList(){
     return $req;
 }
 
+function getDirectConversation($idToSearch){
+    if (isset($_SESSION['idUser']) && isset($idToSearch)){
+        $idUser = $_SESSION['idUser'];
+
+        require("PDO.php");
+
+        $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
+        (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+
+        $sql = "SELECT *
+        FROM `conversation`
+        INNER JOIN conversation_has_utilisateur ON conversation_has_utilisateur.conversation_idconversation = conversation.idconversation
+         WHERE conversation_has_utilisateur.utilisateur_idutilisateur = :idToSearch AND conversation.idconversation IN (
+                 SELECT idconversation
+                FROM `conversation`
+                INNER JOIN conversation_has_utilisateur ON conversation_has_utilisateur.conversation_idconversation = conversation.idconversation
+                 WHERE conversation_has_utilisateur.utilisateur_idutilisateur = :idUser
+         ) AND conversation.idconversation IN (
+                 SELECT conversation_idconversation FROM `conversation_has_utilisateur` GROUP BY conversation_idconversation HAVING count(*) = 2
+         );";
+        $req = $db -> prepare($sql);
+        
+        $req -> execute(array(
+            ':idUser' => $idUser,
+            ':idToSearch' => $idToSearch
+        ));
+
+        if ($req->rowCount() <= 0)
+            return false;
+
+        return $req;
+    } else {
+        throw new Exception("Vous êtes déconnecté.");
+    }
+}
+
 function getConversationUsers($sentIdConv){ // renvoie les users d'une conversation
     if (isset($sentIdConv) && is_numeric($sentIdConv) && $sentIdConv != 0){
         $idConv = intval($sentIdConv);

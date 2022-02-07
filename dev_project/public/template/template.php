@@ -64,7 +64,7 @@
     
     if (isset($printNewsletter) && !$printNewsletter){
         $printNewsletter = true;
-    } else if ($_SESSION['idUser']) {
+    } else if (isset($_SESSION['idUser'])) {
         $printNewsletter = true;
     } else {
         ?>
