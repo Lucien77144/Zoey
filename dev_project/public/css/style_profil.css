@@ -16,6 +16,7 @@ body{
     display: grid;
     grid-template-areas: "a b" "a c" "d d";
     align-items: center;
+    margin-bottom: 15px;
 }
 
 .avatar{
