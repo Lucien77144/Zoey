@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function(){
                             if (ReturnedMessage){
                                 document.querySelector(".profilAnimal").innerHTML=ReturnedMessage;
                                 document.querySelector(".profilAnimal .iconModif").addEventListener("click", function(){
-                                    openModif(document.querySelector(".profilAnimal"),"../../model/modifAnimal.php");
+                                    openModif(document.querySelector(".profilAnimal"),"model/modifAnimal.php");
                                 });
                             } else {
                                 document.querySelector(".profilAnimal").innerHTML=`Nous n'avons pas trouvé cet animal :/`;
@@ -44,23 +44,23 @@ document.addEventListener("DOMContentLoaded", function(){
 
     document.querySelectorAll(".profilAnimal .iconModif").forEach(e => {
         e.addEventListener("click", function(){        
-            openModif(document.querySelector(".profilAnimal"),"../../model/modifAnimal.php");
+            openModif(document.querySelector(".profilAnimal"),"model/modifAnimal.php");
         });
     });
 
     document.querySelector(".profil .iconModif").addEventListener("click", function(){        
-        openModif(document.querySelector(".profil"),"../../model/modifProfil.php");
+        openModif(document.querySelector(".profil"),"model/modifProfil.php");
     });
 
     function openModif(current, action){
         let content = [current.innerHTML, current.querySelector(".innerUsername h1").innerHTML, current.querySelector(".desc p").innerText, current.querySelector(".avatar").innerHTML];
 
-        current.innerHTML=`<form action="${action}">${content[0]}</form>`;
+        current.innerHTML=`<form method="POST" action="${action}">${content[0]}</form>`;
         let moreMdf =`<a class="moreModifs" href="index.php?action=modifyAccount"><svg viewBox="0 0 20 20"><rect x="8.5" width="3" height="20" rx="1.5" fill="white"></rect><rect y="8.5" width="20" height="3" rx="1.5" fill="white"></rect></svg></a>`;
-        if(action == "../../model/modifAnimal.php"){
+        if(action == "model/modifAnimal.php"){
             moreMdf = "";
         }
-        current.querySelector(".innerUsername").innerHTML=`<input type="text" value="${content[1]}">
+        current.querySelector(".innerUsername").innerHTML=`<input type="text" name="pseudo" value="${content[1]}">
         <label>
             <input type="submit" style="display:none">
             <svg class="iconSubmit" viewBox="0 0 32 32">
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(){
         </label>${moreMdf}`;
         current.querySelector(".innerUsername").style.width="100%";
 
-        current.querySelector(".desc").innerHTML=`<textarea>${content[2]}</textarea>`;
+        current.querySelector(".desc").innerHTML=`<textarea name="desc">${content[2]}</textarea>`;
         sizeTextarea(current.querySelector("textarea"));
         current.querySelector("textarea").addEventListener("input", function(){
             sizeTextarea(this);
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
         current.querySelector(".avatar").innerHTML=`
         <label>
-            <input type="file" accept="image/*" name="avatar" style="display:none">
+            <input type="file" accept="image/*" name="avatar" id="#media" style="display:none">
             ${content[3]}
             <svg viewBox="0 0 20 22" class="modifAvatar">
                 <path d="M16.3056 0C17.6196 0.0648753 18.6828 0.6962 19.2822 1.96466C19.8815 3.23311 19.7392 4.47543 18.8251 5.53473C17.5664 6.98717 16.2475 8.38731 14.952 9.80682C12.2659 12.7498 9.57668 15.6905 6.88419 18.6289C6.66973 18.8575 6.4129 19.0424 6.12796 19.1731C4.87597 19.7434 3.61041 20.2866 2.35164 20.8337C1.58572 21.1648 0.87597 21.0206 0.374396 20.426C-0.0226016 19.9554 -0.0855429 19.4084 0.0994 18.8409C0.551268 17.4582 1.01314 16.0787 1.48502 14.7025C1.55779 14.5056 1.66868 14.3249 1.81134 14.1709C5.76776 9.83103 9.72741 5.49439 13.6903 1.16098C14.3671 0.416366 15.2095 0.0290486 16.3056 0ZM6.81642 15.2728C6.92584 15.1556 7.02072 15.0549 7.11465 14.9523C9.33396 12.5232 11.5536 10.0934 13.7736 7.66303C14.8387 6.49592 15.9038 5.32914 16.9689 4.16267C17.423 3.66304 17.4105 3.0443 16.9486 2.61341C16.4867 2.18252 15.8718 2.23094 15.4061 2.71798C15.3335 2.79448 15.2638 2.87291 15.1921 2.95134L5.4124 13.6625C5.36205 13.7177 5.31557 13.7778 5.25941 13.8455L6.81642 15.2728ZM3.65012 15.5246C3.35963 16.4057 3.08173 17.2297 2.78544 18.1157L5.28459 17.0186L3.65012 15.5246Z" fill="white"/>

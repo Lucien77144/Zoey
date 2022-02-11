@@ -27,7 +27,9 @@ ob_start();
         <div class="desc">
             <p><?= htmlspecialchars($account['description']) ?></p>
         </div>
-        <a class="btn disconnect" href="index.php?action=disconnect">se déconnecter</a>
+        <?php if(isset($_SESSION['idUser'])){ ?>
+            <a class="btn disconnect" href="index.php?action=disconnect">se déconnecter</a>
+        <?php } ?>
         <?php // if(($account['iduser'] != $_SESSION['idUser'] && isset($_SESSION['idUser'])) || !isset($_SESSION['idUser'])){ ?>
         <div class="controls">
             <?php
