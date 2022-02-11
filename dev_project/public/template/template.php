@@ -79,14 +79,11 @@
         <?php
     }
 
-    if (isset($printLegal) && $printLegal){
-        $printLegal = false;
-    } else {
-        ?>
-            <div class="legalLink">
-                <a href="index.php?action=legal">Mentions légales</a>
-            </div>
-        <?php
+    if (isset($printLegal) && $printLegal){?>
+        <div class="legalLink">
+            <a href="index.php?action=legal">Mentions légales</a>
+        </div>
+    <?php
     }
     ?>
 

@@ -8,6 +8,7 @@
     $pageTitle = "Zoey";
     $viewContent = "";
     $printNewsletter = true;
+    $printLegal = false;
     $showModifyLink = false;
     // $requestedFromAPI = false;
     require_once("controller/controller.php");
