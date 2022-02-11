@@ -121,6 +121,13 @@ body{
     word-break: break-word;
 }
 
+/* Bouton Déconnexion [A MODIFIER] */
+.disconnect {
+    font-size: 0.9rem;
+    padding: 6px 10px 6px 10px;
+}
+
+
 .empty{
     cursor: default !important;
     border-radius: 10px !important;
