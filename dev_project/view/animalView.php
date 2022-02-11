@@ -34,7 +34,7 @@ if (!$animalFeed){ // renvoie vaut false si aucun animal lié à ce compte n'a �
     while ($post = $animalFeed->fetch()) {
         ?>
             <article class="defaultBlock">
-                <img src="<?= BASE_URL . 'public/images/' . htmlspecialchars($post['media']) ?>" alt="">
+                <img src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($post['media']) ?>" alt="">
                 <a href="index.php?action=animal&id=<?= htmlspecialchars($post['idanimal']) ?>" title="voir le profil de <?= htmlspecialchars($post['nom']) ?>">
                     <h1>
                         <?= htmlspecialchars($post['nom']) ?>
