@@ -226,18 +226,25 @@ body{
 }
 
 .moreModifs{
-    box-sizing: content-box;
-    height: 22px;
-    width: 22px;
+    align-self: center;
+    min-width: 25px;
+    min-height: 25px;
+    width: 25px;
+    height: 25px;
+}
+
+.moreModifs svg{
+    height: 100%;
+    width: 100%;
     cursor: pointer;
-    padding: 7.5px;
+    padding: 5px;
     border-radius: 100vw;
     background-color: #FFC800;
     box-shadow: 0px 0px 7.5px #f3801c50;
     transition: 0.25s ease-in-out;
 }
 
-.moreModifs:hover{
+.moreModifs svg:hover{
     animation: pulse 0.75s ease-in-out;
 }
 

@@ -23,7 +23,7 @@ ob_start();
                         <?= htmlspecialchars($chat['titre']) ?>
                     </h1>
                     <div>
-                        <p>Membres de la conversation :
+                        <p> <strong>Membres de la conversation :</strong> </br>
                             <?php
                             $getConversationUsers = getConversationUsers($chat['idconversation']);
                             if ($getConversationUsers) { // pas d'erreur envoyée si false !! le champ sera vide.
@@ -43,7 +43,7 @@ ob_start();
                                 <?php
                                     for ($i = 0; $i < count($user); $i++) {
                                         ?>
-                                        <img src="../dev_project/public/images/upload/<?= htmlspecialchars($user[$i]['url_photo']) ?>" alt="">
+                                        <img class="profilePicture" src="../dev_project/public/images/upload/<?= htmlspecialchars($user[$i]['url_photo']) ?>" alt="">
                                         <?php
                                     }
                                 ?>
@@ -75,7 +75,7 @@ $stylesBlock = ob_get_clean();
 
 // SCRIPT BLOCK
 ob_start(); ?>
-<!-- <script src="public/js/ YOUR SCRIPT GOES HERE "></script> -->
+<script src="public/js/messages.js"></script>
 <?php
 $scriptsBlock = ob_get_clean();
 
