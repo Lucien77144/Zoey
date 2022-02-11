@@ -30,18 +30,20 @@ ob_start();
 ?>
 
 </main>
-
-<?php
-$feed->closeCursor();
-?>
-<?php 
-    $viewContent = ob_get_clean();
     
-    // styles BLOCK
-    ob_start(); ?>
-    <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_feed.css" />
-    <script src="<?= BASE_URL ?>public/js/feed.js"></script>
 <?php
-    $stylesBlock = ob_get_clean();
+$viewContent = ob_get_clean();
 
-    require(BASE_URL . 'public/template/template.php');
+// styles BLOCK
+ob_start(); ?>
+<link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_feed.css" />
+<?php
+$stylesBlock = ob_get_clean();
+
+// SCRIPT BLOCK
+ob_start(); ?>
+<script src="<?= BASE_URL ?>public/js/feed.js"></script>
+<?php
+$scriptsBlock = ob_get_clean();
+
+require(BASE_URL . 'public/template/template.php');
