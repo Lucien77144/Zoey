@@ -5,7 +5,7 @@ ob_start();
 
 <h1><?= htmlspecialchars($animal['nom_animal']) ?></h1>
 
-<img src="<?= BASE_URL . 'public/images/' . htmlspecialchars($animal['photo_animal']) ?>" alt="">
+<img src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($animal['photo_animal']) ?>" alt="">
 
 <p>Je m'appelle <?= htmlspecialchars($animal['nom_animal']) ?>. <br>
 <div class="defaultBlock">
