@@ -37,12 +37,14 @@ article {
     display: flex;
     flex-direction: column;
 }
-article p {
+article>div {
     display: flex;
     flex-direction: column;
 }
 article img {
+    position: absolute;
     width: 40px;
     height: 40px;
     border-radius: 50%;
+
 }
