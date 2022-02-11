@@ -684,9 +684,9 @@ $(document).ready(function(){
         console.log("click");
 
         let postedMedia = postPhoto();
-        if (postedMedia == "déconnecté"){
+        // if (postedMedia == "déconnecté"){
             return;
-        }
+        // }
 
         postAddMessage(postedMedia);
     });
