@@ -71,6 +71,9 @@ label[for="media"] {
 .inputMessage span {
     color: #FFA319;
 }
+article:last-child {
+    margin-bottom: 120px;
+}
 @media screen and (min-width: 800px) {
     .labelForMedia {
         display: block;
