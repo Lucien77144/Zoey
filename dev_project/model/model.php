@@ -606,9 +606,10 @@ function getConversationUsers($sentIdConv){ // renvoie les users d'une conversat
         $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
         (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-        $sql = "SELECT idutilisateur user, url_photo 
+        $sql = "SELECT idutilisateur user, utilisateur.pseudo pseudo, utilisateur.url_photo, conversation.titre
         FROM `conversation_has_utilisateur` 
         INNER JOIN utilisateur ON utilisateur.idutilisateur = conversation_has_utilisateur.utilisateur_idutilisateur
+        inner join conversation on conversation.idconversation = conversation_has_utilisateur.conversation_idconversation
         WHERE conversation_has_utilisateur.conversation_idconversation = ?";
         $conversationUsers = $db -> prepare($sql);
 

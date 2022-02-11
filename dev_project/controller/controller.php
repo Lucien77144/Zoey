@@ -150,6 +150,17 @@
         if (verifyToken()){
             if (isMemberOfTheConversation()){
                 $chat = getChat(0);
+                $convUsers = getConversationUsers($_GET['id']);
+                if ($convUsers){
+                    $convUsers = $convUsers->fetchAll();
+                    foreach ($convUsers as $index => $user) {
+                        if ($user["user"] == $_SESSION["idUser"]){
+                            unset($convUsers[$index]);
+                        }
+                    }
+                } else {
+                    throw new Exception("La conversation n'a pas été trouvée");
+                }
                 require(BASE_URL . "view/chatView.php");
             } else {
                 throw new Exception("La conversation n'a pas été trouvée");
