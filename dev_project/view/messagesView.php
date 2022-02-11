@@ -14,47 +14,49 @@ ob_start();
         </form>
 
         <div id="messagesContainer">
-        <?php
-        while ($chat = $messages->fetch()) {
-        ?>
-            <a href="index.php?action=messages&id=<?= htmlspecialchars($chat['idconversation']) ?>">
-                <article class="defaultBlock">
-                    <h1>
-                        <?= htmlspecialchars($chat['titre']) ?>
-                    </h1>
-                    <div>
-                        <p> <strong>Membres de la conversation :</strong> </br>
+            <?php
+            while ($chat = $messages->fetch()) {
+            $convUsers = getConversationUsers($chat["idconversation"]);
+            if ($convUsers){
+                $convUsers = $convUsers->fetchAll();
+                foreach ($convUsers as $index => $user) {
+                    if ($user["user"] == $_SESSION["idUser"]){
+                        unset($convUsers[$index]);
+                    }
+                }
+                sort($convUsers);
+            } else {
+                throw new Exception("La conversation n'a pas été trouvée");
+            }
+            ?>
+                <a href="index.php?action=messages&id=<?= htmlspecialchars($chat['idconversation']) ?>">
+                        <p>
                             <?php
-                            $getConversationUsers = getConversationUsers($chat['idconversation']);
-                            if ($getConversationUsers) { // pas d'erreur envoyée si false !! le champ sera vide.
-                                $user = $getConversationUsers->fetchAll();
-                                for ($i = 0; $i < count($user); $i++) {
-                                    echo htmlspecialchars(getPseudoFromId($user[$i]['user']));
-                                    if ($i < count($user) - 1) {
+                            if (isset($convUsers[0]['titre'])){
+                                echo htmlspecialchars($convUsers[0]['titre']);
+                            } else {
+                                for ($i = 0; $i < count($convUsers); $i++) {
+                                    echo htmlspecialchars($convUsers[$i]['pseudo']);
+                                    if ($i < count($convUsers) - 1) {
                                         echo ", ";
-                                    } else {
-                                        echo ".";
                                     }
                                 }
                             }
                             ?>
                         </p>
-                            <div class="profilePicturesContainer">
-                                <?php
-                                    for ($i = 0; $i < count($user); $i++) {
-                                        ?>
-                                        <img class="profilePicture" src="../dev_project/public/images/upload/<?= htmlspecialchars($user[$i]['url_photo']) ?>" alt="">
-                                        <?php
-                                    }
-                                ?>
-                            </div>
-                    </div>
-                </article>
-            </a>
-            
-        <?php
-        }
-        ?>
+                        <div class="profilePicturesContainer">
+                            <?php
+                                for ($i = 0; $i < count($convUsers); $i++) {
+                                    ?>
+                                    <img class="profilePicture" src="../dev_project/public/images/upload/<?= htmlspecialchars($convUsers[$i]['url_photo']) ?>" alt="">
+                                    <?php
+                                }
+                            ?>
+                        </div>
+                </a>                
+            <?php
+            }
+            ?>
         </div>
     <?php
     } else {
