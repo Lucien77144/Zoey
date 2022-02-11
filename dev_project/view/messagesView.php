@@ -22,32 +22,37 @@ ob_start();
                         <h1>
                             <?= htmlspecialchars($chat['titre']) ?>
                         </h1>
-                        <p> <span>Membres de la conversation :</span> </br>
-                            <?php
-                            $getConversationUsers = getConversationUsers($chat['idconversation']);
-                            if ($getConversationUsers) { // pas d'erreur envoyée si false !! le champ sera vide.
-                                $user = $getConversationUsers->fetchAll();
-                                for ($i = 0; $i < count($user); $i++) {
-                                    echo htmlspecialchars(getPseudoFromId($user[$i]['user']));
-                                    if ($i < count($user) - 1) {
-                                        echo ", ";
-                                    } else {
-                                        echo ".";
+                        <div>
+                            <p>Membres de la conversation :
+                                <?php
+                                $getConversationUsers = getConversationUsers($chat['idconversation']);
+                                if ($getConversationUsers) { // pas d'erreur envoyée si false !! le champ sera vide.
+                                    $user = $getConversationUsers->fetchAll();
+                                    for ($i = 0; $i < count($user); $i++) {
+                                        echo htmlspecialchars(getPseudoFromId($user[$i]['user']));
+                                        if ($i < count($user) - 1) {
+                                            echo ", ";
+                                        } else {
+                                            echo ".";
+                                        }
                                     }
-                                }
-                                for ($i = 0; $i < count($user); $i++) {
+
                                     ?>
-                                    <img src="../dev_project/public/images/upload/<?= htmlspecialchars($user[$i]['url_photo']) ?>" alt="">
+                            </p>
+                                <div class="profilePicturesContainer">
                                     <?php
-                                }
-                            }
-                            ?>
-                        </p>
+                                        for ($i = 0; $i < count($user); $i++) {
+                                            ?>
+                                            <img src="../dev_project/public/images/upload/<?= htmlspecialchars($user[$i]['url_photo']) ?>" alt="">
+                                            <?php
+                                        }
+                                    ?>
+                                </div>
+                        </div>
                     </article>
                 </a>
             <?php
             }
-            $messages->closeCursor();
             ?>
         </div>
         <?php

@@ -5,7 +5,7 @@ ob_start();
 ?>
 <h1>QUIZZ</h1>
 <p class="quizzDescription">Avant de parcourir notre page adoption, ZOEY vous permet de trouver plus efficacement l’animal de compagnie qui vous
-    correspond ! Il suffit de répondre aux 7 questions de ce quizz. </p>
+    correspond ! Il vous suffit de répondre aux 7 questions de ce quizz. </p>
 <form>
     <div>
         <h2>1. De quel espace de vie disposez-vous ?</h2>

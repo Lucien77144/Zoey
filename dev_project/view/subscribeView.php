@@ -25,7 +25,7 @@ ob_start();
         <div class="mailAndBirthContainer">
             <div class="mailContainer formContent">
                 <label for="mail">Adresse e-mail *</label>
-                <input type="email" name="mail" id="mail" placeholder="example@zoey.fr" required='required'>
+                <input type="email" name="mail" id="mail" placeholder="exemple@zoey.fr" required='required'>
             </div>
             <div class="dateOfBirthContainer formContent">
                 <label for="date_naissance">date de naissance *</label>
