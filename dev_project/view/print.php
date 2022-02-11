@@ -72,7 +72,7 @@ function printAnimal($animalId){
     ?>
                 <?php while ($post = $animalFeed->fetch()) { ?>
                     <a href="index.php?action=feed&id=<?= htmlspecialchars($post['idpost'])?>">
-                        <article class="publi" style="background-image:url(<?= BASE_URL . 'public/images/' . htmlspecialchars($post['media']) ?>)">
+                        <article class="publi" style="background-image:url(<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($post['media']) ?>)">
                             <div class="rate">
                                 <?php $post['likes'] ?>
                                 <svg viewBox="0 0 495 488">
