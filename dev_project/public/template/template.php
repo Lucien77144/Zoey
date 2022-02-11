@@ -79,8 +79,8 @@
         <?php
     }
 
-    if (isset($printLegal) && !$printLegal){
-        $printLegal = true;
+    if (isset($printLegal) && $printLegal){
+        $printLegal = false;
     } else {
         ?>
             <div class="legalLink">
