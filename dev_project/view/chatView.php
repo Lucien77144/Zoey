@@ -3,6 +3,24 @@ $pageTitle = 'Conversation';
 // CONTENT BLOCK
 ob_start();
 ?>
+
+<div class="convName">
+    <h1>
+        <?php
+        if (isset($convUsers['titre'])){
+            echo htmlspecialchars($convUsers[0]['titre']);
+        } else {
+            for ($i = 0; $i < count($convUsers); $i++) {
+                echo htmlspecialchars($convUsers[$i]['pseudo']);
+                if ($i < count($convUsers) - 1) {
+                    echo ", ";
+                }
+            }
+        }
+        ?>        
+    </h1>
+</div>
+
 <button id="loadMoreMessages">Afficher les messages précédents</button>
 <span id="confirmationMessage"></span>
 <div id="chatContainer">
