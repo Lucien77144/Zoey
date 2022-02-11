@@ -62,8 +62,9 @@ ob_start();
                 }
 
                 if(isFriend($account['iduser']) == 2 && $account['iduser'] != $_SESSION['idUser']){
+                    $conv = getDirectConversation($account['iduser'])->fetch();
                     ?>
-                    <a href="index.php?action=messages&id=<?= $idConv['idconversation']?>"><li class="controlBtn">Contacter</li></a>
+                    <a href="index.php?action=messages&id=<?= $conv["idconversation"] ?>"><li class="controlBtn">Contacter</li></a>
                 <?php }
 
             }else{
@@ -142,6 +143,6 @@ if ($accountAnimals){ // renvoie false si aucun animal lié à ce compte n'a ét
     ob_start(); ?>
     <script src="public/js/print.js"></script>
     <script src="public/js/profil.js"></script>
-    <?php   
-    $scriptsBlock = ob_get_clean(); 
+    <?php
+    $scriptsBlock = ob_get_clean();
     require(BASE_URL . 'public/template/template.php');
