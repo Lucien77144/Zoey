@@ -74,7 +74,7 @@ ob_start();
         ?>
     </div>
 
-    <input type="submit" id="submitQuizz">
+    <input type="submit" id="submitQuizz" value="Envoyer">
 </form>
 <span id="confirmationMessage"></span>
 
