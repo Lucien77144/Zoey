@@ -225,6 +225,22 @@ body{
     animation: pulse 0.75s ease-in-out;
 }
 
+.moreModifs{
+    box-sizing: content-box;
+    height: 22px;
+    width: 22px;
+    cursor: pointer;
+    padding: 7.5px;
+    border-radius: 100vw;
+    background-color: #FFC800;
+    box-shadow: 0px 0px 7.5px #f3801c50;
+    transition: 0.25s ease-in-out;
+}
+
+.moreModifs:hover{
+    animation: pulse 0.75s ease-in-out;
+}
+
 .menuAnimaux li{
     display: inline-block;
     cursor: pointer;
