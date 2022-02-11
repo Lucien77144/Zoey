@@ -42,22 +42,23 @@ ob_start();
         $_SESSION['chatLastId'] = array('idConv' => $idConv, 'lastId' => $idMessage);
     }
 
-    ?>  &
+    ?> &
 </div>
 
 <div class="inputMessage">
     <form id="addMessageForm">
         <textarea id="description" name="description" type="text" rows="5" cols="33"></textarea> <br>
-        
-        <div class="mediaContainer">
-        <div class="labelForMedia">Ajouter une image</div>
-        <label for="media">
-            <img src="public/images/icons/addPost.svg" class="currentPicture">
-            <input type="file" id="media" name="media" accept="image/png, image/jpeg">
-        </label>
+        <div class="mobileContainer">
+            <div class="mediaContainer">
+                <div class="labelForMedia">Ajouter une image</div>
+                <label for="media">
+                    <img src="public/images/icons/addPost.svg" class="currentPicture">
+                    <input type="file" id="media" name="media" accept="image/png, image/jpeg">
+                </label>
+            </div>
+            <input type="submit" id="submitAddMessage" value="Envoyer"> 
         </div>
 
-        <input type="submit" id="submitAddMessage">
     </form>
     <span id="ConfirmationMessage"></span>
 </div>

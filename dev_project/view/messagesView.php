@@ -14,15 +14,16 @@ ob_start();
         </form>
 
         <div id="messagesContainer">
-            <?php
-            while ($chat = $messages->fetch()) {
-            ?>
-                <a href="index.php?action=messages&id=<?= htmlspecialchars($chat['idconversation']) ?>">
-                    <article class="defaultBlock">
-                        <h1>
-                            <?= htmlspecialchars($chat['titre']) ?>
-                        </h1>
-                        <p> <span>Membres de la conversation :</span> </br>
+        <?php
+        while ($chat = $messages->fetch()) {
+        ?>
+            <a href="index.php?action=messages&id=<?= htmlspecialchars($chat['idconversation']) ?>">
+                <article class="defaultBlock">
+                    <h1>
+                        <?= htmlspecialchars($chat['titre']) ?>
+                    </h1>
+                    <div>
+                        <p>Membres de la conversation :
                             <?php
                             $getConversationUsers = getConversationUsers($chat['idconversation']);
                             if ($getConversationUsers) { // pas d'erreur envoyée si false !! le champ sera vide.
@@ -35,27 +36,32 @@ ob_start();
                                         echo ".";
                                     }
                                 }
-                                for ($i = 0; $i < count($user); $i++) {
-                                    ?>
-                                    <img src="../dev_project/public/images/upload/<?= htmlspecialchars($user[$i]['url_photo']) ?>" alt="">
-                                    <?php
-                                }
                             }
                             ?>
                         </p>
-                    </article>
-                </a>
-            <?php
-            }
-            $messages->closeCursor();
-            ?>
-        </div>
-        <?php
-        } else {
-            ?>
-            <p>Ajoutez des amis pour commencer des conversations !</p>
+                            <div class="profilePicturesContainer">
+                                <?php
+                                    for ($i = 0; $i < count($user); $i++) {
+                                        ?>
+                                        <img src="../dev_project/public/images/upload/<?= htmlspecialchars($user[$i]['url_photo']) ?>" alt="">
+                                        <?php
+                                    }
+                                ?>
+                            </div>
+                    </div>
+                </article>
+            </a>
+            
         <?php
         }
+        ?>
+        </div>
+    <?php
+    } else {
+        ?>
+        <p>Ajoutez des amis pour commencer des conversations !</p>
+    <?php
+    }
     ?>
 </div>
 <?php
