@@ -24,7 +24,7 @@ function printAnimal($animalId){
 
     <div class="wrapProfil">
         <div class="avatar">
-            <img src="<?= BASE_URL . 'public/images/' . htmlspecialchars($animal['photo_animal'])?>" alt="">
+            <img src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($animal['photo_animal'])?>" alt="">
         </div>
         <div class="username">
             <div class="innerUsername">

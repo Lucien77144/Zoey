@@ -8,7 +8,7 @@ ob_start();
 <section class="profil">
     <div class="wrapProfil">
         <div class="avatar">
-            <img src="<?= BASE_URL . 'public/images/' . htmlspecialchars($account['photo_user']) ?>" alt="">
+            <img src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($account['photo_user']) ?>" alt="">
         </div>
         <div class="username">
             <div class="innerUsername">
