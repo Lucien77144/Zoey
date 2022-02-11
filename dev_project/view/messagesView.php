@@ -14,53 +14,54 @@ ob_start();
         </form>
 
         <div id="messagesContainer">
-            <?php
-            while ($chat = $messages->fetch()) {
-            ?>
-                <a href="index.php?action=messages&id=<?= htmlspecialchars($chat['idconversation']) ?>">
-                    <article class="defaultBlock">
-                        <h1>
-                            <?= htmlspecialchars($chat['titre']) ?>
-                        </h1>
-                        <div>
-                            <p>Membres de la conversation :
-                                <?php
-                                $getConversationUsers = getConversationUsers($chat['idconversation']);
-                                if ($getConversationUsers) { // pas d'erreur envoyée si false !! le champ sera vide.
-                                    $user = $getConversationUsers->fetchAll();
-                                    for ($i = 0; $i < count($user); $i++) {
-                                        echo htmlspecialchars(getPseudoFromId($user[$i]['user']));
-                                        if ($i < count($user) - 1) {
-                                            echo ", ";
-                                        } else {
-                                            echo ".";
-                                        }
-                                    }
-
-                                    ?>
-                            </p>
-                                <div class="profilePicturesContainer">
-                                    <?php
-                                        for ($i = 0; $i < count($user); $i++) {
-                                            ?>
-                                            <img src="../dev_project/public/images/upload/<?= htmlspecialchars($user[$i]['url_photo']) ?>" alt="">
-                                            <?php
-                                        }
-                                    ?>
-                                </div>
-                        </div>
-                    </article>
-                </a>
-            <?php
-            }
-            ?>
-        </div>
         <?php
-        } else {
-            ?>
-            <p>Ajoutez des amis pour commencer des conversations !</p>
+        while ($chat = $messages->fetch()) {
+        ?>
+            <a href="index.php?action=messages&id=<?= htmlspecialchars($chat['idconversation']) ?>">
+                <article class="defaultBlock">
+                    <h1>
+                        <?= htmlspecialchars($chat['titre']) ?>
+                    </h1>
+                    <div>
+                        <p>Membres de la conversation :
+                            <?php
+                            $getConversationUsers = getConversationUsers($chat['idconversation']);
+                            if ($getConversationUsers) { // pas d'erreur envoyée si false !! le champ sera vide.
+                                $user = $getConversationUsers->fetchAll();
+                                for ($i = 0; $i < count($user); $i++) {
+                                    echo htmlspecialchars(getPseudoFromId($user[$i]['user']));
+                                    if ($i < count($user) - 1) {
+                                        echo ", ";
+                                    } else {
+                                        echo ".";
+                                    }
+                                }
+                            }
+                            ?>
+                        </p>
+                            <div class="profilePicturesContainer">
+                                <?php
+                                    for ($i = 0; $i < count($user); $i++) {
+                                        ?>
+                                        <img src="../dev_project/public/images/upload/<?= htmlspecialchars($user[$i]['url_photo']) ?>" alt="">
+                                        <?php
+                                    }
+                                ?>
+                            </div>
+                    </div>
+                </article>
+            </a>
+            
         <?php
         }
+        ?>
+        </div>
+    <?php
+    } else {
+        ?>
+        <p>Ajoutez des amis pour commencer des conversations !</p>
+    <?php
+    }
     ?>
 </div>
 <?php
