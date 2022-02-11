@@ -1,4 +1,5 @@
 <?php 
+$printLegal = true;
 $pageTitle = 'Animaux à adopter';
 ob_start();
 
