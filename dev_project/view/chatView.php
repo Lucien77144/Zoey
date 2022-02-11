@@ -29,6 +29,8 @@ ob_start();
 
     if ($chat) {
         while ($message = $chat->fetch()) {
+            $idMessage = $message['idmessage'];
+            $idConv = $message['idConv'];
 
             $currentTime = new DateTime(time());
             $currentDay = $currentTime->format('d');
@@ -65,7 +67,7 @@ ob_start();
         <?php
         }
 
-        $_SESSION['chatLastId'] = array('idConv' => $message['idConv'], 'lastId' => $message['idmessage']); // store last message's id in SESSION
+        $_SESSION['chatLastId'] = array('idConv' => $idConv, 'lastId' => $idMessage); // store last message's id in SESSION
         $chat->closeCursor();
     } else {
         ?>
