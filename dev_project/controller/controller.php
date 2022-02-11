@@ -158,6 +158,7 @@
                             unset($convUsers[$index]);
                         }
                     }
+                    sort($convUsers);
                 } else {
                     throw new Exception("La conversation n'a pas été trouvée");
                 }

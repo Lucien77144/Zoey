@@ -7,7 +7,7 @@ ob_start();
 <div class="convName">
     <h1>
         <?php
-        if (isset($convUsers['titre'])){
+        if (isset($convUsers[0]['titre'])){
             echo htmlspecialchars($convUsers[0]['titre']);
         } else {
             for ($i = 0; $i < count($convUsers); $i++) {
