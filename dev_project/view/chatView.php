@@ -31,9 +31,23 @@ ob_start();
         while ($message = $chat->fetch()) {
             $idMessage = $message['idmessage'];
             $idConv = $message['idConv'];
-    ?>
 
-            <article class="defaultBlock">
+            $currentTime = new DateTime(time());
+            $currentDay = $currentTime->format('d');
+
+            $sendTime = new DateTime($message["date_envoi_msg"]);
+            $sendDay = $sendTime->format('d');
+
+            if ($sendDay == $currentDay - 1){
+                $time = "Hier à ". $sendTime->format('G') ."h". $sendTime->format('i');
+            } else if ($sendDay == $currentDay) {
+                $time = "Aujourd'hui à ". $sendTime->format('G') ."h". $sendTime->format('i');
+            } else {
+                $time = "Le ".$sendTime->format('d/m/Y') ." à ". $sendTime->format('G') ."h". $sendTime->format('i');
+            }
+            ?>
+
+            <article>
                 <p>
                     <?= htmlspecialchars($message['msg']) ?>
                 </p>
@@ -44,7 +58,11 @@ ob_start();
                 <?php
                 }
                 ?>
-                <p>envoyé par <a href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>"><?= htmlspecialchars($message['authorPseudo']) ?></a></p>
+                <p>
+                <img src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['authorPic']) ?>" alt="">
+                    <a href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>"><?= htmlspecialchars($message['authorPseudo']) ?></a>
+                    <?= $time ?>.
+                </p>
             </article>
         <?php
         }
@@ -60,7 +78,7 @@ ob_start();
         $_SESSION['chatLastId'] = array('idConv' => $idConv, 'lastId' => $idMessage);
     }
 
-    ?> &
+    ?>
 </div>
 
 <div class="inputMessage">

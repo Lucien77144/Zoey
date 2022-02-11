@@ -1,9 +1,10 @@
 <?php 
+$printLegal = false;
 $pageTitle = 'Animaux à adopter';
 ob_start();
 
 ?>
-<p><a href="index.php?action=quizz">Répondez au quizz </a>ou <a href="index.php?action=connect">connectez-vous</a> pour avoir des résultats plus adaptés !</p>
+<p class="AnswerQuizz"><a href="index.php?action=quizz">Répondez au quizz </a>ou <a href="index.php?action=connect">connectez-vous</a> pour avoir des résultats plus adaptés !</p>
     <div class="filter">
         <?php
             while ($categorie = $types_animaux -> fetch()){

@@ -606,7 +606,7 @@ function getConversationUsers($sentIdConv){ // renvoie les users d'une conversat
         $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
         (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-        $sql = "SELECT idutilisateur user, utilisateur.pseudo pseudo, utilisateur.url_photo, conversation.titre
+        $sql = "SELECT idutilisateur user, utilisateur.pseudo pseudo, utilisateur.url_photo url_photo, conversation.titre
         FROM `conversation_has_utilisateur` 
         INNER JOIN utilisateur ON utilisateur.idutilisateur = conversation_has_utilisateur.utilisateur_idutilisateur
         inner join conversation on conversation.idconversation = conversation_has_utilisateur.conversation_idconversation
@@ -703,7 +703,7 @@ function getChat($offsetCoef){ // renvoie une seule conversation
 
         $sql = "SELECT msg.* 
         FROM ( 
-            SELECT idmessage, texte_message msg, url_media media, utilisateur_idutilisateur iduser, utilisateur_idutilisateur authorId, utilisateur.pseudo authorPseudo, conversation_idconversation idConv
+            SELECT idmessage, texte_message msg, url_media media, utilisateur_idutilisateur iduser, utilisateur_idutilisateur authorId, utilisateur.pseudo authorPseudo, conversation_idconversation idConv, utilisateur.url_photo authorPic, date_envoi_msg
             FROM `message` 
             INNER JOIN utilisateur ON message.utilisateur_idutilisateur = utilisateur.idutilisateur
             WHERE conversation_idconversation = :idConv

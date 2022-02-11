@@ -9,7 +9,15 @@ main {
     width: 90%;
     margin: auto;
 }
-
+.AnswerQuizz {
+    width: 90vw;
+    text-align: center;
+}
+.AnswerQuizz a {
+    color: #fd9030;
+    text-decoration: underline;
+    font-weight: bold;
+}
 .filter {
     display: flex;
     width: 100vw;
@@ -29,20 +37,20 @@ main {
     border-radius: 25px;
     background-color: rgb(240, 240, 240);
     transition: 0.3s ease-in-out;
-    -webkit-box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
-    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.15);
 }
 
 .animalBreed:hover{
     background-color: #fd9030;
-    box-shadow: 0 0 5px 5px rgba(243, 128, 28, 0.7);
-    -webkit-box-shadow: 0 0 4px 4px rgba(243, 128, 28, 0.7);
+    box-shadow: 0 0 2px 2px rgba(243, 128, 28, 0.7);
+    -webkit-box-shadow: 0 0 2px 2px rgba(243, 128, 28, 0.7);
 }
 
 .animalBreed.activeFilter{
     background-color: #fd9030;
-    box-shadow: 0 0 5px 5px rgba(243, 128, 28, 0.7);
-    -webkit-box-shadow: 0 0 4px 4px rgba(243, 128, 28, 0.7);
+    box-shadow: 0 0 2px 2px rgba(243, 128, 28, 0.7);
+    -webkit-box-shadow: 0 0 2px 2px rgba(243, 128, 28, 0.7);
 }
 
 .card {
