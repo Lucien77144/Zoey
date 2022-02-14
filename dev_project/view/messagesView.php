@@ -16,51 +16,51 @@ ob_start();
         <div id="messagesContainer">
             <?php
             while ($chat = $messages->fetch()) {
-            $convUsers = getConversationUsers($chat["idconversation"]);
-            if ($convUsers){
-                $convUsers = $convUsers->fetchAll();
-                foreach ($convUsers as $index => $user) {
-                    if ($user["user"] == $_SESSION["idUser"]){
-                        unset($convUsers[$index]);
+                $convUsers = getConversationUsers($chat["idconversation"]);
+                if ($convUsers) {
+                    $convUsers = $convUsers->fetchAll();
+                    foreach ($convUsers as $index => $user) {
+                        if ($user["user"] == $_SESSION["idUser"]) {
+                            unset($convUsers[$index]);
+                        }
                     }
+                    sort($convUsers);
+                } else {
+                    throw new Exception("La conversation n'a pas été trouvée");
                 }
-                sort($convUsers);
-            } else {
-                throw new Exception("La conversation n'a pas été trouvée");
-            }
             ?>
                 <a href="index.php?action=messages&id=<?= htmlspecialchars($chat['idconversation']) ?>">
-                        <p>
-                            <?php
-                            if (isset($convUsers[0]['titre'])){
-                                echo htmlspecialchars($convUsers[0]['titre']);
-                            } else {
-                                for ($i = 0; $i < count($convUsers); $i++) {
-                                    echo htmlspecialchars($convUsers[$i]['pseudo']);
-                                    if ($i < count($convUsers) - 1) {
-                                        echo ", ";
-                                    }
+                    <p>
+                        <?php
+                        if (isset($convUsers[0]['titre'])) {
+                            echo htmlspecialchars($convUsers[0]['titre']);
+                        } else {
+                            for ($i = 0; $i < count($convUsers); $i++) {
+                                echo htmlspecialchars($convUsers[$i]['pseudo']);
+                                if ($i < count($convUsers) - 1) {
+                                    echo ", ";
                                 }
                             }
-                            ?>
-                        </p>
-                        <div class="profilePicturesContainer">
-                            <?php
-                                for ($i = 0; $i < count($convUsers); $i++) {
-                                    ?>
-                                    <img class="profilePicture" src="../dev_project/public/images/upload/<?= htmlspecialchars($convUsers[$i]['url_photo']) ?>" alt="">
-                                    <?php
-                                }
-                            ?>
-                        </div>
-                </a>                
+                        }
+                        ?>
+                    </p>
+                    <div class="profilePicturesContainer">
+                        <?php
+                        for ($i = 0; $i < count($convUsers); $i++) {
+                        ?>
+                            <img class="profilePicture" src="../dev_project/public/images/upload/<?= htmlspecialchars($convUsers[$i]['url_photo']) ?>" alt="">
+                        <?php
+                        }
+                        ?>
+                    </div>
+                </a>
             <?php
             }
             ?>
         </div>
     <?php
     } else {
-        ?>
+    ?>
         <p>Ajoutez des amis pour commencer des conversations !</p>
     <?php
     }

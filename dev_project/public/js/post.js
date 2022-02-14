@@ -885,10 +885,6 @@ $(document).ready(function(){
         }
     });
 
-    document.getElementById('formSearch').onsubmit = (e) => {
-        e.preventDefault();
-    }
-
     // loadMoreMessages on the chat :
     offsetCoef = 1;
     $("#loadMoreMessages").click(function(e){

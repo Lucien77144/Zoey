@@ -6,6 +6,13 @@ ob_start();
 
 <div class="subscribe">
     <h1>Inscrivez vous !</h1>
+
+    <div>
+        Continuez avec Google
+        <div id="googleAuthButton"></div>
+    </div>
+
+    ou
     <form class="subscribeForm">
 
         <div class="accountContainer">
@@ -16,21 +23,21 @@ ob_start();
                 <label class="choose_photo" for="media">Choisir une photo</label>
             </div>
         </div>
-
+        <!-- 
         <div class="name formContent">
             <label for="nom">Nom et prénom *</label>
             <input type="text" name="nom" id="nom" placeholder="nom" required='required'>
             <input type="text" name="prenom" id="prenom" placeholder="prenom" required='required'>
-        </div>
+        </div> -->
         <div class="mailAndBirthContainer">
             <div class="mailContainer formContent">
                 <label for="mail">Adresse e-mail *</label>
                 <input type="email" name="mail" id="mail" placeholder="exemple@zoey.fr" required='required'>
             </div>
-            <div class="dateOfBirthContainer formContent">
+            <!-- <div class="dateOfBirthContainer formContent">
                 <label for="date_naissance">date de naissance *</label>
                 <input type="date" name="date_naissance" id="date_naissance" required='required'>
-            </div>
+            </div> -->
         </div>
 
         <div class="formContent">
@@ -62,5 +69,43 @@ ob_start(); ?>
 <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_subscription.css">
 <?php
 $stylesBlock = ob_get_clean();
+
+// SCRIPT BLOCK
+ob_start(); ?>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script>
+    function handleCredentialResponse(response) {
+        console.log("Encoded JWT ID token: " + response.credential);
+
+        fetch('model/googleAuth.php', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(response.credential),
+        }).then(response => {
+            response.json().then(function(data) {
+                console.log('d ', data);
+                return response;
+            })
+        })
+    }
+    window.onload = function() {
+        google.accounts.id.initialize({
+            client_id: "866214768583-13jeokh10iam9q1chmeiphgok3gbkr1i.apps.googleusercontent.com",
+            callback: handleCredentialResponse
+        });
+        google.accounts.id.renderButton(
+            document.getElementById("googleAuthButton"), {
+                theme: "outline",
+                size: "large"
+            } // customization attributes
+        );
+        google.accounts.id.prompt(); // also display the One Tap dialog
+    }
+</script>
+<?php
+$scriptsBlock = ob_get_clean();
 
 require(BASE_URL . 'public/template/template.php');
