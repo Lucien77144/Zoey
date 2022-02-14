@@ -128,7 +128,7 @@ header>img {
 
   position: fixed;
   bottom: -10px;
-  z-index: 1000000;
+  z-index: 1010;
 }
 
 .menu svg {
@@ -177,7 +177,7 @@ header>img {
 }
 
 .menuBlur {
-  z-index: 999999;
+  z-index: 1009;
   filter: blur(4px);
   bottom: -10px;
 }
@@ -324,7 +324,7 @@ header>img {
   }
 
   header {
-    z-index: 1000;
+    z-index: 100;
     top: 0;
     position: fixed;
     /* width: 90vw; */
@@ -395,4 +395,9 @@ header>img {
 .legalLink a {
   color: rgb(44, 44, 44);
   font-size: 0.8rem;
+}
+
+/* GOOGLE AUTH */
+#googleAuthButton{
+  z-index: 1000000;
 }
