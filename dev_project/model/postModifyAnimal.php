@@ -63,7 +63,7 @@ function postModifyAnimal(){
         throw new Exception("Le profil de " . $nom . " n'a pas pu être modifié");
 
     return "valid";
-} 
+}
 
 try {
     if (isset($_POST['nom'])
