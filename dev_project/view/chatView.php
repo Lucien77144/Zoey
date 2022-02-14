@@ -21,7 +21,7 @@ ob_start();
     </h1>
 </div>
 
-<button id="loadMoreMessages">Afficher les messages précédents</button>
+<button class="btn" id="loadMoreMessages">Afficher les messages précédents</button>
 <span id="confirmationMessage"></span>
 <div id="chatContainer">
 
