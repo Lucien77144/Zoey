@@ -323,6 +323,7 @@ $(document).ready(function(){
                     // window.location.href = "index.php?action=connect";
                     console.log('valid 1')
                     $('#addMessageForm').trigger('reset');
+                    $('#ConfirmationMessage').html('');
                 } else {
                     $('#ConfirmationMessage').html('');
                     $('#ConfirmationMessage').text(
@@ -685,7 +686,7 @@ $(document).ready(function(){
 
         let postedMedia = postPhoto();
         // if (postedMedia == "déconnecté"){
-            return;
+            // return;
         // }
 
         postAddMessage(postedMedia);

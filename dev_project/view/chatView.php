@@ -7,7 +7,7 @@ ob_start();
 <div class="convName">
     <h1>
         <?php
-        if (isset($convUsers[0]['titre'])){
+        if (isset($convUsers[0]['titre'])) {
             echo htmlspecialchars($convUsers[0]['titre']);
         } else {
             for ($i = 0; $i < count($convUsers); $i++) {
@@ -17,7 +17,7 @@ ob_start();
                 }
             }
         }
-        ?>        
+        ?>
     </h1>
 </div>
 
@@ -32,34 +32,46 @@ ob_start();
             $idMessage = $message['idmessage'];
             $idConv = $message['idConv'];
 
-            $currentTime = new DateTime(time());
+            $currentTime = new DateTime(date('Y-m-d', time()));
             $currentDay = $currentTime->format('d');
 
             $sendTime = new DateTime($message["date_envoi_msg"]);
             $sendDay = $sendTime->format('d');
 
-            if ($sendDay == $currentDay - 1){
-                $time = "Hier à ". $sendTime->format('G') ."h". $sendTime->format('i');
+            if ($sendDay == $currentDay - 1) {
+                $time = "Hier à " . $sendTime->format('G') . "h" . $sendTime->format('i');
             } else if ($sendDay == $currentDay) {
-                $time = "Aujourd'hui à ". $sendTime->format('G') ."h". $sendTime->format('i');
+                $time = "Aujourd'hui à " . $sendTime->format('G') . "h" . $sendTime->format('i');
             } else {
-                $time = "Le ".$sendTime->format('d/m/Y') ." à ". $sendTime->format('G') ."h". $sendTime->format('i');
+                $time = "Le " . $sendTime->format('d/m/Y') . " à " . $sendTime->format('G') . "h" . $sendTime->format('i');
             }
-            ?>
+    ?>
 
             <article>
-                <p>
-                    <?= htmlspecialchars($message['msg']) ?>
-                </p>
                 <?php
-                if (isset($message['media'])) {
+                if (!empty($message['msg'])) {
+                ?>
+                    <p>
+                        <?= htmlspecialchars($message['msg']) ?>
+                    </p>
+                <?php
+                }
+                ?>
+                <?php
+                if (!empty($message['media'])) {
                 ?>
                     <img src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['media']) ?>" alt="">
                 <?php
                 }
                 ?>
                 <p>
-                <img src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['authorPic']) ?>" alt="">
+                    <?php
+                    if (!empty($message['authorPic'])) {
+                    ?>
+                        <img src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['authorPic']) ?>" alt="">
+                    <?php
+                    }
+                    ?>
                     <a href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>"><?= htmlspecialchars($message['authorPseudo']) ?></a>
                     <?= $time ?>.
                 </p>
@@ -83,7 +95,7 @@ ob_start();
 
 <div class="inputMessage">
     <form id="addMessageForm">
-        <textarea id="description" name="description" type="text" rows="5" cols="33"></textarea> <br>
+        <textarea id="msg" name="description" type="text" rows="5" cols="33"></textarea> <br>
         <div class="mobileContainer">
             <div class="mediaContainer">
                 <div class="labelForMedia">Ajouter une image</div>
@@ -92,7 +104,7 @@ ob_start();
                     <input type="file" id="media" name="media" accept="image/png, image/jpeg">
                 </label>
             </div>
-            <input type="submit" id="submitAddMessage" value="Envoyer"> 
+            <input type="submit" id="submitAddMessage" value="Envoyer">
         </div>
 
     </form>
