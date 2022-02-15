@@ -13,8 +13,12 @@ ob_start();
     }
     ?>
     <div>
+        Connectez-vous avec Google
         <div id="googleAuthButton"></div>
     </div>
+
+    ou
+
     <form class="connectForm">
 
         <div class="inputContainer">
@@ -52,38 +56,7 @@ $stylesBlock = ob_get_clean();
 // SCRIPT BLOCK
 ob_start(); ?>
 <script src="https://accounts.google.com/gsi/client" async defer></script>
-<script>
-    function handleCredentialResponse(response) {
-        console.log("Encoded JWT ID token: " + response.credential);
-
-        fetch('model/googleAuth.php', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify(response.credential),
-        }).then(response => {
-            response.json().then(function(data) {
-                console.log('d ', data);
-                return response;
-            })
-        })
-    }
-    window.onload = function() {
-        google.accounts.id.initialize({
-            client_id: "866214768583-13jeokh10iam9q1chmeiphgok3gbkr1i.apps.googleusercontent.com",
-            callback: handleCredentialResponse
-        });
-        google.accounts.id.renderButton(
-            document.getElementById("googleAuthButton"), {
-                theme: "outline",
-                size: "large"
-            } // customization attributes
-        );
-        google.accounts.id.prompt(); // also display the One Tap dialog
-    }
-</script>
+<script src="<?= BASE_URL ?>public/js/googleAuth.js"></script>
 <?php
 $scriptsBlock = ob_get_clean();
 
