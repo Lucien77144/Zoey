@@ -1,5 +1,5 @@
 <?php
-header("Access-Control-Allow-Origin: *");
+// header("Access-Control-Allow-Origin: *");
 
 function isEmailOk($str)
 {
@@ -55,12 +55,6 @@ function subscribe($payload)
     return false;
   }
 
-  // $ch = curl_init();
-  // curl_setopt($ch, CURLOPT_URL, "postSubscribe.php");
-  // curl_setopt($ch, CURLOPT_POST, true);
-  // curl_setopt($ch, CURLOPT_POSTFIELDS, $postContent);
-  // $response = curl_exec($ch);
-
   $url = $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["REQUEST_URI"]) . "/postSubscribe.php";
   $ch = curl_init();
   try {
@@ -95,26 +89,61 @@ function subscribe($payload)
   } finally {
     curl_close($ch);
   }
-
-  // $url = 'postSubscribe.php';
-
-  // $options = array(
-  //   'http' => array(
-  //     'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-  //     'method'  => 'POST',
-  //     'content' => http_build_query($postContent),
-  //   ),
-  // );
-  // $context  = stream_context_create($options);
-  // $answer = file_get_contents($url, false, $context);
-
-  // return $response;
 }
+
+// function connect($payload)
+// {
+//   $postContent = array(
+//     'mail' => $payload["email"],
+//   );
+
+//   if (isset($payload["sub"])) {
+//     $postContent['google_sub'] = $payload["sub"];
+//   } else {
+//     return false;
+//   }
+
+//   $url = $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["REQUEST_URI"]) . "/postConnect.php";
+//   $ch = curl_init();
+//   try {
+//     curl_setopt($ch, CURLOPT_URL, $url);
+//     curl_setopt($ch, CURLOPT_POST, true);
+//     curl_setopt($ch, CURLOPT_POSTFIELDS, $postContent);
+//     curl_setopt($ch, CURLOPT_HEADER, false);
+//     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+//     curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+//     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+//     curl_setopt($ch, CURLOPT_MAXREDIRS, 1);
+//     // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+
+//     $response = curl_exec($ch);
+
+//     if (curl_errno($ch)) {
+//       echo curl_error($ch);
+//       // die();
+//       return false;
+//     }
+
+//     $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+//     if ($http_code == intval(200)) {
+//       return $response;
+//     } else {
+//       echo "Ressource introuvable : " . $http_code;
+//       return false;
+//     }
+//   } catch (\Throwable $th) {
+//     throw $th;
+//   } finally {
+//     curl_close($ch);
+//   }
+// }
+
 
 // JWT decoding
 
-// $id_token = json_decode(file_get_contents('php://input'), true);
-$id_token = "eyJhbGciOiJSUzI1NiIsImtpZCI6ImY0YmIyMjBjZDA5NGIwYWU5MGRkNzNlMTBjMTBlN2RiNTRiODkyODAiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2NDQ4Nzg5NzIsImF1ZCI6Ijg2NjIxNDc2ODU4My0xM2plb2toMTBpYW05cTFjaG1laXBoZ29rM2dia3IxaS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjEwNTc5MDU3NTYxNDEyMDcxNDc2NCIsImVtYWlsIjoibWFyaW4uYm91YW5jaGF1ZEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXpwIjoiODY2MjE0NzY4NTgzLTEzamVva2gxMGlhbTlxMWNobWVpcGhnb2szZ2JrcjFpLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwibmFtZSI6Ik1hcmluIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hLS9BT2gxNEdpdzJwaU4xUUhEdW1TaHdrN05ER2NJd2VPN3V1RC1IMWpWcjNEcHZnPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6Ik1hcmluIiwiaWF0IjoxNjQ0ODc5MjcyLCJleHAiOjE2NDQ4ODI4NzIsImp0aSI6IjYxMDQwZTNjMjgyOTViYmFiNWJlMGE1NzYyMjc2MTc4ZTJjNzczNmUifQ.AcAckrFcnGEdtDhGOs4N_mlRjYLuSxHQE7ciWhr-PLFDg4Znu5Yaex0eoYJ2DV1fpyIPRhEz3OK1F5UoTq1m3B8j9lN2n53mAsaPOu8GgGlOeoeVcu68cxPnkRULtvKxP9QYG8lnmlGlajs_ZY2VxVo8I4zC9R8wmkojCeIeiLo26dNiQUc2n8PVBb3osGE6XNPP6un9TaLqs_oTmGyonVrjN07u4O61-r8TNVuQaCk40qp2G9UGwAA5q8rbP5jUlpagSOYwoqahKNV1ZMgiQq7dKDXQK41Ad7zmYCnAyPRRbCqKxWfb8m9PDPth5Clzv9z7sKqorTyoQATtcoWecQ";
+$id_token = json_decode(file_get_contents('php://input'), true);
+// $id_token = "eyJhbGciOiJSUzI1NiIsImtpZCI6ImY0YmIyMjBjZDA5NGIwYWU5MGRkNzNlMTBjMTBlN2RiNTRiODkyODAiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2NDQ5MzQ1MzgsImF1ZCI6Ijg2NjIxNDc2ODU4My0xM2plb2toMTBpYW05cTFjaG1laXBoZ29rM2dia3IxaS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjEwNTc5MDU3NTYxNDEyMDcxNDc2NCIsImVtYWlsIjoibWFyaW4uYm91YW5jaGF1ZEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXpwIjoiODY2MjE0NzY4NTgzLTEzamVva2gxMGlhbTlxMWNobWVpcGhnb2szZ2JrcjFpLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwibmFtZSI6Ik1hcmluIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hLS9BT2gxNEdpdzJwaU4xUUhEdW1TaHdrN05ER2NJd2VPN3V1RC1IMWpWcjNEcHZnPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6Ik1hcmluIiwiaWF0IjoxNjQ0OTM0ODM4LCJleHAiOjE2NDQ5Mzg0MzgsImp0aSI6ImQzNjUxMmY3YzQyZmQ5MTE5YjRiMDU1MzMyMjA3NmJkMzRiZmZhNGUifQ.ZMxk3fWkHFCVqyImTZxaoJND2GvCsIg9M3dsYbpTQFBGoqwa4yTXwBvVWLqKyKxdVWVB9tjSBjTfXyl_BZyrKyN9_c9FwLHHKo1TCdDdQrh74rHqWtOCaKWMeGkzoPFZOzKoXkO_UI9CxkV4Q9mxtp8IFI__qyDosGC6UHufJuZUrgaCNpIBbnE3M4cYBiEFxRXzIWUQJOxusVGEZm19SutIwyqMcmaROvDbhgdBaAGrt9CXVBduABa1R8H8bOWdXnEmOD9zau7_mKQo0rXbl6kUXd2fu5TPHbw1RcAySGfu37eAggmEdIppGXKSH3x-NOT0ABOgpSaktBoS4wipyQ";
 
 require_once '../vendor/autoload.php';
 
@@ -149,10 +178,20 @@ switch (testMail($payload["email"])) {
     break;
   case "known mail":
     // already registered
-    echo json_encode("connect");
+    $postContent = array(
+      'mail' => $payload["email"],
+    );
+
+    if (isset($payload["sub"])) {
+      $postContent['google_sub'] = $payload["sub"];
+    } else {
+      echo json_encode("invalid");
+      return false;
+    }
+    echo json_encode(["connect", $postContent]);
     break;
 
   default:
-    echo json_encode("default");
+    echo json_encode("invalid");
     break;
 }
