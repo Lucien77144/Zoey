@@ -1,6 +1,10 @@
 <?php
 $article = $article->fetch();
 $pageTitle = htmlspecialchars($article['titre']);
+
+$date = new DateTime($article['date_publication']);
+$outputDate = $date->format('d/m/Y');
+
 ob_start();
 ?>
 
@@ -16,6 +20,10 @@ ob_start();
     </div>
     <p>
         <?= nl2br($article['texte2']) ?>
+    </p>
+    <p>
+        <br>
+        Article posté le <?= $outputDate ?>.
     </p>
     <div class="btnWrap">
         <a href="index.php?action=blog" class="btn">Retourner aux Actualités</a>
