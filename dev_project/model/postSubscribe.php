@@ -21,10 +21,10 @@ function testSub()
     ));
 
     if ($req->rowCount() <= 0) {
+        // echo 'sub';
         return true;
     } else {
-        echo "sub";
-        return true;
+        return false;
     }
 }
 
@@ -44,13 +44,12 @@ function testMail()
         ));
 
         if ($req->rowCount() <= 0) {
+            // echo 'mail';
             return true;
         } else {
-            echo "mail";
             return false;
         }
     } else {
-        echo "invalid mail";
         return false;
     }
 }
@@ -64,7 +63,6 @@ function postSubscribe()
     // $date_naissance = safeEntry($_POST['date_naissance']);
     // $new_password_hash = password_hash($_POST['password'], PASSWORD_ARGON2I, ['memory_cost' => 2048, 'time_cost' => 4, 'threads' => 3]);
 
-
     if (isset($_POST["media"])) {
         $fileName = safeEntry($_POST['media']);
     } else {
@@ -75,6 +73,13 @@ function postSubscribe()
     $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
     if (isset($_POST["google_sub"]) && testSub()) {
+        // google subscribe
+        // if pseudo is already taken :
+        while (!isPseudoFree($pseudo)) {
+            $random = random_int(1000, 9999);
+            $pseudo = $pseudo . '_' . $random;
+        }
+        // if google pseudo is free
         $sql = "INSERT INTO utilisateur (pseudo, url_photo, adresse_mail, google_sub) VALUES (:pseudo, :url_photo, :adresse_mail, :google_sub)";
         $req = $db->prepare($sql);
 
@@ -89,7 +94,8 @@ function postSubscribe()
             throw new Exception("Votre compte n'a pas pu être ajouté, il y a une erreur dans les champs remplis.");
 
         return "valid";
-    } else if (testMail() && isset($_POST['password'])) {
+    } else if (isPseudoFree($_POST['pseudo']) && testMail() && isset($_POST['password'])) {
+        // regular subscribe
         $new_password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
         $sql = "INSERT INTO utilisateur (pseudo, url_photo, adresse_mail, mot_de_passe) VALUES (:pseudo, :url_photo, :adresse_mail, :mot_de_passe)";
@@ -117,7 +123,7 @@ try {
         // && isPseudoFree($_POST['pseudo'])
         // &&isset($_POST['nom'])
         // &&isset($_POST['prenom'])
-        // &&isset($_POST['mail'])
+        && isset($_POST['mail'])
         // &&isset($_POST['date_naissance'])
         // && isset($_POST['password'])
     ) {
@@ -128,8 +134,6 @@ try {
         throw new Exception("Votre compte n'a pas pu être ajouté, il y a une erreur dans les champs remplis.");
     }
 } catch (Exception $e) {
-    // echo "catch";
     $errorMsg = $e->getMessage();
     echo $errorMsg;
-    // require(BASE_URL . "view/errorView.php");
 }

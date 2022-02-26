@@ -81,12 +81,9 @@ try {
         $postConnectWithGoogle = postConnectWithGoogle();
         echo $postConnectWithGoogle;
     } else {
-        var_dump($_POST);
-        // throw new Exception("La connexion a échouée, il y a une erreur dans les champs remplis.");
+        throw new Exception("La connexion a échouée, il y a une erreur dans les champs remplis.");
     }
 } catch (Exception $e) {
-    // echo "catch";
     $errorMsg = $e->getMessage();
     echo $errorMsg;
-    // require(BASE_URL . "view/errorView.php");
 }

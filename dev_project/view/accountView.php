@@ -20,6 +20,7 @@ ob_start();
                     </svg>
                 <?php } ?>
             </div>
+            <span id="pseudoConfirmationMessage"></span>
         </div>
         <div class="desc">
             <p><?= isset($account['description']) ? htmlspecialchars($account['description']) : 'Bienvenue sur mon profil !' ?></p>

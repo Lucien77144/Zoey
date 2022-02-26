@@ -46,7 +46,36 @@ function subscribe($payload)
   }
 
   if (isset($payload["picture"])) {
-    $postContent['url_photo'] = $payload["picture"];
+    $pathToImage = '../public/images/upload/';
+    $imgName = 'gdl-' . time() . '.jpg'; // how to know if image is jpg or png ?
+    // Enregistrer l'image
+    $ch = curl_init($payload["picture"]);
+    $fp = fopen($pathToImage . $imgName, 'wb');
+    try {
+      curl_setopt($ch, CURLOPT_FILE, $fp);
+      curl_setopt($ch, CURLOPT_HEADER, 0);
+      $response = curl_exec($ch);
+
+      if (curl_errno($ch)) {
+        echo curl_error($ch);
+        return false;
+      }
+
+      $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+      if ($http_code == intval(200)) {
+        $postContent['media'] = $imgName;
+      } else {
+        echo "Ressource introuvable : " . $http_code;
+        return false;
+      }
+
+      curl_close($ch);
+    } catch (\Throwable $th) {
+      throw $th;
+    } finally {
+      curl_close($ch);
+      fclose($fp);
+    }
   }
 
   if (isset($payload["sub"])) {
@@ -73,7 +102,6 @@ function subscribe($payload)
 
     if (curl_errno($ch)) {
       echo curl_error($ch);
-      // die();
       return false;
     }
 
@@ -174,7 +202,7 @@ switch (testMail($payload["email"])) {
     // echo json_encode("subscribe");
     // echo json_encode($payload["sub"]);
     $subscribe = subscribe($payload);
-    echo json_encode($subscribe);
+    echo json_encode([$subscribe]);
     break;
   case "known mail":
     // already registered

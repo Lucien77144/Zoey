@@ -81,7 +81,7 @@ function postConnect(infos) {
 }
 
 async function handleCredentialResponse(response) {
-  console.log('Encoded JWT ID token: ' + response.credential)
+  // console.log('Encoded JWT ID token: ' + response.credential)
 
   fetch('model/googleAuth.php', {
     method: 'POST',
@@ -105,15 +105,16 @@ async function handleCredentialResponse(response) {
           console.log('connected')
         } else {
           console.log("can't connect")
-          console.log('d ', data)
+          console.log('d1 ', data)
         }
       } else {
-        console.log('d ', data)
+        console.log('d2 ', data)
       }
       return response
     })
   })
 }
+
 window.onload = function () {
   google.accounts.id.initialize({
     client_id:
