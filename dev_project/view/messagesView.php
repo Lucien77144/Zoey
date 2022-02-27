@@ -30,6 +30,15 @@ ob_start();
                 }
             ?>
                 <a href="index.php?action=messages&id=<?= htmlspecialchars($chat['idconversation']) ?>">
+                     <div class="profilePicturesContainer">
+                        <?php
+                        for ($i = 0; $i < count($convUsers); $i++) {
+                        ?>
+                            <img class="profilePicture" src="../dev_project/public/images/upload/<?= htmlspecialchars($convUsers[$i]['url_photo']) ?>" alt="">
+                        <?php
+                        }
+                        ?>
+                    </div>
                     <p>
                         <?php
                         if (isset($convUsers[0]['titre'])) {
@@ -44,15 +53,7 @@ ob_start();
                         }
                         ?>
                     </p>
-                    <div class="profilePicturesContainer">
-                        <?php
-                        for ($i = 0; $i < count($convUsers); $i++) {
-                        ?>
-                            <img class="profilePicture" src="../dev_project/public/images/upload/<?= htmlspecialchars($convUsers[$i]['url_photo']) ?>" alt="">
-                        <?php
-                        }
-                        ?>
-                    </div>
+                   
                 </a>
             <?php
             }
