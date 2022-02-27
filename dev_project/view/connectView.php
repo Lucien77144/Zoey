@@ -4,20 +4,20 @@ $pageTitle = "Se connecter";
 ob_start();
 ?>
 <div class="connexion">
-    <h1>Connectez vous !</h1>
     <?php
     if (isset($_GET["src"]) && $_GET["src"] = "quizz") {
     ?>
+        <h1>Connectez vous !</h1>
         <h2>Pour sauvegarder vos résultats du quizz et découvrir votre compagnon idéal.</h2>
     <?php
     }
     ?>
-    <div>
-        Connectez-vous avec Google
+    <div class="googleWrapper">
+        <h3>Connectez-vous avec Google</h3>
         <div id="googleAuthButton"></div>
     </div>
 
-    ou
+    <h3>ou</h3>
 
     <form class="connectForm">
 
@@ -38,7 +38,7 @@ ob_start();
             <a href="index.php?action=subscribe">Pas encore inscrit ?</a>
         </div>
 
-        <p>*: Champs obligatoires</p>
+        <p class="champs">*: Champs obligatoires</p>
     </form>
 </div>
 
