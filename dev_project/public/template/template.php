@@ -44,16 +44,19 @@
             <a href="index.php?action=blog"><img src="<?= BASE_URL ?>public/images/icons/actus.svg" alt="Page actus">
                 <h2>Actus</h2>
             </a>
-            <a href=""><img src="<?= BASE_URL ?>public/images/icons/forum.svg" alt="Page actualitées">
+            <a href="index.php?action=presentation"><img src="<?= BASE_URL ?>public/images/icons/forum.svg" alt="Présentation de Zoey">
+                <h2>Zoey ?</h2>
+            </a>
+            <!-- <a href=""><img src="<?= BASE_URL ?>public/images/icons/forum.svg" alt="Page actualitées">
                 <h2>Forum</h2>
-            </a> <!-- forum lien à rajouter -->
+            </a> -->
         </div>
         <svg width="115" height="100" viewBox="0 0 115 100" fill="none">
             <path d="M114.999 100V0H112.998C112.998 0 101.401 47.3435 55.998 47.3435C10.5947 47.3435 1.99911 0 1.99911 0H0V100H114.999Z" fill="white" />
         </svg>
         <div class="menuInner">
             <!-- <a href="index.php?action=presentation"><img src="<?= BASE_URL ?>public/images/icons/profil.svg" alt="Page qui sommes-nous ?"><h2>Qui sommes-nous ?</h2></a> -->
-            <a href="index.php?action=adoption"><img src="<?= BASE_URL ?>public/images/icons/adoption.svg" alt="Page profil">
+            <a href="index.php?action=adoption"><img src="<?= BASE_URL ?>public/images/icons/adoption.svg" alt="Page adoption">
                 <h2>Adoption</h2>
             </a>
             <a href="index.php?action=account"><img src="<?= BASE_URL ?>public/images/icons/profil.svg" alt="Page profil">

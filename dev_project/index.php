@@ -89,7 +89,7 @@ try {
             printAdminAjouterAnimalAdopter();
         }
     } else {
-        printBlog();
+        printFeed();
     }
 } catch (Exception $e) {
     $errorMsg = $e->getMessage();
