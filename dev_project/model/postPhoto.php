@@ -6,8 +6,8 @@ session_start();
 require('model.php');
 require("verifyToken.php");
 
-if (!verifyToken()){
-//   exit('déconnecté');
+if (!verifyToken()) {
+    exit('déconnecté');
 }
 
 require_once("../vendor/lib/Tinify/Exception.php");
@@ -32,32 +32,39 @@ require_once("../vendor/lib/Tinify.php");
 //     return $destination_url;
 // }
 
-function postPhoto(){
+function postPhoto()
+{
+    // if (isset($_SESSION['idUser'])) {
+    $namePrefix = $_SESSION['idUser'];
+    // } else {
+    //     $namePrefix = 'unknown';
+    // }
+
     $uploadDirectory = "public/images/upload/";
 
     $errors = [];
 
-    $fileExtensionsAllowed = ['jpeg','jpg','png'];
+    $fileExtensionsAllowed = ['jpeg', 'jpg', 'png'];
 
     $fileName = safeEntry($_FILES['media']['name']);
     $fileSize = $_FILES['media']['size'];
     $fileTmpName  = $_FILES['media']['tmp_name'];
     $fileType = $_FILES['media']['type'];
-    $explodedFilename = explode('.',$fileName);
+    $explodedFilename = explode('.', $fileName);
     $fileExtension = strtolower(end($explodedFilename));
 
-    $uploadName = $_SESSION['idUser'] . time() . "." . $fileExtension;
+    $uploadName = $namePrefix . time() . "." . $fileExtension;
     $uploadPath = "../" . $uploadDirectory . $uploadName;
     // $uploadPath = strval($uploadPath);
     // "../../" . $uploadDirectory . $uploadName;
 
-    if (! in_array($fileExtension,$fileExtensionsAllowed)) {
-    // throw new Exception("Zoey n'accepte que des photos JPEG ou PNG pour le moment.");
+    if (!in_array($fileExtension, $fileExtensionsAllowed)) {
+        // throw new Exception("Zoey n'accepte que des photos JPEG ou PNG pour le moment.");
         $errors[] = "Zoey n'accepte que des photos JPEG ou PNG pour le moment.";
     }
 
     if ($fileSize > 8000000) {
-    // throw new Exception("Zoey n'accepte pas les photos de plus de 8Mo pour le moment.");
+        // throw new Exception("Zoey n'accepte pas les photos de plus de 8Mo pour le moment.");
         $errors[] = "Zoey n'accepte pas les photos de plus de 8Mo pour le moment.";
     }
 
@@ -79,7 +86,6 @@ function postPhoto(){
             $resized->toFile($uploadPath);
 
             return strval($uploadName);
-
         } else {
             // var_dump($fileTmpName);
             // var_dump($didUpload);
@@ -88,7 +94,6 @@ function postPhoto(){
             echo "Erreur";
             // return false;
         }
-
     } else {
         // foreach ($errors as $error) {
         //     echo $error . " -> erreurs" . "\n";
@@ -99,17 +104,15 @@ function postPhoto(){
 
 try {
     if (
-      // isset($_POST['description'])
-    isset($_FILES['media'])
-    )
-    {
+        // isset($_POST['description'])
+        isset($_FILES['media'])
+    ) {
         $postPhoto = postPhoto();
         echo $postPhoto;
-    } else {        
+    } else {
         // throw new Exception("L'importation a échoué.");
         return false;
     }
-
 } catch (Exception $e) {
     // echo "catch";
     $errorMsg = $e->getMessage();

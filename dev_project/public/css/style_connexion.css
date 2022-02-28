@@ -1,3 +1,21 @@
+body{
+  display: flex;
+  justify-content: space-between;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.googleWrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.champs{
+  font-size: 0.75rem;
+}
+
 .connexion {
   width: 100vw;
   height: fit-content;
@@ -19,8 +37,8 @@
 }
 
 .linksContainer {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,5 +65,8 @@
     .passwordContainer {
         display: flex;
         flex-direction: column;
+    }
+    body{
+      justify-content: center;
     }
 }

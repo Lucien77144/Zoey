@@ -13,21 +13,25 @@ if (!$accountAnimals){
 <h3>Pour quel animal ?</h3>
 <form id="addPostForm">
 
-    <?php
-        $animalIdCounter = 0;
-        while ($animal = $accountAnimals -> fetch()){
-            ?>
-            <div>
-                <input type="radio" id="<?= $animalIdCounter ?>" name="animal" value="<?= $animalIdCounter ?>">
-                <label for="<?= $animalIdCounter ?>">
-                    <h3><?= htmlspecialchars($animal['nom']) ?></h3>
-                    <img src="<?= htmlspecialchars($animal['url_photo']) ?>" alt="">
-                </label>
-            </div>
-            <?php
-            $animalIdCounter++;
-        }
-    ?>
+<div class="containerSelectAnim">
+    <div class="selectAnimal">
+        <?php
+            $animalIdCounter = 0;
+            while ($animal = $accountAnimals -> fetch()){
+                ?>
+                <div class="cardSelector">
+                    <input type="radio" id="idAnimal" name="idAnimal" value="<?= $animalIdCounter ?>">
+                    <label for="<?= $animalIdCounter ?>">
+                        <h3><?= htmlspecialchars($animal['nom']) ?></h3>
+                        <img src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($animal['url_photo']) ?>" alt="">
+                    </label>
+                </div>
+                <?php
+                $animalIdCounter++;
+            }
+        ?>
+    </div>
+</div>
 
     <!-- <select name="idAnimal" id="idAnimal">
         <option value=""></option>
@@ -42,18 +46,36 @@ if (!$accountAnimals){
         ?>
     </select> -->
 
+    <h3>Contenu publié</h3>
+    <label for="media">
+        <div class="imgLoader">
 
-    <label for="description">description</label>
-    <input type="text" name="description" id="description"> <br>
+        </div>
+        <h5 class="btn">+ Choisir une image</h5>
+        <input type="file" id="media" name="media" accept="image/png, image/jpeg">
+    </label>
 
-    <label for="media">photo</label>
-    <input type="file" id="media" name="media" accept="image/png, image/jpeg">
+    <h3>description</h3>
+    <div class="descWrapper"><textarea placeholder="Veuillez remplir ce champ..." name="description" id="description" cols="100" rows="10"></textarea></div>
 
-    <input type="submit" id="submitAddPost">
+    <div class="sendWrapper"><input value="Publier" type="submit" id="submitAddPost"></div>
 </form>
 <span id="ConfirmationMessage"></span>
 
-<?php 
+<?php
 }
     $viewContent = ob_get_clean();
+    
+    // styles BLOCK
+    ob_start(); ?>
+    <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_addPost.css" />
+<?php
+    $stylesBlock = ob_get_clean();
+
+    // SCRIPT BLOCK
+    ob_start(); ?>
+    <script src="public/js/addPost.js"></script>
+<?php
+    $scriptsBlock = ob_get_clean();
+
     require(BASE_URL . 'public/template/template.php');

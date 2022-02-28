@@ -1,104 +1,94 @@
 <?php
-    session_start();
+session_start();
 
-    // var_dump($_SESSION);
+// var_dump($_SESSION);
 
-    header('Access-Control-Allow-Origin: *');
-    define("BASE_URL","../dev_project/"); //getcwd();
-    $pageTitle = "Zoey";
-    $viewContent = "";
-    $printNewsletter = true;
-    $printLegal = false;
-    $showModifyLink = false;
-    // $requestedFromAPI = false;
-    require_once("controller/controller.php");
-    verifyToken(); //refresh token
-try{
+header('Access-Control-Allow-Origin: *');
+define("BASE_URL", "../dev_project/"); //getcwd();
+$pageTitle = "Zoey";
+$viewContent = "";
+$printNewsletter = true;
+$printLegal = false;
+$showModifyLink = false;
+// $requestedFromAPI = false;
+require_once("controller/controller.php");
+verifyToken(); //refresh token
+try {
 
     // ROUTER
-    
+
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'blog') {
             if (isset($_GET['id'])) {
                 printArticle();
-            }
-            else{
+            } else {
                 printBlog();
             }
-        } else if ($_GET['action'] == 'presentation'){
+        } else if ($_GET['action'] == 'presentation') {
             printPresentation();
-        } else if ($_GET['action'] == 'quizz'){
+        } else if ($_GET['action'] == 'quizz') {
             printQuizz();
-        } else if ($_GET['action'] == 'legal'){
+        } else if ($_GET['action'] == 'legal') {
             printLegal();
-        } else if ($_GET['action'] == 'subscribe'){
+        } else if ($_GET['action'] == 'subscribe') {
             printSubscribe();
-        } else if ($_GET['action'] == 'connect'){
+        } else if ($_GET['action'] == 'connect') {
             printConnect();
-        } else if ($_GET['action'] == 'disconnect'){
+        } else if ($_GET['action'] == 'disconnect') {
             printDisconnect();
-        } else if ($_GET['action'] == 'account'){
-            if (!isset($_GET['id']) && isset($_SESSION['idUser'])){
+        } else if ($_GET['action'] == 'account') {
+            if (!isset($_GET['id']) && isset($_SESSION['idUser'])) {
                 $_GET['id'] = $_SESSION['idUser'];
             }
             if (isset($_GET['id'])) {
                 printAccount();
-            }
-            else{
+            } else {
                 printConnect();
             }
-            
-        } else if ($_GET['action'] == 'modifyAccount'){
+        } else if ($_GET['action'] == 'modifyAccount') {
             printModifyAccount();
-        } else if ($_GET['action'] == 'messages'){
+        } else if ($_GET['action'] == 'messages') {
             if (isset($_GET['id'])) {
                 printChat();
-            }
-            else{
+            } else {
                 printMessages();
             }
-        } else if ($_GET['action'] == 'feed'){
+        } else if ($_GET['action'] == 'feed') {
             if (isset($_GET['id'])) {
                 printPost();
-            }
-            else{
+            } else {
                 printFeed();
             }
-        } else if ($_GET['action'] == 'addpost'){
+        } else if ($_GET['action'] == 'addpost') {
             printAddPost();
-        } 
+        }
         // else if ($_GET['action'] == 'animal'){
         //     printAnimal();
         // } 
-        else if ($_GET['action'] == 'addAnimal'){
+        else if ($_GET['action'] == 'addAnimal') {
             printAddAnimal();
-        } else if ($_GET['action'] == 'modifyAnimal'){
+        } else if ($_GET['action'] == 'modifyAnimal') {
             printModifyAnimal();
-        } else if ($_GET['action'] == 'forum'){
+        } else if ($_GET['action'] == 'forum') {
 
 
             echo 'page en construction';
-            
-
-        } else if ($_GET['action'] == 'adoption'){
+        } else if ($_GET['action'] == 'adoption') {
             if (isset($_GET['id'])) {
                 printAdoptionAnimal();
-            }
-            else{
+            } else {
                 printAdoption();
             }
-        } else if ($_GET['action'] == 'admin'){
+        } else if ($_GET['action'] == 'admin') {
             printAdmin();
-        } else if ($_GET['action'] == 'adminAjouterRefuge'){
+        } else if ($_GET['action'] == 'adminAjouterRefuge') {
             printAdminAjouterRefuge();
-        } else if ($_GET['action'] == 'adminAjouterAnimalAdopter'){
+        } else if ($_GET['action'] == 'adminAjouterAnimalAdopter') {
             printAdminAjouterAnimalAdopter();
         }
-    }
-    else {
+    } else {
         printBlog();
     }
-
 } catch (Exception $e) {
     $errorMsg = $e->getMessage();
     require(BASE_URL . "view/errorView.php");

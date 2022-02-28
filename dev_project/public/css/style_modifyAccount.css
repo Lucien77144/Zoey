@@ -1,56 +1,56 @@
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 300px;
-    margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  margin: auto;
 }
 
 label {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 input[type='submit'] {
-    align-self: flex-end;
-    padding: 5px 5px 5px 5px;
-    width: 80px;
+  align-self: flex-end;
+  padding: 5px 5px 5px 5px;
+  /* width: 80px; */
 }
 
 .seeAccount {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
-@media screen and (min-width:800px) {
-    .formsContainer {
+@media screen and (min-width: 800px) {
+  /* .formsContainer {
         display: grid;
         grid-template-areas: "a b""c d""e e";
         width: 700px;
-    }
+    } */
 
-    form:nth-of-type(1) {
-        grid-area: a;
-    }
+  form:nth-of-type(1) {
+    grid-area: a;
+  }
 
-    form:nth-of-type(2) {
-        grid-area: b;
-    }
+  form:nth-of-type(2) {
+    grid-area: b;
+  }
 
-    form:nth-of-type(3) {
-        margin-top: 50px;
-        grid-area: c;
-    }
+  form:nth-of-type(3) {
+    margin-top: 50px;
+    grid-area: c;
+  }
 
-    form:nth-of-type(4) {
-        margin-top: 50px;
-        grid-area: d;
-    }
+  form:nth-of-type(4) {
+    margin-top: 50px;
+    grid-area: d;
+  }
 
-    form:nth-of-type(5) {
-        margin-top: 50px;
-        grid-area: e;
-    }
+  form:nth-of-type(5) {
+    margin-top: 50px;
+    grid-area: e;
+  }
 }
