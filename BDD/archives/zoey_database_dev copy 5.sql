@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : lun. 28 fév. 2022 à 16:42
+-- Généré le : mar. 15 fév. 2022 à 13:38
 -- Version du serveur : 8.0.28
 -- Version de PHP : 8.1.2
 
@@ -43,7 +43,7 @@ CREATE TABLE `animal_a_adopter` (
 --
 
 INSERT INTO `animal_a_adopter` (`idanimal_a_adopter`, `nom`, `sexe`, `photo`, `description`, `date_anniversaire`, `refuge_idrefuge`, `idtype`) VALUES
-(3, 'Titou', 0, 'chat.jpg', 'Titou est un chat affectueux et proche de son maître. Il réclame des caresses (surtout des grosses gratouilles derrière les oreilles, il saura vous montrer).\r\n \r\nIl n’aime pas etre pris dans les bras et ne vient pas sur les genoux mais vous accompagne volontiers dans la salle de bains ou reste a vos côtés sur le canapé. \r\n \r\nIl accourt très facilement quand on l’appelle. Il ADORE être brossé.\r\n \r\nC’est un grand gourmand qui devrait pouvoir apprendre des petits tours pour obtenir une croquette. Il faudra progressivement lui apporter une nourriture de bonne qualité car habitué aux bonbons et autres friandises il peut faire le difficile devant des marques pourtant mieux adaptées à sa santé. \r\n \r\nTitou est un vrai chasseur ! Il a besoin de beaucoup jouer et de personnes présentes à la maison.\r\n \r\nIl a besoin d’être stimulé, sinon ce seront vos orteils ou vos plantes vertes qui l’amuseront beaucoup. \r\n \r\nTitou n’a pas été testé avec d’autres chats mais peut-être qu’un compagnon aussi actif que lui pourrait être bénéfique.', '2022-02-01', 1, 2),
+(3, 'Titou', 0, 'chat.jpg', 'Titou est un chat affectueux et proche de son maître. Il réclame des caresses (surtout des grosses gratouilles derrière les oreilles, il saura vous montrer).\r\n \r\nIl n’aime pas etre pris dans les bras et ne vient pas sur les genoux mais vous accompagne volontiers dans la salle de bains ou reste a vos côtés sur le canapé. \r\n \r\nIl accourt très facilement quand on l’appelle. Il ADORE être brossé.\r\n \r\nC’est un grand gourmand qui devrait pouvoir apprendre des petits tours pour obtenir une croquette. Il faudra progressivement lui apporter une nourriture de bonne qualité car habitué aux bonbons et autres friandises il peut faire le difficile devant des marques pourtant mieux adaptées à sa santé. \r\n \r\nTitou est un vrai chasseur ! Il a besoin de beaucoup jouer et de personnes présentes à la maison.\r\n \r\nIl a besoin d’être stimulé, sinon ce seront vos orteils ou vos plantes vertes qui l’amuseront beaucoup. \r\n \r\nTitou n’a pas été testé avec d’autres chats mais peut-être qu’un compagnon aussi actif que lui pourrait être bénéfique.', '2019-10-01', 1, 2),
 (4, 'Pee-wee', 0, 'chat.jpg', 'Histoire : \r\n\r\nPee-wee est né en mars 2019. Il a été trouvé dans un entrepôt en Bretagne. Non réclamé.\r\nPee-wee est FIV+ et fait un peu d’asthme.\r\nCaractère : \r\n\r\nCe petit loulou de 2 ans est très attachant. Il se laisse caresser sans problème et il est extrêmement sociable !\r\nIl se pavane et aime venir dire bonjour à tout le monde !\r\n \r\nPee-wee est joueur. Il a besoin d’être stimulé et que l’on s’occupe de lui. Pee-wee est sociable avec les autres chats et il peut sans problème être adopté avec un copain négatif au FIV car il ne ferait pas de mal à une mouche ! \r\n(Quoi que, pour la mouche…).\r\n \r\nPee-wee apprécie sortir. Un espace extérieur bien sécurisé (terrasse, jardin) est important pour son bien être et pour qu’il se dore la pilule au soleil.\r\n \r\nPee-wee est aussi indépendant. Au gré de ses humeurs il aime changer régulièrement de couchage, une nuit sur le lit, ou l’autre sur le canapé.\r\n \r\nC‘est un compagnon de vie adorable qui vous attend !', '2019-03-01', 1, 2);
 
 -- --------------------------------------------------------
@@ -249,8 +249,7 @@ INSERT INTO `conversation` (`idconversation`, `titre`, `date_creation`, `url_pho
 (34, NULL, '2021-11-01 00:43:31', NULL),
 (35, NULL, '2021-11-04 22:22:41', NULL),
 (36, NULL, '2021-11-04 22:23:27', NULL),
-(37, NULL, '2022-02-15 11:55:31', NULL),
-(38, NULL, '2022-02-15 15:53:11', NULL);
+(37, NULL, '2022-02-15 11:55:31', NULL);
 
 -- --------------------------------------------------------
 
@@ -277,7 +276,6 @@ INSERT INTO `conversation_has_utilisateur` (`conversation_idconversation`, `util
 (34, 54),
 (35, 54),
 (37, 54),
-(38, 54),
 (34, 59),
 (20, 60),
 (33, 61),
@@ -315,8 +313,7 @@ INSERT INTO `liste_amis` (`idliste_amis`, `id_demandeur`, `id_receveur`, `date_d
 (67, 54, 61, '2021-11-04 22:18:14', 1, 0),
 (68, 54, 63, '2021-11-04 22:22:41', 2, 0),
 (69, 63, 61, '2021-11-04 22:23:27', 2, 0),
-(70, 68, 54, '2022-02-15 11:55:31', 1, 0),
-(71, 77, 54, '2022-02-15 15:53:11', 1, 0);
+(70, 68, 54, '2022-02-15 11:55:31', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -419,9 +416,7 @@ INSERT INTO `message` (`idmessage`, `texte_message`, `url_media`, `date_envoi_ms
 (82, NULL, '681644932117.png', '2022-02-15 14:35:17', 68, 37),
 (83, NULL, 'Erreur', '2022-02-15 14:35:35', 68, 37),
 (84, NULL, '681644932145.png', '2022-02-15 14:35:45', 68, 37),
-(85, 'sdfsdf', NULL, '2022-02-15 14:38:28', 68, 37),
-(86, NULL, '681644932796.png', '2022-02-15 14:46:36', 68, 37),
-(87, NULL, '681644932820.png', '2022-02-15 14:47:01', 68, 37);
+(85, 'sdfsdf', NULL, '2022-02-15 14:38:28', 68, 37);
 
 -- --------------------------------------------------------
 
@@ -457,11 +452,36 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`idpost`, `media`, `description`, `date_publication`, `id_likes_utilisateurs`, `profil_animal_de_compagnie_idprofil_animal_de_compagnie`, `profil_animal_de_compagnie_utilisateur_idutilisateur1`) VALUES
-(61, '801646062526.png', 'Je vois rouge aujourd\'hui', '2022-02-28 15:35:26', NULL, 23, 80),
-(62, '801646062553.png', '', '2022-02-28 15:35:53', NULL, 23, 80),
-(63, '801646062584.png', '', '2022-02-28 15:36:24', NULL, 23, 80),
-(64, '801646062591.png', 'Rouge', '2022-02-28 15:36:31', NULL, 23, 80),
-(65, '801646062606.png', 'Miaou', '2022-02-28 15:36:46', NULL, 23, 80);
+(2, 'poule.jpg', 'Photo de ma poule en train de manger', '2021-10-12 19:47:48', NULL, 2, 54),
+(3, 'poule.jpg', 'Véro se balade', '2021-10-12 22:07:03', NULL, 2, 54),
+(4, 'poule.jpg', 'Je pars chercher à manger', '2021-10-12 22:11:07', NULL, 2, 54),
+(30, 'poule.jpg', 'testdesc', '2021-10-18 23:34:34', NULL, 4, 54),
+(31, 'test.jpg', 'test1', '2021-10-18 23:35:00', NULL, 4, 54),
+(32, 'test.jpg', 'Caro la poule', '2021-10-18 23:35:56', NULL, 4, 54),
+(37, 'test.jpg', 'TESTESTEST', '2021-10-19 14:05:38', NULL, 2, 54),
+(38, 'test.jpg', 'Je me balade', '2021-10-19 14:07:29', NULL, 2, 54),
+(39, 'coucou.jpg', 'azert', '2021-10-19 14:12:48', NULL, 4, 54),
+(40, '', '555555555', '2021-10-19 14:13:17', NULL, 14, 54),
+(41, '', 'qsdsqd', '2021-10-19 14:13:51', NULL, 3, 54),
+(42, '', 'a', '2021-10-19 14:19:12', NULL, 4, 54),
+(43, '', 'q', '2021-10-19 14:19:51', NULL, 3, 54),
+(44, '', 'asd', '2021-10-19 14:34:45', NULL, 14, 54),
+(45, '', 'aa', '2021-10-19 14:35:52', NULL, 3, 54),
+(46, '', 'a', '2021-10-19 14:36:53', NULL, 3, 54),
+(47, '', 'sqdsq', '2021-10-19 14:46:27', NULL, 3, 54),
+(48, '12345.jpg', 'ssdsqd', '2021-10-19 14:49:30', NULL, 2, 54),
+(49, '12345.jpg', 'test 2', '2021-10-19 18:39:24', NULL, 14, 54),
+(50, '12345.jpg', 'test 2', '2021-10-19 18:39:26', NULL, 14, 54),
+(51, '12345.jpg', 'test 2', '2021-10-19 18:39:27', NULL, 14, 54),
+(52, '', 'test 3', '2021-10-19 18:42:25', NULL, 14, 54),
+(53, '', 'a', '2021-10-19 18:43:16', NULL, 14, 54),
+(54, 'uploadedOn1634661875_by_54_poule.jpg', 'test 4', '2021-10-19 18:44:35', NULL, 14, 54),
+(55, '', 'test 4', '2021-10-19 18:45:43', NULL, 14, 54),
+(56, '', 'test 4', '2021-10-19 18:45:59', NULL, 14, 54),
+(57, 'uploadedOn1634662149_by_54_peewee.jpg', 'Bonjour je suis bambou le chat de matthis', '2021-10-19 18:49:09', NULL, 3, 54),
+(58, 'uploadedOn1634663238_by_62_titou.jpg', 'Je grimpe en flèche', '2021-10-19 19:07:18', NULL, 16, 62),
+(59, 'uploadedOn1635174345_by_54_profil.jpg', 'coucouu', '2021-10-25 17:05:45', NULL, 3, 54),
+(60, 'uploadedOn1635174348_by_54_profil.jpg', 'coucouu', '2021-10-25 17:05:48', NULL, 3, 54);
 
 -- --------------------------------------------------------
 
@@ -505,9 +525,7 @@ INSERT INTO `profil_animal_de_compagnie` (`idprofil_animal_de_compagnie`, `nom`,
 (18, 'animaltest', 'uploadedOn1634667613_by_64_peewee.jpg', 'animaltest', '0067-05-04', 64, 1),
 (19, '', '', '', '0000-00-00', 64, 3),
 (21, 'médor', 'uploadedOn1634670653_by_64_profil.jpg', 'mon toutou', '2021-09-30', 64, 3),
-(22, 'test22', 'uploadedOn1634670760_by_64_uploadedOn16345557', 'test22desc', '2021-10-10', 64, 4),
-(23, 'Médor II', '801646062119.png', 'médor II mon chien wouaf', '0022-01-01', 80, 4),
-(24, 'Véro II', '801646062433.png', 'Véro la poule de matthis je lui ai volé aedsqd', '2022-01-12', 80, 1);
+(22, 'a', 'uploadedOn1634670760_by_64_uploadedOn16345557', 'a', '2021-10-10', 64, 4);
 
 -- --------------------------------------------------------
 
@@ -543,17 +561,9 @@ INSERT INTO `refuge` (`idrefuge`, `nom`, `description`, `lien`, `adresse_mail`, 
 CREATE TABLE `reinitialisation_mot_de_passe` (
   `idreinitialisation_mot_de_passe` int NOT NULL,
   `id_demandeur` int DEFAULT NULL,
-  `token_reinitialisation` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `token_reinitialisation` varchar(45) DEFAULT NULL,
   `date_demande_reinitialisation` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Déchargement des données de la table `reinitialisation_mot_de_passe`
---
-
-INSERT INTO `reinitialisation_mot_de_passe` (`idreinitialisation_mot_de_passe`, `id_demandeur`, `token_reinitialisation`, `date_demande_reinitialisation`) VALUES
-(6, 2, '$2y$10$SBdOgCxulYxyC.38RpRheOEDQYSZ2w2x/CXsHHur4GlCI0sylrVFO', '2022-02-27 19:31:17'),
-(7, 2, '$2y$10$5Ym1d.BD4VKQrC5IpU6n2OBt46h9tppEkpO1OBctEQu11p2fszX8i', '2022-02-27 20:03:22');
 
 -- --------------------------------------------------------
 
@@ -680,8 +690,21 @@ CREATE TABLE `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`idutilisateur`, `pseudo`, `mot_de_passe`, `google_sub`, `prenom`, `nom`, `adresse_mail`, `url_photo`, `date_naissance`, `adresse`, `description`, `date_creation`, `date_derniere_connexion`, `token`, `statut`) VALUES
-(2, '1', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, 'test', '2021-10-11 21:15:24', NULL, NULL, NULL),
+(2, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:15:24', NULL, NULL, NULL),
+(3, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:15:26', NULL, NULL, NULL),
+(4, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:16:39', NULL, NULL, NULL),
+(5, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:16:53', NULL, NULL, NULL),
+(6, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:17:01', NULL, NULL, NULL),
+(7, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:17:01', NULL, NULL, NULL),
+(8, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:17:21', NULL, NULL, NULL),
+(9, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:17:31', NULL, NULL, NULL),
+(10, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:26:05', NULL, NULL, NULL),
+(11, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:26:46', NULL, NULL, NULL),
+(12, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:27:12', NULL, NULL, NULL),
 (13, NULL, '$argon2i$v=19$m=2048,t=4,p=3$dUtXa29hVEt2eDhJbjJ0eQ$/+I4XqKPjjHkQf+h9SRMDGDQ9CEx2MUn2fNcoOW6NzU', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:27:50', '2021-10-11 21:27:45', NULL, NULL),
+(14, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:29:29', NULL, NULL, NULL),
+(15, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:29:35', NULL, NULL, NULL),
+(16, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:29:36', NULL, NULL, NULL),
 (17, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:31:34', NULL, NULL, NULL),
 (18, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:31:52', NULL, NULL, NULL),
 (19, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:32:06', NULL, NULL, NULL),
@@ -715,6 +738,8 @@ INSERT INTO `utilisateur` (`idutilisateur`, `pseudo`, `mot_de_passe`, `google_su
 (47, NULL, '42ksdfhzçepoikriughzeojufoihfiudhfn', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:00:53', NULL, NULL, NULL),
 (48, NULL, '42ksdfhzçepoikriughzeojufoihfiudhfn', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:01:25', NULL, NULL, NULL),
 (49, NULL, '$argon2i$v=19$m=2048,t=4,p=3$WlExaVRCU3BHTUFKTDFWSQ$lyDHyXkg+aKauZHinbxkLHSgWaDBXHlt3dHjzHnRh+U', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:01:40', NULL, NULL, NULL),
+(50, 'Marin', '$argon2i$v=19$m=2048,t=4,p=3$Q05uSXFmV05TMjNPWmhRSw$qlG7lkcoKmy5KyGNorKpwZroT/kJzaE+Qjg6ExNhIRc', NULL, 'az', 'az', 'az', NULL, '2021-10-11', NULL, NULL, '2021-10-11 22:02:43', NULL, NULL, NULL),
+(51, 'Marin', '$argon2i$v=19$m=2048,t=4,p=3$aU9JN1lueXN0MmJ0NC5lcQ$hWN2HUNE5EGfDiAvjUWXxc8JDe8b/r1KBNTirnS5/Kg', NULL, 'az', 'az', 'az', NULL, '2021-10-11', NULL, NULL, '2021-10-11 22:03:10', NULL, NULL, NULL),
 (52, 'pseudo', '$argon2i$v=19$m=2048,t=4,p=3$aXNMYVZUalBKVXBrZWpodA$iJVVOSyeYIXQMl9tjmcEkVTCRqf+nTlQMgeiaJEmd58', NULL, 'pseudo', 'pseudo', 'pseudo', NULL, '2021-10-11', NULL, NULL, '2021-10-11 23:03:55', NULL, '12a343c3aedd2568abebad71d65391ab18f1c5ea14e78974bc66b9fc01145b0dd8ab18-52-1634068665', NULL),
 (54, 'matthis', '$argon2i$v=19$m=2048,t=4,p=3$N3FYT1lqcFRudU4wanoxMw$n/t1XIvr5VvbjXCqlTNq/7awPHS1YT/mITckS4BIXo8', NULL, 'matthis', 'matthis', 'matthis', 'profil.jpg', '0005-04-05', NULL, 'Jeune propriétaire de poules du 77', '2021-10-12 10:20:36', NULL, '335f2520da38fc1bb22ab612e618424abe60bb3667a1848e550de77969174eefc30bb7-54-1636455708', 1),
 (55, 'maaa', '$argon2i$v=19$m=2048,t=4,p=3$b0VnREI0TUxkSG50TDVjZA$90IKf0fK9U0FRJciVPv+nobhL6cjOe+FJ6M4jfPXJCg', NULL, 'a', 'a', 'a', NULL, '2021-10-12', NULL, NULL, '2021-10-12 12:43:40', NULL, NULL, NULL),
@@ -729,10 +754,10 @@ INSERT INTO `utilisateur` (`idutilisateur`, `pseudo`, `mot_de_passe`, `google_su
 (65, 'admin', '$2y$10$zZTUX6mXg0b0rDwcYGHWjeHIrPzU/LZ64.uUiQajUsrrYaDS1rwZa', NULL, 'admin', 'admin', 'admin', 'déconnecté', '0001-01-01', NULL, NULL, '2021-12-22 19:05:11', NULL, '68dc3ad39752338eac1c105071d0cdbcf385f0285b358e9925a8c3794e18442276d0fa-65-1640821926', 1),
 (66, 'Zoey', '$2y$10$jhRHP68VNZ/1snIW9TL07uk78ZhiUxu5J2HUbRAtrLOt2F6BaJH9q', NULL, 'zoey', 'zoey', 'zoey', '', '0001-01-01', NULL, NULL, '2022-01-19 01:22:55', NULL, NULL, NULL),
 (67, 'zozo', '$2y$10$3sfZi36PiXoxIFEQAir8GeXixLSkCYVgrGx0/ZTQEidtpQ7IYzD3q', NULL, 'zozo', 'zozo', 'zozo', '', '0007-06-05', NULL, NULL, '2022-01-19 01:28:38', NULL, 'f66ffc919df28b85487b6923765cd4f22cb7032d0cba81b3369de70f56170a5f670124-67-1642554479', 1),
-(68, 'aa', '$argon2i$v=19$m=2048,t=4,p=3$N1REbTJlMDNady4ycUVTWQ$wn3ctMk8Nh8jhn/zrEYJ10n/Q+VrbsqOjiZEkdnUSrE', NULL, 'aa', 'aa', 'a@mail.fr', '681645876715.png', '4567-03-01', NULL, 'Bienvenue sur mon profil ! Test coucou', '2022-01-20 17:51:48', NULL, '46fc923c25bb45c4c3efb85dddaf6ede27eccdbc454326245decb740333137624b681f-68-1645876800', NULL),
+(68, 'aa', '$2y$10$57y61d0jtqkiGmBDFZ/rSunC2HrCcetvPt4Eba45.6OBroIutxqUu', NULL, 'aa', 'aa', '', '', '4567-03-01', NULL, NULL, '2022-01-20 17:51:48', NULL, 'a917e93f66f275aa203d5bc17d3e07a16b252475459a16785bdc4d1ceec9e55f9183df-68-1644932031', NULL),
 (74, NULL, NULL, '105790575614120714764222222222222', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-15 00:39:29', NULL, NULL, NULL),
-(78, 'dd', '$2y$10$fi/HNVljsOwMqNM9WXc/GeswEVDd3iZOaafQbBVK1qzJCJBJqBcvC', NULL, NULL, NULL, 'exemple@zoey.fr', '', NULL, NULL, NULL, '2022-02-15 00:50:44', NULL, 'aadfdaa6f2d54ee18ea0d7c7fe62c09a578bbc586d7f0d92dd523c2cfa61bd85fc6f84-78-1644884289', NULL),
-(80, 'Marin', NULL, '105790575614120714764', NULL, NULL, 'marin.bouanchaud@gmail.com', '801646058847.png', NULL, NULL, 'azeazaz', '2022-02-26 17:55:04', NULL, '570a2f8943b9ba1a4129c3eb047397b46ddbd447f61ccc9b16690b752d7c35679c70ef-80-1646066208', NULL);
+(77, 'Marin', NULL, '105790575614120714764', NULL, NULL, 'marin.bouanchaud@gmail.com', 'defaultProfile.jpg', NULL, NULL, NULL, '2022-02-15 00:41:50', NULL, NULL, NULL),
+(78, 'dd', '$2y$10$fi/HNVljsOwMqNM9WXc/GeswEVDd3iZOaafQbBVK1qzJCJBJqBcvC', NULL, NULL, NULL, 'exemple@zoey.fr', '', NULL, NULL, NULL, '2022-02-15 00:50:44', NULL, 'aadfdaa6f2d54ee18ea0d7c7fe62c09a578bbc586d7f0d92dd523c2cfa61bd85fc6f84-78-1644884289', NULL);
 
 -- --------------------------------------------------------
 
@@ -1045,19 +1070,19 @@ ALTER TABLE `commentaire_post`
 -- AUTO_INCREMENT pour la table `conversation`
 --
 ALTER TABLE `conversation`
-  MODIFY `idconversation` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `idconversation` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT pour la table `liste_amis`
 --
 ALTER TABLE `liste_amis`
-  MODIFY `idliste_amis` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `idliste_amis` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT pour la table `message`
 --
 ALTER TABLE `message`
-  MODIFY `idmessage` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `idmessage` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT pour la table `newsletter`
@@ -1069,13 +1094,13 @@ ALTER TABLE `newsletter`
 -- AUTO_INCREMENT pour la table `post`
 --
 ALTER TABLE `post`
-  MODIFY `idpost` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `idpost` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT pour la table `profil_animal_de_compagnie`
 --
 ALTER TABLE `profil_animal_de_compagnie`
-  MODIFY `idprofil_animal_de_compagnie` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `idprofil_animal_de_compagnie` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT pour la table `refuge`
@@ -1087,7 +1112,7 @@ ALTER TABLE `refuge`
 -- AUTO_INCREMENT pour la table `reinitialisation_mot_de_passe`
 --
 ALTER TABLE `reinitialisation_mot_de_passe`
-  MODIFY `idreinitialisation_mot_de_passe` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idreinitialisation_mot_de_passe` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `reponse_forum`
@@ -1123,7 +1148,7 @@ ALTER TABLE `types_animaux`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `idutilisateur` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `idutilisateur` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- Contraintes pour les tables déchargées
