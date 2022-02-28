@@ -473,7 +473,7 @@ function getAccountAnimals(){
         $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
         (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-        $sql = "SELECT idprofil_animal_de_compagnie idanimal, nom FROM profil_animal_de_compagnie WHERE utilisateur_idutilisateur1 = ? ORDER BY `idanimal` ASC";
+        $sql = "SELECT idprofil_animal_de_compagnie idanimal, nom, url_photo FROM profil_animal_de_compagnie WHERE utilisateur_idutilisateur1 = ? ORDER BY `idanimal` ASC";
         $req = $db -> prepare($sql);
         
         $req -> execute(array($userId));
