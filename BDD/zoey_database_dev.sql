@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : sam. 05 fév. 2022 à 18:19
--- Version du serveur : 10.4.21-MariaDB
--- Version de PHP : 8.0.12
+-- Généré le : mar. 15 fév. 2022 à 13:38
+-- Version du serveur : 8.0.28
+-- Version de PHP : 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,15 +28,15 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `animal_a_adopter` (
-  `idanimal_a_adopter` int(11) NOT NULL,
+  `idanimal_a_adopter` int NOT NULL,
   `nom` varchar(45) DEFAULT NULL,
   `sexe` tinyint(1) NOT NULL,
   `photo` varchar(45) DEFAULT NULL,
-  `description` mediumtext DEFAULT NULL,
+  `description` mediumtext,
   `date_anniversaire` date DEFAULT NULL,
-  `refuge_idrefuge` int(11) NOT NULL,
-  `idtype` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `refuge_idrefuge` int NOT NULL,
+  `idtype` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `animal_a_adopter`
@@ -53,20 +53,20 @@ INSERT INTO `animal_a_adopter` (`idanimal_a_adopter`, `nom`, `sexe`, `photo`, `d
 --
 
 CREATE TABLE `animal_a_adopter_has_badge` (
-  `animal_a_adopter_idanimal_a_adopter` int(11) NOT NULL,
-  `badge_idbadge` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `animal_a_adopter_idanimal_a_adopter` int NOT NULL,
+  `badge_idbadge` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `animal_a_adopter_has_badge`
 --
 
 INSERT INTO `animal_a_adopter_has_badge` (`animal_a_adopter_idanimal_a_adopter`, `badge_idbadge`) VALUES
-(3, 2),
-(3, 3),
-(3, 8),
 (4, 1),
-(4, 2);
+(3, 2),
+(4, 2),
+(3, 3),
+(3, 8);
 
 -- --------------------------------------------------------
 
@@ -75,12 +75,12 @@ INSERT INTO `animal_a_adopter_has_badge` (`animal_a_adopter_idanimal_a_adopter`,
 --
 
 CREATE TABLE `badge` (
-  `idbadge` int(11) NOT NULL,
+  `idbadge` int NOT NULL,
   `nom` varchar(45) DEFAULT NULL,
   `url_icone` varchar(45) DEFAULT NULL,
   `titre` varchar(255) NOT NULL,
   `description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `badge`
@@ -105,23 +105,23 @@ INSERT INTO `badge` (`idbadge`, `nom`, `url_icone`, `titre`, `description`) VALU
 --
 
 CREATE TABLE `blog` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `titre` varchar(45) DEFAULT NULL,
   `resume` varchar(255) NOT NULL,
-  `texte1` text DEFAULT NULL,
+  `texte1` text,
   `url_image` varchar(45) NOT NULL,
   `description_photo` varchar(255) NOT NULL,
   `texte2` text NOT NULL,
-  `date_publication` datetime DEFAULT current_timestamp(),
-  `fk_idcategorie` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `date_publication` datetime DEFAULT CURRENT_TIMESTAMP,
+  `fk_idcategorie` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `blog`
 --
 
 INSERT INTO `blog` (`id`, `titre`, `resume`, `texte1`, `url_image`, `description_photo`, `texte2`, `date_publication`, `fk_idcategorie`) VALUES
-(1, 'Les animaux c\'est génial', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea nostrum qui, libero at officia beatae harum ipsa esse quis vitae dolorem quaerat quas iste distinctio quos quidem praesentium. Dolorum, cupiditate.', 'public/blog/blogTemplate.php', '', '', '', '2021-10-01 09:56:30', 3),
+(1, 'Les animaux c\'est génial', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea nostrum qui, libero at officia beatae harum ipsa esse quis vitae dolorem quaerat quas iste distinctio quos quidem praesentium. Dolorum, cupiditate.', 'public/blog/blogTemplate.php', '', '', 'texte 2', '2021-10-01 09:56:30', 3),
 (3, 'Nourrir son chien', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea nostrum qui, libero at officia beatae harum ipsa esse quis vitae dolorem quaerat quas iste distinctio quos quidem praesentium. Dolorum, cupiditate.', NULL, '', '', '', '2021-10-03 12:45:23', 2),
 (4, 'Caresser une tortue', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea nostrum qui, libero at officia beatae harum ipsa esse quis vitae dolorem quaerat quas iste distinctio quos quidem praesentium. Dolorum, cupiditate.', NULL, '', '', '', '2021-10-03 12:45:23', 2),
 (5, 'Sauver les animaux', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea nostrum qui, libero at officia beatae harum ipsa esse quis vitae dolorem quaerat quas iste distinctio quos quidem praesentium. Dolorum, cupiditate.', NULL, '', '', '', '2021-10-03 12:45:28', 2),
@@ -134,9 +134,9 @@ INSERT INTO `blog` (`id`, `titre`, `resume`, `texte1`, `url_image`, `description
 --
 
 CREATE TABLE `categorie_blog` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `nom` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `categorie_blog`
@@ -153,10 +153,10 @@ INSERT INTO `categorie_blog` (`id`, `nom`) VALUES
 --
 
 CREATE TABLE `categorie_forum` (
-  `idcategories_forum` int(11) NOT NULL,
+  `idcategories_forum` int NOT NULL,
   `nom` varchar(45) DEFAULT NULL,
   `url_icone` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -165,8 +165,8 @@ CREATE TABLE `categorie_forum` (
 --
 
 CREATE TABLE `centres_interet` (
-  `idcentres_interet` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `idcentres_interet` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -175,9 +175,9 @@ CREATE TABLE `centres_interet` (
 --
 
 CREATE TABLE `centres_interet_has_types_animaux` (
-  `centres_interet_idcentres_interet` int(11) NOT NULL,
-  `types_animaux_idtypes_animaux` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `centres_interet_idcentres_interet` int NOT NULL,
+  `types_animaux_idtypes_animaux` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -186,14 +186,14 @@ CREATE TABLE `centres_interet_has_types_animaux` (
 --
 
 CREATE TABLE `commentaire_post` (
-  `idcommentaire_post` int(11) NOT NULL,
-  `texte_commentaire` mediumtext DEFAULT NULL,
-  `date_publication` datetime DEFAULT current_timestamp(),
-  `utilisateur_idutilisateur` int(11) NOT NULL,
-  `post_idpost` int(11) NOT NULL,
-  `post_profil_animal_de_compagnie_idprofil_animal_de_compagnie` int(11) NOT NULL,
-  `post_profil_animal_de_compagnie_utilisateur_idutilisateur1` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `idcommentaire_post` int NOT NULL,
+  `texte_commentaire` mediumtext,
+  `date_publication` datetime DEFAULT CURRENT_TIMESTAMP,
+  `utilisateur_idutilisateur` int NOT NULL,
+  `post_idpost` int NOT NULL,
+  `post_profil_animal_de_compagnie_idprofil_animal_de_compagnie` int NOT NULL,
+  `post_profil_animal_de_compagnie_utilisateur_idutilisateur1` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -202,11 +202,11 @@ CREATE TABLE `commentaire_post` (
 --
 
 CREATE TABLE `conversation` (
-  `idconversation` int(11) NOT NULL,
+  `idconversation` int NOT NULL,
   `titre` varchar(45) DEFAULT NULL,
-  `date_creation` datetime DEFAULT current_timestamp(),
+  `date_creation` datetime DEFAULT CURRENT_TIMESTAMP,
   `url_photo` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `conversation`
@@ -248,7 +248,8 @@ INSERT INTO `conversation` (`idconversation`, `titre`, `date_creation`, `url_pho
 (33, NULL, '2021-11-01 00:41:21', NULL),
 (34, NULL, '2021-11-01 00:43:31', NULL),
 (35, NULL, '2021-11-04 22:22:41', NULL),
-(36, NULL, '2021-11-04 22:23:27', NULL);
+(36, NULL, '2021-11-04 22:23:27', NULL),
+(37, NULL, '2022-02-15 11:55:31', NULL);
 
 -- --------------------------------------------------------
 
@@ -257,31 +258,33 @@ INSERT INTO `conversation` (`idconversation`, `titre`, `date_creation`, `url_pho
 --
 
 CREATE TABLE `conversation_has_utilisateur` (
-  `conversation_idconversation` int(11) NOT NULL,
-  `utilisateur_idutilisateur` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `conversation_idconversation` int NOT NULL,
+  `utilisateur_idutilisateur` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `conversation_has_utilisateur`
 --
 
 INSERT INTO `conversation_has_utilisateur` (`conversation_idconversation`, `utilisateur_idutilisateur`) VALUES
-(1, 54),
-(1, 62),
 (2, 2),
-(2, 54),
 (3, 35),
+(1, 54),
+(2, 54),
 (20, 54),
-(20, 60),
 (33, 54),
-(33, 61),
 (34, 54),
-(34, 59),
-(34, 61),
 (35, 54),
-(35, 63),
+(37, 54),
+(34, 59),
+(20, 60),
+(33, 61),
+(34, 61),
 (36, 61),
-(36, 63);
+(1, 62),
+(35, 63),
+(36, 63),
+(37, 68);
 
 -- --------------------------------------------------------
 
@@ -290,13 +293,13 @@ INSERT INTO `conversation_has_utilisateur` (`conversation_idconversation`, `util
 --
 
 CREATE TABLE `liste_amis` (
-  `idliste_amis` int(11) NOT NULL,
-  `id_demandeur` int(11) DEFAULT NULL,
-  `id_receveur` int(11) DEFAULT NULL,
-  `date_demande` datetime DEFAULT current_timestamp(),
-  `statut` tinyint(1) DEFAULT 1,
-  `id_bloqueur` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `idliste_amis` int NOT NULL,
+  `id_demandeur` int DEFAULT NULL,
+  `id_receveur` int DEFAULT NULL,
+  `date_demande` datetime DEFAULT CURRENT_TIMESTAMP,
+  `statut` tinyint(1) DEFAULT '1',
+  `id_bloqueur` int NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `liste_amis`
@@ -309,7 +312,8 @@ INSERT INTO `liste_amis` (`idliste_amis`, `id_demandeur`, `id_receveur`, `date_d
 (59, 54, 59, '2021-11-01 00:43:31', 2, 0),
 (67, 54, 61, '2021-11-04 22:18:14', 1, 0),
 (68, 54, 63, '2021-11-04 22:22:41', 2, 0),
-(69, 63, 61, '2021-11-04 22:23:27', 2, 0);
+(69, 63, 61, '2021-11-04 22:23:27', 2, 0),
+(70, 68, 54, '2022-02-15 11:55:31', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -318,13 +322,13 @@ INSERT INTO `liste_amis` (`idliste_amis`, `id_demandeur`, `id_receveur`, `date_d
 --
 
 CREATE TABLE `message` (
-  `idmessage` int(11) NOT NULL,
-  `texte_message` tinytext DEFAULT NULL,
+  `idmessage` int NOT NULL,
+  `texte_message` tinytext,
   `url_media` varchar(45) DEFAULT NULL,
-  `date_envoi_msg` datetime DEFAULT current_timestamp(),
-  `utilisateur_idutilisateur` int(11) NOT NULL,
-  `conversation_idconversation` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `date_envoi_msg` datetime DEFAULT CURRENT_TIMESTAMP,
+  `utilisateur_idutilisateur` int NOT NULL,
+  `conversation_idconversation` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `message`
@@ -376,7 +380,43 @@ INSERT INTO `message` (`idmessage`, `texte_message`, `url_media`, `date_envoi_ms
 (46, 'eheh', '611636061047.jpg', '2021-11-04 22:24:07', 61, 36),
 (47, 'bonjour', '541636455676.jpg', '2021-11-09 12:01:16', 54, 33),
 (48, 'coucou', NULL, '2021-11-09 12:01:22', 54, 33),
-(49, 'salut matthis', NULL, '2021-11-09 12:01:42', 61, 33);
+(49, 'salut matthis', NULL, '2021-11-09 12:01:42', 61, 33),
+(50, 'a', NULL, '2022-02-15 12:06:36', 68, 37),
+(51, NULL, '681644923619.png', '2022-02-15 12:13:39', 68, 37),
+(52, 'b', NULL, '2022-02-15 12:23:20', 68, 37),
+(53, 'manger', '681644924213.png', '2022-02-15 12:23:33', 68, 37),
+(54, 'sdflsdkgflkdsjglkjsd\n\nmlsdkfmlkmlk&lt;br&gt;', 'Erreur', '2022-02-15 12:25:22', 68, 37),
+(55, 'a ! @ 1&quot;sfddsfd&quot;', NULL, '2022-02-15 12:25:41', 68, 37),
+(56, 'a', NULL, '2022-02-15 12:28:33', 68, 37),
+(57, 'aa', NULL, '2022-02-15 12:28:54', 68, 37),
+(58, 'a', NULL, '2022-02-15 12:29:21', 68, 37),
+(59, 'a', NULL, '2022-02-15 12:30:15', 68, 37),
+(60, 'v', NULL, '2022-02-15 12:30:18', 68, 37),
+(61, 'a', NULL, '2022-02-15 12:31:24', 68, 37),
+(62, 'dd', NULL, '2022-02-15 12:31:28', 68, 37),
+(63, 'fdslfdsfgsd', 'Erreur', '2022-02-15 12:31:37', 68, 37),
+(64, 'h', NULL, '2022-02-15 12:32:18', 68, 37),
+(65, 'uj', NULL, '2022-02-15 12:32:25', 68, 37),
+(66, 'dsfdfsd', NULL, '2022-02-15 12:34:18', 68, 37),
+(67, 'dsfdsfs', NULL, '2022-02-15 12:34:21', 68, 37),
+(68, 's', NULL, '2022-02-15 12:34:27', 68, 37),
+(69, 'a', NULL, '2022-02-15 12:34:50', 68, 37),
+(70, 's', NULL, '2022-02-15 12:34:55', 68, 37),
+(71, 'a', NULL, '2022-02-15 14:24:08', 68, 37),
+(72, 'asdfsd', NULL, '2022-02-15 14:24:11', 68, 37),
+(73, NULL, 'Erreur', '2022-02-15 14:24:21', 68, 37),
+(74, NULL, 'Erreur', '2022-02-15 14:32:51', 68, 37),
+(75, 'a', NULL, '2022-02-15 14:34:04', 68, 37),
+(76, 'dsfsf', NULL, '2022-02-15 14:34:08', 68, 37),
+(77, NULL, '681644932057.png', '2022-02-15 14:34:18', 68, 37),
+(78, 'az', NULL, '2022-02-15 14:34:29', 68, 37),
+(79, 'sqdfqsd', 'Erreur', '2022-02-15 14:34:37', 68, 37),
+(80, NULL, 'Erreur', '2022-02-15 14:34:44', 68, 37),
+(81, NULL, 'Erreur', '2022-02-15 14:35:01', 68, 37),
+(82, NULL, '681644932117.png', '2022-02-15 14:35:17', 68, 37),
+(83, NULL, 'Erreur', '2022-02-15 14:35:35', 68, 37),
+(84, NULL, '681644932145.png', '2022-02-15 14:35:45', 68, 37),
+(85, 'sdfsdf', NULL, '2022-02-15 14:38:28', 68, 37);
 
 -- --------------------------------------------------------
 
@@ -385,11 +425,11 @@ INSERT INTO `message` (`idmessage`, `texte_message`, `url_media`, `date_envoi_ms
 --
 
 CREATE TABLE `newsletter` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `mail` varchar(255) NOT NULL,
   `prenom` varchar(45) NOT NULL,
-  `date` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -398,14 +438,14 @@ CREATE TABLE `newsletter` (
 --
 
 CREATE TABLE `post` (
-  `idpost` int(11) NOT NULL,
+  `idpost` int NOT NULL,
   `media` varchar(45) DEFAULT NULL,
-  `description` mediumtext DEFAULT NULL,
-  `date_publication` datetime DEFAULT current_timestamp(),
-  `id_likes_utilisateurs` int(11) DEFAULT NULL,
-  `profil_animal_de_compagnie_idprofil_animal_de_compagnie` int(11) NOT NULL,
-  `profil_animal_de_compagnie_utilisateur_idutilisateur1` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `description` mediumtext,
+  `date_publication` datetime DEFAULT CURRENT_TIMESTAMP,
+  `id_likes_utilisateurs` int DEFAULT NULL,
+  `profil_animal_de_compagnie_idprofil_animal_de_compagnie` int NOT NULL,
+  `profil_animal_de_compagnie_utilisateur_idutilisateur1` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `post`
@@ -450,9 +490,9 @@ INSERT INTO `post` (`idpost`, `media`, `description`, `date_publication`, `id_li
 --
 
 CREATE TABLE `post_likes` (
-  `id_post` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_post` int NOT NULL,
+  `id_user` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -461,14 +501,14 @@ CREATE TABLE `post_likes` (
 --
 
 CREATE TABLE `profil_animal_de_compagnie` (
-  `idprofil_animal_de_compagnie` int(11) NOT NULL,
+  `idprofil_animal_de_compagnie` int NOT NULL,
   `nom` varchar(45) DEFAULT NULL,
   `url_photo` varchar(45) DEFAULT NULL,
-  `description` mediumtext DEFAULT NULL,
+  `description` mediumtext,
   `date_naissance` date DEFAULT NULL,
-  `utilisateur_idutilisateur1` int(11) NOT NULL,
-  `types_animaux_idtypes_animaux` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `utilisateur_idutilisateur1` int NOT NULL,
+  `types_animaux_idtypes_animaux` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `profil_animal_de_compagnie`
@@ -494,16 +534,16 @@ INSERT INTO `profil_animal_de_compagnie` (`idprofil_animal_de_compagnie`, `nom`,
 --
 
 CREATE TABLE `refuge` (
-  `idrefuge` int(11) NOT NULL,
+  `idrefuge` int NOT NULL,
   `nom` varchar(45) DEFAULT NULL,
-  `description` mediumtext DEFAULT NULL,
+  `description` mediumtext,
   `lien` varchar(45) DEFAULT NULL,
   `adresse_mail` varchar(45) DEFAULT NULL,
-  `telephone` int(11) DEFAULT NULL,
+  `telephone` int DEFAULT NULL,
   `lien_maps` text NOT NULL,
   `adresse` varchar(255) DEFAULT NULL,
   `url_logo` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `refuge`
@@ -519,11 +559,11 @@ INSERT INTO `refuge` (`idrefuge`, `nom`, `description`, `lien`, `adresse_mail`, 
 --
 
 CREATE TABLE `reinitialisation_mot_de_passe` (
-  `idreinitialisation_mot_de_passe` int(11) NOT NULL,
-  `id_demandeur` int(11) DEFAULT NULL,
+  `idreinitialisation_mot_de_passe` int NOT NULL,
+  `id_demandeur` int DEFAULT NULL,
   `token_reinitialisation` varchar(45) DEFAULT NULL,
-  `date_demande_reinitialisation` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `date_demande_reinitialisation` datetime DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -532,12 +572,12 @@ CREATE TABLE `reinitialisation_mot_de_passe` (
 --
 
 CREATE TABLE `reponse_forum` (
-  `idreponse_forum` int(11) NOT NULL,
-  `texte_reponse` mediumtext DEFAULT NULL,
-  `date_publication` datetime DEFAULT current_timestamp(),
-  `id_likes_utilisateurs` int(11) DEFAULT NULL,
-  `utilisateur_idutilisateur` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `idreponse_forum` int NOT NULL,
+  `texte_reponse` mediumtext,
+  `date_publication` datetime DEFAULT CURRENT_TIMESTAMP,
+  `id_likes_utilisateurs` int DEFAULT NULL,
+  `utilisateur_idutilisateur` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -546,14 +586,14 @@ CREATE TABLE `reponse_forum` (
 --
 
 CREATE TABLE `signalement` (
-  `idsignalement` int(11) NOT NULL,
+  `idsignalement` int NOT NULL,
   `titre` varchar(45) DEFAULT NULL,
-  `message` mediumtext DEFAULT NULL,
+  `message` mediumtext,
   `url_photo` varchar(45) DEFAULT NULL,
-  `date_signalement` datetime DEFAULT current_timestamp(),
-  `statut` tinyint(4) DEFAULT 0,
-  `utilisateur_idutilisateur` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `date_signalement` datetime DEFAULT CURRENT_TIMESTAMP,
+  `statut` tinyint DEFAULT '0',
+  `utilisateur_idutilisateur` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -562,12 +602,12 @@ CREATE TABLE `signalement` (
 --
 
 CREATE TABLE `sujet_forum` (
-  `idsujet_forum` int(11) NOT NULL,
+  `idsujet_forum` int NOT NULL,
   `titre` varchar(45) DEFAULT NULL,
-  `id_reponse_epinglee` int(11) DEFAULT NULL,
-  `utilisateur_idutilisateur` int(11) NOT NULL,
-  `categorie_forum_idcategories_forum` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_reponse_epinglee` int DEFAULT NULL,
+  `utilisateur_idutilisateur` int NOT NULL,
+  `categorie_forum_idcategories_forum` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -576,10 +616,10 @@ CREATE TABLE `sujet_forum` (
 --
 
 CREATE TABLE `sujet_forum_favoris` (
-  `idsujet_forum_favoris` int(11) NOT NULL,
-  `id_utilisateur` int(11) DEFAULT NULL,
-  `id_sujet_favoris` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `idsujet_forum_favoris` int NOT NULL,
+  `id_utilisateur` int DEFAULT NULL,
+  `id_sujet_favoris` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -588,10 +628,10 @@ CREATE TABLE `sujet_forum_favoris` (
 --
 
 CREATE TABLE `sujet_forum_has_reponse_forum` (
-  `sujet_forum_idsujet_forum` int(11) NOT NULL,
-  `sujet_forum_utilisateur_idutilisateur` int(11) NOT NULL,
-  `reponse_forum_idreponse_forum` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `sujet_forum_idsujet_forum` int NOT NULL,
+  `sujet_forum_utilisateur_idutilisateur` int NOT NULL,
+  `reponse_forum_idreponse_forum` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -600,10 +640,10 @@ CREATE TABLE `sujet_forum_has_reponse_forum` (
 --
 
 CREATE TABLE `types_animaux` (
-  `idtypes_animaux` int(11) NOT NULL,
+  `idtypes_animaux` int NOT NULL,
   `nom` varchar(45) DEFAULT NULL,
   `url_icone` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `types_animaux`
@@ -628,92 +668,96 @@ INSERT INTO `types_animaux` (`idtypes_animaux`, `nom`, `url_icone`) VALUES
 --
 
 CREATE TABLE `utilisateur` (
-  `idutilisateur` int(11) NOT NULL,
+  `idutilisateur` int NOT NULL,
   `pseudo` varchar(45) DEFAULT NULL,
   `mot_de_passe` varchar(255) DEFAULT NULL,
+  `google_sub` varchar(35) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `prenom` varchar(45) DEFAULT NULL,
   `nom` varchar(45) DEFAULT NULL,
   `adresse_mail` varchar(45) DEFAULT NULL,
   `url_photo` varchar(45) DEFAULT NULL,
   `date_naissance` date DEFAULT NULL,
   `adresse` varchar(45) DEFAULT NULL,
-  `description` mediumtext DEFAULT NULL,
-  `date_creation` datetime DEFAULT current_timestamp(),
+  `description` mediumtext,
+  `date_creation` datetime DEFAULT CURRENT_TIMESTAMP,
   `date_derniere_connexion` datetime DEFAULT NULL,
   `token` varchar(255) DEFAULT NULL,
-  `statut` tinyint(4) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `statut` tinyint DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`idutilisateur`, `pseudo`, `mot_de_passe`, `prenom`, `nom`, `adresse_mail`, `url_photo`, `date_naissance`, `adresse`, `description`, `date_creation`, `date_derniere_connexion`, `token`, `statut`) VALUES
-(2, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:15:24', NULL, NULL, NULL),
-(3, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:15:26', NULL, NULL, NULL),
-(4, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:16:39', NULL, NULL, NULL),
-(5, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:16:53', NULL, NULL, NULL),
-(6, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:17:01', NULL, NULL, NULL),
-(7, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:17:01', NULL, NULL, NULL),
-(8, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:17:21', NULL, NULL, NULL),
-(9, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:17:31', NULL, NULL, NULL),
-(10, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:26:05', NULL, NULL, NULL),
-(11, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:26:46', NULL, NULL, NULL),
-(12, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:27:12', NULL, NULL, NULL),
-(13, NULL, '$argon2i$v=19$m=2048,t=4,p=3$dUtXa29hVEt2eDhJbjJ0eQ$/+I4XqKPjjHkQf+h9SRMDGDQ9CEx2MUn2fNcoOW6NzU', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:27:50', '2021-10-11 21:27:45', NULL, NULL),
-(14, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:29:29', NULL, NULL, NULL),
-(15, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:29:35', NULL, NULL, NULL),
-(16, 'Marin', '', 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:29:36', NULL, NULL, NULL),
-(17, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:31:34', NULL, NULL, NULL),
-(18, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:31:52', NULL, NULL, NULL),
-(19, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:32:06', NULL, NULL, NULL),
-(20, NULL, '=19=2048,t=4,p=3+BRptAhGziq2I', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:32:36', NULL, NULL, NULL),
-(21, NULL, ':mot_de_passe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:33:57', NULL, NULL, NULL),
-(22, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:34:24', NULL, NULL, NULL),
-(23, NULL, 'test', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:37:05', NULL, NULL, NULL),
-(24, NULL, '=19=2048,t=4,p=3$39MWwuk1lt2sITkfayWCnivyQXgGcX89ojPzoucmkAU', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:47:59', NULL, NULL, NULL),
-(25, NULL, ':mot_de_passe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:49:10', NULL, NULL, NULL),
-(26, NULL, ':mot_de_passe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:49:36', NULL, NULL, NULL),
-(27, NULL, ':mot_de_passe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:49:43', NULL, NULL, NULL),
-(28, NULL, ':mot_de_passe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:50:02', NULL, NULL, NULL),
-(29, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:50:33', NULL, NULL, NULL),
-(30, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:51:15', NULL, NULL, NULL),
-(31, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:51:26', NULL, NULL, NULL),
-(32, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:52:55', NULL, NULL, NULL),
-(33, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:53:09', NULL, NULL, NULL),
-(34, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:53:18', NULL, NULL, NULL),
-(35, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:54:52', NULL, NULL, NULL),
-(36, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:55:46', NULL, NULL, NULL),
-(37, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:55:57', NULL, NULL, NULL),
-(38, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:56:09', NULL, NULL, NULL),
-(39, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:57:14', NULL, NULL, NULL),
-(40, NULL, 'pass', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:57:25', NULL, NULL, NULL),
-(41, NULL, 'passwordddhere', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:57:48', NULL, NULL, NULL),
-(42, NULL, 'passwordddhere', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:58:45', NULL, '424242', NULL),
-(43, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:59:42', NULL, NULL, NULL),
-(44, NULL, 'aaaaaa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:59:56', NULL, NULL, NULL),
-(45, NULL, '42ksdfhzçepoikriughzeojufoihfiudhfn', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:00:16', NULL, NULL, NULL),
-(46, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:00:31', NULL, NULL, NULL),
-(47, NULL, '42ksdfhzçepoikriughzeojufoihfiudhfn', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:00:53', NULL, NULL, NULL),
-(48, NULL, '42ksdfhzçepoikriughzeojufoihfiudhfn', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:01:25', NULL, NULL, NULL),
-(49, NULL, '$argon2i$v=19$m=2048,t=4,p=3$WlExaVRCU3BHTUFKTDFWSQ$lyDHyXkg+aKauZHinbxkLHSgWaDBXHlt3dHjzHnRh+U', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:01:40', NULL, NULL, NULL),
-(50, 'Marin', '$argon2i$v=19$m=2048,t=4,p=3$Q05uSXFmV05TMjNPWmhRSw$qlG7lkcoKmy5KyGNorKpwZroT/kJzaE+Qjg6ExNhIRc', 'az', 'az', 'az', NULL, '2021-10-11', NULL, NULL, '2021-10-11 22:02:43', NULL, NULL, NULL),
-(51, 'Marin', '$argon2i$v=19$m=2048,t=4,p=3$aU9JN1lueXN0MmJ0NC5lcQ$hWN2HUNE5EGfDiAvjUWXxc8JDe8b/r1KBNTirnS5/Kg', 'az', 'az', 'az', NULL, '2021-10-11', NULL, NULL, '2021-10-11 22:03:10', NULL, NULL, NULL),
-(52, 'pseudo', '$argon2i$v=19$m=2048,t=4,p=3$aXNMYVZUalBKVXBrZWpodA$iJVVOSyeYIXQMl9tjmcEkVTCRqf+nTlQMgeiaJEmd58', 'pseudo', 'pseudo', 'pseudo', NULL, '2021-10-11', NULL, NULL, '2021-10-11 23:03:55', NULL, '12a343c3aedd2568abebad71d65391ab18f1c5ea14e78974bc66b9fc01145b0dd8ab18-52-1634068665', NULL),
-(54, 'matthis', '$argon2i$v=19$m=2048,t=4,p=3$N3FYT1lqcFRudU4wanoxMw$n/t1XIvr5VvbjXCqlTNq/7awPHS1YT/mITckS4BIXo8', 'matthis', 'matthis', 'matthis', 'profil.jpg', '0005-04-05', NULL, 'Jeune propriétaire de poules du 77', '2021-10-12 10:20:36', NULL, '335f2520da38fc1bb22ab612e618424abe60bb3667a1848e550de77969174eefc30bb7-54-1636455708', 1),
-(55, 'maaa', '$argon2i$v=19$m=2048,t=4,p=3$b0VnREI0TUxkSG50TDVjZA$90IKf0fK9U0FRJciVPv+nobhL6cjOe+FJ6M4jfPXJCg', 'a', 'a', 'a', NULL, '2021-10-12', NULL, NULL, '2021-10-12 12:43:40', NULL, NULL, NULL),
-(56, 'msqdlksqkhdsqd', '$argon2i$v=19$m=2048,t=4,p=3$VFRhMTlmTlBsUlJsRXkzMA$iBQSxxmYWcBQuOyB4oUYgwjmYqxDgnAqUhjYZPbKGjs', 'a', 'a', 'a', NULL, '2021-10-12', NULL, NULL, '2021-10-12 12:44:10', NULL, NULL, NULL),
-(58, 'testt', '$argon2i$v=19$m=2048,t=4,p=3$RU5jV1hYN3laQWFqdWNPQg$X9MRs3KIP/NUCnj5TcOQ1xbqT+ui5SkmoPbJSS7x1D0', 'test', 'test', 'test', NULL, '2021-10-04', NULL, NULL, '2021-10-12 15:06:47', NULL, '5ec4d4b64a26edbc179bf0e544fa66b1188e1972a71aeae694dc12a0d3ef9dc1c73b14-58-1634044036', NULL),
-(59, 'test', '$argon2i$v=19$m=2048,t=4,p=3$OVIxSmFPZXBjaVNKQWVjSA$adFKdFpM4UoPPrm1FL4PEJ1jG5EcCgc8isxc3tVga+A', 'testttt', 'testttt', 'test@psqodskdml', NULL, '0001-01-01', NULL, NULL, '2021-10-12 15:19:52', NULL, '92fa14bc9ef41cd1a496a114714163f0247d1f070778aca9b6180b1a1da260353201af-59-1634044798', NULL),
-(60, 'testhash', '$2y$10$qxTOsJZWW507dhLOZT/SEOLT8.IJXZ/vvwxDgBkwqiRrwXUoih3zm', 'testhash', 'testhash', 'testhash', NULL, '2021-10-21', NULL, NULL, '2021-10-13 01:58:22', NULL, '330ea81dce81d8275da9dd3ce0e97d900ae7e774f02d42624ee0141f7d79a013bae4a9-60-1634083112', NULL),
-(61, 'lucien', '$2y$10$dmkRoSdUp2xZ/QLS1MAEmeUKoJKmrrQzFRu8cGwkUwwpUStX0PLJO', 'lucien', 'lucien', 'lucien', NULL, '2222-12-21', NULL, NULL, '2021-10-18 09:21:30', NULL, 'f1def9ce20bd17f72ec9823b398b42a318687b7c4f871ff5d42e57f2a7306d7282c460-61-1636455693', NULL),
-(62, 'Elon', '$2y$10$PgpcUxsz5xhy/pQlWd0AYu1Rhh8vcQKWJDJfVCYfy9Qoz/6zX36Ui', 'elon', 'elon', 'elon', NULL, '0001-11-11', NULL, NULL, '2021-10-19 19:06:13', NULL, '8577a2bc96ce89ab224c503927b6019f9ceb755341e0a0240c1ee541c6c721691ed60b-62-1634663770', NULL),
-(63, 'testtest', '$2y$10$hzIy1WSrfXHfLORkZKu7Ke91dsCipr45bRVEkPzQGWS394eMshBIe', 'testtest', 'testtest', 'testtest', 'déconnecté', '0000-00-00', NULL, NULL, '2021-10-19 20:07:10', NULL, 'b498b38682a6d01eb5ae0fd03fa9c663d920954a76e3eb565b6a46cfad71e8345bbf56-63-1636061066', NULL),
-(64, 'a', '$argon2i$v=19$m=2048,t=4,p=3$T0UzbXVJOWozY3hSSmg4Lw$YOmfB0jUVNJqUjoL8YclXQHxtjG4Wzir1PqqCZ1Rgj8', 'testtesttest', 'testtesttest', 'testtesttest', 'uploadedOn1634667264_by_64_peewee.jpg', '0008-08-08', NULL, NULL, '2021-10-19 20:07:48', NULL, '903c970b017c3109170fe39e89bb64fa5f0fcad5e00a157313d3a63a12554e3be6ff4b-64-1634670563', NULL),
-(65, 'admin', '$2y$10$zZTUX6mXg0b0rDwcYGHWjeHIrPzU/LZ64.uUiQajUsrrYaDS1rwZa', 'admin', 'admin', 'admin', 'déconnecté', '0001-01-01', NULL, NULL, '2021-12-22 19:05:11', NULL, '68dc3ad39752338eac1c105071d0cdbcf385f0285b358e9925a8c3794e18442276d0fa-65-1640821926', 1),
-(66, 'Zoey', '$2y$10$jhRHP68VNZ/1snIW9TL07uk78ZhiUxu5J2HUbRAtrLOt2F6BaJH9q', 'zoey', 'zoey', 'zoey', '', '0001-01-01', NULL, NULL, '2022-01-19 01:22:55', NULL, NULL, NULL),
-(67, 'zozo', '$2y$10$3sfZi36PiXoxIFEQAir8GeXixLSkCYVgrGx0/ZTQEidtpQ7IYzD3q', 'zozo', 'zozo', 'zozo', '', '0007-06-05', NULL, NULL, '2022-01-19 01:28:38', NULL, 'f66ffc919df28b85487b6923765cd4f22cb7032d0cba81b3369de70f56170a5f670124-67-1642554479', 1),
-(68, 'aa', '$2y$10$57y61d0jtqkiGmBDFZ/rSunC2HrCcetvPt4Eba45.6OBroIutxqUu', 'aa', 'aa', '', '', '4567-03-01', NULL, NULL, '2022-01-20 17:51:48', NULL, '2befff07f6be99744c263afd90b9954c79823a607dd9c4065e4da726a66c3278202aab-68-1644081453', NULL);
+INSERT INTO `utilisateur` (`idutilisateur`, `pseudo`, `mot_de_passe`, `google_sub`, `prenom`, `nom`, `adresse_mail`, `url_photo`, `date_naissance`, `adresse`, `description`, `date_creation`, `date_derniere_connexion`, `token`, `statut`) VALUES
+(2, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:15:24', NULL, NULL, NULL),
+(3, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:15:26', NULL, NULL, NULL),
+(4, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:16:39', NULL, NULL, NULL),
+(5, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:16:53', NULL, NULL, NULL),
+(6, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:17:01', NULL, NULL, NULL),
+(7, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:17:01', NULL, NULL, NULL),
+(8, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:17:21', NULL, NULL, NULL),
+(9, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:17:31', NULL, NULL, NULL),
+(10, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:26:05', NULL, NULL, NULL),
+(11, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:26:46', NULL, NULL, NULL),
+(12, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:27:12', NULL, NULL, NULL),
+(13, NULL, '$argon2i$v=19$m=2048,t=4,p=3$dUtXa29hVEt2eDhJbjJ0eQ$/+I4XqKPjjHkQf+h9SRMDGDQ9CEx2MUn2fNcoOW6NzU', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:27:50', '2021-10-11 21:27:45', NULL, NULL),
+(14, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:29:29', NULL, NULL, NULL),
+(15, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:29:35', NULL, NULL, NULL),
+(16, 'Marin', '', NULL, 'Marin', 'BOUANCHAUD', 'marin@zoey-app.fr', NULL, '2021-10-11', NULL, NULL, '2021-10-11 21:29:36', NULL, NULL, NULL),
+(17, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:31:34', NULL, NULL, NULL),
+(18, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:31:52', NULL, NULL, NULL),
+(19, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:32:06', NULL, NULL, NULL),
+(20, NULL, '=19=2048,t=4,p=3+BRptAhGziq2I', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:32:36', NULL, NULL, NULL),
+(21, NULL, ':mot_de_passe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:33:57', NULL, NULL, NULL),
+(22, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:34:24', NULL, NULL, NULL),
+(23, NULL, 'test', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:37:05', NULL, NULL, NULL),
+(24, NULL, '=19=2048,t=4,p=3$39MWwuk1lt2sITkfayWCnivyQXgGcX89ojPzoucmkAU', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:47:59', NULL, NULL, NULL),
+(25, NULL, ':mot_de_passe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:49:10', NULL, NULL, NULL),
+(26, NULL, ':mot_de_passe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:49:36', NULL, NULL, NULL),
+(27, NULL, ':mot_de_passe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:49:43', NULL, NULL, NULL),
+(28, NULL, ':mot_de_passe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:50:02', NULL, NULL, NULL),
+(29, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:50:33', NULL, NULL, NULL),
+(30, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:51:15', NULL, NULL, NULL),
+(31, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:51:26', NULL, NULL, NULL),
+(32, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:52:55', NULL, NULL, NULL),
+(33, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:53:09', NULL, NULL, NULL),
+(34, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:53:18', NULL, NULL, NULL),
+(35, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:54:52', NULL, NULL, NULL),
+(36, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:55:46', NULL, NULL, NULL),
+(37, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:55:57', NULL, NULL, NULL),
+(38, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:56:09', NULL, NULL, NULL),
+(39, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:57:14', NULL, NULL, NULL),
+(40, NULL, 'pass', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:57:25', NULL, NULL, NULL),
+(41, NULL, 'passwordddhere', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:57:48', NULL, NULL, NULL),
+(42, NULL, 'passwordddhere', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:58:45', NULL, '424242', NULL),
+(43, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:59:42', NULL, NULL, NULL),
+(44, NULL, 'aaaaaa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 21:59:56', NULL, NULL, NULL),
+(45, NULL, '42ksdfhzçepoikriughzeojufoihfiudhfn', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:00:16', NULL, NULL, NULL),
+(46, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:00:31', NULL, NULL, NULL),
+(47, NULL, '42ksdfhzçepoikriughzeojufoihfiudhfn', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:00:53', NULL, NULL, NULL),
+(48, NULL, '42ksdfhzçepoikriughzeojufoihfiudhfn', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:01:25', NULL, NULL, NULL),
+(49, NULL, '$argon2i$v=19$m=2048,t=4,p=3$WlExaVRCU3BHTUFKTDFWSQ$lyDHyXkg+aKauZHinbxkLHSgWaDBXHlt3dHjzHnRh+U', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-10-11 22:01:40', NULL, NULL, NULL),
+(50, 'Marin', '$argon2i$v=19$m=2048,t=4,p=3$Q05uSXFmV05TMjNPWmhRSw$qlG7lkcoKmy5KyGNorKpwZroT/kJzaE+Qjg6ExNhIRc', NULL, 'az', 'az', 'az', NULL, '2021-10-11', NULL, NULL, '2021-10-11 22:02:43', NULL, NULL, NULL),
+(51, 'Marin', '$argon2i$v=19$m=2048,t=4,p=3$aU9JN1lueXN0MmJ0NC5lcQ$hWN2HUNE5EGfDiAvjUWXxc8JDe8b/r1KBNTirnS5/Kg', NULL, 'az', 'az', 'az', NULL, '2021-10-11', NULL, NULL, '2021-10-11 22:03:10', NULL, NULL, NULL),
+(52, 'pseudo', '$argon2i$v=19$m=2048,t=4,p=3$aXNMYVZUalBKVXBrZWpodA$iJVVOSyeYIXQMl9tjmcEkVTCRqf+nTlQMgeiaJEmd58', NULL, 'pseudo', 'pseudo', 'pseudo', NULL, '2021-10-11', NULL, NULL, '2021-10-11 23:03:55', NULL, '12a343c3aedd2568abebad71d65391ab18f1c5ea14e78974bc66b9fc01145b0dd8ab18-52-1634068665', NULL),
+(54, 'matthis', '$argon2i$v=19$m=2048,t=4,p=3$N3FYT1lqcFRudU4wanoxMw$n/t1XIvr5VvbjXCqlTNq/7awPHS1YT/mITckS4BIXo8', NULL, 'matthis', 'matthis', 'matthis', 'profil.jpg', '0005-04-05', NULL, 'Jeune propriétaire de poules du 77', '2021-10-12 10:20:36', NULL, '335f2520da38fc1bb22ab612e618424abe60bb3667a1848e550de77969174eefc30bb7-54-1636455708', 1),
+(55, 'maaa', '$argon2i$v=19$m=2048,t=4,p=3$b0VnREI0TUxkSG50TDVjZA$90IKf0fK9U0FRJciVPv+nobhL6cjOe+FJ6M4jfPXJCg', NULL, 'a', 'a', 'a', NULL, '2021-10-12', NULL, NULL, '2021-10-12 12:43:40', NULL, NULL, NULL),
+(56, 'msqdlksqkhdsqd', '$argon2i$v=19$m=2048,t=4,p=3$VFRhMTlmTlBsUlJsRXkzMA$iBQSxxmYWcBQuOyB4oUYgwjmYqxDgnAqUhjYZPbKGjs', NULL, 'a', 'a', 'a', NULL, '2021-10-12', NULL, NULL, '2021-10-12 12:44:10', NULL, NULL, NULL),
+(58, 'testt', '$argon2i$v=19$m=2048,t=4,p=3$RU5jV1hYN3laQWFqdWNPQg$X9MRs3KIP/NUCnj5TcOQ1xbqT+ui5SkmoPbJSS7x1D0', NULL, 'test', 'test', 'test', NULL, '2021-10-04', NULL, NULL, '2021-10-12 15:06:47', NULL, '5ec4d4b64a26edbc179bf0e544fa66b1188e1972a71aeae694dc12a0d3ef9dc1c73b14-58-1634044036', NULL),
+(59, 'test', '$argon2i$v=19$m=2048,t=4,p=3$OVIxSmFPZXBjaVNKQWVjSA$adFKdFpM4UoPPrm1FL4PEJ1jG5EcCgc8isxc3tVga+A', NULL, 'testttt', 'testttt', 'test@psqodskdml', NULL, '0001-01-01', NULL, NULL, '2021-10-12 15:19:52', NULL, '92fa14bc9ef41cd1a496a114714163f0247d1f070778aca9b6180b1a1da260353201af-59-1634044798', NULL),
+(60, 'testhash', '$2y$10$qxTOsJZWW507dhLOZT/SEOLT8.IJXZ/vvwxDgBkwqiRrwXUoih3zm', NULL, 'testhash', 'testhash', 'testhash', NULL, '2021-10-21', NULL, NULL, '2021-10-13 01:58:22', NULL, '330ea81dce81d8275da9dd3ce0e97d900ae7e774f02d42624ee0141f7d79a013bae4a9-60-1634083112', NULL),
+(61, 'lucien', '$2y$10$dmkRoSdUp2xZ/QLS1MAEmeUKoJKmrrQzFRu8cGwkUwwpUStX0PLJO', NULL, 'lucien', 'lucien', 'lucien', NULL, '2222-12-21', NULL, NULL, '2021-10-18 09:21:30', NULL, 'f1def9ce20bd17f72ec9823b398b42a318687b7c4f871ff5d42e57f2a7306d7282c460-61-1636455693', NULL),
+(62, 'Elon', '$2y$10$PgpcUxsz5xhy/pQlWd0AYu1Rhh8vcQKWJDJfVCYfy9Qoz/6zX36Ui', NULL, 'elon', 'elon', 'elon', NULL, '0001-11-11', NULL, NULL, '2021-10-19 19:06:13', NULL, '8577a2bc96ce89ab224c503927b6019f9ceb755341e0a0240c1ee541c6c721691ed60b-62-1634663770', NULL),
+(63, 'testtest', '$2y$10$hzIy1WSrfXHfLORkZKu7Ke91dsCipr45bRVEkPzQGWS394eMshBIe', NULL, 'testtest', 'testtest', 'testtest', 'déconnecté', '2022-02-01', NULL, NULL, '2021-10-19 20:07:10', NULL, 'b498b38682a6d01eb5ae0fd03fa9c663d920954a76e3eb565b6a46cfad71e8345bbf56-63-1636061066', NULL),
+(64, 'a', '$argon2i$v=19$m=2048,t=4,p=3$T0UzbXVJOWozY3hSSmg4Lw$YOmfB0jUVNJqUjoL8YclXQHxtjG4Wzir1PqqCZ1Rgj8', NULL, 'testtesttest', 'testtesttest', 'testtesttest', 'uploadedOn1634667264_by_64_peewee.jpg', '0008-08-08', NULL, NULL, '2021-10-19 20:07:48', NULL, '903c970b017c3109170fe39e89bb64fa5f0fcad5e00a157313d3a63a12554e3be6ff4b-64-1634670563', NULL),
+(65, 'admin', '$2y$10$zZTUX6mXg0b0rDwcYGHWjeHIrPzU/LZ64.uUiQajUsrrYaDS1rwZa', NULL, 'admin', 'admin', 'admin', 'déconnecté', '0001-01-01', NULL, NULL, '2021-12-22 19:05:11', NULL, '68dc3ad39752338eac1c105071d0cdbcf385f0285b358e9925a8c3794e18442276d0fa-65-1640821926', 1),
+(66, 'Zoey', '$2y$10$jhRHP68VNZ/1snIW9TL07uk78ZhiUxu5J2HUbRAtrLOt2F6BaJH9q', NULL, 'zoey', 'zoey', 'zoey', '', '0001-01-01', NULL, NULL, '2022-01-19 01:22:55', NULL, NULL, NULL),
+(67, 'zozo', '$2y$10$3sfZi36PiXoxIFEQAir8GeXixLSkCYVgrGx0/ZTQEidtpQ7IYzD3q', NULL, 'zozo', 'zozo', 'zozo', '', '0007-06-05', NULL, NULL, '2022-01-19 01:28:38', NULL, 'f66ffc919df28b85487b6923765cd4f22cb7032d0cba81b3369de70f56170a5f670124-67-1642554479', 1),
+(68, 'aa', '$2y$10$57y61d0jtqkiGmBDFZ/rSunC2HrCcetvPt4Eba45.6OBroIutxqUu', NULL, 'aa', 'aa', '', '', '4567-03-01', NULL, NULL, '2022-01-20 17:51:48', NULL, 'a917e93f66f275aa203d5bc17d3e07a16b252475459a16785bdc4d1ceec9e55f9183df-68-1644932031', NULL),
+(74, NULL, NULL, '105790575614120714764222222222222', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-15 00:39:29', NULL, NULL, NULL),
+(77, 'Marin', NULL, '105790575614120714764', NULL, NULL, 'marin.bouanchaud@gmail.com', 'defaultProfile.jpg', NULL, NULL, NULL, '2022-02-15 00:41:50', NULL, NULL, NULL),
+(78, 'dd', '$2y$10$fi/HNVljsOwMqNM9WXc/GeswEVDd3iZOaafQbBVK1qzJCJBJqBcvC', NULL, NULL, NULL, 'exemple@zoey.fr', '', NULL, NULL, NULL, '2022-02-15 00:50:44', NULL, 'aadfdaa6f2d54ee18ea0d7c7fe62c09a578bbc586d7f0d92dd523c2cfa61bd85fc6f84-78-1644884289', NULL);
 
 -- --------------------------------------------------------
 
@@ -722,10 +766,10 @@ INSERT INTO `utilisateur` (`idutilisateur`, `pseudo`, `mot_de_passe`, `prenom`, 
 --
 
 CREATE TABLE `utilisateur_has_animal_a_adopter` (
-  `utilisateur_idutilisateur` int(11) NOT NULL,
-  `animal_a_adopter_idanimal_a_adopter` int(11) NOT NULL,
-  `animal_a_adopter_refuge_idrefuge` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `utilisateur_idutilisateur` int NOT NULL,
+  `animal_a_adopter_idanimal_a_adopter` int NOT NULL,
+  `animal_a_adopter_refuge_idrefuge` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -734,9 +778,9 @@ CREATE TABLE `utilisateur_has_animal_a_adopter` (
 --
 
 CREATE TABLE `utilisateur_has_badges` (
-  `id_user` int(11) DEFAULT NULL,
-  `id_badge` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_user` int DEFAULT NULL,
+  `id_badge` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `utilisateur_has_badges`
@@ -756,9 +800,9 @@ INSERT INTO `utilisateur_has_badges` (`id_user`, `id_badge`) VALUES
 --
 
 CREATE TABLE `utilisateur_has_favorite_animals` (
-  `id_user` int(11) DEFAULT NULL,
-  `id_favoriteAnimal` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_user` int DEFAULT NULL,
+  `id_favoriteAnimal` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `utilisateur_has_favorite_animals`
@@ -984,127 +1028,127 @@ ALTER TABLE `utilisateur_has_favorite_animals`
 -- AUTO_INCREMENT pour la table `animal_a_adopter`
 --
 ALTER TABLE `animal_a_adopter`
-  MODIFY `idanimal_a_adopter` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `idanimal_a_adopter` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT pour la table `badge`
 --
 ALTER TABLE `badge`
-  MODIFY `idbadge` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idbadge` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `categorie_blog`
 --
 ALTER TABLE `categorie_blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `categorie_forum`
 --
 ALTER TABLE `categorie_forum`
-  MODIFY `idcategories_forum` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcategories_forum` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `centres_interet`
 --
 ALTER TABLE `centres_interet`
-  MODIFY `idcentres_interet` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcentres_interet` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `commentaire_post`
 --
 ALTER TABLE `commentaire_post`
-  MODIFY `idcommentaire_post` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcommentaire_post` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `conversation`
 --
 ALTER TABLE `conversation`
-  MODIFY `idconversation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `idconversation` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT pour la table `liste_amis`
 --
 ALTER TABLE `liste_amis`
-  MODIFY `idliste_amis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `idliste_amis` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT pour la table `message`
 --
 ALTER TABLE `message`
-  MODIFY `idmessage` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `idmessage` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT pour la table `newsletter`
 --
 ALTER TABLE `newsletter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `post`
 --
 ALTER TABLE `post`
-  MODIFY `idpost` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `idpost` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT pour la table `profil_animal_de_compagnie`
 --
 ALTER TABLE `profil_animal_de_compagnie`
-  MODIFY `idprofil_animal_de_compagnie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `idprofil_animal_de_compagnie` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT pour la table `refuge`
 --
 ALTER TABLE `refuge`
-  MODIFY `idrefuge` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idrefuge` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pour la table `reinitialisation_mot_de_passe`
 --
 ALTER TABLE `reinitialisation_mot_de_passe`
-  MODIFY `idreinitialisation_mot_de_passe` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idreinitialisation_mot_de_passe` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `reponse_forum`
 --
 ALTER TABLE `reponse_forum`
-  MODIFY `idreponse_forum` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idreponse_forum` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `signalement`
 --
 ALTER TABLE `signalement`
-  MODIFY `idsignalement` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idsignalement` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `sujet_forum`
 --
 ALTER TABLE `sujet_forum`
-  MODIFY `idsujet_forum` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idsujet_forum` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `sujet_forum_favoris`
 --
 ALTER TABLE `sujet_forum_favoris`
-  MODIFY `idsujet_forum_favoris` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idsujet_forum_favoris` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `types_animaux`
 --
 ALTER TABLE `types_animaux`
-  MODIFY `idtypes_animaux` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idtypes_animaux` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `idutilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `idutilisateur` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- Contraintes pour les tables déchargées
@@ -1114,14 +1158,14 @@ ALTER TABLE `utilisateur`
 -- Contraintes pour la table `animal_a_adopter`
 --
 ALTER TABLE `animal_a_adopter`
-  ADD CONSTRAINT `animal_a_adopter_ibfk_1` FOREIGN KEY (`idtype`) REFERENCES `types_animaux` (`idtypes_animaux`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `animal_a_adopter_ibfk_1` FOREIGN KEY (`idtype`) REFERENCES `types_animaux` (`idtypes_animaux`);
 
 --
 -- Contraintes pour la table `animal_a_adopter_has_badge`
 --
 ALTER TABLE `animal_a_adopter_has_badge`
-  ADD CONSTRAINT `fk_animal_a_adopter_has_badge_animal_a_adopter1` FOREIGN KEY (`animal_a_adopter_idanimal_a_adopter`) REFERENCES `animal_a_adopter` (`idanimal_a_adopter`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_animal_a_adopter_has_badge_badge1` FOREIGN KEY (`badge_idbadge`) REFERENCES `badge` (`idbadge`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_animal_a_adopter_has_badge_animal_a_adopter1` FOREIGN KEY (`animal_a_adopter_idanimal_a_adopter`) REFERENCES `animal_a_adopter` (`idanimal_a_adopter`),
+  ADD CONSTRAINT `fk_animal_a_adopter_has_badge_badge1` FOREIGN KEY (`badge_idbadge`) REFERENCES `badge` (`idbadge`);
 
 --
 -- Contraintes pour la table `blog`
@@ -1133,96 +1177,96 @@ ALTER TABLE `blog`
 -- Contraintes pour la table `centres_interet_has_types_animaux`
 --
 ALTER TABLE `centres_interet_has_types_animaux`
-  ADD CONSTRAINT `fk_centres_interet_has_types_animaux_centres_interet1` FOREIGN KEY (`centres_interet_idcentres_interet`) REFERENCES `centres_interet` (`idcentres_interet`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_centres_interet_has_types_animaux_types_animaux1` FOREIGN KEY (`types_animaux_idtypes_animaux`) REFERENCES `types_animaux` (`idtypes_animaux`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_centres_interet_has_types_animaux_centres_interet1` FOREIGN KEY (`centres_interet_idcentres_interet`) REFERENCES `centres_interet` (`idcentres_interet`),
+  ADD CONSTRAINT `fk_centres_interet_has_types_animaux_types_animaux1` FOREIGN KEY (`types_animaux_idtypes_animaux`) REFERENCES `types_animaux` (`idtypes_animaux`);
 
 --
 -- Contraintes pour la table `commentaire_post`
 --
 ALTER TABLE `commentaire_post`
-  ADD CONSTRAINT `fk_commentaire_post_post1` FOREIGN KEY (`post_idpost`,`post_profil_animal_de_compagnie_idprofil_animal_de_compagnie`,`post_profil_animal_de_compagnie_utilisateur_idutilisateur1`) REFERENCES `post` (`idpost`, `profil_animal_de_compagnie_idprofil_animal_de_compagnie`, `profil_animal_de_compagnie_utilisateur_idutilisateur1`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_commentaire_post_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_commentaire_post_post1` FOREIGN KEY (`post_idpost`,`post_profil_animal_de_compagnie_idprofil_animal_de_compagnie`,`post_profil_animal_de_compagnie_utilisateur_idutilisateur1`) REFERENCES `post` (`idpost`, `profil_animal_de_compagnie_idprofil_animal_de_compagnie`, `profil_animal_de_compagnie_utilisateur_idutilisateur1`),
+  ADD CONSTRAINT `fk_commentaire_post_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `utilisateur` (`idutilisateur`);
 
 --
 -- Contraintes pour la table `conversation_has_utilisateur`
 --
 ALTER TABLE `conversation_has_utilisateur`
-  ADD CONSTRAINT `fk_conversation_has_utilisateur_conversation1` FOREIGN KEY (`conversation_idconversation`) REFERENCES `conversation` (`idconversation`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_conversation_has_utilisateur_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_conversation_has_utilisateur_conversation1` FOREIGN KEY (`conversation_idconversation`) REFERENCES `conversation` (`idconversation`),
+  ADD CONSTRAINT `fk_conversation_has_utilisateur_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `utilisateur` (`idutilisateur`);
 
 --
 -- Contraintes pour la table `message`
 --
 ALTER TABLE `message`
-  ADD CONSTRAINT `fk_message_conversation1` FOREIGN KEY (`conversation_idconversation`) REFERENCES `conversation` (`idconversation`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_message_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_message_conversation1` FOREIGN KEY (`conversation_idconversation`) REFERENCES `conversation` (`idconversation`),
+  ADD CONSTRAINT `fk_message_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `utilisateur` (`idutilisateur`);
 
 --
 -- Contraintes pour la table `post`
 --
 ALTER TABLE `post`
-  ADD CONSTRAINT `fk_post_profil_animal_de_compagnie1` FOREIGN KEY (`profil_animal_de_compagnie_idprofil_animal_de_compagnie`,`profil_animal_de_compagnie_utilisateur_idutilisateur1`) REFERENCES `profil_animal_de_compagnie` (`idprofil_animal_de_compagnie`, `utilisateur_idutilisateur1`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_post_profil_animal_de_compagnie1` FOREIGN KEY (`profil_animal_de_compagnie_idprofil_animal_de_compagnie`,`profil_animal_de_compagnie_utilisateur_idutilisateur1`) REFERENCES `profil_animal_de_compagnie` (`idprofil_animal_de_compagnie`, `utilisateur_idutilisateur1`);
 
 --
 -- Contraintes pour la table `post_likes`
 --
 ALTER TABLE `post_likes`
-  ADD CONSTRAINT `post_likes_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `post_likes_ibfk_2` FOREIGN KEY (`id_post`) REFERENCES `post` (`idpost`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `post_likes_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `utilisateur` (`idutilisateur`),
+  ADD CONSTRAINT `post_likes_ibfk_2` FOREIGN KEY (`id_post`) REFERENCES `post` (`idpost`);
 
 --
 -- Contraintes pour la table `profil_animal_de_compagnie`
 --
 ALTER TABLE `profil_animal_de_compagnie`
-  ADD CONSTRAINT `fk_profil_animal_de_compagnie_types_animaux1` FOREIGN KEY (`types_animaux_idtypes_animaux`) REFERENCES `types_animaux` (`idtypes_animaux`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_profil_animal_de_compagnie_utilisateur2` FOREIGN KEY (`utilisateur_idutilisateur1`) REFERENCES `utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_profil_animal_de_compagnie_types_animaux1` FOREIGN KEY (`types_animaux_idtypes_animaux`) REFERENCES `types_animaux` (`idtypes_animaux`),
+  ADD CONSTRAINT `fk_profil_animal_de_compagnie_utilisateur2` FOREIGN KEY (`utilisateur_idutilisateur1`) REFERENCES `utilisateur` (`idutilisateur`);
 
 --
 -- Contraintes pour la table `reponse_forum`
 --
 ALTER TABLE `reponse_forum`
-  ADD CONSTRAINT `fk_reponse_forum_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_reponse_forum_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `utilisateur` (`idutilisateur`);
 
 --
 -- Contraintes pour la table `signalement`
 --
 ALTER TABLE `signalement`
-  ADD CONSTRAINT `fk_signalement_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_signalement_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `utilisateur` (`idutilisateur`);
 
 --
 -- Contraintes pour la table `sujet_forum`
 --
 ALTER TABLE `sujet_forum`
-  ADD CONSTRAINT `fk_sujet_forum_categorie_forum1` FOREIGN KEY (`categorie_forum_idcategories_forum`) REFERENCES `categorie_forum` (`idcategories_forum`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_sujet_forum_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_sujet_forum_categorie_forum1` FOREIGN KEY (`categorie_forum_idcategories_forum`) REFERENCES `categorie_forum` (`idcategories_forum`),
+  ADD CONSTRAINT `fk_sujet_forum_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `utilisateur` (`idutilisateur`);
 
 --
 -- Contraintes pour la table `sujet_forum_has_reponse_forum`
 --
 ALTER TABLE `sujet_forum_has_reponse_forum`
-  ADD CONSTRAINT `fk_sujet_forum_has_reponse_forum_reponse_forum1` FOREIGN KEY (`reponse_forum_idreponse_forum`) REFERENCES `reponse_forum` (`idreponse_forum`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_sujet_forum_has_reponse_forum_sujet_forum1` FOREIGN KEY (`sujet_forum_idsujet_forum`,`sujet_forum_utilisateur_idutilisateur`) REFERENCES `sujet_forum` (`idsujet_forum`, `utilisateur_idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_sujet_forum_has_reponse_forum_reponse_forum1` FOREIGN KEY (`reponse_forum_idreponse_forum`) REFERENCES `reponse_forum` (`idreponse_forum`),
+  ADD CONSTRAINT `fk_sujet_forum_has_reponse_forum_sujet_forum1` FOREIGN KEY (`sujet_forum_idsujet_forum`,`sujet_forum_utilisateur_idutilisateur`) REFERENCES `sujet_forum` (`idsujet_forum`, `utilisateur_idutilisateur`);
 
 --
 -- Contraintes pour la table `utilisateur_has_animal_a_adopter`
 --
 ALTER TABLE `utilisateur_has_animal_a_adopter`
-  ADD CONSTRAINT `fk_utilisateur_has_animal_a_adopter_animal_a_adopter1` FOREIGN KEY (`animal_a_adopter_idanimal_a_adopter`,`animal_a_adopter_refuge_idrefuge`) REFERENCES `animal_a_adopter` (`idanimal_a_adopter`, `refuge_idrefuge`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_utilisateur_has_animal_a_adopter_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_utilisateur_has_animal_a_adopter_animal_a_adopter1` FOREIGN KEY (`animal_a_adopter_idanimal_a_adopter`,`animal_a_adopter_refuge_idrefuge`) REFERENCES `animal_a_adopter` (`idanimal_a_adopter`, `refuge_idrefuge`),
+  ADD CONSTRAINT `fk_utilisateur_has_animal_a_adopter_utilisateur1` FOREIGN KEY (`utilisateur_idutilisateur`) REFERENCES `utilisateur` (`idutilisateur`);
 
 --
 -- Contraintes pour la table `utilisateur_has_badges`
 --
 ALTER TABLE `utilisateur_has_badges`
-  ADD CONSTRAINT `utilisateur_has_badges_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `utilisateur_has_badges_ibfk_2` FOREIGN KEY (`id_badge`) REFERENCES `badge` (`idbadge`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `utilisateur_has_badges_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `utilisateur` (`idutilisateur`),
+  ADD CONSTRAINT `utilisateur_has_badges_ibfk_2` FOREIGN KEY (`id_badge`) REFERENCES `badge` (`idbadge`);
 
 --
 -- Contraintes pour la table `utilisateur_has_favorite_animals`
 --
 ALTER TABLE `utilisateur_has_favorite_animals`
-  ADD CONSTRAINT `utilisateur_has_favorite_animals_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `utilisateur` (`idutilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `utilisateur_has_favorite_animals_ibfk_2` FOREIGN KEY (`id_favoriteAnimal`) REFERENCES `types_animaux` (`idtypes_animaux`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `utilisateur_has_favorite_animals_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `utilisateur` (`idutilisateur`),
+  ADD CONSTRAINT `utilisateur_has_favorite_animals_ibfk_2` FOREIGN KEY (`id_favoriteAnimal`) REFERENCES `types_animaux` (`idtypes_animaux`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
