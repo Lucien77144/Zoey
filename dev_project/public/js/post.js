@@ -285,7 +285,8 @@ $(document).ready(function () {
         console.log(ReturnedMessage)
 
         if (ReturnedMessage == 'valid') {
-          // window.location.href = "index.php?action=connect";
+          window.location.href = 'index.php?action=account'
+          // location.reload()
           console.log('valid 1 !!')
         } else {
           $('#ConfirmationMessage').html('')
