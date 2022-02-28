@@ -44,6 +44,11 @@ function printConnect()
     require(BASE_URL . "view/connectView.php");
 }
 
+function printForgotMyPw()
+{
+    require(BASE_URL . "view/forgotMyPwView.php");
+}
+
 function printDisconnect()
 {
 

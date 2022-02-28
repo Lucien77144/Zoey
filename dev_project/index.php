@@ -34,6 +34,8 @@ try {
             printSubscribe();
         } else if ($_GET['action'] == 'connect') {
             printConnect();
+        } else if ($_GET['action'] == 'forgotmypw') {
+            printForgotMyPw();
         } else if ($_GET['action'] == 'disconnect') {
             printDisconnect();
         } else if ($_GET['action'] == 'account') {

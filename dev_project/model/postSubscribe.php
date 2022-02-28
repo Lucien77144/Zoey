@@ -2,6 +2,34 @@
 
 require("model.php");
 
+function sendMail($pseudo, $to)
+{
+    $subject = 'Bienvenue ' . $pseudo . ' !';
+
+    ob_start();
+?>
+    <html>
+
+    <body>
+        <h2>Zoey</h2>
+        <h3>Bienvenue sur Zoey !</h3>
+        <p><?= $pseudo ?>, vous êtes bien inscrit sur Zoey. Retrouvez <a href="zoey-app.fr/index.php?action=account">votre profil sur Zoey</a> et ajoutez vos animaux de compagnie !</p>
+        <p>Retrouvez-nous également sur vos réseaux sociaux préférés : <a href="https://www.instagram.com/zoey.app/">Instagram</a>, <a href="https://www.tiktok.com/@zoey.app">Tiktok</a>, <a href="https://www.facebook.com/appli.zoey">Facebook</a> et <a href="https://www.linkedin.com/company/zoeyapp">LinkedIn</a>.</p>
+        <p>Pour nous contacter ou si vous avez besoin d'aide sur Zoey, vous pouvez écrire à <a href="mailto:contact@zoey-app.fr">contact@zoey-app.fr</a> ou répondre directement à ce mail.</p>
+        <p>À bientôt sur Zoey !</p>
+    </body>
+
+    </html>
+<?php
+    $message = ob_get_clean();
+
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= 'From: contact@zoey-app.fr' . "\r\n";
+
+    mail($to, $subject, $message, $headers);
+}
+
 function isEmailOk($str)
 {
     return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) ? false : true;
@@ -93,6 +121,7 @@ function postSubscribe()
         if ($req->rowCount() <= 0)
             throw new Exception("Votre compte n'a pas pu être ajouté, il y a une erreur dans les champs remplis.");
 
+        sendMail($pseudo, $adresse_mail);
         return "valid";
     } else if (isPseudoFree($_POST['pseudo']) && testMail() && isset($_POST['password'])) {
         // regular subscribe
@@ -111,6 +140,8 @@ function postSubscribe()
         if ($req->rowCount() <= 0)
             throw new Exception("Votre compte n'a pas pu être ajouté, il y a une erreur dans les champs remplis.");
 
+
+        sendMail($pseudo, $adresse_mail);
         return "valid";
     } else {
         throw new Exception("Votre mail est invalide ou est peut-être déjà utilisé avec un compte Zoey.");
