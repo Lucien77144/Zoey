@@ -1,2 +1,4 @@
 .DS_Store
 prod_blog/model/PDO.php
+*.png
+*.jpg

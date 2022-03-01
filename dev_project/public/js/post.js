@@ -105,6 +105,37 @@ $(document).ready(function () {
     )
   }
 
+  function postForgotPassword() {
+    console.log('postForgotPassword')
+
+    $.post(
+      'model/postForgotPassword.php',
+      {
+        mail: $('#forgotMail').val(),
+      },
+
+      function (ReturnedMessage) {
+        console.log(ReturnedMessage)
+        console.log('function Received1')
+
+        if (ReturnedMessage == 'valid') {
+          // window.location.href = 'index.php?action=connect'
+          console.log('valid forgot password')
+          $('#confirmationMessage').html('')
+          $('#confirmationMessage').text(
+            `Vérifiez bien vos spams ! Vous allez recevoir un email pour vous aider à retrouver l'accès à votre compte.`
+          )
+        } else {
+          $('#confirmationMessage').html('')
+          $('#confirmationMessage').text(
+            `Il y a une erreur dans un des champs remplis.`
+          )
+        }
+      },
+      'text'
+    )
+  }
+
   function postModifyAccount(setparam, setvalue) {
     console.log('postModifyAccount')
 
@@ -254,7 +285,8 @@ $(document).ready(function () {
         console.log(ReturnedMessage)
 
         if (ReturnedMessage == 'valid') {
-          // window.location.href = "index.php?action=connect";
+          window.location.href = 'index.php?action=account'
+          // location.reload()
           console.log('valid 1 !!')
         } else {
           $('#ConfirmationMessage').html('')
@@ -840,6 +872,14 @@ $(document).ready(function () {
     console.log('click')
 
     postDeleteAA()
+  })
+
+  $('#submitForgotMail').click(function (e) {
+    e.preventDefault()
+
+    console.log('click')
+
+    postForgotPassword()
   })
 
   // rechercher une conversation (page messages)

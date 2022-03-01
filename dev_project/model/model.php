@@ -159,8 +159,8 @@ function getFeed($num = 1)
 
     $start = ($num - 1) * 10;
 
-    $sql = "SELECT idpost, post.description, media, date_publication, profil_animal_de_compagnie_idprofil_animal_de_compagnie idanimal, profil_animal_de_compagnie.nom
-    FROM post
+    $sql = "SELECT profil_animal_de_compagnie_utilisateur_idutilisateur1 idutilisateur, idpost, post.description, media, date_publication, profil_animal_de_compagnie_idprofil_animal_de_compagnie idanimal, profil_animal_de_compagnie.nom 
+    FROM post 
     INNER JOIN profil_animal_de_compagnie ON post.profil_animal_de_compagnie_idprofil_animal_de_compagnie = profil_animal_de_compagnie.idprofil_animal_de_compagnie
     ORDER BY date_publication DESC LIMIT 10 OFFSET $start";
     $req = $db->prepare($sql);
@@ -386,8 +386,6 @@ function getAdoptionAnimalBadges($animalId)
     return $req;
 }
 
-
-
 function getPost()
 {
     if (isset($_GET['id']) && is_numeric($_GET['id']) && intval($_GET['id']) > 0) {
@@ -397,7 +395,7 @@ function getPost()
 
         $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-        $sql = "SELECT idpost, post.description, media, profil_animal_de_compagnie_idprofil_animal_de_compagnie idanimal, profil_animal_de_compagnie.nom, profil_animal_de_compagnie.utilisateur_idutilisateur1 iduser
+        $sql = "SELECT profil_animal_de_compagnie_utilisateur_idutilisateur1 idutilisateur, idpost, post.description, media, profil_animal_de_compagnie_idprofil_animal_de_compagnie idanimal, profil_animal_de_compagnie.nom, profil_animal_de_compagnie.utilisateur_idutilisateur1 iduser
         FROM post
         INNER JOIN profil_animal_de_compagnie ON post.profil_animal_de_compagnie_idprofil_animal_de_compagnie = profil_animal_de_compagnie.idprofil_animal_de_compagnie
         WHERE idpost = ?;";
@@ -506,9 +504,9 @@ function getAccountAnimals()
         $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
         $sql = "SELECT idprofil_animal_de_compagnie idanimal, nom, url_photo FROM profil_animal_de_compagnie WHERE utilisateur_idutilisateur1 = ? ORDER BY `idanimal` ASC";
-        $req = $db -> prepare($sql);
-        
-        $req -> execute(array($userId));
+        $req = $db->prepare($sql);
+
+        $req->execute(array($userId));
 
         if ($req->rowCount() <= 0)
             return false;

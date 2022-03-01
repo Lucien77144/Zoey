@@ -39,7 +39,8 @@ ob_start();
                         }
                         ?>
                     </div>
-                    <p>
+                    <div class="ConversationTextsContainer">
+                         <p>
                         <?php
                         if (isset($convUsers[0]['titre'])) {
                             echo htmlspecialchars($convUsers[0]['titre']);
@@ -53,7 +54,8 @@ ob_start();
                         }
                         ?>
                     </p>
-                   
+                    <p>Dernier message lu...</p>
+                    </div>
                 </a>
             <?php
             }

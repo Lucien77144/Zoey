@@ -85,6 +85,7 @@ ob_start();
         <?php // } 
         ?>
     </div>
+    <span id="confirmationMessage"></span>
 </section>
 <nav class="menuAnimaux">
     <div class="menuAnimauxInner">

@@ -58,19 +58,12 @@ article a:hover{
 }
 
 @media (min-width: 1200px) {
-  section {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-  
   article{
-    max-width: 600px;
+    max-width: 1200px;
     grid-template-areas:
-      "a a a"
-      "b b b"
-      "c c c"
-      "d d d";
+      "b a a"
+      "b c c"
+      "b auto d";
       margin: 5vh;
   }
 
@@ -83,9 +76,5 @@ article a:hover{
     width: 30vw;
     max-width: 500px;
     padding: 0px 50px;
-  }
-  article a {
-    align-self: flex-end;
-    justify-self: flex-end;
   }
 }

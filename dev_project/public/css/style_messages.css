@@ -41,12 +41,6 @@ article>div {
     display: flex;
     flex-direction: column;
 }
-article img {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
 #messagesContainer {
     height: fit-content;
     display: flex;
@@ -55,24 +49,45 @@ article img {
 #messagesContainer a {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     width: 90vw;
-    max-width: 300px;
-    height: 50px;
+    max-width: 350px;
+    height: 80px;
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: #b8b8b8;
-    border-radius: 10px;
     transition: 0.5s ease-in-out;
 }
-#messagesContainer a:hover {
-    background-color: #a0a0a0;
+.profilePicturesContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 80px;
 }
-
-#messagesContainer a p {
+.profilePicture {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.ConversationTextsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 60px;
+}
+#messagesContainer a:hover {
+    background-color: #dfdfdf;
+}
+#messagesContainer a p:first-of-type {
+    font-size: 1.3rem;
     font-weight: bold;
+    margin: 0;
     margin-left: 10px;
     color: #FFA319;
 }
-.profilePicture {
-    width: 50px;
+#messagesContainer a p:last-of-type {
+    margin: 0;
+    font-size: 0.95rem;
 }
