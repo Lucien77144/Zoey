@@ -101,7 +101,8 @@ ob_start();
 
 <div class="inputMessage">
     <form id="addMessageForm">
-        <textarea id="msg" name="description" type="text" rows="5" cols="33"></textarea> <br>
+        <textarea id="msg" name="description" type="text" rows="5" cols="33"></textarea><br>
+        <span id="ConfirmationMessage"></span><br>
         <div class="mobileContainer">
             <div class="mediaContainer">
                 <div class="labelForMedia">Ajouter une image</div>
@@ -114,7 +115,6 @@ ob_start();
         </div>
 
     </form>
-    <span id="ConfirmationMessage"></span>
 </div>
 
 

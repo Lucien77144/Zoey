@@ -89,33 +89,35 @@ function getNewMessages()
         }
 ?>
         <article>
-            <?php
-            if (!empty($message['msg'])) {
-            ?>
-                <p>
-                    <?= htmlspecialchars($message['msg']) ?>
-                </p>
-            <?php
-            }
-            ?>
-            <?php
-            if (!empty($message['media'])) {
-            ?>
-                <img src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['media']) ?>" alt="">
-            <?php
-            }
-            ?>
-            <p>
+            <div class="chatMsgContainer">
                 <?php
-                if (!empty($message['authorPic'])) {
+                if (!empty($message['msg'])) {
                 ?>
-                    <img src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['authorPic']) ?>" alt="">
+                    <p>
+                        <?= htmlspecialchars($message['msg']) ?>
+                    </p>
                 <?php
                 }
                 ?>
-                <a href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>"><?= htmlspecialchars($message['authorPseudo']) ?></a>
-                <?= $time ?>.
-            </p>
+                <?php
+                if (!empty($message['media'])) {
+                ?>
+                    <div class="imgChat" style='background-image: url("<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['media']) ?>")' alt=""></div>
+                <?php
+                }
+                ?>
+                <p>
+                    <?php
+                    if (!empty($message['authorPic'])) {
+                    ?>
+                        <img src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['authorPic']) ?>" alt="">
+                    <?php
+                    }
+                    ?>
+                    <a href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>"><?= htmlspecialchars($message['authorPseudo']) ?></a>
+                    <?= $time ?>.
+                </p>
+            </div>
         </article>
 <?php
     }

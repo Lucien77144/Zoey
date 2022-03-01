@@ -17,7 +17,7 @@ function getCookie(cname) {
 }
 
 $(document).ready(function () {
-  console.log('ready')
+  console.log('ready');
 
   function getParameterByName(name, url = window.location.href) {
     name = name.replace(/[\[\]]/g, '\\$&')
@@ -30,7 +30,7 @@ $(document).ready(function () {
 
   function postPhoto() {
     // renvoie basename fichier uploadé
-    console.log('postPhoto')
+    console.log('postPhoto');
 
     let fd = new FormData()
     let files = $('#media')[0].files[0]

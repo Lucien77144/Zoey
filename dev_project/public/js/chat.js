@@ -23,11 +23,12 @@ $(document).ready(function(){
     
                 function(ReturnedMessage){
                     console.log("function Received : " + ReturnedMessage)
-    
+                    $(".loader").remove();
                     if (ReturnedMessage){
                         console.log('new messages found !!')
                         $('#noMessagesYet').remove();
-                        $('#chatContainer').append(ReturnedMessage);                        
+                        $('#chatContainer').append(ReturnedMessage);
+                        document.querySelector(".currentPicture").setAttribute("src","public/images/icons/addPost.svg");
                     }
                 },
                 'text'
@@ -36,5 +37,11 @@ $(document).ready(function(){
             console.log('id')
         }        
     }, 1000);
+
+    document.querySelector("#addMessageForm").addEventListener("click", e =>{
+        if(document.querySelector("#msg").value != "" || document.querySelector("#media").value != ""){
+            $("body").append("<div class='loader'><img src='public/images/icons/loader.svg'></div>");
+        }
+    });
 
 });
