@@ -6,77 +6,92 @@ session_start();
 require("model.php");
 require_once("verifyToken.php");
 
-function postLoadMoreMessages(){
+function postLoadMoreMessages()
+{
 
     $offsetCoef = safeEntry($_POST['offsetCoef']);
 
     $chat = getChat($offsetCoef);
 
-    if (!$chat){
+    if (!$chat) {
         return false;
     }
 
     // GENERATE HTML
     ob_start();
-    while ($message = $chat->fetch()){
+    while ($message = $chat->fetch()) {
+        $idMessage = $message['idmessage'];
+        $idConv = $message['idConv'];
 
-        if($message['authorId'] == $_SESSION['idUser']){ ?>
+        $currentTime = new DateTime(date('Y-m-d', time()));
+        $currentDay = $currentTime->format('d');
+
+        $sendTime = new DateTime($message["date_envoi_msg"]);
+        $sendDay = $sendTime->format('d');
+
+        if ($sendDay == $currentDay - 1) {
+            $time = "Hier à " . $sendTime->format('G') . "h" . $sendTime->format('i');
+        } else if ($sendDay == $currentDay) {
+            $time = "Aujourd'hui à " . $sendTime->format('G') . "h" . $sendTime->format('i');
+        } else {
+            $time = "Le " . $sendTime->format('d/m/Y') . " à " . $sendTime->format('G') . "h" . $sendTime->format('i');
+        }
+
+        if ($message['authorId'] == $_SESSION['idUser']) { ?>
             <article class="myMessages">
-        <?php }else{ ?>
-            <article>
-        <?php } ?>
+            <?php } else { ?>
+                <article>
+                <?php } ?>
 
-        <div class="chatMsgContainer">
-            
-            <?php 
+                <div class="chatMsgContainer">
 
-            var_dump($message);
-            
-            if (!empty($message['msg'])) { ?>
-                <p>
-                    <?= htmlspecialchars($message['msg']) ?>
-                </p>
-            <?php
-            }
-            if (!empty($message['media'])) {
-            ?>
-                <div class="imgChat" style='background-image: url("<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['media']) ?>")' alt=""></div>
-            <?php } ?>
-            <p>
-                <?php
-                if (!empty($message['authorPic'])) {
-                ?>
-                    <img src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['authorPic']) ?>" alt="">
-                <?php
-                }
-                ?>
-                <a href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>"><?= htmlspecialchars($message['authorPseudo']) ?></a>
-                <?= $time ?>.
-            </p>
+                    <?php
+                    if (!empty($message['msg'])) { ?>
+                        <p>
+                            <?= htmlspecialchars($message['msg']) ?>
+                        </p>
+                    <?php
+                    }
+                    if (!empty($message['media'])) {
+                    ?>
+                        <div class="imgChat" style='background-image: url("<?= './public/images/upload/' . htmlspecialchars($message['media']) ?>")' alt=""></div>
+                    <?php } ?>
+                    <p>
+                        <?php
+                        if (!empty($message['authorPic'])) {
+                        ?>
+                            <img src="<?= './public/images/upload/' . htmlspecialchars($message['authorPic']) ?>" alt="">
+                        <?php
+                        }
+                        ?>
+                        <a href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>"><?= htmlspecialchars($message['authorPseudo']) ?></a>
+                        <?= $time ?>.
+                    </p>
 
-        </div>
-        </article>
+                </div>
+                </article>
 
-    <?php
+        <?php
     }
+    $_SESSION['chatLastId'] = array('idConv' => $idConv, 'lastId' => $idMessage); // store last message's id in SESSION
+    $chat->closeCursor();
     $generatedHtml = ob_get_clean();
     return $generatedHtml;
 }
 
 try {
-    if (isset($_POST['offsetCoef'])
+    if (
+        isset($_POST['offsetCoef'])
         && isset($_POST['id'])
-        && verifyToken() )
-    {
+        && verifyToken()
+    ) {
         $postLoadMoreMessages = postLoadMoreMessages();
         echo $postLoadMoreMessages;
-    } else {        
+    } else {
         throw new Exception("Nous n'avons pas trouvé d'autres messages");
     }
-
 } catch (Exception $e) {
     echo "catch";
     $errorMsg = $e->getMessage();
     echo $errorMsg;
-    // require(BASE_URL . "view/errorView.php");
 }
