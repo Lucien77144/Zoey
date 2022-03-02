@@ -63,7 +63,10 @@ function postConnect(infos) {
           )
         }
         // recharger la page pour retourner à la page demandée avant redirection vers connexion, sauf si page demandée = connexion, et aller vers profil
-        if (getParameterByName('action') == 'connect') {
+        if (
+          getParameterByName('action') == 'connect' ||
+          getParameterByName('action') == 'subscribe'
+        ) {
           window.location.href = 'index.php?action=account'
         } else {
           location.reload() // renvoie vers la page initialement demandée
@@ -77,6 +80,13 @@ function postConnect(infos) {
       }
     },
     'text'
+  )
+}
+
+function googleError() {
+  $('#ConfirmationMessage').html('')
+  $('#ConfirmationMessage').html(
+    `La connexion avec Google n'a pas fonctionné. Vous pouvez nous signaler cette erreur par mail : <a href="mailto:contact@zoey-app.fr">contact@zoey-app.fr</a>.`
   )
 }
 
@@ -94,7 +104,8 @@ async function handleCredentialResponse(response) {
     response.json().then(function (data) {
       if (data[0] == 'connect') {
         // $connectStatus = handleConnect(data[1])
-        $connectStatus = postConnect(data[1])
+        $connectStatus = postConnect(data[1]) // ce script envoie à postConnect en AJAX et gère la réponse (recharge la page)
+
         if ($connectStatus == 'valid') {
           // recharger la page pour retourner à la page demandée avant redirection vers connexion, sauf si page demandée = connexion, et aller vers profil
           //   if (getParameterByName('action') == 'connect') {
@@ -105,10 +116,10 @@ async function handleCredentialResponse(response) {
           console.log('connected')
         } else {
           console.log("can't connect")
-          console.log('d1 ', data)
+          googleError()
         }
       } else {
-        console.log('d2 ', data)
+        googleError()
       }
       return response
     })

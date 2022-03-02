@@ -7,7 +7,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   scrollbar-color: #f3811c rgb(230, 230, 230);
   scrollbar-width: thin;
 }
@@ -43,7 +43,7 @@ body {
 
 input {
   border: none;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
   border-radius: 25px;
   padding: 5px 10px;
   margin: 10px;
@@ -53,7 +53,7 @@ input {
   min-height: 25px;
 }
 
-input[type="submit"] {
+input[type='submit'] {
   width: 120px;
   height: fit-content;
   height: -moz-fit-content;
@@ -65,12 +65,13 @@ input[type="submit"] {
   transition: 0.25s ease-in-out;
 }
 
-input[name="email"], input[name="prenom"]{
+input[name='email'],
+input[name='prenom'] {
   width: 230px;
 }
 
 .btn {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   text-decoration: none;
   text-align: center;
@@ -95,19 +96,19 @@ header {
   padding: 0 5%;
 }
 
-header>h1 a{
+header > h1 a {
   text-decoration: none;
   font-family: 'Exo 2', sans-serif;
   margin: 0;
-  color: #FFA319;
+  color: #ffa319;
   cursor: pointer;
 }
 
-header>h1:hover {
+header > h1:hover {
   animation: animLogo 0.5s linear;
 }
 
-header>img {
+header > img {
   height: 50%;
 }
 
@@ -158,9 +159,10 @@ header>img {
   height: 100px;
   display: flex;
   justify-content: center;
+  z-index: 1;
 }
 
-.menuInner>a {
+.menuInner > a {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -171,7 +173,7 @@ header>img {
   width: 50%;
 }
 
-.menuInner>a>img {
+.menuInner > a > img {
   height: 30px;
   width: 30px;
 }
@@ -184,7 +186,7 @@ header>img {
 
 .menuBlur::after,
 .menuBlur::before {
-  content: "";
+  content: '';
   height: 100px;
   background-color: rgba(0, 0, 0, 0.5);
   width: calc(50vw - 56px);
@@ -197,13 +199,13 @@ header>img {
   white-space: nowrap;
 }
 
-.underline{
+.underline {
   position: relative;
   z-index: 1;
 }
 
 .underline::after {
-  content: "";
+  content: '';
   position: absolute;
   z-index: -1;
   transform: translate(-50%, -50%) rotate(2deg);
@@ -212,7 +214,7 @@ header>img {
   height: 100%;
   width: 100%;
   transition: 0.25s ease-in-out;
-  background-color: #FFC800;
+  background-color: #ffc800;
 }
 
 .underline:hover::after {
@@ -235,7 +237,6 @@ header>img {
 }
 /* Fin spécificité popUp */
 @keyframes animLogo {
-
   0%,
   100% {
     transform: rotate(0deg);
@@ -255,7 +256,6 @@ header>img {
 }
 
 @media (max-width: 300px) {
-
   body *,
   body *::after,
   body *::before {
@@ -276,7 +276,6 @@ header>img {
 }
 
 @media (min-width: 800px) {
-
   body {
     padding: 60px 0 0 0;
   }
@@ -306,7 +305,7 @@ header>img {
   }
 
   .menuBlur,
-  .menu>svg,
+  .menu > svg,
   .menu img {
     display: none;
   }
@@ -337,7 +336,7 @@ header>img {
     width: 25vw;
   }
 
-  .menuInner>a {
+  .menuInner > a {
     transition: 0.25s ease-in-out;
   }
 
@@ -346,8 +345,8 @@ header>img {
     margin: 0;
   }
 
-  .menuInner>a:hover {
-    color: #FFA319;
+  .menuInner > a:hover {
+    color: #ffa319;
   }
 
   .menu {
@@ -359,29 +358,30 @@ header>img {
     top: 0;
   }
 
-  .navbar>a {
+  .navbar > a {
     transition: 0.15s ease-in-out;
   }
 
-  .navbar>a:nth-child(1):hover {
+  .navbar > a:nth-child(1):hover {
     transform: rotate(10deg);
   }
 
-  .navbar>a:nth-child(2) rect, .navbar .cross{
+  .navbar > a:nth-child(2) rect,
+  .navbar .cross {
     transform-origin: center;
     transition: 0.5s;
   }
 
-  .navbar>a:nth-child(2):hover .cross {
+  .navbar > a:nth-child(2):hover .cross {
     transform: rotate(180deg);
-    fill: #FFC800;
+    fill: #ffc800;
   }
 
-  .navbar>a:nth-child(2):hover .cross rect{
-    fill: #FFC800;
+  .navbar > a:nth-child(2):hover .cross rect {
+    fill: #ffc800;
   }
 
-  .navbar>a:nth-child(2):hover>svg>rect {
+  .navbar > a:nth-child(2):hover > svg > rect {
     transform: scale(0.9);
   }
 }
@@ -398,6 +398,6 @@ header>img {
 }
 
 /* GOOGLE AUTH */
-#googleAuthButton{
+#googleAuthButton {
   z-index: 1000000;
 }

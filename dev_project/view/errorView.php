@@ -1,13 +1,16 @@
 <?php
 // default page title
 $printNewsletter = false;
+if (!isset($errorMsg)) {
+    $errorMsg = 'Il y a eu une erreur';
+}
 ob_start();
 ?>
 
 <main class="error">
     <section>
         <h1>Désolé :/</h1>
-        <img src="<?=BASE_URL?>public/images/icons/error.svg" alt="logo d'erreur">
+        <img src="<?= BASE_URL ?>public/images/icons/error.svg" alt="logo d'erreur">
         <h2><?= nl2br(htmlspecialchars($errorMsg)) ?></h2>
         <p>Nous contacter :</p>
         <div class="button_container">

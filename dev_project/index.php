@@ -36,6 +36,8 @@ try {
             printConnect();
         } else if ($_GET['action'] == 'forgotmypw') {
             printForgotMyPw();
+        } else if ($_GET['action'] == 'passwordrecovery') {
+            printPasswordRecovery();
         } else if ($_GET['action'] == 'disconnect') {
             printDisconnect();
         } else if ($_GET['action'] == 'account') {
@@ -63,18 +65,10 @@ try {
             }
         } else if ($_GET['action'] == 'addpost') {
             printAddPost();
-        }
-        // else if ($_GET['action'] == 'animal'){
-        //     printAnimal();
-        // } 
-        else if ($_GET['action'] == 'addAnimal') {
+        } else if ($_GET['action'] == 'addAnimal') {
             printAddAnimal();
         } else if ($_GET['action'] == 'modifyAnimal') {
             printModifyAnimal();
-        } else if ($_GET['action'] == 'forum') {
-
-
-            echo 'page en construction';
         } else if ($_GET['action'] == 'adoption') {
             if (isset($_GET['id'])) {
                 printAdoptionAnimal();
@@ -87,6 +81,8 @@ try {
             printAdminAjouterRefuge();
         } else if ($_GET['action'] == 'adminAjouterAnimalAdopter') {
             printAdminAjouterAnimalAdopter();
+        } else {
+            printFeed();
         }
     } else {
         printFeed();

@@ -49,7 +49,6 @@ function verifyToken()
         }
     } catch (Exception $e) {
         $errorMsg = $e->getMessage();
-        echo $errorMsg;
-        // require(BASE_URL . "view/errorView.php");
+        // echo $errorMsg;
     }
 }

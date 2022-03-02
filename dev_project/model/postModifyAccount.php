@@ -37,7 +37,7 @@ function postModifyAccount()
         $setvalue = safeEntry($_POST['setvalue']);
     } else if ($_POST['setparam'] == "password") {
         $sql = "UPDATE utilisateur SET mot_de_passe = :setvalue WHERE idutilisateur = :id";
-        $setvalue = password_hash($_POST['setvalue'], PASSWORD_ARGON2I, ['memory_cost' => 2048, 'time_cost' => 4, 'threads' => 3]); // new hash
+        $setvalue = password_hash($_POST['setvalue'], PASSWORD_DEFAULT); // new hash
     } else if ($_POST['setparam'] == "pseudo") {
         if ((isset($_POST['setvalue']) && ($_POST['setvalue'] == $_SESSION['pseudo'])) || ($_POST['setvalue'] && isPseudoFree($_POST['setvalue']))) {
             $sql = "UPDATE utilisateur SET pseudo = :setvalue WHERE idutilisateur = :id";

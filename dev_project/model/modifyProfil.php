@@ -26,6 +26,8 @@ function postModifyAccount()
         ':id' => $_SESSION['idUser']
     ));
 
+    $_SESSION['pseudo'] = $pseudo;
+
     // if ($req->rowCount() <= 0)
     //     throw new Exception("Votre compte n'a pas pu être modifié, il y a une erreur dans les champs remplis.1");
 

@@ -192,6 +192,21 @@ if (!$payload) {
 // $userid = $payload['email'];
 // echo json_encode($payload);
 
+function connect($payload)
+{
+  $postContent = array(
+    'mail' => $payload["email"],
+  );
+
+  if (isset($payload["sub"])) {
+    $postContent['google_sub'] = $payload["sub"];
+    echo json_encode(["connect", $postContent]);
+  } else {
+    echo json_encode("invalid");
+    return false;
+  }
+}
+
 switch (testMail($payload["email"])) {
   case false:
     // invalid mail
@@ -202,21 +217,16 @@ switch (testMail($payload["email"])) {
     // echo json_encode("subscribe");
     // echo json_encode($payload["sub"]);
     $subscribe = subscribe($payload);
-    echo json_encode([$subscribe]);
+    if ($subscribe = "valid") {
+      connect($payload);
+    } else {
+      // echo json_encode([$subscribe]);
+      echo json_encode([false]);
+    }
     break;
   case "known mail":
     // already registered
-    $postContent = array(
-      'mail' => $payload["email"],
-    );
-
-    if (isset($payload["sub"])) {
-      $postContent['google_sub'] = $payload["sub"];
-    } else {
-      echo json_encode("invalid");
-      return false;
-    }
-    echo json_encode(["connect", $postContent]);
+    connect($payload);
     break;
 
   default:

@@ -196,6 +196,13 @@ function printChat()
     }
 }
 
+// OTHER SERVICES
+
+function printPasswordRecovery()
+{
+    require(BASE_URL . "services/forgotMyPassword.php");
+}
+
 // PAGES ADMIN
 
 function printAdmin()

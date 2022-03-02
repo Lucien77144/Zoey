@@ -45,7 +45,7 @@
                 <h2>Actus</h2>
             </a>
             <a href="index.php?action=presentation"><img src="<?= BASE_URL ?>public/images/icons/forum.svg" alt="Présentation de Zoey">
-                <h2>Zoey ?</h2>
+                <h2>À propos</h2>
             </a>
             <!-- <a href=""><img src="<?= BASE_URL ?>public/images/icons/forum.svg" alt="Page actualitées">
                 <h2>Forum</h2>
