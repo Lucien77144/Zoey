@@ -34,6 +34,7 @@ function getNewMessages()
         INNER JOIN utilisateur ON message.utilisateur_idutilisateur = utilisateur.idutilisateur
         WHERE conversation_idconversation = :idConv AND idmessage > :lastId";
 
+
         // $sql = "SELECT msg.* 
         //     FROM ( 
         //         SELECT idmessage, texte_message msg, url_media media, utilisateur_idutilisateur iduser, utilisateur_idutilisateur authorId, utilisateur.pseudo authorPseudo, conversation_idconversation idConv, utilisateur.url_photo authorPic, date_envoi_msg
@@ -87,8 +88,14 @@ function getNewMessages()
         } else {
             $time = "Le " . $sendTime->format('d/m/Y') . " à " . $sendTime->format('G') . "h" . $sendTime->format('i');
         }
-?>
-        <article>
+
+        if($message['authorId'] == $_SESSION['idUser']){ ?>
+            <article class="myMessages">
+        <?php }else{ ?>
+            <article>
+        <?php } ?>
+        
+        
             <div class="chatMsgContainer">
                 <?php
                 if (!empty($message['msg'])) {

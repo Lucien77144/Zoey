@@ -38,10 +38,4 @@ $(document).ready(function(){
         }        
     }, 1000);
 
-    document.querySelector("#addMessageForm").addEventListener("click", e =>{
-        if(document.querySelector("#msg").value != "" || document.querySelector("#media").value != ""){
-            $("body").append("<div class='loader'><img src='public/images/icons/loader.svg'></div>");
-        }
-    });
-
 });

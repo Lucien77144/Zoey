@@ -45,9 +45,13 @@ ob_start();
             } else {
                 $time = "Le " . $sendTime->format('d/m/Y') . " à " . $sendTime->format('G') . "h" . $sendTime->format('i');
             }
-    ?>
 
-    <article>
+    if($message['authorId'] == $_SESSION['idUser']){ ?>
+        <article class="myMessages">
+    <?php }else{ ?>
+        <article>
+    <?php } ?>
+    
         <div class="chatMsgContainer">
             <?php
                 if (!empty($message['msg'])) {

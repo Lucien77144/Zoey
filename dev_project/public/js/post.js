@@ -659,6 +659,11 @@ $(document).ready(function () {
     )
   }
 
+  scrollBottom();
+  function scrollBottom(){
+      $("html, body").animate({scrollTop: document.documentElement.scrollHeight}, 750);
+  }
+
   $('#submitSubscribe').click(function (e) {
     e.preventDefault()
 
@@ -695,14 +700,22 @@ $(document).ready(function () {
   $('#submitAddMessage').click(function (e) {
     e.preventDefault()
 
-    console.log('click')
+    if(document.querySelector("#msg").value != "" || document.querySelector("#media").value != ""){
+      $("body").append("<div class='loader'><img src='public/images/icons/loader.svg'></div>");
+    }
 
-    let postedMedia = postPhoto()
-    // if (postedMedia == "déconnecté"){
-    // return;
-    // }
-
-    postAddMessage(postedMedia)
+    setTimeout(() => {
+  
+      console.log('click')
+  
+      let postedMedia = postPhoto()
+      // if (postedMedia == "déconnecté"){
+      // return;
+      // }
+  
+      postAddMessage(postedMedia)
+      scrollBottom();
+    }, 50);
   })
 
   $('#submitAddAnimal').click(function (e) {

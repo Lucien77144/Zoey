@@ -18,22 +18,45 @@ function postLoadMoreMessages(){
 
     // GENERATE HTML
     ob_start();
-    while ($message = $chat->fetch())
-    {
-    ?>
-        <article class="defaultBlock">
-            <p>
-                <?= htmlspecialchars($message['msg']) ?>
-            </p>
+    while ($message = $chat->fetch()){
+
+        if($message['authorId'] == $_SESSION['idUser']){ ?>
+            <article class="myMessages">
+        <?php }else{ ?>
+            <article>
+        <?php } ?>
+
+        <div class="chatMsgContainer">
+            
+            <?php 
+
+            var_dump($message);
+            
+            if (!empty($message['msg'])) { ?>
+                <p>
+                    <?= htmlspecialchars($message['msg']) ?>
+                </p>
             <?php
-            if (isset($message['media'])){
-                ?>
-                    <img src="<?= 'public/images/' . htmlspecialchars($message['media']) ?>" alt="">
-                <?php
             }
+            if (!empty($message['media'])) {
             ?>
-            <p>envoyé par <a href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>"><?= htmlspecialchars($message['authorPseudo']) ?></a></p>
+                <div class="imgChat" style='background-image: url("<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['media']) ?>")' alt=""></div>
+            <?php } ?>
+            <p>
+                <?php
+                if (!empty($message['authorPic'])) {
+                ?>
+                    <img src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['authorPic']) ?>" alt="">
+                <?php
+                }
+                ?>
+                <a href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>"><?= htmlspecialchars($message['authorPseudo']) ?></a>
+                <?= $time ?>.
+            </p>
+
+        </div>
         </article>
+
     <?php
     }
     $generatedHtml = ob_get_clean();
