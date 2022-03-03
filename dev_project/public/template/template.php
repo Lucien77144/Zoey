@@ -5,7 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_old.css">
+    <meta name="theme-color" content="#000000" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="logo192.png" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <meta name="description" content="Partenaire de refuges et associations certifiés en Ile de France, Zoey facilite vos démarches d’adoption et vos recherches du parfait compagnon.">
+
+
+    <!-- <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_old.css"> -->
 
     <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style.css">
     <!-- <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_header.css">
@@ -103,6 +111,8 @@
 
     <script src="<?= BASE_URL ?>public/js/post.js"></script>
     <?php if (isset($scriptsBlock)) echo $scriptsBlock ?>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
