@@ -1,15 +1,91 @@
-.inputMessage {
-    position: fixed;
-    bottom: 0;
+.convName>h1::first-letter {
+    color: #FFA319;
+}
+
+header, .menu, .feed{
+    display: none;
+}
+
+body{
+    padding: 0;
+    height: 100vh;
+}
+
+main{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.convName {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    top: 0;
+    padding: 15px 0;
     width: 100%;
-    background-color: #f3f3f3;
+    background-color: #fafafa;
+    z-index: 100;
 }
+
+.convName>h1 {
+    margin: 0 auto;
+    font-size: 1.5rem;
+}
+
+.convName>a>img {
+    width: 30px;
+    height: 30px;
+    transition: 0.25s ease-in-out;
+}
+.convName>a>img:hover {
+    transform: translateX(-7.5px);
+}
+
+.convName>a {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: min(7.5%, 60px);
+    top: 50%;
+}
+
+.inputMsgWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.inputMessage {
+    z-index: 100;
+    bottom: 0;
+    width: 100%;
+    background-color: #f6f6f6;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+}
+
+.moreMsg{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 #loadMoreMessages {
-    border: none;
+    height: 25px;
+    width: 25px;
+    padding: 7.5px;
+    border: 3px solid #F3811C;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
 }
+
+#loadMoreMessages:hover {
+    border: 3px solid #FFC800;
+}
+
 .legalLink {
     position: fixed;
     bottom: 0;
@@ -20,29 +96,49 @@
     height: 20px;
     margin: 0;
 }
+
+#chatContainer {
+    width: 100%;
+    margin: auto;
+    max-width: 1280px;
+    padding: 0 10%;
+    box-sizing: border-box;
+}
+
 article {
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 90vw;
+    width: 90%;
     max-width: 450px;
+    min-width: 250px;
     min-height: 100px;
     height: fit-content;
     margin-top: 50px;
-    background-color: #f3f3f3;
-    border-radius: 25px;
+    background-color: #eeeeee;
+    border-radius: 25px 25px 25px 0px;
+    margin-right: 0;
 }
+
+.myMessages {
+    background-color: #f8f8f8;
+    border-radius: 25px 25px 0px 25px;
+    margin-left: auto;
+}
+
 .chatMsgContainer {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
+
 article p:first-child {
     width: 80%;
     justify-self: center;
     margin-left: 20px;
     font-size: 1.1rem;
 }
+
 .imgChat {
     align-self: center;
     width: 250px;
@@ -53,87 +149,128 @@ article p:first-child {
     margin-top: 20px;
     margin-bottom: 60px;
 }
+
 article p a {
     color: #FFA319;
 }
+
 article p:last-child {
     position: absolute;
     bottom: 0;
     right: 10px;
     display: flex;
-    width: 270px;
+    width: 75%;
+    min-width: 225px;
     justify-content: space-around;
     align-items: center;
     font-size: 0.9rem;
 }
+
 .authorPic {
     object-fit: cover;
     width: 30px;
     height: 30px;
     border-radius: 50%;
 }
+
 input {
     background-color: white;
 }
+
 #addMessageForm {
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 320px;
+    width: 50%;
+    margin-top: 20px;
 }
+
 textarea {
+    grid-area: b;
     width: 100%;
-    margin-top: 25px;
+    height: 3rem;
     background: white;
     border: none;
     border-radius: 15px;
     font-family: "Montserrat", sans-serif;
     resize: none;
     padding: 10px;
+    margin: 0 25px;
 }
+
 #media {
     display: none;
 }
+
 .mobileContainer {
     display: flex;
+    flex-direction: column;
     width: 100%;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 100px;
 }
+
 .mediaContainer {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    grid-area: a;
 }
+
 .labelForMedia {
     display: none;
 }
+
 .currentPicture {
     margin: auto;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     background-color: white;
     border-radius: 50px;
     object-fit: cover;
+    transition: 0.25s ease-in-out;
 }
+
+.currentPicture:hover{
+    background-color: #FFC800;
+}
+
 label[for="media"] {
     margin-top: 10px;
     cursor: pointer;
     width: fit-content;
 }
+
 #submitAddMessage {
     margin: 0;
 }
+
+input[type="submit"]{
+    grid-area: c;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+}
+
+#ConfirmationMessage{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover{
+    box-shadow: none;
+    border-radius: 10px;
+}
+
 .inputMessage span {
     color: #FFA319;
 }
+
 article:last-child {
-    margin-bottom: 120px;
+    margin-bottom: 50px;
 }
 
-.loader{
+.loader {
     z-index: 1000;
     position: fixed;
     top: 0;
@@ -146,36 +283,77 @@ article:last-child {
     align-items: center;
 }
 
-.loader>img{
+.loader>img {
     height: 50px;
     width: 50px;
     animation: 2s rotation infinite;
 }
 
-@keyframes rotation{
-    0%,100%{
+.popupPic{
+    z-index: 1000;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #00000050;
+    box-sizing: border-box;
+    padding: 10%;
+    display: none;
+}
+
+.username{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.illusPop{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.closePop{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 40px;
+    width: 40px;
+    padding: 20px;
+    transition: 0.25s ease-in-out;
+}
+
+.closePop:hover{
+    transform: rotate(90deg);
+}
+
+@keyframes rotation {
+
+    0%,
+    100% {
         transform: rotate(0deg);
-    }49.9999%{
+    }
+
+    49.9999% {
         transform: rotate(360deg);
-    }50%{
+    }
+
+    50% {
         transform: rotate(-360deg);
     }
 }
 
-@media screen and (min-width: 800px) {
-    .labelForMedia {
-        display: block;
-        width: 220px;
-        text-align: center;
-        font-size: 1rem;
-        font-weight: bold;
-        color: black;
+@media (max-width: 490px) {
+    #chatContainer{
+        padding: 0 5px;
     }
-    .mobileContainer {
-        flex-direction: column;
-        margin-bottom: 30px;
+    #addMessageForm{
+        width: 95%;
     }
-    article:last-child {
-        margin-bottom: 350px;
+    textarea{
+        margin: 0 10px;
+    }
+    .popupPic{
+        padding: 0;
     }
 }

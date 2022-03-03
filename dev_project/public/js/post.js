@@ -659,11 +659,6 @@ $(document).ready(function () {
     )
   }
 
-  scrollBottom();
-  function scrollBottom(){
-      $("html, body").animate({scrollTop: document.documentElement.scrollHeight}, 750);
-  }
-
   $('#submitSubscribe').click(function (e) {
     e.preventDefault()
 
@@ -713,8 +708,8 @@ $(document).ready(function () {
       // return;
       // }
   
-      postAddMessage(postedMedia)
-      scrollBottom();
+      postAddMessage(postedMedia);
+      $("main").animate({scrollTop: document.querySelector("main").scrollHeight}, 750);
     }, 50);
   })
 
@@ -941,7 +936,8 @@ $(document).ready(function () {
         if (ReturnedMessage) {
           console.log('valid !!')
           $('#chatContainer').prepend(ReturnedMessage)
-          offsetCoef += 1
+          offsetCoef += 1;
+
         } else {
           $('#loadMoreMessages').remove()
           $('#confirmationMessage').html('')
