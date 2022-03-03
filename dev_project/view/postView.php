@@ -13,7 +13,7 @@ $post = $post->fetch();
 ob_start();
 ?>
 <article class="defaultBlock">
-    <img src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($post['media']) ?>" alt="">
+    <img class="postImg" src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($post['media']) ?>" alt="">
     <a href="index.php?action=account&id=<?= htmlspecialchars($post['idutilisateur']) ?>" title="voir le profil de <?= htmlspecialchars($post['nom']) ?>">
         <h1>
             <?= htmlspecialchars($post['nom']) ?>
@@ -23,8 +23,15 @@ ob_start();
     <p>
         <?= nl2br(htmlspecialchars($post['description'])) ?>
     </p>
+    <!-- <p><?= nl2br(htmlspecialchars($post['date_publication'])) ?> </p> -->
 </article>
 <?php
 
 $viewContent = ob_get_clean();
+
+// styles BLOCK
+ob_start(); ?>
+<link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_post.css" />
+
+<?php
 require(BASE_URL . 'public/template/template.php');
