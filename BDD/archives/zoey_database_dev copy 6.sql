@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 03 mars 2022 à 18:35
+-- Généré le : lun. 28 fév. 2022 à 16:42
 -- Version du serveur : 8.0.28
 -- Version de PHP : 8.1.2
 
@@ -250,8 +250,7 @@ INSERT INTO `conversation` (`idconversation`, `titre`, `date_creation`, `url_pho
 (35, NULL, '2021-11-04 22:22:41', NULL),
 (36, NULL, '2021-11-04 22:23:27', NULL),
 (37, NULL, '2022-02-15 11:55:31', NULL),
-(38, NULL, '2022-02-15 15:53:11', NULL),
-(39, NULL, '2022-03-02 17:07:08', NULL);
+(38, NULL, '2022-02-15 15:53:11', NULL);
 
 -- --------------------------------------------------------
 
@@ -261,36 +260,33 @@ INSERT INTO `conversation` (`idconversation`, `titre`, `date_creation`, `url_pho
 
 CREATE TABLE `conversation_has_utilisateur` (
   `conversation_idconversation` int NOT NULL,
-  `utilisateur_idutilisateur` int NOT NULL,
-  `readstate` tinyint NOT NULL DEFAULT '1'
+  `utilisateur_idutilisateur` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `conversation_has_utilisateur`
 --
 
-INSERT INTO `conversation_has_utilisateur` (`conversation_idconversation`, `utilisateur_idutilisateur`, `readstate`) VALUES
-(1, 54, 1),
-(1, 62, 1),
-(2, 2, 2),
-(2, 54, 1),
-(3, 35, 1),
-(20, 54, 1),
-(20, 60, 1),
-(33, 54, 1),
-(33, 61, 1),
-(34, 54, 1),
-(34, 59, 1),
-(34, 61, 1),
-(35, 54, 1),
-(35, 63, 1),
-(36, 61, 1),
-(36, 63, 1),
-(37, 54, 1),
-(37, 68, 1),
-(38, 54, 1),
-(39, 80, 1),
-(39, 83, 1);
+INSERT INTO `conversation_has_utilisateur` (`conversation_idconversation`, `utilisateur_idutilisateur`) VALUES
+(2, 2),
+(3, 35),
+(1, 54),
+(2, 54),
+(20, 54),
+(33, 54),
+(34, 54),
+(35, 54),
+(37, 54),
+(38, 54),
+(34, 59),
+(20, 60),
+(33, 61),
+(34, 61),
+(36, 61),
+(1, 62),
+(35, 63),
+(36, 63),
+(37, 68);
 
 -- --------------------------------------------------------
 
@@ -320,8 +316,7 @@ INSERT INTO `liste_amis` (`idliste_amis`, `id_demandeur`, `id_receveur`, `date_d
 (68, 54, 63, '2021-11-04 22:22:41', 2, 0),
 (69, 63, 61, '2021-11-04 22:23:27', 2, 0),
 (70, 68, 54, '2022-02-15 11:55:31', 1, 0),
-(71, 77, 54, '2022-02-15 15:53:11', 1, 0),
-(72, 83, 80, '2022-03-02 17:07:08', 2, 0);
+(71, 77, 54, '2022-02-15 15:53:11', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -426,24 +421,7 @@ INSERT INTO `message` (`idmessage`, `texte_message`, `url_media`, `date_envoi_ms
 (84, NULL, '681644932145.png', '2022-02-15 14:35:45', 68, 37),
 (85, 'sdfsdf', NULL, '2022-02-15 14:38:28', 68, 37),
 (86, NULL, '681644932796.png', '2022-02-15 14:46:36', 68, 37),
-(87, NULL, '681644932820.png', '2022-02-15 14:47:01', 68, 37),
-(91, 'qsdqsdqsd', NULL, '2022-03-02 17:07:35', 83, 39),
-(92, 'qsdqsd', NULL, '2022-03-02 17:07:38', 83, 39),
-(93, 'wcxxcxc', NULL, '2022-03-02 17:09:17', 80, 39),
-(94, 'sqdqsd', NULL, '2022-03-02 17:09:23', 80, 39),
-(95, 'sdfsdf', NULL, '2022-03-02 17:14:35', 83, 39),
-(96, 'sqdqsdqd', NULL, '2022-03-02 17:16:16', 83, 39),
-(97, 'a', NULL, '2022-03-02 17:16:18', 83, 39),
-(98, 'a', NULL, '2022-03-02 17:16:21', 83, 39),
-(99, 'a', NULL, '2022-03-02 17:16:24', 83, 39),
-(100, 'zzzzzzz', NULL, '2022-03-02 17:16:40', 83, 39),
-(101, 'sqdqsd', NULL, '2022-03-02 17:19:21', 83, 39),
-(102, 'sdfsdfsdfsdf', NULL, '2022-03-02 17:19:27', 83, 39),
-(103, 'sdfsdfsdf', NULL, '2022-03-02 17:19:29', 83, 39),
-(104, 'aaezaze', NULL, '2022-03-02 17:19:31', 83, 39),
-(105, 'azeazeaze', NULL, '2022-03-02 17:32:35', 83, 39),
-(106, 'azeazeaze', NULL, '2022-03-02 17:32:38', 83, 39),
-(107, 'azeaeaze', NULL, '2022-03-02 17:32:40', 83, 39);
+(87, NULL, '681644932820.png', '2022-02-15 14:47:01', 68, 37);
 
 -- --------------------------------------------------------
 
@@ -483,16 +461,7 @@ INSERT INTO `post` (`idpost`, `media`, `description`, `date_publication`, `id_li
 (62, '801646062553.png', '', '2022-02-28 15:35:53', NULL, 23, 80),
 (63, '801646062584.png', '', '2022-02-28 15:36:24', NULL, 23, 80),
 (64, '801646062591.png', 'Rouge', '2022-02-28 15:36:31', NULL, 23, 80),
-(65, '801646062606.png', 'Miaou', '2022-02-28 15:36:46', NULL, 23, 80),
-(67, '', 'testestest', '2022-03-03 15:59:15', NULL, 23, 80),
-(68, '', '', '2022-03-03 16:18:37', NULL, 23, 80),
-(69, '', '', '2022-03-03 16:18:43', NULL, 23, 80),
-(70, '', '', '2022-03-03 16:18:49', NULL, 23, 80),
-(71, '801646324409.png', '', '2022-03-03 16:20:10', NULL, 23, 80),
-(72, '801646324461.png', 'sqd', '2022-03-03 16:21:02', NULL, 23, 80),
-(73, '801646325036.png', '', '2022-03-03 16:30:37', NULL, 23, 80),
-(74, '801646325849.jpg', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit vel sapiente explicabo hic deserunt, quod nesciunt maxime beatae suscipit corporis asperiores itaque dignissimos debitis perferendis! Repellendus aut blanditiis harum. Nostrum?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit vel sapiente explicabo hic deserunt, quod nesciunt maxime beatae suscipit corporis asperiores itaque dignissimos debitis perferendis! Repellendus aut blanditiis harum. Nostrum?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit vel sapiente explicabo hic deserunt, quod nesciunt maxime beatae suscipit corporis asperiores itaque dignissimos debitis perferendis! Repellendus aut blanditiis harum. Nostrum?Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit vel sapiente explicabo hic deserunt, quod nesciunt maxime beatae suscipit corporis asperiores itaque dignissimos debitis perferendis! Repellendus aut blanditiis harum. Nostrum?', '2022-03-03 16:44:25', NULL, 23, 80),
-(75, '801646328298.png', 'qsdsqd', '2022-03-03 17:24:59', NULL, 23, 80);
+(65, '801646062606.png', 'Miaou', '2022-02-28 15:36:46', NULL, 23, 80);
 
 -- --------------------------------------------------------
 
@@ -701,7 +670,7 @@ CREATE TABLE `utilisateur` (
   `adresse` varchar(45) DEFAULT NULL,
   `description` mediumtext,
   `date_creation` datetime DEFAULT CURRENT_TIMESTAMP,
-  `date_derniere_connexion` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `date_derniere_connexion` datetime DEFAULT NULL,
   `token` varchar(255) DEFAULT NULL,
   `statut` tinyint DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -763,9 +732,7 @@ INSERT INTO `utilisateur` (`idutilisateur`, `pseudo`, `mot_de_passe`, `google_su
 (68, 'aa', '$argon2i$v=19$m=2048,t=4,p=3$N1REbTJlMDNady4ycUVTWQ$wn3ctMk8Nh8jhn/zrEYJ10n/Q+VrbsqOjiZEkdnUSrE', NULL, 'aa', 'aa', 'a@mail.fr', '681645876715.png', '4567-03-01', NULL, 'Bienvenue sur mon profil ! Test coucou', '2022-01-20 17:51:48', NULL, '46fc923c25bb45c4c3efb85dddaf6ede27eccdbc454326245decb740333137624b681f-68-1645876800', NULL),
 (74, NULL, NULL, '105790575614120714764222222222222', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-15 00:39:29', NULL, NULL, NULL),
 (78, 'dd', '$2y$10$fi/HNVljsOwMqNM9WXc/GeswEVDd3iZOaafQbBVK1qzJCJBJqBcvC', NULL, NULL, NULL, 'exemple@zoey.fr', '', NULL, NULL, NULL, '2022-02-15 00:50:44', NULL, 'aadfdaa6f2d54ee18ea0d7c7fe62c09a578bbc586d7f0d92dd523c2cfa61bd85fc6f84-78-1644884289', NULL),
-(80, 'Marin', NULL, '105790575614120714764', NULL, NULL, 'marin.bouanchaud@gmail.com', '801646240917.jpg', NULL, NULL, 'azeazaz', '2022-02-26 17:55:04', NULL, 'be03f8c17309783990ea723a89c4ab945719caa2cd71027400add6e2fe37832e2384c6-80-1646332239', NULL),
-(83, 'Zoey_5291', NULL, '105601581997729776049', NULL, NULL, 'app.zoey@gmail.com', 'gdl-1646239535.jpg', NULL, NULL, NULL, '2022-03-02 16:45:35', NULL, 'f0974830bd18db0a4d655425d1afac04f454d8afc1f1bc4f00d18757ed078dabc6b202-83-1646273862', NULL),
-(87, 'Marin_', NULL, '116179095823259577328', NULL, NULL, 'contact@marinb.com', '871646240192.png', NULL, NULL, 'Bienvenue sur mon profil ! Je peux le modifier facilement !', '2022-03-02 16:53:01', NULL, '0b6afeef19108b5e35f8d067c3cdae1165475ee3df494bda905ce37647dc899254b1af-87-1646239981', NULL);
+(80, 'Marin', NULL, '105790575614120714764', NULL, NULL, 'marin.bouanchaud@gmail.com', '801646058847.png', NULL, NULL, 'azeazaz', '2022-02-26 17:55:04', NULL, '570a2f8943b9ba1a4129c3eb047397b46ddbd447f61ccc9b16690b752d7c35679c70ef-80-1646066208', NULL);
 
 -- --------------------------------------------------------
 
@@ -1078,19 +1045,19 @@ ALTER TABLE `commentaire_post`
 -- AUTO_INCREMENT pour la table `conversation`
 --
 ALTER TABLE `conversation`
-  MODIFY `idconversation` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `idconversation` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT pour la table `liste_amis`
 --
 ALTER TABLE `liste_amis`
-  MODIFY `idliste_amis` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `idliste_amis` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT pour la table `message`
 --
 ALTER TABLE `message`
-  MODIFY `idmessage` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `idmessage` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT pour la table `newsletter`
@@ -1102,7 +1069,7 @@ ALTER TABLE `newsletter`
 -- AUTO_INCREMENT pour la table `post`
 --
 ALTER TABLE `post`
-  MODIFY `idpost` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `idpost` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT pour la table `profil_animal_de_compagnie`
@@ -1156,7 +1123,7 @@ ALTER TABLE `types_animaux`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `idutilisateur` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `idutilisateur` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- Contraintes pour les tables déchargées
