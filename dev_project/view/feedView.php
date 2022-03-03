@@ -8,6 +8,11 @@ ob_start();
 
     <?php
     while ($post = $feed->fetch()) {
+        $desc = $post['description'];
+        if (strlen($desc) > 200) {
+            $s = substr($post['description'], 0, 200);
+            $desc = substr($s, -1) === " " ? trim($s) : substr($s, 0, strrpos($s, ' ')) . " ...";
+        }
     ?>
         <article class="defaultBlock">
             <img class="blockIllus" src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($post['media']) ?>" alt="">
@@ -19,7 +24,7 @@ ob_start();
                 </a>
 
                 <p>
-                    <?= nl2br(htmlspecialchars($post['description'])) ?>
+                    <?= nl2br(htmlspecialchars($desc)) ?>
                 </p>
                 <a class="seeMore" href="index.php?action=feed&id=<?= htmlspecialchars($post['idpost']) ?>">voir le post</a>
             </div>

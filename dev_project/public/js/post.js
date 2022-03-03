@@ -17,7 +17,7 @@ function getCookie(cname) {
 }
 
 $(document).ready(function () {
-  console.log('ready');
+  console.log('ready')
 
   function getParameterByName(name, url = window.location.href) {
     name = name.replace(/[\[\]]/g, '\\$&')
@@ -30,11 +30,11 @@ $(document).ready(function () {
 
   function postPhoto() {
     // renvoie basename fichier uploadé
-    console.log('postPhoto');
+    console.log('postPhoto')
 
     let fd = new FormData()
     let files = $('#media')[0].files[0]
-    if (files === null) {
+    if (files == null) {
       return null
     }
 
@@ -676,6 +676,13 @@ $(document).ready(function () {
 
     console.log('click')
 
+    let files = $('#media')[0].files[0]
+    if (files == null) {
+      $('#ConfirmationMessage').html('')
+      $('#ConfirmationMessage').text(`Vous n'avez pas ajouté d'image !`)
+      return
+    }
+
     let postedMedia = postPhoto()
     if (postedMedia == 'déconnecté') {
       return
@@ -695,14 +702,18 @@ $(document).ready(function () {
   $('#submitAddMessage').click(function (e) {
     e.preventDefault()
 
-    if(document.querySelector("#msg").value != "" || document.querySelector("#media").value != ""){
-      $("body").append("<div class='loader'><img src='public/images/icons/loader.svg'></div>");
+    if (
+      document.querySelector('#msg').value != '' ||
+      document.querySelector('#media').value != ''
+    ) {
+      $('body').append(
+        "<div class='loader'><img src='public/images/icons/loader.svg'></div>"
+      )
     }
 
     setTimeout(() => {
-  
       console.log('click')
-  
+
       let postedMedia = postPhoto()
       // if (postedMedia == "déconnecté"){
       // return;

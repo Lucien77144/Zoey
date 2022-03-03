@@ -1,145 +1,155 @@
-input[type=radio]{
-    display: none;
+input[type='radio'] {
+  display: none;
 }
 
-label>img{
-    height: 60px;
-    width: 60px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: solid 2px white;
-    background-color: #ffffff66;
+label > img {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: solid 2px white;
+  background-color: #ffffff66;
 }
 
-label>h3{
-    margin: 0;
+label > h3 {
+  margin: 0;
 }
 
-h3{
-    text-align: center;
+h3 {
+  text-align: center;
 }
 
-.selectAnimal{
-    display: flex;
-    justify-content: space-between;
-    width: 80vw;
-    overflow-x: scroll;
-    padding: 10px 0;
+.selectAnimal {
+  display: flex;
+  justify-content: space-between;
+  width: 80vw;
+  overflow-x: scroll;
+  padding: 10px 0;
 }
 
-.containerSelectAnim{
-    position: relative;
+.containerSelectAnim {
+  position: relative;
 }
 
-.containerSelectAnim::after{
-    content: "";
-    background: rgb(255,255,255);
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 25px;
-    pointer-events: none;
+.containerSelectAnim::after {
+  content: '';
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 25px;
+  pointer-events: none;
 }
 
-.containerSelectAnim::before{
-    content: "";
-    background: rgb(255,255,255);
-    background: linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 25px;
-    pointer-events: none;
+.containerSelectAnim::before {
+  content: '';
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    270deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 25px;
+  pointer-events: none;
 }
 
-label{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    cursor: pointer;
+label {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
 }
 
-.cardSelector{
-    min-width: 100px;
-    height: 125px;
-    border-radius: 20px;
-    transition: 0.15s ease-in-out;
-    margin: 0 37.5px;
+.cardSelector {
+  min-width: 100px;
+  height: 125px;
+  border-radius: 20px;
+  transition: 0.15s ease-in-out;
+  margin: 0 37.5px;
 }
 
-.cardActive{
-    background-color: #FFC800;
-    box-shadow: #00000077 3px 3px 10px !important;
+.cardActive {
+  background-color: #ffc800;
+  box-shadow: #00000077 3px 3px 10px !important;
 }
 
-.cardActive h3{
-    color: white;
+.cardActive h3 {
+  color: white;
 }
 
-#description{
-    box-sizing: border-box;
-    color: #949393;
-    background-color: #F3F3F3;
-    border: none;
-    resize: none;
-    padding: 10px;
-    border-radius: 25px;
-    width: 80%;
-    max-width: 500px;
+#description {
+  box-sizing: border-box;
+  color: #949393;
+  background-color: #f3f3f3;
+  border: none;
+  resize: none;
+  padding: 10px;
+  border-radius: 25px;
+  width: 80%;
+  max-width: 500px;
 }
 
-.descWrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-    border-radius: 25px;
-    padding: 1px;
+.descWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 25px;
+  padding: 1px;
 }
 
-.sendWrapper{
-    display: flex;
-    justify-content: center;
+.sendWrapper {
+  display: flex;
+  justify-content: center;
 }
 
-.sendWrapper>input{
-    transition: 0.25s ease-in-out;
-    cursor: pointer;
+.sendWrapper > input {
+  transition: 0.25s ease-in-out;
+  cursor: pointer;
 }
 
-.sendWrapper>input:hover{
-    box-shadow: none;
+.sendWrapper > input:hover {
+  box-shadow: none;
 }
 
-#media{
-    display: none;
+#media {
+  display: none;
 }
 
-.imgLoader img{
-    width: 75vw;
-    height: auto;
+.imgLoader img {
+  width: 75vw;
+  max-width: 500px;
+  height: auto;
 }
 
-#ConfirmationMessage{
-    margin-bottom: 50px;
+#ConfirmationMessage {
+  margin-bottom: 50px;
 }
 
 @media (max-width: 800px) {
-    .containerSelectAnim, #addPostForm{
-        width: 100%;
-    }
+  .containerSelectAnim,
+  #addPostForm {
+    width: 100%;
+  }
 
-    .selectAnimal{
-        width: 100%;
-    }
+  .selectAnimal {
+    width: 100%;
+  }
 
-    .cardSelector{
-        margin: 0 10px;
-    }
+  .cardSelector {
+    margin: 0 10px;
+  }
 }
