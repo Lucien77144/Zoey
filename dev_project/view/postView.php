@@ -10,6 +10,22 @@ if(isset($_SESSION['idUser'])){
     }} */
 
 $post = $post->fetch();
+
+$currentTime = new DateTime(date('Y-m-d', time()));
+$currentDay = $currentTime->format('d');
+
+$sendTime = new DateTime($post["date_publication"]);
+$sendDay = $sendTime->format('d');
+
+if ($sendDay == $currentDay - 1) {
+    $time = "Hier à " . $sendTime->format('G') . "h" . $sendTime->format('i');
+} else if ($sendDay == $currentDay) {
+    $time = "Aujourd'hui à " . $sendTime->format('G') . "h" . $sendTime->format('i');
+} else {
+    $time = "Le " . $sendTime->format('d/m/Y') . " à " . $sendTime->format('G') . "h" . $sendTime->format('i');
+}
+
+
 ob_start();
 ?>
 <article class="defaultBlock">
@@ -23,7 +39,10 @@ ob_start();
     <p>
         <?= nl2br(htmlspecialchars($post['description'])) ?>
     </p>
-    <!-- <p><?= nl2br(htmlspecialchars($post['date_publication'])) ?> </p> -->
+
+    <p>
+        <?= $time ?>
+    </p>
 </article>
 <?php
 

@@ -395,7 +395,7 @@ function getPost()
 
         $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-        $sql = "SELECT profil_animal_de_compagnie_utilisateur_idutilisateur1 idutilisateur, idpost, post.description, media, profil_animal_de_compagnie_idprofil_animal_de_compagnie idanimal, profil_animal_de_compagnie.nom, profil_animal_de_compagnie.utilisateur_idutilisateur1 iduser
+        $sql = "SELECT profil_animal_de_compagnie_utilisateur_idutilisateur1 idutilisateur, idpost, post.description, media, profil_animal_de_compagnie_idprofil_animal_de_compagnie idanimal, profil_animal_de_compagnie.nom, profil_animal_de_compagnie.utilisateur_idutilisateur1 iduser, date_publication
         FROM post
         INNER JOIN profil_animal_de_compagnie ON post.profil_animal_de_compagnie_idprofil_animal_de_compagnie = profil_animal_de_compagnie.idprofil_animal_de_compagnie
         WHERE idpost = ?;";
