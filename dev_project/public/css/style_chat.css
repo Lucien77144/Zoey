@@ -66,7 +66,8 @@ article p:last-child {
     align-items: center;
     font-size: 0.9rem;
 }
-article p:last-child img {
+.authorPic {
+    object-fit: cover;
     width: 30px;
     height: 30px;
     border-radius: 50%;

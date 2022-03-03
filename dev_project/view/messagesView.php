@@ -35,6 +35,7 @@ ob_start();
                         for ($i = 0; $i < count($convUsers); $i++) {
                         ?>
                             <img class="profilePicture" src="../dev_project/public/images/upload/<?= htmlspecialchars($convUsers[$i]['url_photo']) ?>" alt="">
+                        
                         <?php
                         }
                         ?>

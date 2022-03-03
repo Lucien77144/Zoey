@@ -76,7 +76,8 @@ ob_start();
             <?php
                     if (!empty($message['authorPic'])) {
                     ?>
-            <img src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['authorPic']) ?>" alt="">
+                <img class="authorPic" src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['authorPic']) ?>" alt="">
+            
             <?php
                     }
                     ?>
