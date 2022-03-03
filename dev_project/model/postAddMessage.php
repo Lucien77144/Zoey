@@ -4,6 +4,35 @@ session_start();
 require("model.php");
 require_once("verifyToken.php");
 
+function sendMail($pseudo, $to)
+{
+    $subject = 'Vous avez des messages non lus sur Zoey !';
+
+    ob_start();
+?>
+    <html>
+
+    <body>
+        <h2>Zoey</h2>
+        <h3><?= $pseudo ?>, vous avez des messages non lus.</h3>
+        <p><a href="zoey-app.fr/index.php?action=messages">Voir votre messagerie Zoey</a></p>
+        <p>Retrouvez-nous également sur vos réseaux sociaux préférés : <a href="https://www.instagram.com/zoey.app/">Instagram</a>, <a href="https://www.tiktok.com/@zoey.app">Tiktok</a>, <a href="https://www.facebook.com/appli.zoey">Facebook</a> et <a href="https://www.linkedin.com/company/zoeyapp">LinkedIn</a>.</p>
+        <p>Pour nous contacter ou si vous avez besoin d'aide sur Zoey, vous pouvez écrire à <a href="mailto:contact@zoey-app.fr">contact@zoey-app.fr</a> ou répondre directement à ce mail.</p>
+        <p>À bientôt sur Zoey !</p>
+    </body>
+
+    </html>
+<?php
+    $message = ob_get_clean();
+
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= 'From: contact@zoey-app.fr' . "\r\n";
+
+    mail($to, $subject, $message, $headers);
+}
+
+
 function postAddMessage()
 {
 
@@ -61,7 +90,23 @@ function postAddMessage()
     if (!$valid)
         throw new Exception("Nous n'avons pas pu envoyer ce message.");
 
+    // 
+    // set read / unread on db
+    // 
+    // default state : read 1
+    // if user is connected : stays read 1
+    // if disconnected : becomes unread 2 and send mail
+    // if already unread : don't send mail
+    // 
 
+    foreach ($usersInConv as $id) {
+        if (getConvReadState($postedIdConv, $id) == 1 || isUserConnected($id)) {
+            setConvReadState($postedIdConv, $id, 2);
+            $pseudo = getPseudoFromId($id);
+            $mail = getMailFromId($id);
+            sendMail($pseudo, $mail);
+        }
+    }
 
     return "valid";
 }
@@ -79,8 +124,6 @@ try {
         throw new Exception("Nous n'avons pas pu envoyer ce message.1");
     }
 } catch (Exception $e) {
-    // echo "catch";
     $errorMsg = $e->getMessage();
     echo $errorMsg;
-    // require(BASE_URL . "view/errorView.php");
 }

@@ -116,9 +116,131 @@ function getPseudoFromId($idUser)
 
         $pseudo = $req->fetch();
 
-        return $pseudo["pseudo"];
+        return htmlspecialchars($pseudo["pseudo"]);
     } else {
         throw new Exception("Aucun pseudo renseigné");
+    }
+}
+
+function getMailFromId($idUser)
+{
+    if (isset($idUser) && is_numeric($idUser) && intval($idUser) > 0) {
+        $idUser = intval($idUser);
+
+        require("PDO.php");
+
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+
+        $sql = "SELECT adresse_mail mail FROM utilisateur WHERE idutilisateur = ?";
+        $req = $db->prepare($sql);
+
+        $req->execute(array($idUser));
+
+        if ($req->rowCount() > 1)
+            throw new Exception("Nous n'avons pas trouvé ce pseudo");
+
+        $pseudo = $req->fetch();
+
+        return htmlspecialchars($pseudo["mail"]);
+    } else {
+        throw new Exception("Aucun pseudo renseigné");
+    }
+}
+
+function isUserConnected($idUser)
+{
+    if (isset($idUser) && is_numeric($idUser) && intval($idUser) > 0) {
+        $idUser = intval($idUser);
+
+        require("PDO.php");
+
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+
+        $sql = "SELECT date_derniere_connexion lastDate FROM `utilisateur` WHERE idutilisateur = ?";
+        $req = $db->prepare($sql);
+
+        $req->execute(array($idUser));
+
+        if ($req->rowCount() != 1)
+            throw new Exception("Nous n'avons pas trouvé cet utilisateur");
+
+        $user = $req->fetch();
+
+        $currentTime = time();
+        if (($user["lastDate"] + 600) < $currentTime) { // 10 min
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        throw new Exception("Aucun pseudo renseigné");
+    }
+}
+
+function getConvReadState($idconv, $idUser)
+{
+    if (
+        (isset($idconv) && is_numeric($idconv) && intval($idconv) > 0)
+        && (isset($idUser) && is_numeric($idUser) && intval($idUser) > 0)
+    ) {
+        $idconv = intval($idconv);
+        $idUser = intval($idUser);
+
+        require("PDO.php");
+
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+
+        $sql = "SELECT readstate FROM conversation_has_utilisateur WHERE conversation_idconversation = :idconv and utilisateur_idutilisateur = :iduser";
+        $req = $db->prepare($sql);
+
+        $req->execute(array(
+            ':idconv' => $idconv,
+            ':iduser' => $idUser
+        ));
+
+        if ($req->rowCount() != 1)
+            throw new Exception("Nous n'avons pas trouvé cette conversation");
+
+        $pseudo = $req->fetch();
+
+        return $pseudo["readstate"];
+    } else {
+        throw new Exception("Aucune conversation renseignée");
+    }
+}
+
+function setConvReadState($idconv, $idUser, $newreadstate)
+{
+    if (
+        (isset($idconv) && is_numeric($idconv) && intval($idconv) > 0)
+        && (isset($idUser) && is_numeric($idUser) && intval($idUser) > 0)
+        && (isset($newreadstate) && is_numeric($newreadstate) && (intval($newreadstate) == 1 || intval($newreadstate) == 2))
+    ) {
+        $idconv = intval($idconv);
+        $idUser = intval($idUser);
+        $newreadstate = intval($newreadstate);
+
+        require("PDO.php");
+
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+
+        $sql = "UPDATE conversation_has_utilisateur SET readstate = :readstate WHERE conversation_idconversation = :idconv and utilisateur_idutilisateur = :iduser";
+        $req = $db->prepare($sql);
+
+        $req->execute(array(
+            ':idconv' => $idconv,
+            ':iduser' => $idUser,
+            ':readstate' => $newreadstate
+        ));
+
+        if ($req->rowCount() != 1)
+            throw new Exception("Nous n'avons pas trouvé cette conversation");
+
+        $pseudo = $req->fetch();
+
+        return $pseudo["readstate"];
+    } else {
+        throw new Exception("Aucune conversation renseignée");
     }
 }
 
