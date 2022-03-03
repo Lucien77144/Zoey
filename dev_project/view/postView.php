@@ -28,7 +28,7 @@ if ($sendDay == $currentDay - 1) {
 
 ob_start();
 ?>
-<article class="defaultBlock">
+<article class="postContainer">
     <img class="postImg" src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($post['media']) ?>" alt="">
     <a href="index.php?action=account&id=<?= htmlspecialchars($post['idutilisateur']) ?>" title="voir le profil de <?= htmlspecialchars($post['nom']) ?>">
         <h1>
