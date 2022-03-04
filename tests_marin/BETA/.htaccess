@@ -1,0 +1,4 @@
+AuthUserFile "/kunden/homepages/36/d892141581/htdocs/BETA/.htpasswd"
+AuthName "Accès à Zoey version beta"
+AuthType Basic
+require valid-user

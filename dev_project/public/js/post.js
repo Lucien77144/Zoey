@@ -72,14 +72,13 @@ $(document).ready(function () {
     }
   }
 
-  function postSubscribe(postedMedia) {
+  function postSubscribe() {
     console.log('postSubscribe')
 
     $.post(
       'model/postSubscribe.php',
       {
         pseudo: $('#pseudoSubscribe').val(),
-        media: postedMedia,
         nom: $('#nom').val(),
         prenom: $('#prenom').val(),
         mail: $('#mail').val(),
@@ -664,11 +663,7 @@ $(document).ready(function () {
 
     console.log('click')
 
-    let postedMedia = postPhoto()
-    if (postedMedia == 'déconnecté') {
-      return
-    }
-    postSubscribe(postedMedia)
+    postSubscribe()
   })
 
   $('#submitAddPost').click(function (e) {
@@ -718,10 +713,13 @@ $(document).ready(function () {
       // if (postedMedia == "déconnecté"){
       // return;
       // }
-  
-      postAddMessage(postedMedia);
-      $("main").animate({scrollTop: document.querySelector("main").scrollHeight}, 750);
-    }, 50);
+
+      postAddMessage(postedMedia)
+      $('main').animate(
+        { scrollTop: document.querySelector('main').scrollHeight },
+        750
+      )
+    }, 50)
   })
 
   $('#submitAddAnimal').click(function (e) {
@@ -947,8 +945,7 @@ $(document).ready(function () {
         if (ReturnedMessage) {
           console.log('valid !!')
           $('#chatContainer').prepend(ReturnedMessage)
-          offsetCoef += 1;
-
+          offsetCoef += 1
         } else {
           $('#loadMoreMessages').remove()
           $('#confirmationMessage').html('')

@@ -31,11 +31,31 @@
 #RewriteRule ^index\.php$ /blog? [R=301,L]
 
 
+# DirectoryIndex index.php
+# RewriteEngine on
+
+# # set your rewrite base
+# # Edit this in your init method too if you script lives in a subfolder
+# RewriteBase /
+
+# # Deliver the folder or file directly if it exists on the server
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+
+# # Push every request to index.php
+# RewriteRule ^(.*)$ index.php [QSA]
+
+# RewriteRule ^inconnu.html$  /index.php [L]
+
 # ///////////////////////
 
 
+
+#RewriteEngine On
+#RewriteCond %{SERVER_PORT} !=443
+#RewriteRule ^(.*)$ https://zoey-app.fr/$1 [R=301,L]
+
 DirectoryIndex index.php
-RewriteEngine on
 
 # set your rewrite base
 # Edit this in your init method too if you script lives in a subfolder
@@ -48,8 +68,10 @@ RewriteCond %{REQUEST_FILENAME} !-d
 # Push every request to index.php
 RewriteRule ^(.*)$ index.php [QSA]
 
-RewriteRule ^inconnu.html$  /index.php [L]
-
+# <Directory "/BETA">
+# Allow From All
+# Satisfy Any
+# </Directory>
 
 
 

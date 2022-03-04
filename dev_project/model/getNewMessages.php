@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-define("BASE_URL", "../dev_project/");
+define("BASE_URL", "");
 
 // this page looks for new messages on the instant messaging page (openend conversations)
 
@@ -89,44 +89,44 @@ function getNewMessages()
             $time = "Le " . $sendTime->format('d/m/Y') . " à " . $sendTime->format('G') . "h" . $sendTime->format('i');
         }
 
-        if($message['authorId'] == $_SESSION['idUser']){ ?>
+        if ($message['authorId'] == $_SESSION['idUser']) { ?>
             <article class="myMessages">
-        <?php }else{ ?>
-            <article>
-        <?php } ?>
-        
-        
-            <div class="chatMsgContainer">
-                <?php
-                if (!empty($message['msg'])) {
-                ?>
-                    <p>
-                        <?= htmlspecialchars($message['msg']) ?>
-                    </p>
-                <?php
-                }
-                ?>
-                <?php
-                if (!empty($message['media'])) {
-                ?>
-                    <div class="imgChat" style='background-image: url("<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['media']) ?>")' alt=""></div>
-                <?php
-                }
-                ?>
-                <p>
+            <?php } else { ?>
+                <article>
+                <?php } ?>
+
+
+                <div class="chatMsgContainer">
                     <?php
-                    if (!empty($message['authorPic'])) {
+                    if (!empty($message['msg'])) {
                     ?>
-                        <img class="authorPic" src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['authorPic']) ?>" alt="">
+                        <p>
+                            <?= htmlspecialchars($message['msg']) ?>
+                        </p>
                     <?php
                     }
                     ?>
-                    <a class="username" href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>"><?= htmlspecialchars($message['authorPseudo']) ?></a>
-                    <?= $time ?>.
-                </p>
-            </div>
-        </article>
-<?php
+                    <?php
+                    if (!empty($message['media'])) {
+                    ?>
+                        <div class="imgChat" style='background-image: url("<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['media']) ?>")' alt=""></div>
+                    <?php
+                    }
+                    ?>
+                    <p>
+                        <?php
+                        if (!empty($message['authorPic'])) {
+                        ?>
+                            <img class="authorPic" src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['authorPic']) ?>" alt="">
+                        <?php
+                        }
+                        ?>
+                        <a class="username" href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>"><?= htmlspecialchars($message['authorPseudo']) ?></a>
+                        <?= $time ?>.
+                    </p>
+                </div>
+                </article>
+        <?php
     }
 
     $_SESSION['chatLastId'] = array('idConv' => $idConv, 'lastId' => $idMessage); // store last message's id in SESSION

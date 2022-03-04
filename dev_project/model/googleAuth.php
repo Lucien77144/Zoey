@@ -65,7 +65,7 @@ function subscribe($payload)
       if ($http_code == intval(200)) {
         $postContent['media'] = $imgName;
       } else {
-        echo "Ressource introuvable : " . $http_code;
+        echo "Ressource introuvable 2 : " . $http_code;
         return false;
       }
 
@@ -109,7 +109,7 @@ function subscribe($payload)
     if ($http_code == intval(200)) {
       return $response;
     } else {
-      echo "Ressource introuvable : " . $http_code;
+      echo "Ressource introuvable 1 : " . $url . ' - ' . $http_code;
       return false;
     }
   } catch (\Throwable $th) {
