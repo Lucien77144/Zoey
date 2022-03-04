@@ -3,16 +3,24 @@ $pageTitle = 'Animaux à adopter';
 ob_start();
 
 ?>
-<p>Découvrez les animaux à adopter les plus adaptés à vos préférences ! Vous pouvez mettre à jour ces préférences en envoyant <a href="index.php?action=quizz">de nouvelles réponses au quizz</a>.</p>
-    <div class="filter">
-        <?php
-            while ($categorie = $types_animaux -> fetch()){
-                ?>
-                    <div class="animalBreed" id="filterType0<?= $categorie['id'] ?>"><?= mb_strtoupper($categorie['nom']) ?></div>
-                <?php
+<div class="quizzBubble">
+    <p>Découvrez les animaux à adopter les plus adaptés à vos préférences ! Vous pouvez mettre à jour ces préférences en envoyant <a href="index.php?action=quizz">de nouvelles réponses au quizz</a>.</p>
+</div>
+
+<nav class="filterAnimal">
+    <div class="filterInner">
+        <ul class="filterWrapper">
+            <?php
+            while ($categorie = $types_animaux->fetch()) {
+            ?>
+                <li class="animalBreed" id="filterType0<?= $categorie['id'] ?>"><?= ucfirst(($categorie['nom'])) ?></li>
+            <?php
             }
-        ?>
+            ?>
+        </ul>
     </div>
+</nav>
+
 <main>
 <?php
 foreach ($feedAdoption as $animal)

@@ -4,16 +4,31 @@ $pageTitle = 'Animaux à adopter';
 ob_start();
 
 ?>
-<p class="AnswerQuizz"><a href="index.php?action=quizz">Répondez au quizz </a>ou <a href="index.php?action=connect">connectez-vous</a> pour avoir des résultats plus adaptés !</p>
-<div class="filter">
-    <?php
-    while ($categorie = $types_animaux->fetch()) {
-    ?>
-        <div class="animalBreed" id="filterType0<?= $categorie['id'] ?>"><?= mb_strtoupper($categorie['nom']) ?></div>
-    <?php
-    }
-    ?>
+
+<div class="quizzBubble">
+    <p class="AnswerQuizz">
+        <a href="index.php?action=quizz">Répondez au quizz</a>
+        <?php
+        if(!verifyToken()){ ?>
+            ou <a href="index.php?action=connect">connectez-vous</a>
+        <?php } ?>
+        pour avoir des résultats plus adaptés !
+    </p>
 </div>
+
+<nav class="filterAnimal">
+    <div class="filterInner">
+        <ul class="filterWrapper">
+            <?php
+            while ($categorie = $types_animaux->fetch()) {
+            ?>
+                <li class="animalBreed" id="filterType0<?= $categorie['id'] ?>"><?= mb_strtoupper($categorie['nom']) ?></li>
+            <?php
+            }
+            ?>
+        </ul>
+    </div>
+</nav>
 <main>
     <?php
 

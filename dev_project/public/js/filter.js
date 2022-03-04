@@ -16,7 +16,8 @@ function listenToFilter(){
         }
         filter.onclick = () => {
             if (filter.classList.contains('activeFilter')){
-                filter.classList.remove('activeFilter');
+                window.location.href = `index.php?action=adoption`;
+                // filter.classList.remove('activeFilter');
             } else {
                 // filter.classList.add('activeFilter');
                 window.location.href = `index.php?action=adoption&filter=${id}`
