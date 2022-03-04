@@ -645,7 +645,7 @@ function getAnimalTypes()
 
     $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-    $sql = "SELECT idtypes_animaux id, nom, url_icone FROM types_animaux";
+    $sql = "SELECT idtypes_animaux id, nom, url_icone FROM types_animaux ORDER BY typeOrder;";
     $req = $db->prepare($sql);
 
     $req->execute();

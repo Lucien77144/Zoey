@@ -46,11 +46,33 @@ ob_start();
 </article>
 <?php
 
+if (isset($_SESSION['idUser']) && $post['idutilisateur'] == $_SESSION['idUser']) {
+?>
+    <a class="btn" id="popUpLauncher">Supprimer ce post</a>
+    <div class="wrapperPopUp" id="popUpContainer">
+        <div class="popUp">
+            <div class="croix" id="popUpClose"><img src="<?= BASE_URL . 'public/images/icons/popUp/croix.svg' ?>" alt=""></div>
+            <h1>Supprimer ce post</h1>
+            <p>Voulez-vous vraiment supprimer ce post ?</p>
+            <a class="btn" id="submitDeletePost">Supprimer ce post</a>
+        </div>
+    </div>
+<?php
+}
+
 $viewContent = ob_get_clean();
 
 // styles BLOCK
 ob_start(); ?>
 <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_post.css" />
-
+<link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_popup.css" />
 <?php
+$stylesBlock = ob_get_clean();
+
+// SCRIPT BLOCK
+ob_start(); ?>
+<script src="public/js/script.js"></script>
+<?php
+$scriptsBlock = ob_get_clean();
+
 require(BASE_URL . 'public/template/template.php');
