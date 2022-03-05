@@ -84,14 +84,16 @@ function printAnimal($animalId)
             <?php
                 $animalFeed->closeCursor();
             } ?>
-            <a href="index.php?action=addpost">
-                <article class="publi addPubli">
-                    <svg viewBox="0 0 42 42" fill="none">
-                        <rect x="23" width="42" height="4" rx="2" transform="rotate(90 23 0)" fill="#FFC800" />
-                        <rect x="42" y="23" width="42" height="4" rx="2" transform="rotate(-180 42 23)" fill="#FFC800" />
-                    </svg>
-                </article>
-            </a>
+            <?php if(isset($_SESSION['idUser']) && ($animal['iduser'] == $_SESSION['idUser'] && verifyToken())){ ?>
+                <a href="index.php?action=addpost">
+                    <article class="publi addPubli">
+                        <svg viewBox="0 0 42 42" fill="none">
+                            <rect x="23" width="42" height="4" rx="2" transform="rotate(90 23 0)" fill="#FFC800" />
+                            <rect x="42" y="23" width="42" height="4" rx="2" transform="rotate(-180 42 23)" fill="#FFC800" />
+                        </svg>
+                    </article>
+                </a>
+            <?php } ?>
         </div>
     </div>
 <?php
