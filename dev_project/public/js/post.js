@@ -613,15 +613,10 @@ $(document).ready(function () {
         console.log(ReturnedMessage)
 
         if (ReturnedMessage == 'valid') {
-          $('#confirmationMessageAA').html('')
-          $('#confirmationMessageAA').text(
-            `L'animal à adopter a bien été supprimé.`
-          )
+          window.location.href = 'index.php'
         } else {
-          $('#confirmationMessageAA').html('')
-          $('#confirmationMessageAA').text(
-            `L'animal à adopter n'a pas pu être supprimé.`
-          )
+          $('#confirmationMessage').html('')
+          $('#confirmationMessage').text(`Le post n'a pas pu être supprimé.`)
         }
       },
       'text'

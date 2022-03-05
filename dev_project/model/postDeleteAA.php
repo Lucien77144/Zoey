@@ -21,8 +21,9 @@ function postDeleteAA()
     ));
 
     $photo = $req->fetch();
-    $deletePhoto = $photo["photo"];
-    unlink('../public/images/upload/' . $deletePhoto);
+    if (!empty($photo["photo"])) {
+        unlink('../public/images/upload/' . $photo["photo"]);
+    }
 
     // delete animal_has_badges (foreign keys)
     $sql = "DELETE FROM `animal_a_adopter_has_badge` WHERE `animal_a_adopter_has_badge`.`animal_a_adopter_idanimal_a_adopter` = :idanimal";
