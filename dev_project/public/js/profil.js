@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-  document
-    .querySelector('.menuAnimauxWrapper li:first-child')
-    .classList.add('active')
+
+  if(document.querySelector('.menuAnimauxWrapper li') != null){
+    document.querySelector('.menuAnimauxWrapper li:first-child').classList.add('active');
+  }
 
   document.querySelectorAll('.menuAnimauxWrapper li').forEach((e) => {
     e.addEventListener('click', function () {
@@ -132,17 +133,30 @@ document.addEventListener('DOMContentLoaded', function () {
     $('#submitModifyAccountPublic').click(function (e) {
       e.preventDefault()
 
-      console.log('click')
-
-      postModifyAccount()
+      console.log('click');
+      
+      if(document.querySelector(".profil #pseudoSubscribe").value == ""){
+        console.log("pseudo vide");
+      }else if(document.querySelector(".profil #desc").value == ""){
+        console.log("description vide");
+      }else{
+        postModifyAccount();
+      }
     })
 
     $('#submitModifyAnimalPublic').click(function (e) {
       e.preventDefault()
 
-      console.log('click')
+      console.log('click');
+      
+      if(document.querySelector(".profilAnimal #nomAnimal").value == ""){
+        console.log("nom vide");
+      }else if(document.querySelector(".profilAnimal #desc").value == ""){
+        console.log("description vide");
+      }else{
+        postModifyAnimal();
+      }
 
-      postModifyAnimal()
     })
 
     function isPseudoFreeAPI() {
