@@ -46,7 +46,7 @@ ob_start();
 </article>
 <?php
 
-if (isset($_SESSION['idUser']) && $post['idutilisateur'] == $_SESSION['idUser']) {
+if (verifyToken() && $post['idutilisateur'] == $_SESSION['idUser']) {
 ?>
     <a class="btn" id="popUpLauncher">Supprimer ce post</a>
     <div class="wrapperPopUp" id="popUpContainer">
@@ -55,6 +55,8 @@ if (isset($_SESSION['idUser']) && $post['idutilisateur'] == $_SESSION['idUser'])
             <h1>Supprimer ce post</h1>
             <p>Voulez-vous vraiment supprimer ce post ?</p>
             <a class="btn" id="submitDeletePost">Supprimer ce post</a>
+            <br>
+            <span id="confirmationMessage"></span>
         </div>
     </div>
 <?php
