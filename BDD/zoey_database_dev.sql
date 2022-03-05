@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 03 mars 2022 à 18:35
+-- Généré le : ven. 04 mars 2022 à 15:46
 -- Version du serveur : 8.0.28
 -- Version de PHP : 8.1.2
 
@@ -29,14 +29,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `animal_a_adopter` (
   `idanimal_a_adopter` int NOT NULL,
-  `nom` varchar(45) DEFAULT NULL,
+  `nom` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `sexe` tinyint(1) NOT NULL,
-  `photo` varchar(45) DEFAULT NULL,
-  `description` mediumtext,
+  `photo` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `description` mediumtext COLLATE utf8mb4_general_ci,
   `date_anniversaire` date DEFAULT NULL,
   `refuge_idrefuge` int NOT NULL,
   `idtype` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `animal_a_adopter`
@@ -55,7 +55,7 @@ INSERT INTO `animal_a_adopter` (`idanimal_a_adopter`, `nom`, `sexe`, `photo`, `d
 CREATE TABLE `animal_a_adopter_has_badge` (
   `animal_a_adopter_idanimal_a_adopter` int NOT NULL,
   `badge_idbadge` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `animal_a_adopter_has_badge`
@@ -76,11 +76,11 @@ INSERT INTO `animal_a_adopter_has_badge` (`animal_a_adopter_idanimal_a_adopter`,
 
 CREATE TABLE `badge` (
   `idbadge` int NOT NULL,
-  `nom` varchar(45) DEFAULT NULL,
-  `url_icone` varchar(45) DEFAULT NULL,
-  `titre` varchar(255) NOT NULL,
-  `description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `nom` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `url_icone` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `titre` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `description` text COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `badge`
@@ -106,15 +106,15 @@ INSERT INTO `badge` (`idbadge`, `nom`, `url_icone`, `titre`, `description`) VALU
 
 CREATE TABLE `blog` (
   `id` int NOT NULL,
-  `titre` varchar(45) DEFAULT NULL,
-  `resume` varchar(255) NOT NULL,
-  `texte1` text,
-  `url_image` varchar(45) NOT NULL,
-  `description_photo` varchar(255) NOT NULL,
-  `texte2` text NOT NULL,
+  `titre` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `resume` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `texte1` text COLLATE utf8mb4_general_ci,
+  `url_image` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
+  `description_photo` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `texte2` text COLLATE utf8mb4_general_ci NOT NULL,
   `date_publication` datetime DEFAULT CURRENT_TIMESTAMP,
   `fk_idcategorie` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `blog`
@@ -135,8 +135,8 @@ INSERT INTO `blog` (`id`, `titre`, `resume`, `texte1`, `url_image`, `description
 
 CREATE TABLE `categorie_blog` (
   `id` int NOT NULL,
-  `nom` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `nom` varchar(45) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `categorie_blog`
@@ -154,9 +154,9 @@ INSERT INTO `categorie_blog` (`id`, `nom`) VALUES
 
 CREATE TABLE `categorie_forum` (
   `idcategories_forum` int NOT NULL,
-  `nom` varchar(45) DEFAULT NULL,
-  `url_icone` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `nom` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `url_icone` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -166,7 +166,7 @@ CREATE TABLE `categorie_forum` (
 
 CREATE TABLE `centres_interet` (
   `idcentres_interet` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -177,7 +177,7 @@ CREATE TABLE `centres_interet` (
 CREATE TABLE `centres_interet_has_types_animaux` (
   `centres_interet_idcentres_interet` int NOT NULL,
   `types_animaux_idtypes_animaux` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -187,13 +187,13 @@ CREATE TABLE `centres_interet_has_types_animaux` (
 
 CREATE TABLE `commentaire_post` (
   `idcommentaire_post` int NOT NULL,
-  `texte_commentaire` mediumtext,
+  `texte_commentaire` mediumtext COLLATE utf8mb4_general_ci,
   `date_publication` datetime DEFAULT CURRENT_TIMESTAMP,
   `utilisateur_idutilisateur` int NOT NULL,
   `post_idpost` int NOT NULL,
   `post_profil_animal_de_compagnie_idprofil_animal_de_compagnie` int NOT NULL,
   `post_profil_animal_de_compagnie_utilisateur_idutilisateur1` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -203,10 +203,10 @@ CREATE TABLE `commentaire_post` (
 
 CREATE TABLE `conversation` (
   `idconversation` int NOT NULL,
-  `titre` varchar(45) DEFAULT NULL,
+  `titre` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `date_creation` datetime DEFAULT CURRENT_TIMESTAMP,
-  `url_photo` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `url_photo` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `conversation`
@@ -263,7 +263,7 @@ CREATE TABLE `conversation_has_utilisateur` (
   `conversation_idconversation` int NOT NULL,
   `utilisateur_idutilisateur` int NOT NULL,
   `readstate` tinyint NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `conversation_has_utilisateur`
@@ -305,7 +305,7 @@ CREATE TABLE `liste_amis` (
   `date_demande` datetime DEFAULT CURRENT_TIMESTAMP,
   `statut` tinyint(1) DEFAULT '1',
   `id_bloqueur` int NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `liste_amis`
@@ -331,12 +331,12 @@ INSERT INTO `liste_amis` (`idliste_amis`, `id_demandeur`, `id_receveur`, `date_d
 
 CREATE TABLE `message` (
   `idmessage` int NOT NULL,
-  `texte_message` tinytext,
-  `url_media` varchar(45) DEFAULT NULL,
+  `texte_message` tinytext COLLATE utf8mb4_general_ci,
+  `url_media` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `date_envoi_msg` datetime DEFAULT CURRENT_TIMESTAMP,
   `utilisateur_idutilisateur` int NOT NULL,
   `conversation_idconversation` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `message`
@@ -443,7 +443,10 @@ INSERT INTO `message` (`idmessage`, `texte_message`, `url_media`, `date_envoi_ms
 (104, 'aaezaze', NULL, '2022-03-02 17:19:31', 83, 39),
 (105, 'azeazeaze', NULL, '2022-03-02 17:32:35', 83, 39),
 (106, 'azeazeaze', NULL, '2022-03-02 17:32:38', 83, 39),
-(107, 'azeaeaze', NULL, '2022-03-02 17:32:40', 83, 39);
+(107, 'azeaeaze', NULL, '2022-03-02 17:32:40', 83, 39),
+(108, 'a', NULL, '2022-03-04 10:12:40', 80, 39),
+(109, 'asdqsd', NULL, '2022-03-04 10:12:41', 80, 39),
+(110, NULL, '801646397183.png', '2022-03-04 12:33:03', 80, 39);
 
 -- --------------------------------------------------------
 
@@ -453,10 +456,10 @@ INSERT INTO `message` (`idmessage`, `texte_message`, `url_media`, `date_envoi_ms
 
 CREATE TABLE `newsletter` (
   `id` int NOT NULL,
-  `mail` varchar(255) NOT NULL,
-  `prenom` varchar(45) NOT NULL,
+  `mail` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `prenom` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -466,13 +469,13 @@ CREATE TABLE `newsletter` (
 
 CREATE TABLE `post` (
   `idpost` int NOT NULL,
-  `media` varchar(45) DEFAULT NULL,
-  `description` mediumtext,
+  `media` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `description` mediumtext COLLATE utf8mb4_general_ci,
   `date_publication` datetime DEFAULT CURRENT_TIMESTAMP,
   `id_likes_utilisateurs` int DEFAULT NULL,
   `profil_animal_de_compagnie_idprofil_animal_de_compagnie` int NOT NULL,
   `profil_animal_de_compagnie_utilisateur_idutilisateur1` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `post`
@@ -503,7 +506,7 @@ INSERT INTO `post` (`idpost`, `media`, `description`, `date_publication`, `id_li
 CREATE TABLE `post_likes` (
   `id_post` int NOT NULL,
   `id_user` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -513,13 +516,13 @@ CREATE TABLE `post_likes` (
 
 CREATE TABLE `profil_animal_de_compagnie` (
   `idprofil_animal_de_compagnie` int NOT NULL,
-  `nom` varchar(45) DEFAULT NULL,
-  `url_photo` varchar(45) DEFAULT NULL,
-  `description` mediumtext,
+  `nom` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `url_photo` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `description` mediumtext COLLATE utf8mb4_general_ci,
   `date_naissance` date DEFAULT NULL,
   `utilisateur_idutilisateur1` int NOT NULL,
   `types_animaux_idtypes_animaux` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `profil_animal_de_compagnie`
@@ -548,15 +551,15 @@ INSERT INTO `profil_animal_de_compagnie` (`idprofil_animal_de_compagnie`, `nom`,
 
 CREATE TABLE `refuge` (
   `idrefuge` int NOT NULL,
-  `nom` varchar(45) DEFAULT NULL,
-  `description` mediumtext,
-  `lien` varchar(45) DEFAULT NULL,
-  `adresse_mail` varchar(45) DEFAULT NULL,
+  `nom` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `description` mediumtext COLLATE utf8mb4_general_ci,
+  `lien` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `adresse_mail` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `telephone` int DEFAULT NULL,
-  `lien_maps` text NOT NULL,
-  `adresse` varchar(255) DEFAULT NULL,
-  `url_logo` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `lien_maps` text COLLATE utf8mb4_general_ci NOT NULL,
+  `adresse` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `url_logo` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `refuge`
@@ -574,9 +577,9 @@ INSERT INTO `refuge` (`idrefuge`, `nom`, `description`, `lien`, `adresse_mail`, 
 CREATE TABLE `reinitialisation_mot_de_passe` (
   `idreinitialisation_mot_de_passe` int NOT NULL,
   `id_demandeur` int DEFAULT NULL,
-  `token_reinitialisation` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `token_reinitialisation` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `date_demande_reinitialisation` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `reinitialisation_mot_de_passe`
@@ -594,11 +597,11 @@ INSERT INTO `reinitialisation_mot_de_passe` (`idreinitialisation_mot_de_passe`, 
 
 CREATE TABLE `reponse_forum` (
   `idreponse_forum` int NOT NULL,
-  `texte_reponse` mediumtext,
+  `texte_reponse` mediumtext COLLATE utf8mb4_general_ci,
   `date_publication` datetime DEFAULT CURRENT_TIMESTAMP,
   `id_likes_utilisateurs` int DEFAULT NULL,
   `utilisateur_idutilisateur` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -608,13 +611,13 @@ CREATE TABLE `reponse_forum` (
 
 CREATE TABLE `signalement` (
   `idsignalement` int NOT NULL,
-  `titre` varchar(45) DEFAULT NULL,
-  `message` mediumtext,
-  `url_photo` varchar(45) DEFAULT NULL,
+  `titre` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `message` mediumtext COLLATE utf8mb4_general_ci,
+  `url_photo` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `date_signalement` datetime DEFAULT CURRENT_TIMESTAMP,
   `statut` tinyint DEFAULT '0',
   `utilisateur_idutilisateur` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -624,11 +627,11 @@ CREATE TABLE `signalement` (
 
 CREATE TABLE `sujet_forum` (
   `idsujet_forum` int NOT NULL,
-  `titre` varchar(45) DEFAULT NULL,
+  `titre` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `id_reponse_epinglee` int DEFAULT NULL,
   `utilisateur_idutilisateur` int NOT NULL,
   `categorie_forum_idcategories_forum` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -640,7 +643,7 @@ CREATE TABLE `sujet_forum_favoris` (
   `idsujet_forum_favoris` int NOT NULL,
   `id_utilisateur` int DEFAULT NULL,
   `id_sujet_favoris` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -652,7 +655,7 @@ CREATE TABLE `sujet_forum_has_reponse_forum` (
   `sujet_forum_idsujet_forum` int NOT NULL,
   `sujet_forum_utilisateur_idutilisateur` int NOT NULL,
   `reponse_forum_idreponse_forum` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -662,25 +665,26 @@ CREATE TABLE `sujet_forum_has_reponse_forum` (
 
 CREATE TABLE `types_animaux` (
   `idtypes_animaux` int NOT NULL,
-  `nom` varchar(45) DEFAULT NULL,
-  `url_icone` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `nom` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `url_icone` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `typeOrder` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `types_animaux`
 --
 
-INSERT INTO `types_animaux` (`idtypes_animaux`, `nom`, `url_icone`) VALUES
-(1, 'poule', NULL),
-(2, 'chat', NULL),
-(3, 'chien', NULL),
-(4, 'autre', NULL),
-(5, 'Rongeurs', NULL),
-(6, 'Reptiles', NULL),
-(7, 'Poissons', NULL),
-(8, 'Crustacés', NULL),
-(9, 'Insectes', NULL),
-(10, 'Amphibiens', NULL);
+INSERT INTO `types_animaux` (`idtypes_animaux`, `nom`, `url_icone`, `typeOrder`) VALUES
+(1, 'Poule', NULL, 9),
+(2, 'Chat', NULL, 1),
+(3, 'Chien', NULL, 2),
+(4, 'Autre', NULL, 10),
+(5, 'Rongeur', NULL, 3),
+(6, 'Reptile', NULL, 4),
+(7, 'Poisson', NULL, 5),
+(8, 'Crustacé', NULL, 6),
+(9, 'Insecte', NULL, 8),
+(10, 'Amphibien', NULL, 7);
 
 -- --------------------------------------------------------
 
@@ -690,21 +694,21 @@ INSERT INTO `types_animaux` (`idtypes_animaux`, `nom`, `url_icone`) VALUES
 
 CREATE TABLE `utilisateur` (
   `idutilisateur` int NOT NULL,
-  `pseudo` varchar(45) DEFAULT NULL,
-  `mot_de_passe` varchar(255) DEFAULT NULL,
-  `google_sub` varchar(35) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `prenom` varchar(45) DEFAULT NULL,
-  `nom` varchar(45) DEFAULT NULL,
-  `adresse_mail` varchar(45) DEFAULT NULL,
-  `url_photo` varchar(45) DEFAULT NULL,
+  `pseudo` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `mot_de_passe` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `google_sub` varchar(35) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `prenom` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nom` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `adresse_mail` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `url_photo` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `date_naissance` date DEFAULT NULL,
-  `adresse` varchar(45) DEFAULT NULL,
-  `description` mediumtext,
+  `adresse` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `description` mediumtext COLLATE utf8mb4_general_ci,
   `date_creation` datetime DEFAULT CURRENT_TIMESTAMP,
   `date_derniere_connexion` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `token` varchar(255) DEFAULT NULL,
+  `token` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `statut` tinyint DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `utilisateur`
@@ -763,7 +767,7 @@ INSERT INTO `utilisateur` (`idutilisateur`, `pseudo`, `mot_de_passe`, `google_su
 (68, 'aa', '$argon2i$v=19$m=2048,t=4,p=3$N1REbTJlMDNady4ycUVTWQ$wn3ctMk8Nh8jhn/zrEYJ10n/Q+VrbsqOjiZEkdnUSrE', NULL, 'aa', 'aa', 'a@mail.fr', '681645876715.png', '4567-03-01', NULL, 'Bienvenue sur mon profil ! Test coucou', '2022-01-20 17:51:48', NULL, '46fc923c25bb45c4c3efb85dddaf6ede27eccdbc454326245decb740333137624b681f-68-1645876800', NULL),
 (74, NULL, NULL, '105790575614120714764222222222222', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-15 00:39:29', NULL, NULL, NULL),
 (78, 'dd', '$2y$10$fi/HNVljsOwMqNM9WXc/GeswEVDd3iZOaafQbBVK1qzJCJBJqBcvC', NULL, NULL, NULL, 'exemple@zoey.fr', '', NULL, NULL, NULL, '2022-02-15 00:50:44', NULL, 'aadfdaa6f2d54ee18ea0d7c7fe62c09a578bbc586d7f0d92dd523c2cfa61bd85fc6f84-78-1644884289', NULL),
-(80, 'Marin', NULL, '105790575614120714764', NULL, NULL, 'marin.bouanchaud@gmail.com', '801646240917.jpg', NULL, NULL, 'azeazaz', '2022-02-26 17:55:04', NULL, 'be03f8c17309783990ea723a89c4ab945719caa2cd71027400add6e2fe37832e2384c6-80-1646332239', NULL),
+(80, 'Marin', NULL, '105790575614120714764', NULL, NULL, 'marin.bouanchaud@gmail.com', '801646240917.jpg', NULL, NULL, 'azeazaz', '2022-02-26 17:55:04', '2022-03-04 15:46:15', 'b9482b0f925e71eb83f5698443dd27cea80db3b6d23c4e1b07ddbf32a36818e7c9886a-80-1646408775', NULL),
 (83, 'Zoey_5291', NULL, '105601581997729776049', NULL, NULL, 'app.zoey@gmail.com', 'gdl-1646239535.jpg', NULL, NULL, NULL, '2022-03-02 16:45:35', NULL, 'f0974830bd18db0a4d655425d1afac04f454d8afc1f1bc4f00d18757ed078dabc6b202-83-1646273862', NULL),
 (87, 'Marin_', NULL, '116179095823259577328', NULL, NULL, 'contact@marinb.com', '871646240192.png', NULL, NULL, 'Bienvenue sur mon profil ! Je peux le modifier facilement !', '2022-03-02 16:53:01', NULL, '0b6afeef19108b5e35f8d067c3cdae1165475ee3df494bda905ce37647dc899254b1af-87-1646239981', NULL);
 
@@ -777,7 +781,7 @@ CREATE TABLE `utilisateur_has_animal_a_adopter` (
   `utilisateur_idutilisateur` int NOT NULL,
   `animal_a_adopter_idanimal_a_adopter` int NOT NULL,
   `animal_a_adopter_refuge_idrefuge` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -788,7 +792,7 @@ CREATE TABLE `utilisateur_has_animal_a_adopter` (
 CREATE TABLE `utilisateur_has_badges` (
   `id_user` int DEFAULT NULL,
   `id_badge` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `utilisateur_has_badges`
@@ -810,7 +814,7 @@ INSERT INTO `utilisateur_has_badges` (`id_user`, `id_badge`) VALUES
 CREATE TABLE `utilisateur_has_favorite_animals` (
   `id_user` int DEFAULT NULL,
   `id_favoriteAnimal` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `utilisateur_has_favorite_animals`
@@ -1090,7 +1094,7 @@ ALTER TABLE `liste_amis`
 -- AUTO_INCREMENT pour la table `message`
 --
 ALTER TABLE `message`
-  MODIFY `idmessage` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `idmessage` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- AUTO_INCREMENT pour la table `newsletter`
