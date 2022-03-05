@@ -27,7 +27,7 @@ function getNewMessages()
 
         require("PDO.php");
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'mb4'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
         $sql = "SELECT idmessage, texte_message msg, url_media media, utilisateur_idutilisateur iduser, utilisateur_idutilisateur authorId, utilisateur.pseudo authorPseudo, conversation_idconversation idConv, utilisateur.url_photo authorPic, date_envoi_msg
         FROM `message` 
@@ -96,7 +96,6 @@ function getNewMessages()
             <?php } else { ?>
                 <article>
                 <?php } ?>
-
 
                 <div class="chatMsgContainer">
                     <?php

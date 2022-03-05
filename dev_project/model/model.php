@@ -167,8 +167,12 @@ function isUserConnected($idUser)
         $user = $req->fetch();
 
         $currentTime = time();
-        if ((strtotime($user["lastDate"]) + 600) < $currentTime) { // 10 min
-            return true;
+        if (isset($user["lastDate"])) {
+            if ((strtotime($user["lastDate"]) + 600) < $currentTime) { // 10 min
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }

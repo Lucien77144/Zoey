@@ -3,7 +3,7 @@ session_start();
 
 // var_dump($_SESSION);
 
-header('Access-Control-Allow-Origin: *');
+// header('Access-Control-Allow-Origin: *');
 define("BASE_URL", "../dev_project/"); //getcwd();
 $pageTitle = "Zoey";
 $viewContent = "";
