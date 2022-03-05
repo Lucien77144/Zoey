@@ -6,24 +6,29 @@ require("verifyToken.php");
 
 // this script handles quizz answers and is called with ajax
 
-function postQuizz(){
+function postQuizz()
+{
 
-    function executeAddBadge($idBadge){
+    function executeAddBadge($idBadge)
+    {
         global $insertReq; // use $req in this context
 
-        $valid = $insertReq -> execute(array(
+        $valid = $insertReq->execute(array(
             ':idUser' => $_SESSION['idUser'],
-            ':idBadge' => $idBadge));
+            ':idBadge' => $idBadge
+        ));
         if (!$valid)
             throw new Exception("Nous n'avons pas réussi à envoyer vos réponses, il y a eu une erreur :/2");
     }
 
-    function executeAddAnimal($idAnimal){
+    function executeAddAnimal($idAnimal)
+    {
         global $insertAnimalReq; // use $req in this context
 
-        $valid = $insertAnimalReq -> execute(array(
+        $valid = $insertAnimalReq->execute(array(
             ':idUser' => $_SESSION['idUser'],
-            ':idAnimal' => $idAnimal));
+            ':idAnimal' => $idAnimal
+        ));
         if (!$valid)
             throw new Exception("Nous n'avons pas réussi à envoyer vos réponses, il y a eu une erreur :/3");
     }
@@ -33,64 +38,64 @@ function postQuizz(){
     $securePost = safeEntry($_POST['secure']);
     $childrenPost = safeEntry($_POST['children']);
     $travelPost = safeEntry($_POST['travel']);
-    $personnalityPost = safeEntry($_POST['personnality']);
+    $personalityPost = safeEntry($_POST['personality']);
     $animalsPost = safeEntry($_POST['animals']);
     $walkPost = safeEntry($_POST['walk']);
 
     executeAddAnimal(safeEntry($_POST['animal1']));
-    if (!empty($_POST['animal2'])){
+    if (!empty($_POST['animal2'])) {
         executeAddAnimal(safeEntry($_POST['animal2']));
     }
-    if (!empty($_POST['animal2'])){
+    if (!empty($_POST['animal2'])) {
         executeAddAnimal(safeEntry($_POST['animal3']));
     }
 
     // test badges obtained
-    if ($spacePost == 1){
+    if ($spacePost == 1) {
         // $space = 1;
-        
+
         executeAddBadge(1);
     }
-    if ($securePost == 1){
+    if ($securePost == 1) {
         // $security = 1;
 
         executeAddBadge(2);
     }
-    if ($childrenPost == 1){
+    if ($childrenPost == 1) {
         // $children = 1;
 
         executeAddBadge(3);
     }
-    if ($travelPost == 1){
+    if ($travelPost == 1) {
         // $autonomy = 1;
 
         executeAddBadge(4);
-    } else if ($personnalityPost == 3){
+    } else if ($personalityPost == 3) {
         // $autonomy = 1;
 
         executeAddBadge(4);
     }
-    if ($personnalityPost == 1){
+    if ($personalityPost == 1) {
         // $play = 1;
 
         executeAddBadge(5);
     }
-    if ($personnalityPost == 2){
+    if ($personalityPost == 2) {
         // $caress = 1;
 
         executeAddBadge(6);
     }
-    if ($personnalityPost == 4){
+    if ($personalityPost == 4) {
         // $hibernate = 1;
 
         executeAddBadge(7);
     }
-    if ($animalsPost == 1){
+    if ($animalsPost == 1) {
         // $others = 1;
 
         executeAddBadge(8);
     }
-    if ($walkPost == 1){
+    if ($walkPost == 1) {
         // $walk = 1;
 
         executeAddBadge(9);
@@ -100,48 +105,46 @@ function postQuizz(){
 }
 
 try {
-    if (isset($_POST['space'])
-    && isset($_POST['secure'])
-    && isset($_POST['children'])
-    && isset($_POST['travel'])
-    && isset($_POST['personality'])
-    && isset($_POST['animals'])
-    && isset($_POST['walk'])
-    && isset($_POST['animal1'])
-    )
-    {
-        if (verifyToken()){
+    if (
+        isset($_POST['space'])
+        && isset($_POST['secure'])
+        && isset($_POST['children'])
+        && isset($_POST['travel'])
+        && isset($_POST['personality'])
+        && isset($_POST['animals'])
+        && isset($_POST['walk'])
+        && isset($_POST['animal1'])
+    ) {
+        if (verifyToken()) {
             // connect to db and prepare request
             require("PDO.php");
-            $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
-            (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+            $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
             $sql = "INSERT INTO `utilisateur_has_badges` (`id_user`, `id_badge`) VALUES (:idUser, :idBadge);";
-            $insertReq = $db -> prepare($sql);
+            $insertReq = $db->prepare($sql);
 
             $sql = "DELETE FROM utilisateur_has_badges WHERE id_user = :idUser";
-            $emptyBadges = $db -> prepare($sql);
-            $emptyBadges -> execute(array(':idUser' => $_SESSION['idUser']));
+            $emptyBadges = $db->prepare($sql);
+            $emptyBadges->execute(array(':idUser' => $_SESSION['idUser']));
 
             $sql = "DELETE FROM utilisateur_has_favorite_animals WHERE id_user = :idUser";
-            $emptyFav = $db -> prepare($sql);
-            $emptyFav -> execute(array(':idUser' => $_SESSION['idUser']));
+            $emptyFav = $db->prepare($sql);
+            $emptyFav->execute(array(':idUser' => $_SESSION['idUser']));
 
             $sql = "INSERT INTO `utilisateur_has_favorite_animals` (`id_user`, `id_favoriteAnimal`) VALUES (:idUser, :idAnimal);";
-            $insertAnimalReq = $db -> prepare($sql);
+            $insertAnimalReq = $db->prepare($sql);
 
             // execute script
             $postQuizz = postQuizz();
             echo $postQuizz;
 
-            setcookie("quizz","", time()-3600, "/"); // unset the cookie
+            setcookie("quizz", "", time() - 3600, "/"); // unset the cookie
         } else {
-            setcookie("quizz",json_encode($_POST), time()+86400, "/");
+            setcookie("quizz", json_encode($_POST), time() + 86400, "/");
             echo "connect";
         }
-    } else {        
+    } else {
         throw new Exception("Nous n'avons pas réussi à envoyer vos réponses, il y a eu une erreur :/1");
     }
-
 } catch (Exception $e) {
     $errorMsg = $e->getMessage();
     echo $errorMsg;

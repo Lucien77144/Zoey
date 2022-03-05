@@ -12,9 +12,11 @@ if(isset($_SESSION['idUser'])){
 $post = $post->fetch();
 
 $currentTime = new DateTime(date('Y-m-d', time()));
+$currentTime->setTimezone(new DateTimeZone('Europe/Paris'));
 $currentDay = $currentTime->format('d');
 
 $sendTime = new DateTime($post["date_publication"]);
+$sendTime->setTimezone(new DateTimeZone('Europe/Paris'));
 $sendDay = $sendTime->format('d');
 
 if ($sendDay == $currentDay - 1) {

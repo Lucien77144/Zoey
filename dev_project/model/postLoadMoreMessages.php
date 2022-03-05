@@ -24,9 +24,11 @@ function postLoadMoreMessages()
         $idConv = $message['idConv'];
 
         $currentTime = new DateTime(date('Y-m-d', time()));
+        $currentTime->setTimezone(new DateTimeZone('Europe/Paris'));
         $currentDay = $currentTime->format('d');
 
         $sendTime = new DateTime($message["date_envoi_msg"]);
+        $sendTime->setTimezone(new DateTimeZone('Europe/Paris'));
         $sendDay = $sendTime->format('d');
 
         if ($sendDay == $currentDay - 1) {

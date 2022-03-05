@@ -39,7 +39,7 @@ function testSub()
 {
     $google_sub = safeEntry($_POST['google_sub']);
     require("PDO.php");
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     $sql = "SELECT idutilisateur FROM `utilisateur` WHERE google_sub = :google_sub";
     $req = $db->prepare($sql);
@@ -62,7 +62,7 @@ function testMail()
     if (isEmailOk($adresse_mail)) {
 
         require("PDO.php");
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
         $sql = "SELECT idutilisateur FROM `utilisateur` WHERE adresse_mail = :adresse_mail";
         $req = $db->prepare($sql);
@@ -98,7 +98,7 @@ function postSubscribe()
     }
 
     require("PDO.php");
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     if (isset($_POST["google_sub"]) && testSub()) {
         // google subscribe

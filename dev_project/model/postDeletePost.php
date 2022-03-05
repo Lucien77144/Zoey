@@ -10,7 +10,7 @@ function postDeletePost()
 
     require("PDO.php");
 
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     // check if post belongs to user
     $sql = "SELECT profil_animal_de_compagnie_utilisateur_idutilisateur1 id FROM post where idpost = :idpost";

@@ -4,7 +4,8 @@ session_start();
 require("model.php");
 require("verifyToken.php");
 
-function postAjouterRefuge(){
+function postAjouterRefuge()
+{
     $nom = safeEntry($_POST['nom']);
     $maps = safeEntry($_POST['maps']);
     $lien = safeEntry($_POST['lien']);
@@ -19,17 +20,16 @@ function postAjouterRefuge(){
     // $adresse = safeEntry($_POST['adresse']);
     // $tel = safeEntry($_POST['tel']);
     // $mail = safeEntry($_POST['mail']);
-    
-    
+
+
     require("PDO.php");
 
-    $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
-    (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     $sql = "INSERT INTO `refuge` (`nom`, `description`, `lien`, `adresse_mail`, `telephone`, `lien_maps`, `adresse`, `url_logo`) VALUES (:nom, :description, :lien, :adresse_mail, :telephone, :lien_maps, :adresse, :url_logo)";
-    $req = $db -> prepare($sql);
-    
-    $req -> execute(array(
+    $req = $db->prepare($sql);
+
+    $req->execute(array(
         ':nom' => $nom,
         ':description' => $description,
         ':lien' => $lien,
@@ -47,17 +47,18 @@ function postAjouterRefuge(){
 }
 
 try {
-    if (verifyToken()
-    && $_SESSION['statut'] == 1
-    &&isset($_POST['nom'])
-    // &&isset($_POST['description'])
-    // &&isset($_POST['logo'])
-    &&isset($_POST['maps'])
-    // &&isset($_POST['adresse'])
-    // &&isset($_POST['tel'])
-    &&isset($_POST['mail'])
-    &&isset($_POST['lien'])
-    ){
+    if (
+        verifyToken()
+        && $_SESSION['statut'] == 1
+        && isset($_POST['nom'])
+        // &&isset($_POST['description'])
+        // &&isset($_POST['logo'])
+        && isset($_POST['maps'])
+        // &&isset($_POST['adresse'])
+        // &&isset($_POST['tel'])
+        && isset($_POST['mail'])
+        && isset($_POST['lien'])
+    ) {
         $postAjouterRefuge = postAjouterRefuge();
         echo $postAjouterRefuge;
     } else {

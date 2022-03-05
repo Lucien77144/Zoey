@@ -9,7 +9,7 @@ function postConnect()
 
     require("PDO.php");
 
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     $sql = 'SELECT idutilisateur, pseudo, mot_de_passe, statut FROM utilisateur WHERE pseudo = ?';
     $req = $db->prepare($sql);
@@ -41,7 +41,7 @@ function postConnectWithGoogle()
     $sub = safeEntry($_POST['google_sub']);
 
     require("PDO.php");
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     $sql = 'SELECT idutilisateur, pseudo, statut, google_sub FROM utilisateur WHERE adresse_mail = ?';
     $req = $db->prepare($sql);

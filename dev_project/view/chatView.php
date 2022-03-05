@@ -31,8 +31,8 @@ ob_start();
 <main>
     <div class="moreMsg">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" id="loadMoreMessages">
-            <rect x="7" width="2" height="16" rx="1" fill="#F3811C"/>
-            <rect x="16" y="7" width="2" height="16" rx="1" transform="rotate(90 16 7)" fill="#F3811C"/>
+            <rect x="7" width="2" height="16" rx="1" fill="#F3811C" />
+            <rect x="16" y="7" width="2" height="16" rx="1" transform="rotate(90 16 7)" fill="#F3811C" />
         </svg>
         <span id="confirmationMessage"></span>
     </div>
@@ -47,9 +47,11 @@ ob_start();
                 $idConv = $message['idConv'];
 
                 $currentTime = new DateTime(date('Y-m-d', time()));
+                $currentTime->setTimezone(new DateTimeZone('Europe/Paris'));
                 $currentDay = $currentTime->format('d');
 
                 $sendTime = new DateTime($message["date_envoi_msg"]);
+                $sendTime->setTimezone(new DateTimeZone('Europe/Paris'));
                 $sendDay = $sendTime->format('d');
 
                 if ($sendDay == $currentDay - 1) {
@@ -60,61 +62,60 @@ ob_start();
                     $time = "Le " . $sendTime->format('d/m/Y') . " à " . $sendTime->format('G') . "h" . $sendTime->format('i');
                 }
 
-        if($message['authorId'] == $_SESSION['idUser']){ ?>
-            <article class="myMessages">
-        <?php }else{ ?>
-            <article>
-        <?php } ?>
-        
-            <div class="chatMsgContainer">
-                <?php
-                    if (!empty($message['msg'])) {
-                    ?>
-                <p>
-                    <?= htmlspecialchars($message['msg']) ?>
-                </p>
-                <?php
-                    }
-                    ?>
-                <?php
-                    if (!empty($message['media'])) {
-                    ?>
-                <div class="imgChat"
-                    style='background-image: url("<?= BASE_URL ?>public/images/upload/<?= htmlspecialchars($message['media']) ?>")'>
-                </div>
-                <?php
-                    }
-                    ?>
+                if ($message['authorId'] == $_SESSION['idUser']) { ?>
+                    <article class="myMessages">
+                    <?php } else { ?>
+                        <article>
+                        <?php } ?>
 
-            <p>
+                        <div class="chatMsgContainer">
+                            <?php
+                            if (!empty($message['msg'])) {
+                            ?>
+                                <p>
+                                    <?= htmlspecialchars($message['msg']) ?>
+                                </p>
+                            <?php
+                            }
+                            ?>
+                            <?php
+                            if (!empty($message['media'])) {
+                            ?>
+                                <div class="imgChat" style='background-image: url("<?= BASE_URL ?>public/images/upload/<?= htmlspecialchars($message['media']) ?>")'>
+                                </div>
+                            <?php
+                            }
+                            ?>
+
+                            <p>
+                                <?php
+                                if (!empty($message['authorPic'])) {
+                                ?>
+                                    <img class="authorPic" src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['authorPic']) ?>" alt="">
+
+                                <?php
+                                }
+                                ?>
+                                <a class="username" href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>"><?= htmlspecialchars($message['authorPseudo']) ?></a>
+                                <?= $time ?>.
+                            </p>
+                        </div>
+                        </article>
+                    <?php
+                }
+
+                $_SESSION['chatLastId'] = array('idConv' => $idConv, 'lastId' => $idMessage); // store last message's id in SESSION
+                $chat->closeCursor();
+            } else {
+                    ?>
+                    <p id="noMessagesYet">Vous n'avez pas encore échangé de messages !</p>
                 <?php
-                        if (!empty($message['authorPic'])) {
-                        ?>
-                    <img class="authorPic" src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['authorPic']) ?>" alt="">
-                
-                <?php
-                        }
-                        ?>
-                <a class="username" href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>"><?= htmlspecialchars($message['authorPseudo']) ?></a>
-                <?= $time ?>.
-            </p>
-            </div>
-        </article>
-        <?php
+                $idMessage = 0;
+                $idConv = safeEntry($_GET['id']);
+                $_SESSION['chatLastId'] = array('idConv' => $idConv, 'lastId' => $idMessage);
             }
 
-            $_SESSION['chatLastId'] = array('idConv' => $idConv, 'lastId' => $idMessage); // store last message's id in SESSION
-            $chat->closeCursor();
-        } else {
-            ?>
-        <p id="noMessagesYet">Vous n'avez pas encore échangé de messages !</p>
-        <?php
-            $idMessage = 0;
-            $idConv = safeEntry($_GET['id']);
-            $_SESSION['chatLastId'] = array('idConv' => $idConv, 'lastId' => $idMessage);
-        }
-
-        ?>
+                ?>
     </div>
 </main>
 

@@ -46,7 +46,7 @@ function postAddFriend()
 
     require("PDO.php");
 
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     $sql = "INSERT INTO liste_amis (id_demandeur, id_receveur) VALUES (:idUser, :addFriendId)";
     $req = $db->prepare($sql);

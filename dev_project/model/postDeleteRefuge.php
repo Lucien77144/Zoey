@@ -4,18 +4,18 @@ session_start();
 require("model.php");
 require("verifyToken.php");
 
-function postDeleteRefuge(){
+function postDeleteRefuge()
+{
     $idrefuge = safeEntry($_POST['idrefuge']);
 
     require("PDO.php");
 
-    $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
-    (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     $sql = "DELETE FROM `refuge` WHERE `refuge`.`idrefuge` = :idrefuge";
-    $req = $db -> prepare($sql);
-    
-    $req -> execute(array(
+    $req = $db->prepare($sql);
+
+    $req->execute(array(
         ':idrefuge' => $idrefuge
     ));
 
@@ -26,10 +26,11 @@ function postDeleteRefuge(){
 }
 
 try {
-    if (verifyToken()
-    && $_SESSION['statut'] == 1
-    &&isset($_POST['idrefuge'])
-    ){
+    if (
+        verifyToken()
+        && $_SESSION['statut'] == 1
+        && isset($_POST['idrefuge'])
+    ) {
         $postDeleteRefuge = postDeleteRefuge();
         echo $postDeleteRefuge;
     } else {

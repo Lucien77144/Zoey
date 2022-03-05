@@ -10,7 +10,7 @@ function postDeleteAA()
 
     require("PDO.php");
 
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     // get and delete its image
     $sql = "SELECT photo FROM `animal_a_adopter` where idanimal_a_adopter = :idanimal";
