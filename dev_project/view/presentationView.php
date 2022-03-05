@@ -3,7 +3,9 @@ $pageTitle = 'Qui sommes-nous ?';
 ob_start();
 ?>
 
-<h1 class="underline title">Qui sommes nous?</h1>
+<div class="bgContainer">
+  <h1 class="underline title">Qui sommes nous?</h1>
+</div>
   <h2 class="title2">Le projet étudiant</h2>
   <p class="intro">
     Apporter notre aide aux 100 000 animaux abandonnés chaque année en France en créant un site web 100% gratuit qui aide et incite les Français à adopter dans des refuges.
@@ -19,8 +21,10 @@ ob_start();
     > Réseaux : Partager des photos et des vidéos de votre animal de compagnie.
   </p>
 
-  <div class="imgWrap mockupImg">
-        <img src="<?= BASE_URL ?>public/images/presentation/mockupZoey.jpg" alt="">
+  <div class="mockupContainer">
+    <div class="imgWrap mockupImg">
+          <img src="<?= BASE_URL ?>public/images/presentation/mockupZoey.jpg" alt="">
+    </div>
   </div>
   <!-- <img src="<?= BASE_URL ?>public/images/presentation/mockupZoey.jpg" alt="" > -->
   
