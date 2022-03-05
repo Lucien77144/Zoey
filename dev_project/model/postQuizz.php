@@ -38,7 +38,7 @@ function postQuizz()
     $securePost = safeEntry($_POST['secure']);
     $childrenPost = safeEntry($_POST['children']);
     $travelPost = safeEntry($_POST['travel']);
-    $personnalityPost = safeEntry($_POST['personnality']);
+    $personalityPost = safeEntry($_POST['personality']);
     $animalsPost = safeEntry($_POST['animals']);
     $walkPost = safeEntry($_POST['walk']);
 
@@ -70,22 +70,22 @@ function postQuizz()
         // $autonomy = 1;
 
         executeAddBadge(4);
-    } else if ($personnalityPost == 3) {
+    } else if ($personalityPost == 3) {
         // $autonomy = 1;
 
         executeAddBadge(4);
     }
-    if ($personnalityPost == 1) {
+    if ($personalityPost == 1) {
         // $play = 1;
 
         executeAddBadge(5);
     }
-    if ($personnalityPost == 2) {
+    if ($personalityPost == 2) {
         // $caress = 1;
 
         executeAddBadge(6);
     }
-    if ($personnalityPost == 4) {
+    if ($personalityPost == 4) {
         // $hibernate = 1;
 
         executeAddBadge(7);
