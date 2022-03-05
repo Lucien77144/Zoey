@@ -35,11 +35,11 @@ ob_start();
             if (isset($_SESSION['idUser'])) {
                 if (!verifyToken() && $account['iduser'] == $_SESSION['idUser']) {
             ?>
-                    <a href="index.php?action=connect">Vous avez été déconnecté (inactif depuis plus de 1 heure). Reconnectez-vous pour pouvoir modifier votre profil.</a>
+                    <div class="disconnected">Vous avez été déconnecté suite à une inactivité de plus d'une heure. <a href="index.php?action=connect">Reconnectez-vous</a> pour pouvoir modifier votre profil.</div>
                 <?php
                 } else if (!verifyToken()) {
                 ?>
-                    <a href="index.php?action=connect">Vous avez été déconnecté (inactif depuis plus de 1 heure). Reconnectez-vous pour pouvoir ajouter <?= htmlspecialchars($account['pseudo_user']) ?> en ami.</a>
+                    <div class="disconnected">Vous avez été déconnecté suite à une inactivité de plus d'une heure. <a href="index.php?action=connect">Reconnectez-vous</a> pour pouvoir ajouter <?= htmlspecialchars($account['pseudo_user']) ?> en ami.</div>
                 <?php
                 } else if (isFriend($account['iduser']) == 2) { // 2 : ami
                 ?>

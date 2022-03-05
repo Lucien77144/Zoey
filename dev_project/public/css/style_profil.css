@@ -143,6 +143,10 @@ body{
     margin: 0;
 }
 
+.controls a{
+    text-decoration: none;
+}
+
 .controlBtn{
     display: inline-block;
     font-weight: 600;
@@ -467,6 +471,39 @@ body{
     background-color: #f1f1f1;
     border-radius: 100px;
     font-size: 1rem;
+}
+
+.disconnected{
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    width: 50%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 25px 25px 25px 0;
+    white-space: normal;
+    animation: poping 1s ease-in-out;
+}
+
+.disconnected a{
+    text-decoration: none;
+    color: #f3801c;
+}
+
+.disconnected a:hover{
+    text-decoration: underline;
+}
+
+@keyframes poping{
+    0%{
+        bottom: 0;
+        transform: translateY(100%);
+    }
+    100%{
+        bottom: 25px;
+        transform: translateY(0);
+    }
 }
 
 @keyframes write {
