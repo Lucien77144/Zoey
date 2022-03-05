@@ -87,45 +87,60 @@ ob_start();
     </div>
     <span id="confirmationMessage"></span>
 </section>
-<nav class="menuAnimaux">
-    <div class="menuAnimauxInner">
-        <ul class="menuAnimauxWrapper">
             <?php
-            if (!$accountAnimals) { // renvoie false si aucun animal lié à ce compte n'a été trouvé en bdd
+            if (!$accountAnimals && isset($_SESSION['idUser']) && $account['iduser'] != $_SESSION['idUser']) { // renvoie false si aucun animal lié à ce compte n'a été trouvé en bdd
             ?>
-                <li class="empty">Mon panier est vide pour le moment...</li>
+                <h2 class="empty">Mon panier est vide pour le moment...</h2>
                 <?php
-            } else {
-                $i = 0;
-                while ($accountAnimal = $accountAnimals->fetch()) {
-                    $animalId[$i] = htmlspecialchars($accountAnimal['idanimal']);
-                ?>
-                    <li data-animalId="<?= htmlspecialchars($animalId[$i]) ?>">
-                        <?= htmlspecialchars($accountAnimal['nom']) ?>
-                    </li>
-                <?php
-                    $i++;
-                }
-                $_SESSION['printAnimal'] = $animalId;
-            }
-
-            if (isset($_SESSION['idUser']) && verifyToken() && $account['iduser'] == $_SESSION['idUser']) {
-                ?>
-                <a href="index.php?action=addAnimal">
-                    <svg class="addAnimal" viewBox="0 0 20 20">
-                        <rect x="8.5" width="3" height="20" rx="1.5" fill="white" />
-                        <rect y="8.5" width="20" height="3" rx="1.5" fill="white" />
-                    </svg>
+            } else if(
+                !$accountAnimals && isset($_SESSION['idUser']) && $account['iduser'] == $_SESSION['idUser'] 
+                ){ ?>
+                <a class="addFirstWrap" href="index.php?action=addAnimal">
+                    <div class="addFirst">
+                        Ajouter un animal
+                        <svg viewBox="0 0 20 20">
+                            <rect x="8.5" width="3" height="20" rx="1.5" fill="white" />
+                            <rect y="8.5" width="20" height="3" rx="1.5" fill="white" />
+                        </svg>
+                    </div>
                 </a>
+            <?php } else { ?>
+
+                <nav class="menuAnimaux">
+                    <div class="menuAnimauxInner">
+                        <ul class="menuAnimauxWrapper">
+                                        
+                            <?php
+                            $i = 0;
+                            while ($accountAnimal = $accountAnimals->fetch()) {
+                                $animalId[$i] = htmlspecialchars($accountAnimal['idanimal']);
+                            ?>
+                                <li data-animalId="<?= htmlspecialchars($animalId[$i]) ?>">
+                                    <?= htmlspecialchars($accountAnimal['nom']) ?>
+                                </li>
+                            <?php
+                                $i++;
+                            }
+                            $_SESSION['printAnimal'] = $animalId;
+
+                            if (isset($_SESSION['idUser']) && verifyToken() && $account['iduser'] == $_SESSION['idUser']) {
+                                ?>
+                                <a href="index.php?action=addAnimal">
+                                    <svg class="addAnimal" viewBox="0 0 20 20">
+                                        <rect x="8.5" width="3" height="20" rx="1.5" fill="white" />
+                                        <rect y="8.5" width="20" height="3" rx="1.5" fill="white" />
+                                    </svg>
+                                </a>
+                            <?php
+                            }
+                            ?>
+                
+                        </ul>
+                    </div>
+                </nav>
             <?php
             }
-            ?>
 
-        </ul>
-    </div>
-</nav>
-
-<?php
 if ($accountAnimals) { // renvoie false si aucun animal lié à ce compte n'a été trouvé en bdd
     require('print.php');
 ?>
