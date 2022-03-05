@@ -8,7 +8,7 @@ function sendNewAndPrintOk(int $id, string $pass)
     $hash = password_hash(trim($pass), PASSWORD_DEFAULT);
     require(BASE_URL . "model/PDO.php");
 
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     $sql = 'UPDATE utilisateur SET mot_de_passe = :hash WHERE idutilisateur = :id';
     $req = $db->prepare($sql);
@@ -48,7 +48,7 @@ function testToken(int $id, $token)
 {
     require(BASE_URL . "model/PDO.php");
 
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     $sql = 'SELECT token_reinitialisation hash, date_demande_reinitialisation date FROM `reinitialisation_mot_de_passe` WHERE id_demandeur = ?
     order by date_demande_reinitialisation desc

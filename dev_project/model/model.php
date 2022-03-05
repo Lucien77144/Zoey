@@ -13,7 +13,7 @@ function getBlog()
 {
     require("PDO.php");
 
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     $sql = "SELECT id, titre, resume, url_image FROM `blog` ORDER BY date_publication DESC";
     $req = $db->prepare($sql);
@@ -33,7 +33,7 @@ function getArticle()
 
         require("PDO.php");
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
         $sql = "SELECT * FROM `blog` WHERE id = ?";
         $req = $db->prepare($sql);
@@ -57,7 +57,7 @@ function isPseudoFree($entryPseudo)
 
         require("PDO.php");
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
         $sql = "SELECT pseudo FROM utilisateur WHERE pseudo = ?";
         $req = $db->prepare($sql);
@@ -80,7 +80,7 @@ function isConnectedWithGoogle()
 
         require("PDO.php");
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
         $sql = "SELECT google_sub FROM utilisateur WHERE idutilisateur = ?";
         $req = $db->prepare($sql);
@@ -104,7 +104,7 @@ function getPseudoFromId($idUser)
 
         require("PDO.php");
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
         $sql = "SELECT pseudo FROM utilisateur WHERE idutilisateur = ?";
         $req = $db->prepare($sql);
@@ -129,7 +129,7 @@ function getMailFromId($idUser)
 
         require("PDO.php");
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
         $sql = "SELECT adresse_mail mail FROM utilisateur WHERE idutilisateur = ?";
         $req = $db->prepare($sql);
@@ -154,7 +154,7 @@ function isUserConnected($idUser)
 
         require("PDO.php");
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
         $sql = "SELECT date_derniere_connexion lastDate FROM `utilisateur` WHERE idutilisateur = ?";
         $req = $db->prepare($sql);
@@ -167,7 +167,7 @@ function isUserConnected($idUser)
         $user = $req->fetch();
 
         $currentTime = time();
-        if (($user["lastDate"] + 600) < $currentTime) { // 10 min
+        if ((strtotime($user["lastDate"]) + 600) < $currentTime) { // 10 min
             return true;
         } else {
             return false;
@@ -188,7 +188,7 @@ function getConvReadState($idconv, $idUser)
 
         require("PDO.php");
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
         $sql = "SELECT readstate FROM conversation_has_utilisateur WHERE conversation_idconversation = :idconv and utilisateur_idutilisateur = :iduser";
         $req = $db->prepare($sql);
@@ -222,7 +222,7 @@ function setConvReadState($idconv, $idUser, $newreadstate)
 
         require("PDO.php");
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
         $sql = "UPDATE conversation_has_utilisateur SET readstate = :readstate WHERE conversation_idconversation = :idconv and utilisateur_idutilisateur = :iduser";
         $req = $db->prepare($sql);
@@ -236,9 +236,7 @@ function setConvReadState($idconv, $idUser, $newreadstate)
         if ($req->rowCount() != 1)
             throw new Exception("Nous n'avons pas trouvé cette conversation");
 
-        $pseudo = $req->fetch();
-
-        return $pseudo["readstate"];
+        return true;
     } else {
         throw new Exception("Aucune conversation renseignée");
     }
@@ -250,7 +248,7 @@ function getIdFromPseudo($pseudo)
 
         require("PDO.php");
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
         $sql = "SELECT idutilisateur id FROM utilisateur WHERE pseudo = ?";
         $req = $db->prepare($sql);
@@ -277,7 +275,7 @@ function getFeed($num = 1)
 {
     require("PDO.php");
 
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     $start = ($num - 1) * 10;
 
@@ -299,7 +297,7 @@ function getAnimalFeed($animalId)
 
         require("PDO.php");
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
         $sql = "SELECT idpost, post.description, media, profil_animal_de_compagnie_idprofil_animal_de_compagnie idanimal, profil_animal_de_compagnie.nom
         FROM post
@@ -322,7 +320,7 @@ function getFeedAdoption()
 {
     require("PDO.php");
 
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     if (isset($_GET['filter']) && is_numeric($_GET['filter'])) {
         $sql = "SELECT idanimal_a_adopter idaa, aa.nom, aa.sexe, aa.photo, aa.description, aa.date_anniversaire anniversaire,
@@ -361,7 +359,7 @@ function checkQuizz($userId)
 {
     require("PDO.php");
 
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     $sql = "SELECT * FROM `utilisateur_has_badges` WHERE id_user = ?";
     $req = $db->prepare($sql);
@@ -378,7 +376,7 @@ function getFeedAdoptionByMatch($userId)
 {
     require("PDO.php");
 
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     $sql = "SELECT idanimal_a_adopter idaa, idtype FROM `animal_a_adopter`";
     $req = $db->prepare($sql);
@@ -467,7 +465,7 @@ function getAdoptionAnimal()
 
         require("PDO.php");
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
         $sql = "SELECT idanimal_a_adopter idaa, aa.nom, aa.sexe, aa.photo, aa.description, aa.date_anniversaire anniversaire, 
         refuge_idrefuge, refuge.nom refuge_nom, refuge.lien refuge_lien, refuge.url_logo refuge_logo, refuge.adresse refuge_adresse, refuge.telephone refuge_telephone, refuge.adresse_mail refuge_mail, refuge.lien_maps maps
@@ -491,7 +489,7 @@ function getAdoptionAnimalBadges($animalId)
 {
     require("PDO.php");
 
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     $sql = "SELECT idbadge, url_icone
     FROM animal_a_adopter_has_badge aahasbadge
@@ -515,7 +513,7 @@ function getPost()
 
         require("PDO.php");
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
         $sql = "SELECT profil_animal_de_compagnie_utilisateur_idutilisateur1 idutilisateur, idpost, post.description, media, profil_animal_de_compagnie_idprofil_animal_de_compagnie idanimal, profil_animal_de_compagnie.nom, profil_animal_de_compagnie.utilisateur_idutilisateur1 iduser, date_publication
         FROM post
@@ -543,7 +541,7 @@ function getPost()
 //         require("PDO.php");
 
 //         $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
-//         (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+//         (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
 //         $sql = "SELECT idprofil_animal_de_compagnie idanimal, animal.nom nom_animal, animal.url_photo photo_animal, animal.description description_animal, animal.date_naissance, utilisateur_idutilisateur1 iduser, types_animaux_idtypes_animaux, utilisateur.pseudo pseudo_user, utilisateur.url_photo photo_user
 //         FROM profil_animal_de_compagnie animal
@@ -569,7 +567,7 @@ function getAnimal($animalId = null)
 
         require("PDO.php");
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
         $sql = "SELECT idprofil_animal_de_compagnie idanimal, animal.nom nom_animal, animal.url_photo photo_animal, animal.description description_animal, animal.date_naissance, utilisateur_idutilisateur1 iduser, types_animaux_idtypes_animaux, utilisateur.pseudo pseudo_user, utilisateur.url_photo photo_user
         FROM profil_animal_de_compagnie animal
@@ -595,7 +593,7 @@ function getAccount()
 
         require("PDO.php");
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
         $sql = "SELECT utilisateur.pseudo pseudo_user, utilisateur.url_photo photo_user, utilisateur.description, idutilisateur iduser
         FROM utilisateur
@@ -623,7 +621,7 @@ function getAccountAnimals()
 
         require("PDO.php");
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
         $sql = "SELECT idprofil_animal_de_compagnie idanimal, nom, url_photo FROM profil_animal_de_compagnie WHERE utilisateur_idutilisateur1 = ? ORDER BY `idanimal` ASC";
         $req = $db->prepare($sql);
@@ -643,7 +641,7 @@ function getAnimalTypes()
 {
     require("PDO.php");
 
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     $sql = "SELECT idtypes_animaux id, nom, url_icone FROM types_animaux ORDER BY typeOrder;";
     $req = $db->prepare($sql);
@@ -660,7 +658,7 @@ function getRefugesList()
 {
     require("PDO.php");
 
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     $sql = "SELECT idrefuge id, nom FROM refuge";
     $req = $db->prepare($sql);
@@ -677,7 +675,7 @@ function getAAList()
 {
     require("PDO.php");
 
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     $sql = "SELECT 	idanimal_a_adopter id, animal_a_adopter.nom nom, refuge.nom refuge FROM `animal_a_adopter` INNER JOIN refuge ON animal_a_adopter.refuge_idrefuge = refuge.idrefuge";
     $req = $db->prepare($sql);
@@ -694,7 +692,7 @@ function getBadgesList()
 {
     require("PDO.php");
 
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     $sql = "SELECT idbadge id, nom FROM `badge`";
     $req = $db->prepare($sql);
@@ -714,7 +712,7 @@ function getDirectConversation($idToSearch)
 
         require("PDO.php");
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
         $sql = "SELECT idconversation
         FROM `conversation`
@@ -756,7 +754,7 @@ function getConversationUsers($sentIdConv)
     if (!isset($flagConversationUsersPrepare)) { // check flag prepare PDO : don't prepare the request if already prepared
         require("PDO.php");
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
         $sql = "SELECT idutilisateur user, utilisateur.pseudo pseudo, utilisateur.url_photo url_photo, conversation.titre
         FROM `conversation_has_utilisateur` 
@@ -783,7 +781,7 @@ function getMessages()
 
         require("PDO.php");
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
         $sql = "SELECT idconversation, titre
         FROM `conversation`
@@ -809,7 +807,7 @@ function getFilteredMessages($idToSearch)
 
         require("PDO.php");
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
         $sql = "SELECT filter.idconversation, filter.titre
         FROM (SELECT idconversation, titre
@@ -851,7 +849,7 @@ function getChat($offsetCoef)
 
         require("PDO.php");
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
         $sql = "SELECT msg.* 
         FROM ( 

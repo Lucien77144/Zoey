@@ -31,7 +31,7 @@ function postAddPost()
 
     require("PDO.php");
 
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     $sql = "INSERT INTO post (description, media, profil_animal_de_compagnie_idprofil_animal_de_compagnie, profil_animal_de_compagnie_utilisateur_idutilisateur1) VALUES (:description, :media, :idAnimal, :idUser)";
     $req = $db->prepare($sql);

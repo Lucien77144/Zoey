@@ -77,7 +77,7 @@ function postForgot()
 
     require("PDO.php");
 
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     $sql = 'SELECT idutilisateur, pseudo, adresse_mail mail, google_sub FROM utilisateur WHERE adresse_mail = ?';
     $req = $db->prepare($sql);

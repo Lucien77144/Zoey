@@ -11,19 +11,20 @@ $_SESSION['token'] = $token;
 
 // sql send token
 
-function sendToken(){
-        
+function sendToken()
+{
+
     require("PDO.php");
 
-    $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
-    (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     $sql = 'UPDATE utilisateur SET token = :token WHERE idutilisateur = :id;';
-    $req = $db -> prepare($sql);
-    
-    $req -> execute(array(
+    $req = $db->prepare($sql);
+
+    $req->execute(array(
         ':token' => $_SESSION['token'],
-        ':id' => $_SESSION['idUser']));
+        ':id' => $_SESSION['idUser']
+    ));
 }
 
 try {

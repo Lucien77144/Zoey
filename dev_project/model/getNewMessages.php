@@ -27,7 +27,7 @@ function getNewMessages()
 
         require("PDO.php");
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'mb4'));
 
         $sql = "SELECT idmessage, texte_message msg, url_media media, utilisateur_idutilisateur iduser, utilisateur_idutilisateur authorId, utilisateur.pseudo authorPseudo, conversation_idconversation idConv, utilisateur.url_photo authorPic, date_envoi_msg
         FROM `message` 
@@ -76,9 +76,11 @@ function getNewMessages()
         $idConv = $message['idConv'];
 
         $currentTime = new DateTime(date('Y-m-d', time()));
+        $currentTime->setTimezone(new DateTimeZone('Europe/Paris'));
         $currentDay = $currentTime->format('d');
 
         $sendTime = new DateTime($message["date_envoi_msg"]);
+        $sendTime->setTimezone(new DateTimeZone('Europe/Paris'));
         $sendDay = $sendTime->format('d');
 
         if ($sendDay == $currentDay - 1) {

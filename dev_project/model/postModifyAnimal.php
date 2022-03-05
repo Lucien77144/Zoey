@@ -44,7 +44,7 @@ function postModifyAnimal()
 
     require("PDO.php");
 
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     // $sql = "UPDATE profil_animal_de_compagnie 
     // SET nom = :nom, url_photo = :url_photo, description = :description, date_naissance = :date_naissance, types_animaux_idtypes_animaux = :idtype 

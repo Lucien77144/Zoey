@@ -36,24 +36,25 @@ function sendMail($pseudo, $to)
 function postAddMessage()
 {
 
-    function isUserIdInArray()
-    {
-        $idUser = $_SESSION['idUser'];
-        $postedIdConv = intval(safeEntry($_POST['idconversation']));
-        $usersInConv = array();
-        $getConversationUsers = getConversationUsers($postedIdConv);
-        while ($convUser = $getConversationUsers->fetch(PDO::FETCH_NUM)) {
-            array_push($usersInConv, $convUser['0']);
-        }
-        $getConversationUsers->closeCursor();
-        if (in_array($idUser, $usersInConv)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
-    $isUserIdInArray = isUserIdInArray();
+    // function isUserIdInArray()
+    // {
+    $idUser = $_SESSION['idUser'];
+    $postedIdConv = intval(safeEntry($_POST['idconversation']));
+    $usersInConv = array();
+    $getConversationUsers = getConversationUsers($postedIdConv);
+    while ($convUser = $getConversationUsers->fetch(PDO::FETCH_NUM)) {
+        array_push($usersInConv, $convUser['0']);
+    }
+    $getConversationUsers->closeCursor();
+    if (in_array($idUser, $usersInConv)) {
+        $isUserIdInArray = true;
+    } else {
+        $isUserIdInArray = false;
+    }
+    // }
+
+    // $isUserIdInArray = isUserIdInArray();
 
     if (!$isUserIdInArray) {
         throw new Exception("Nous n'avons pas trouvé cette conversation !");
@@ -75,7 +76,7 @@ function postAddMessage()
 
     require("PDO.php");
 
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     $sql = "INSERT INTO `message` (`texte_message`, `url_media`, `utilisateur_idutilisateur`, `conversation_idconversation`) VALUES (:msg, :media, :idUser, :idConv)";
     $req = $db->prepare($sql);

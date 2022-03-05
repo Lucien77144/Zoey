@@ -5,7 +5,7 @@ function verifyToken_checkFromDb()
 {
     require("PDO.php");
 
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
     $sql = 'SELECT token FROM `utilisateur` WHERE idutilisateur = :id';
     $req = $db->prepare($sql);
