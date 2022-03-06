@@ -9,7 +9,7 @@ ob_start();
     <p class="AnswerQuizz">
         <a href="index.php?action=quizz">Répondez au quizz</a>
         <?php
-        if(!verifyToken()){ ?>
+        if (!verifyToken()) { ?>
             ou <a href="index.php?action=connect">connectez-vous</a>
         <?php } ?>
         pour avoir des résultats plus adaptés !

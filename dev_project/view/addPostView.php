@@ -17,11 +17,18 @@ if (!$accountAnimals) {
             <div class="selectAnimal">
                 <?php
                 $animalIdCounter = 0;
+
+                if (isset($_GET['checked'])) {
+                    $checked = intval($_GET['checked']);
+                } else {
+                    $checked = null;
+                }
+
                 while ($animal = $accountAnimals->fetch()) {
                 ?>
-                    <div class="cardSelector">
-                        <input type="radio" id="idAnimal" name="idAnimal" value="<?= $animalIdCounter ?>">
-                        <label for="<?= $animalIdCounter ?>">
+                    <div class="cardSelector<?= $animal['idanimal'] == $checked ? " cardActive" : "" ?>">
+                        <input type="radio" id="idAnimal<?= $animalIdCounter ?>" name="idAnimal" value="<?= $animalIdCounter ?>" <?= $animal['idanimal'] == $checked ? "checked" : "" ?>>
+                        <label for="idAnimal<?= $animalIdCounter ?>">
                             <h3><?= htmlspecialchars($animal['nom']) ?></h3>
                             <img src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($animal['url_photo']) ?>" alt="">
                         </label>

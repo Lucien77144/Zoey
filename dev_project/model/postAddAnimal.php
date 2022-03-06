@@ -52,6 +52,7 @@ function postAddAnimal()
 try {
     if (
         isset($_POST['nom'])
+        && isset($_POST['media'])
         && isset($_POST['description'])
         && isset($_POST['idtype'])
         && is_numeric($_POST['idtype'])

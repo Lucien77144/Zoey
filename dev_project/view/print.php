@@ -44,7 +44,7 @@ function printAnimal($animalId)
                 }
                 ?>
             </div>
-            <?php
+            <?php /*
             // if(isset($_SESSION['idUser']) && ($animal['iduser'] != $_SESSION['idUser'] && verifyToken())){
             ?>
             <!-- <h3 class="controlBtn">S'abonner</h3> -->
@@ -55,7 +55,7 @@ function printAnimal($animalId)
                 <h3 class="controlBtn">S'abonner</h3>
             </a> -->
             <?php
-            // }
+            // } */
             ?>
         </div>
         <div class="desc">
@@ -85,7 +85,7 @@ function printAnimal($animalId)
                 $animalFeed->closeCursor();
             } ?>
             <?php if (isset($_SESSION['idUser']) && ($animal['iduser'] == $_SESSION['idUser'] && verifyToken())) { ?>
-                <a href="index.php?action=addpost">
+                <a href="index.php?action=addpost&checked=<?= htmlspecialchars($animal['idanimal']) ?>">
                     <article class="publi addPubli">
                         <svg viewBox="0 0 42 42" fill="none">
                             <rect x="23" width="42" height="4" rx="2" transform="rotate(90 23 0)" fill="#FFC800" />

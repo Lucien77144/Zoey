@@ -276,7 +276,10 @@ $(document).ready(function () {
       {
         description: $('#description').val(),
         media: postedMedia,
-        idAnimal: $('#idAnimal').val(),
+        idAnimal: document.querySelector(
+          'input[name=idAnimal]:checked',
+          '#addPostForm'
+        ).value,
       },
 
       function (ReturnedMessage) {
@@ -695,6 +698,24 @@ $(document).ready(function () {
 
     console.log('click')
 
+    function testChecked() {
+      if (
+        document.querySelector('input[name=idAnimal]:checked', '#addPostForm')
+      ) {
+        return true
+      } else {
+        return false
+      }
+    }
+
+    if (!testChecked()) {
+      $('#ConfirmationMessage').html('')
+      $('#ConfirmationMessage').text(
+        `Sélectionnez l'animal pour lequel vous souhaitez poster une image`
+      )
+      return
+    }
+
     let files = $('#media')[0].files[0]
     if (files == null) {
       $('#ConfirmationMessage').html('')
@@ -749,10 +770,14 @@ $(document).ready(function () {
   $('#submitAddAnimal').click(function (e) {
     e.preventDefault()
 
+    $('#ConfirmationMessage').html('')
+
     console.log('click')
 
     let postedMedia = postPhoto()
     if (postedMedia == 'déconnecté') {
+      $('#ConfirmationMessage').html('')
+      $('#ConfirmationMessage').text(`L'envoi a échoué`)
       return
     }
 
