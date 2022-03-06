@@ -4,7 +4,7 @@ session_start();
 // var_dump($_SESSION);
 
 // header('Access-Control-Allow-Origin: *');
-define("BASE_URL", "../dev_project/"); //getcwd();
+define("BASE_URL", "./"); //getcwd();
 $pageTitle = "Zoey";
 $viewContent = "";
 $printNewsletter = true;

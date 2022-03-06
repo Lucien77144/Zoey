@@ -25,7 +25,7 @@ function printAnimal($animalId)
 
     <div class="wrapProfil">
         <div class="avatar">
-            <img src="<?= '../dev_project/public/images/upload/' . htmlspecialchars($animal['photo_animal']) ?>" alt="">
+            <img src="<?= './public/images/upload/' . htmlspecialchars($animal['photo_animal']) ?>" alt="">
         </div>
         <div class="username">
             <div class="innerUsername">
@@ -84,7 +84,7 @@ function printAnimal($animalId)
             <?php
                 $animalFeed->closeCursor();
             } ?>
-            <?php if(isset($_SESSION['idUser']) && ($animal['iduser'] == $_SESSION['idUser'] && verifyToken())){ ?>
+            <?php if (isset($_SESSION['idUser']) && ($animal['iduser'] == $_SESSION['idUser'] && verifyToken())) { ?>
                 <a href="index.php?action=addpost">
                     <article class="publi addPubli">
                         <svg viewBox="0 0 42 42" fill="none">

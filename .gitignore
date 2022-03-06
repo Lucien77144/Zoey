@@ -2,3 +2,4 @@
 prod_blog/model/PDO.php
 *.png
 *.jpg
+*.jpeg

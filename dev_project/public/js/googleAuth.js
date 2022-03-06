@@ -72,11 +72,14 @@ function postConnect(infos) {
           location.reload() // renvoie vers la page initialement demandée
         }
         console.log('valid !!')
+        return true
       } else {
-        $('#ConfirmationMessage').html('')
-        $('#ConfirmationMessage').text(
-          `Il y a une erreur dans un des champs remplis.`
-        )
+        googleError()
+        return false
+        // $('#ConfirmationMessage').html('')
+        // $('#ConfirmationMessage').text(
+        //   `Il y a une erreur dans un des champs remplis.`
+        // )
       }
     },
     'text'
@@ -106,18 +109,18 @@ async function handleCredentialResponse(response) {
         // $connectStatus = handleConnect(data[1])
         $connectStatus = postConnect(data[1]) // ce script envoie à postConnect en AJAX et gère la réponse (recharge la page)
 
-        if ($connectStatus == 'valid') {
-          // recharger la page pour retourner à la page demandée avant redirection vers connexion, sauf si page demandée = connexion, et aller vers profil
-          //   if (getParameterByName('action') == 'connect') {
-          //     window.location.href = 'index.php?action=account'
-          //   } else {
-          //     location.reload() // renvoie vers la page initialement demandée
-          //   }
-          console.log('connected')
-        } else {
-          console.log("can't connect")
-          googleError()
-        }
+        // if ($connectStatus) {
+        //   // recharger la page pour retourner à la page demandée avant redirection vers connexion, sauf si page demandée = connexion, et aller vers profil
+        //   //   if (getParameterByName('action') == 'connect') {
+        //   //     window.location.href = 'index.php?action=account'
+        //   //   } else {
+        //   //     location.reload() // renvoie vers la page initialement demandée
+        //   //   }
+        //   console.log('connected')
+        // } else {
+        //   console.log("can't connect")
+        //   googleError()
+        // }
       } else {
         googleError()
       }

@@ -30,32 +30,32 @@ ob_start();
                 }
             ?>
                 <a href="index.php?action=messages&id=<?= htmlspecialchars($chat['idconversation']) ?>">
-                     <div class="profilePicturesContainer">
+                    <div class="profilePicturesContainer">
                         <?php
                         for ($i = 0; $i < count($convUsers); $i++) {
                         ?>
-                            <img class="profilePicture" src="../dev_project/public/images/upload/<?= htmlspecialchars($convUsers[$i]['url_photo']) ?>" alt="">
-                        
+                            <img class="profilePicture" src="./public/images/upload/<?= htmlspecialchars($convUsers[$i]['url_photo']) ?>" alt="">
+
                         <?php
                         }
                         ?>
                     </div>
                     <div class="ConversationTextsContainer">
-                         <p>
-                        <?php
-                        if (isset($convUsers[0]['titre'])) {
-                            echo htmlspecialchars($convUsers[0]['titre']);
-                        } else {
-                            for ($i = 0; $i < count($convUsers); $i++) {
-                                echo htmlspecialchars($convUsers[$i]['pseudo']);
-                                if ($i < count($convUsers) - 1) {
-                                    echo ", ";
+                        <p>
+                            <?php
+                            if (isset($convUsers[0]['titre'])) {
+                                echo htmlspecialchars($convUsers[0]['titre']);
+                            } else {
+                                for ($i = 0; $i < count($convUsers); $i++) {
+                                    echo htmlspecialchars($convUsers[$i]['pseudo']);
+                                    if ($i < count($convUsers) - 1) {
+                                        echo ", ";
+                                    }
                                 }
                             }
-                        }
-                        ?>
-                    </p>
-                    <p>Dernier message lu...</p>
+                            ?>
+                        </p>
+                        <p>Dernier message lu...</p>
                     </div>
                 </a>
             <?php

@@ -94,7 +94,7 @@ function postSubscribe()
     if (isset($_POST["media"])) {
         $fileName = safeEntry($_POST['media']);
     } else {
-        $fileName = "defaultProfile.jpg";
+        $fileName = "defaultProfile.png";
     }
 
     require("PDO.php");

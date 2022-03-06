@@ -84,7 +84,8 @@
 
     <?php
 
-    if (isset($printNewsletter) && !$printNewsletter) {
+    // NEWSLETTER
+    /* if (isset($printNewsletter) && !$printNewsletter) {
         $printNewsletter = true;
     } else if (isset($_SESSION['idUser'])) {
         $printNewsletter = true;
@@ -100,6 +101,7 @@
         </form>
     <?php
     }
+    */
 
     if (isset($printLegal) && $printLegal) { ?>
         <div class="legalLink">
