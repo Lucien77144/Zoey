@@ -1,5 +1,11 @@
 <?php
 $pageTitle = "Ajouter un nouvel animal à mon panier";
+
+/*
+<label for="date_naissance">date de naissance</label>
+<input type="date" name="date_naissance" id="date_naissance"> <br>
+*/
+
 ob_start();
 ?>
 <h1>Ajouter un animal</h1>
@@ -21,9 +27,6 @@ ob_start();
     <label for="description">description</label>
     <textarea id="description" name="description" type="text" rows="5" cols="33"></textarea>
     <br>
-
-    <label for="date_naissance">date de naissance</label>
-    <input type="date" name="date_naissance" id="date_naissance"> <br>
 
     <label for="idtype">catégorie d'animal</label>
     <select name="idtype" id="idtype">

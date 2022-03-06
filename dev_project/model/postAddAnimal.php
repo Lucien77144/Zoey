@@ -8,7 +8,8 @@ function postAddAnimal()
     $nom = safeEntry($_POST['nom']);
     $fileName = safeEntry($_POST['media']);
     $description = safeEntry($_POST['description']);
-    $date_naissance = safeEntry($_POST['date_naissance']);
+    // $date_naissance = safeEntry($_POST['date_naissance']);
+    $date_naissance = null;
     $idUser = $_SESSION['idUser'];
     $postedIdType = intval(safeEntry($_POST['idtype']));
 
@@ -52,7 +53,6 @@ try {
     if (
         isset($_POST['nom'])
         && isset($_POST['description'])
-        && isset($_POST['date_naissance'])
         && isset($_POST['idtype'])
         && is_numeric($_POST['idtype'])
     ) {
