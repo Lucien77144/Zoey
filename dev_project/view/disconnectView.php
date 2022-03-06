@@ -4,7 +4,7 @@ $pageTitle = "Vous avez bien été déconnecté";
 ob_start();
 ?>
 
-<div>
+<div class="disconnectContainer">
     <h1>Vous avez bien été déconnecté.</h1>
     <h4>Si vous n'êtes pas redirigés, <a href="index.php">cliquez ici</a></h4>
 </div>

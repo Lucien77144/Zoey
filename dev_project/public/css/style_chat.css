@@ -327,7 +327,11 @@ article:last-child {
 .closePop:hover{
     transform: rotate(90deg);
 }
-
+@media screen and (max-width: 370px) {
+    article p:last-child {
+        font-size: 0.8rem;
+    }
+}
 @keyframes rotation {
 
     0%,
