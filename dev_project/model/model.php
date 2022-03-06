@@ -857,7 +857,7 @@ function getChat($offsetCoef)
 
         $sql = "SELECT msg.* 
         FROM ( 
-            SELECT idmessage, texte_message msg, url_media media, utilisateur_idutilisateur iduser, utilisateur_idutilisateur authorId, utilisateur.pseudo authorPseudo, conversation_idconversation idConv, utilisateur.url_photo authorPic, date_envoi_msg
+            SELECT idmessage, texte_message msg, url_media media, utilisateur_idutilisateur iduser, utilisateur_idutilisateur authorId, utilisateur.pseudo authorPseudo, conversation_idconversation idConv, utilisateur.url_photo authorPic, date_envoi_msg, tag
             FROM `message` 
             INNER JOIN utilisateur ON message.utilisateur_idutilisateur = utilisateur.idutilisateur
             WHERE conversation_idconversation = :idConv

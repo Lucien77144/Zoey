@@ -4,6 +4,23 @@ session_start();
 require("model.php");
 require_once("verifyToken.php");
 
+function encrypt($plaintext)
+{
+    // encrypt
+    $ressource = fopen('../private_crypt/key.json', 'r');
+    $stored = fread($ressource, filesize('../private_crypt/key.json'));
+    $stored = json_decode($stored, true);
+    $key = base64_decode($stored['key']);
+    $iv = base64_decode($stored['iv']);
+    $ciphertext = openssl_encrypt($plaintext, "aes-128-gcm", $key, $options = 0, $iv, $tag);
+    // tag and ciphertext to db
+    if ($ciphertext) {
+        return array('msg' => $ciphertext, 'tag' => $tag);
+    } else {
+        return false;
+    }
+}
+
 function sendMail($pseudo, $to)
 {
     $subject = 'Vous avez des messages non lus sur Zoey !';
@@ -70,6 +87,16 @@ function postAddMessage()
             $fileName = safeEntry($_POST['media']);
         }
 
+        if (isset($msg)) {
+            $crypted = encrypt($msg);
+            if (!$crypted) {
+                throw new Exception("Nous n'avons pas pu envoyer ce message.");
+            }
+        } else {
+            $crypted['msg'] = null;
+            $crypted['tag'] = null;
+        }
+
         $postedIdConv = intval(safeEntry($_POST['idconversation']));
         $idUser = $_SESSION['idUser'];
     }
@@ -78,14 +105,15 @@ function postAddMessage()
 
     $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
-    $sql = "INSERT INTO `message` (`texte_message`, `url_media`, `utilisateur_idutilisateur`, `conversation_idconversation`) VALUES (:msg, :media, :idUser, :idConv)";
+    $sql = "INSERT INTO `message` (`texte_message`, `url_media`, `utilisateur_idutilisateur`, `conversation_idconversation`, tag) VALUES (:msg, :media, :idUser, :idConv, :tag)";
     $req = $db->prepare($sql);
 
     $valid = $req->execute(array(
-        ':msg' => $msg,
+        ':msg' => $crypted['msg'],
         ':media' => $fileName,
         ':idUser' => $idUser,
-        ':idConv' => $postedIdConv
+        ':idConv' => $postedIdConv,
+        ':tag' => $crypted['tag']
     ));
 
     if (!$valid)
