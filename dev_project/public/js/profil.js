@@ -129,9 +129,6 @@ document.addEventListener('DOMContentLoaded', function () {
           "<div class='loader'><img src='public/images/icons/loader.svg'></div>"
         )
 
-        // document.querySelector('body').innerHTML +=
-        //   "<div class='loader'><img src='public/images/icons/loader.svg'></div>"
-
         setTimeout(() => {
           changeAvatar(this, action)
         }, 50)

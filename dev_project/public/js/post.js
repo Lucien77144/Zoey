@@ -269,7 +269,7 @@ $(document).ready(function () {
 
   function postAddPost(postedMedia) {
     console.log(postedMedia)
-    console.log('addpost');
+    console.log('addpost')
 
     $.post(
       'model/postAddPost.php',
@@ -283,13 +283,13 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-        console.log('function Received');
-        console.log(ReturnedMessage);
+        console.log('function Received')
+        console.log(ReturnedMessage)
 
-        returned = JSON.parse(ReturnedMessage);
+        returned = JSON.parse(ReturnedMessage)
 
-        if (returned[0] == "valid") {
-          window.location.href = 'index.php?action=feed&id='+returned[1];
+        if (returned[0] == 'valid') {
+          window.location.href = 'index.php?action=feed&id=' + returned[1]
           // location.reload()
           console.log('valid 1 !!')
         } else {
@@ -696,16 +696,15 @@ $(document).ready(function () {
   })
 
   $('#submitAddPost').click(function (e) {
-    e.preventDefault();
+    e.preventDefault()
 
     $('body').append(
       "<div class='loader'><img src='public/images/icons/loader.svg'></div>"
-    );
+    )
 
     setTimeout(() => {
-
       console.log('click')
-  
+
       function testChecked() {
         if (
           document.querySelector('input[name=idAnimal]:checked', '#addPostForm')
@@ -715,7 +714,7 @@ $(document).ready(function () {
           return false
         }
       }
-  
+
       if (!testChecked()) {
         $('#ConfirmationMessage').html('')
         $('#ConfirmationMessage').text(
@@ -723,21 +722,21 @@ $(document).ready(function () {
         )
         return
       }
-  
+
       let files = $('#media')[0].files[0]
       if (files == null) {
         $('#ConfirmationMessage').html('')
         $('#ConfirmationMessage').text(`Vous n'avez pas ajouté d'image !`)
         return
       }
-  
+
       let postedMedia = postPhoto()
       if (postedMedia == 'déconnecté') {
         return
       }
-  
+
       postAddPost(postedMedia)
-    }, 50);
+    }, 50)
   })
 
   $('#submitNewsletter').click(function (e) {
@@ -783,14 +782,24 @@ $(document).ready(function () {
 
     console.log('click')
 
-    let postedMedia = postPhoto()
-    if (postedMedia == 'déconnecté') {
-      $('#ConfirmationMessage').html('')
-      $('#ConfirmationMessage').text(`L'envoi a échoué`)
-      return
-    }
+    // launch loader
+    $('body').append(
+      "<div class='loader'><img src='public/images/icons/loader.svg'></div>"
+    )
 
-    postAddAnimal(postedMedia)
+    setTimeout(() => {
+      let postedMedia = postPhoto()
+      if (postedMedia == 'déconnecté') {
+        $('#ConfirmationMessage').html('')
+        $('#ConfirmationMessage').text(`L'envoi a échoué`)
+        return
+      }
+
+      postAddAnimal(postedMedia)
+
+      // remove loader
+      $('.loader').remove()
+    }, 50)
   })
 
   // modify account
