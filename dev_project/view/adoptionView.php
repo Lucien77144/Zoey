@@ -42,7 +42,9 @@ ob_start();
     ?>
 
         <article class="card">
-            <div class="img" style="background-image: url('<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($animal['photo']) ?>');"></div>
+            <a class="imgWrap" href="index.php?action=adoption&id=<?= htmlspecialchars($animal['idaa']) ?>">
+                <div class="img" style="background-image: url('<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($animal['photo']) ?>');"></div>
+            </a>
             <div class="desc">
                 <h2 class="title2"><?= htmlspecialchars($animal['nom']) ?></h2>
                 <div class="badges">

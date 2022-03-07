@@ -105,9 +105,14 @@ div.desc>.btn {
     text-align: center;
 }
 
-.img {
+.imgWrap{
     height: 100%;
     width: 40%;
+}
+
+.img {
+    height: 100%;
+    width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
