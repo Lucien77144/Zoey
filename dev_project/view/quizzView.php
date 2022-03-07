@@ -1,11 +1,11 @@
-<?php 
+<?php
 $printNewsletter = false;
 $pageTitle = 'Trouver votre compagnon idéal';
 ob_start();
 ?>
 <h1>QUIZZ</h1>
 <p class="quizzDescription">Avant de parcourir notre page adoption, ZOEY vous permet de trouver plus efficacement l’animal de compagnie qui vous
-    correspond ! Il vous suffit de répondre aux 7 questions de ce quizz. </p>
+    correspond ! Il vous suffit de répondre aux 8 questions de ce quizz. </p>
 <form>
     <div>
         <h2>1. De quel espace de vie disposez-vous ?</h2>
@@ -20,18 +20,18 @@ ob_start();
         <div><input type="radio" name="secure" id="secure2" value="0"><label for="secure2">non</label></div>
     </div>
     <div>
-        <h2>Votre futur animal de compagnie devra-il cohabiter avec des enfants ?</h2>
+        <h2>3. Votre futur animal de compagnie devra-il cohabiter avec des enfants ?</h2>
         <div><input type="radio" name="children" id="cohabite1" value="1"><label for="cohabite1">oui</label><br></div>
         <div><input type="radio" name="children" id="cohabite2" value="0"><label for="cohabite2">non</label></div>
     </div>
     <div>
-        <h2>3. A quelle fréquence voyagez-vous ?</h2>
+        <h2>4. A quelle fréquence voyagez-vous ?</h2>
         <div><input type="radio" name="travel" id="trip1" value="1"><label for="trip1">régulièrement, à chaque occasion</label><br></div>
         <div><input type="radio" name="travel" id="trip2" value="0"><label for="trip2">rarement</label><br></div>
         <div><input type="radio" name="travel" id="trip3" value="0"><label for="trip3">jamais, une fois par mois et encore...</label></div>
     </div>
     <div>
-        <h2>4. Quelle est la chose la plus importante selon vous dans un animal de compagnie ?
+        <h2>5. Quelle est la chose la plus importante selon vous dans un animal de compagnie ?
         </h2>
         <div><input type="radio" name="personality" id="important1" value="1"><label for="important1">un animal joueur</label><br></div>
         <div><input type="radio" name="personality" id="important2" value="2"><label for="important2">un animal tendre et affectueux </label><br></div>
@@ -39,38 +39,39 @@ ob_start();
         <div><input type="radio" name="personality" id="important4" value="4"><label for="important4">un animal calme</label></div>
     </div>
     <div>
-        <h2>5. Votre futur animal de compagnie vivra-t-il avec d’autres animaux au sein de votre foyer ?
+        <h2>6. Votre futur animal de compagnie vivra-t-il avec d’autres animaux au sein de votre foyer ?
         </h2>
         <div><input type="radio" name="animals" id="foyer1" value="1"><label for="foyer1">oui</label><br></div>
         <div><input type="radio" name="animals" id="foyer2" value="0"><label for="foyer2">non</label></div>
     </div>
     <div>
-        <h2>6. Le meilleur moyen de vous détendre ?</h2>
+        <h2>7. Le meilleur moyen de vous détendre ?</h2>
         <div><input type="radio" name="walk" id="detente1" value="1"><label for="detente1">une longue balade en forêt</label><br></div>
         <div><input type="radio" name="walk" id="detente2" value="0"><label for="detente2">une séance de sport</label><br></div>
         <div><input type="radio" name="walk" id="detente3" value="0"><label for="detente3">rejoindre mes amis</label></div>
     </div>
 
     <div>
-        <h2>7. Vos trois animaux préférés : </h2>
+        <h2>8. Vos trois animaux préférés : </h2>
 
         <?php
-            $categorie = $types_animaux -> fetchAll();
-            for ($i=0; $i < 3; $i++) {
+        $categorie = $types_animaux->fetchAll();
+        for ($i = 0; $i < 3; $i++) {
+        ?>
+            <label for="idtype<?= $i + 1 ?>">Votre animal <?= $i + 1;
+                                                            echo $i > 0 ? " (facultatif)" : null ?> :</label>
+            <select name="idtype<?= $i + 1 ?>" id="idtype<?= $i + 1 ?>">
+                <option value=""></option>
+                <?php
+                foreach ($categorie as $c) {
                 ?>
-                <label for="idtype<?= $i+1 ?>">Votre animal <?= $i+1; echo $i > 0 ? " (facultatif)" : null ?> :</label>
-                <select name="idtype<?= $i+1 ?>" id="idtype<?= $i+1 ?>">
-                        <option value=""></option>
-                        <?php
-                        foreach ($categorie as $c) {
-                            ?>
-            <option value="<?= htmlspecialchars($c['id']) ?>"><?= htmlspecialchars($c['nom']) ?></option>
-            <?php
-                        }
-                        ?>
-        </select> <br>
+                    <option value="<?= htmlspecialchars($c['id']) ?>"><?= htmlspecialchars($c['nom']) ?></option>
+                <?php
+                }
+                ?>
+            </select> <br>
         <?php
-            }
+        }
         ?>
     </div>
 
@@ -79,18 +80,18 @@ ob_start();
 <span id="confirmationMessage"></span>
 
 <?php
-    $viewContent = ob_get_clean();
-    
-    // styles BLOCK
-    ob_start(); ?>
+$viewContent = ob_get_clean();
+
+// styles BLOCK
+ob_start(); ?>
 <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_quizz.css" />
 <?php
-    $stylesBlock = ob_get_clean();
+$stylesBlock = ob_get_clean();
 
-    // SCRIPT BLOCK
-    ob_start(); ?>
+// SCRIPT BLOCK
+ob_start(); ?>
 <script src="public/js/quizz.js"></script>
 <?php
-    $scriptsBlock = ob_get_clean();
+$scriptsBlock = ob_get_clean();
 
-    require(BASE_URL . 'public/template/template.php');
+require(BASE_URL . 'public/template/template.php');
