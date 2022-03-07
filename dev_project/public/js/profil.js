@@ -1,6 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  if(document.querySelector('.menuAnimauxWrapper li') != null){
+  // Essai du loader pour indiquer à l'utilisateur qu'il peut slider les différents animaux
+  $('.menuAnimauxInner').animate({
+      scrollLeft: 250,
+    },
+    1500
+  );
+  $('.menuAnimauxInner').animate({
+      scrollLeft: 0,
+    },
+    1500
+  );
+
+  if (document.querySelector('.menuAnimauxWrapper li') != null) {
     document.querySelector('.menuAnimauxWrapper li:first-child').classList.add('active');
   }
 
@@ -134,12 +146,12 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault()
 
       console.log('click');
-      
-      if(document.querySelector(".profil #pseudoSubscribe").value == ""){
+
+      if (document.querySelector(".profil #pseudoSubscribe").value == "") {
         console.log("pseudo vide");
-      }else if(document.querySelector(".profil #desc").value == ""){
+      } else if (document.querySelector(".profil #desc").value == "") {
         console.log("description vide");
-      }else{
+      } else {
         postModifyAccount();
       }
     })
@@ -148,12 +160,12 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault()
 
       console.log('click');
-      
-      if(document.querySelector(".profilAnimal #nomAnimal").value == ""){
+
+      if (document.querySelector(".profilAnimal #nomAnimal").value == "") {
         console.log("nom vide");
-      }else if(document.querySelector(".profilAnimal #desc").value == ""){
+      } else if (document.querySelector(".profilAnimal #desc").value == "") {
         console.log("description vide");
-      }else{
+      } else {
         postModifyAnimal();
       }
 
@@ -163,8 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
       console.log('isPseudoFreeAPI')
 
       $.post(
-        'model/isPseudoFreeAPI.php',
-        {
+        'model/isPseudoFreeAPI.php', {
           checkPseudo: $('#pseudoSubscribe').val(),
         },
 
@@ -190,8 +201,7 @@ document.addEventListener('DOMContentLoaded', function () {
       console.log('postModifyAccount')
 
       $.post(
-        'model/modifyProfil.php',
-        {
+        'model/modifyProfil.php', {
           pseudo: $('#pseudoSubscribe').val(),
           desc: $('#desc').val(),
         },
@@ -220,8 +230,7 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('postModifyAnimal')
 
     $.post(
-      'model/postModifyAnimal.php',
-      {
+      'model/postModifyAnimal.php', {
         nom: $('#nomAnimal').val(),
         // media: postedMedia,
         description: $('#desc').val(),
@@ -302,8 +311,7 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('postModifyAccount')
 
     $.post(
-      'model/postModifyAccount.php',
-      {
+      'model/postModifyAccount.php', {
         setparam: setparam,
         setvalue: setvalue,
       },
@@ -336,8 +344,7 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('postModifyAnimalPic')
 
     $.post(
-      'model/postModifyAnimalPic.php',
-      {
+      'model/postModifyAnimalPic.php', {
         pic: pic,
         idAnimal: $('ul.menuAnimauxWrapper > li.active').attr('data-animalid'),
       },
