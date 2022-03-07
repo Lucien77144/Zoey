@@ -1,5 +1,10 @@
 .DS_Store
 prod_blog/model/PDO.php
-*.png
-*.jpg
-*.jpeg
+
+dev_project/public/images/upload/*.png
+dev_project/public/images/upload/*.jpg
+dev_project/public/images/upload/*.jpeg
+
+dev_project/public/images/presentation/*.png
+dev_project/public/images/presentation/*.jpg
+dev_project/public/images/presentation/*.jpeg
