@@ -64,6 +64,7 @@ ob_start();
             while ($message = $chat->fetch()) {
                 $idMessage = $message['idmessage'];
                 $idConv = $message['idConv'];
+                setConvReadState($message['idConv'], $_SESSION['idUser'], 1);
 
                 if (!empty($message['msg'])) {
                     $msg = decrypt($message['msg'], $message['tag']);

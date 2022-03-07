@@ -237,9 +237,6 @@ function setConvReadState($idconv, $idUser, $newreadstate)
             ':readstate' => $newreadstate
         ));
 
-        if ($req->rowCount() != 1)
-            throw new Exception("Nous n'avons pas trouvé cette conversation");
-
         return true;
     } else {
         throw new Exception("Aucune conversation renseignée");

@@ -4,23 +4,6 @@ session_start();
 require("model.php");
 require_once("verifyToken.php");
 
-function encrypt($plaintext)
-{
-    // encrypt
-    $ressource = fopen('../private_crypt/key.json', 'r');
-    $stored = fread($ressource, filesize('../private_crypt/key.json'));
-    $stored = json_decode($stored, true);
-    $key = base64_decode($stored['key']);
-    $iv = base64_decode($stored['iv']);
-    $ciphertext = openssl_encrypt($plaintext, "aes-128-gcm", $key, $options = 0, $iv, $tag);
-    // tag and ciphertext to db
-    if ($ciphertext) {
-        return array('msg' => $ciphertext, 'tag' => $tag);
-    } else {
-        return false;
-    }
-}
-
 function sendMail($pseudo, $to)
 {
     $subject = 'Vous avez des messages non lus sur Zoey !';
@@ -86,33 +69,22 @@ function postAddMessage()
             $fileName = safeEntry($_POST['media']);
         }
 
-        if (isset($msg)) {
-            $crypted = encrypt($msg);
-            if (!$crypted) {
-                throw new Exception("Nous n'avons pas pu envoyer ce message.");
-            }
-        } else {
-            $crypted['msg'] = null;
-            $crypted['tag'] = null;
-        }
-
         $postedIdConv = intval(safeEntry($_POST['idconversation']));
         $idUser = $_SESSION['idUser'];
     }
 
     require("PDO.php");
 
-    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
-    $sql = "INSERT INTO `message` (`texte_message`, `url_media`, `utilisateur_idutilisateur`, `conversation_idconversation`, tag) VALUES (:msg, :media, :idUser, :idConv, :tag)";
+    $sql = "INSERT INTO `message` (`texte_message`, `url_media`, `utilisateur_idutilisateur`, `conversation_idconversation`) VALUES (:msg, :media, :idUser, :idConv)";
     $req = $db->prepare($sql);
 
     $valid = $req->execute(array(
-        ':msg' => $crypted['msg'],
+        ':msg' => $msg,
         ':media' => $fileName,
         ':idUser' => $idUser,
-        ':idConv' => $postedIdConv,
-        ':tag' => $crypted['tag']
+        ':idConv' => $postedIdConv
     ));
 
     if (!$valid)
@@ -128,12 +100,8 @@ function postAddMessage()
     // 
 
     foreach ($usersInConv as $id) {
-        if (
-            getConvReadState($postedIdConv, $id) == 1
-            || !isUserConnected($id)
-        ) { // if is read OR connected
-            echo "$id user set unread";
-            setConvReadState($postedIdConv, $id, 2); //set unread and send mail
+        if (getConvReadState($postedIdConv, $id) == 1 || !isUserConnected($id)) {
+            setConvReadState($postedIdConv, $id, 2);
             $pseudo = getPseudoFromId($id);
             $mail = getMailFromId($id);
             sendMail($pseudo, $mail);
@@ -153,7 +121,7 @@ try {
         $postAddMessage = postAddMessage();
         echo $postAddMessage;
     } else {
-        throw new Exception("Nous n'avons pas pu envoyer ce message.");
+        throw new Exception("Nous n'avons pas pu envoyer ce message.1");
     }
 } catch (Exception $e) {
     $errorMsg = $e->getMessage();
