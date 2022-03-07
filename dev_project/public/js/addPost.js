@@ -21,4 +21,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
     });
 
+    // Selectionner le premier animal par défaut
+    document.querySelector(".cardSelector:first-of-type").classList.add("cardActive");
+    document.querySelector("input[name='idAnimal']:first-of-type").checked = true;
+
 });

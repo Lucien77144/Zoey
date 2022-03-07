@@ -269,7 +269,7 @@ $(document).ready(function () {
 
   function postAddPost(postedMedia) {
     console.log(postedMedia)
-    console.log('addpost')
+    console.log('addpost');
 
     $.post(
       'model/postAddPost.php',
@@ -283,11 +283,13 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-        console.log('function Received')
-        console.log(ReturnedMessage)
+        console.log('function Received');
+        console.log(ReturnedMessage);
 
-        if (ReturnedMessage == 'valid') {
-          window.location.href = 'index.php?action=account'
+        returned = JSON.parse(ReturnedMessage);
+
+        if (returned[0] == "valid") {
+          window.location.href = 'index.php?action=feed&id='+returned[1];
           // location.reload()
           console.log('valid 1 !!')
         } else {
@@ -694,41 +696,48 @@ $(document).ready(function () {
   })
 
   $('#submitAddPost').click(function (e) {
-    e.preventDefault()
+    e.preventDefault();
 
-    console.log('click')
+    $('body').append(
+      "<div class='loader'><img src='public/images/icons/loader.svg'></div>"
+    );
 
-    function testChecked() {
-      if (
-        document.querySelector('input[name=idAnimal]:checked', '#addPostForm')
-      ) {
-        return true
-      } else {
-        return false
+    setTimeout(() => {
+
+      console.log('click')
+  
+      function testChecked() {
+        if (
+          document.querySelector('input[name=idAnimal]:checked', '#addPostForm')
+        ) {
+          return true
+        } else {
+          return false
+        }
       }
-    }
-
-    if (!testChecked()) {
-      $('#ConfirmationMessage').html('')
-      $('#ConfirmationMessage').text(
-        `Sélectionnez l'animal pour lequel vous souhaitez poster une image`
-      )
-      return
-    }
-
-    let files = $('#media')[0].files[0]
-    if (files == null) {
-      $('#ConfirmationMessage').html('')
-      $('#ConfirmationMessage').text(`Vous n'avez pas ajouté d'image !`)
-      return
-    }
-
-    let postedMedia = postPhoto()
-    if (postedMedia == 'déconnecté') {
-      return
-    }
-
-    postAddPost(postedMedia)
+  
+      if (!testChecked()) {
+        $('#ConfirmationMessage').html('')
+        $('#ConfirmationMessage').text(
+          `Sélectionnez l'animal pour lequel vous souhaitez poster une image`
+        )
+        return
+      }
+  
+      let files = $('#media')[0].files[0]
+      if (files == null) {
+        $('#ConfirmationMessage').html('')
+        $('#ConfirmationMessage').text(`Vous n'avez pas ajouté d'image !`)
+        return
+      }
+  
+      let postedMedia = postPhoto()
+      if (postedMedia == 'déconnecté') {
+        return
+      }
+  
+      postAddPost(postedMedia)
+    }, 50);
   })
 
   $('#submitNewsletter').click(function (e) {

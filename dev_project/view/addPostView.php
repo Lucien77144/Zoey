@@ -8,9 +8,9 @@ if (!$accountAnimals) {
 } else {
 ?>
 
-    <h1>Ajouter un post</h1>
+    <h1 class="underline">Ajouter un post</h1>
 
-    <h3>Pour quel animal ?</h3>
+    <h3 class="underTitle">Pour quel animal ?</h3>
     <form id="addPostForm">
 
         <div class="containerSelectAnim">
@@ -53,7 +53,7 @@ if (!$accountAnimals) {
             ?>
     </select> -->
 
-        <h3>Image *</h3>
+        <h3 class="underTitle">Image *</h3>
         <label for="media">
             <div class="imgLoader">
 
@@ -62,7 +62,7 @@ if (!$accountAnimals) {
             <input type="file" id="media" name="media" accept="image/png, image/jpeg">
         </label>
 
-        <h3>description</h3>
+        <h3 class="underTitle">Description</h3>
         <div class="descWrapper"><textarea placeholder="Veuillez remplir ce champ..." name="description" id="description" cols="100" rows="10"></textarea></div>
 
         <div class="sendWrapper"><input value="Publier" type="submit" id="submitAddPost"></div>
