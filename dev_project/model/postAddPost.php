@@ -46,7 +46,9 @@ function postAddPost()
     if (!$valid)
         throw new Exception("L'importation a échoué.1");
 
-    return "valid";
+    $id = $db->lastInsertId();
+    return json_encode(array("valid", $id));
+    // return "valid - " . $id;
 }
 
 try {

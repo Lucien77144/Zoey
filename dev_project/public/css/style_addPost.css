@@ -17,13 +17,27 @@ label > h3 {
 
 h3 {
   text-align: center;
+  margin-bottom: 10px;
+}
+
+.underTitle{
+  font-size: 1.35rem;
+}
+
+#submitAddPost{
+  margin: 20px 0;
+}
+
+.underTitle::first-letter{
+  color: #f3811c;
+  font-size: 1.1em;
 }
 
 .selectAnimal {
   display: flex;
   justify-content: space-between;
   width: 80vw;
-  overflow-x: scroll;
+  overflow-x: auto;
   padding: 10px 0;
 }
 
@@ -73,17 +87,38 @@ label {
   cursor: pointer;
 }
 
+label[for="media"]{
+  width: fit-content;
+  width: -moz-fit-content;
+  height: fit-content;
+  height: -moz-fit-content;
+  margin: 2rem auto;
+}
+
+.imgLoader+h5{
+  margin: 0;
+}
+
 .cardSelector {
   min-width: 100px;
   height: 125px;
-  border-radius: 20px;
   transition: 0.15s ease-in-out;
   margin: 0 37.5px;
+  border-radius: 10px;
+}
+
+.cardSelector:hover{
+  background-color: #f1f1f1;
 }
 
 .cardActive {
   background-color: #ffc800;
-  box-shadow: #00000077 3px 3px 10px !important;
+  border-radius: 20px;
+  box-shadow: #00000066 0px 0px 6px !important;
+}
+
+.cardActive:hover {
+  background-color: #ffbb00;
 }
 
 .cardActive h3 {
@@ -97,7 +132,7 @@ label {
   border: none;
   resize: none;
   padding: 10px;
-  border-radius: 25px;
+  border-radius: 15px;
   width: 80%;
   max-width: 500px;
 }

@@ -135,7 +135,14 @@ document.addEventListener('DOMContentLoaded', function () {
     current
       .querySelector('input[type=file]')
       .addEventListener('input', function () {
-        changeAvatar(this, action)
+        // launch loader
+        $('body').append(
+          "<div class='loader'><img src='public/images/icons/loader.svg'></div>"
+        )
+
+        setTimeout(() => {
+          changeAvatar(this, action)
+        }, 50)
       })
 
     $('#pseudoSubscribe').keyup(function () {
@@ -169,6 +176,13 @@ document.addEventListener('DOMContentLoaded', function () {
         postModifyAnimal();
       }
 
+      if (document.querySelector('.profilAnimal #nomAnimal').value == '') {
+        console.log('nom vide')
+      } else if (document.querySelector('.profilAnimal #desc').value == '') {
+        console.log('description vide')
+      } else {
+        postModifyAnimal()
+      }
     })
 
     function isPseudoFreeAPI() {
@@ -381,7 +395,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     reader.readAsDataURL(file)
 
-    console.log('postPhoto change avatar')
+    console.log('postPhoto change avatar 1')
+
     let postedMedia = postPhoto()
     if (postedMedia == 'déconnecté') {
       console.log('erreur photo déconnecté')
@@ -392,5 +407,8 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       postModifyAccountSendPicture('media', postedMedia)
     }
+
+    // remove loader
+    $('.loader').remove()
   }
 })

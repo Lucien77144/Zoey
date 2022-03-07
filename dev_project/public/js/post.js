@@ -286,8 +286,10 @@ $(document).ready(function () {
         console.log('function Received')
         console.log(ReturnedMessage)
 
-        if (ReturnedMessage == 'valid') {
-          window.location.href = 'index.php?action=account'
+        returned = JSON.parse(ReturnedMessage)
+
+        if (returned[0] == 'valid') {
+          window.location.href = 'index.php?action=feed&id=' + returned[1]
           // location.reload()
           console.log('valid 1 !!')
         } else {
@@ -696,39 +698,45 @@ $(document).ready(function () {
   $('#submitAddPost').click(function (e) {
     e.preventDefault()
 
-    console.log('click')
+    $('body').append(
+      "<div class='loader'><img src='public/images/icons/loader.svg'></div>"
+    )
 
-    function testChecked() {
-      if (
-        document.querySelector('input[name=idAnimal]:checked', '#addPostForm')
-      ) {
-        return true
-      } else {
-        return false
+    setTimeout(() => {
+      console.log('click')
+
+      function testChecked() {
+        if (
+          document.querySelector('input[name=idAnimal]:checked', '#addPostForm')
+        ) {
+          return true
+        } else {
+          return false
+        }
       }
-    }
 
-    if (!testChecked()) {
-      $('#ConfirmationMessage').html('')
-      $('#ConfirmationMessage').text(
-        `Sélectionnez l'animal pour lequel vous souhaitez poster une image`
-      )
-      return
-    }
+      if (!testChecked()) {
+        $('#ConfirmationMessage').html('')
+        $('#ConfirmationMessage').text(
+          `Sélectionnez l'animal pour lequel vous souhaitez poster une image`
+        )
+        return
+      }
 
-    let files = $('#media')[0].files[0]
-    if (files == null) {
-      $('#ConfirmationMessage').html('')
-      $('#ConfirmationMessage').text(`Vous n'avez pas ajouté d'image !`)
-      return
-    }
+      let files = $('#media')[0].files[0]
+      if (files == null) {
+        $('#ConfirmationMessage').html('')
+        $('#ConfirmationMessage').text(`Vous n'avez pas ajouté d'image !`)
+        return
+      }
 
-    let postedMedia = postPhoto()
-    if (postedMedia == 'déconnecté') {
-      return
-    }
+      let postedMedia = postPhoto()
+      if (postedMedia == 'déconnecté') {
+        return
+      }
 
-    postAddPost(postedMedia)
+      postAddPost(postedMedia)
+    }, 50)
   })
 
   $('#submitNewsletter').click(function (e) {
@@ -774,14 +782,24 @@ $(document).ready(function () {
 
     console.log('click')
 
-    let postedMedia = postPhoto()
-    if (postedMedia == 'déconnecté') {
-      $('#ConfirmationMessage').html('')
-      $('#ConfirmationMessage').text(`L'envoi a échoué`)
-      return
-    }
+    // launch loader
+    $('body').append(
+      "<div class='loader'><img src='public/images/icons/loader.svg'></div>"
+    )
 
-    postAddAnimal(postedMedia)
+    setTimeout(() => {
+      let postedMedia = postPhoto()
+      if (postedMedia == 'déconnecté') {
+        $('#ConfirmationMessage').html('')
+        $('#ConfirmationMessage').text(`L'envoi a échoué`)
+        return
+      }
+
+      postAddAnimal(postedMedia)
+
+      // remove loader
+      $('.loader').remove()
+    }, 50)
   })
 
   // modify account
