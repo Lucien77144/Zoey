@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-
-  if(document.querySelector('.menuAnimauxWrapper li') != null){
-    document.querySelector('.menuAnimauxWrapper li:first-child').classList.add('active');
+  if (document.querySelector('.menuAnimauxWrapper li') != null) {
+    document
+      .querySelector('.menuAnimauxWrapper li:first-child')
+      .classList.add('active')
   }
 
   document.querySelectorAll('.menuAnimauxWrapper li').forEach((e) => {
@@ -123,7 +124,17 @@ document.addEventListener('DOMContentLoaded', function () {
     current
       .querySelector('input[type=file]')
       .addEventListener('input', function () {
-        changeAvatar(this, action)
+        // launch loader
+        $('body').append(
+          "<div class='loader'><img src='public/images/icons/loader.svg'></div>"
+        )
+
+        // document.querySelector('body').innerHTML +=
+        //   "<div class='loader'><img src='public/images/icons/loader.svg'></div>"
+
+        setTimeout(() => {
+          changeAvatar(this, action)
+        }, 50)
       })
 
     $('#pseudoSubscribe').keyup(function () {
@@ -133,30 +144,29 @@ document.addEventListener('DOMContentLoaded', function () {
     $('#submitModifyAccountPublic').click(function (e) {
       e.preventDefault()
 
-      console.log('click');
-      
-      if(document.querySelector(".profil #pseudoSubscribe").value == ""){
-        console.log("pseudo vide");
-      }else if(document.querySelector(".profil #desc").value == ""){
-        console.log("description vide");
-      }else{
-        postModifyAccount();
+      console.log('click')
+
+      if (document.querySelector('.profil #pseudoSubscribe').value == '') {
+        console.log('pseudo vide')
+      } else if (document.querySelector('.profil #desc').value == '') {
+        console.log('description vide')
+      } else {
+        postModifyAccount()
       }
     })
 
     $('#submitModifyAnimalPublic').click(function (e) {
       e.preventDefault()
 
-      console.log('click');
-      
-      if(document.querySelector(".profilAnimal #nomAnimal").value == ""){
-        console.log("nom vide");
-      }else if(document.querySelector(".profilAnimal #desc").value == ""){
-        console.log("description vide");
-      }else{
-        postModifyAnimal();
-      }
+      console.log('click')
 
+      if (document.querySelector('.profilAnimal #nomAnimal').value == '') {
+        console.log('nom vide')
+      } else if (document.querySelector('.profilAnimal #desc').value == '') {
+        console.log('description vide')
+      } else {
+        postModifyAnimal()
+      }
     })
 
     function isPseudoFreeAPI() {
@@ -374,7 +384,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     reader.readAsDataURL(file)
 
-    console.log('postPhoto change avatar')
+    console.log('postPhoto change avatar 1')
+
     let postedMedia = postPhoto()
     if (postedMedia == 'déconnecté') {
       console.log('erreur photo déconnecté')
@@ -385,5 +396,8 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       postModifyAccountSendPicture('media', postedMedia)
     }
+
+    // remove loader
+    $('.loader').remove()
   }
 })
