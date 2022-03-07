@@ -34,6 +34,7 @@ label {
     height: 80px;
     background: #F3F3F3;
     border-radius: 50px;
+    object-fit: cover;
 }
 label[for="media"] {
     margin-top: 10px;
@@ -47,6 +48,8 @@ textarea {
     background: #F3F3F3;
     border: none;
     border-radius: 15px;
+    padding: 5px;
+    resize: none;
 }
 select {
     background: #F3F3F3;

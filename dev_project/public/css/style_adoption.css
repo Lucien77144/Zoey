@@ -282,6 +282,7 @@ iframe {
     align-self: center;
     overflow: auto;
     margin: auto;
+    transition: ease-in-out;
 }
 
 .filterAnimal::before{
