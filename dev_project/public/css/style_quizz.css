@@ -25,6 +25,7 @@ form>div {
 form div h2 {
     text-align: center;
     margin: auto;
+    width: 95%;
     font-size: 1.2rem;
 }
 
@@ -103,4 +104,8 @@ input[type='radio']:checked:after {
     display: inline-block;
     visibility: visible;
     border: 2px solid white;
+}
+#confirmationMessage {
+    margin-top: 20px;
+    text-align: center;
 }

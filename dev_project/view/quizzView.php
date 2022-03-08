@@ -15,7 +15,7 @@ ob_start();
         <div><input type="radio" name="space" id="space4" value="1"><label for="space4">une maison avec jardin</label></div>
     </div>
     <div>
-        <h2>2. Votre espace de vie est-il sécurisé (balcons, fenêtres etc..) ?</h2>
+        <h2>2. Votre espace de vie est-il sécurisé <br> (balcons, fenêtres etc..) ?</h2>
         <div><input type="radio" name="secure" id="secure1" value="1"><label for="secure1">oui</label><br></div>
         <div><input type="radio" name="secure" id="secure2" value="0"><label for="secure2">non</label></div>
     </div>
@@ -27,8 +27,8 @@ ob_start();
     <div>
         <h2>4. A quelle fréquence voyagez-vous ?</h2>
         <div><input type="radio" name="travel" id="trip1" value="1"><label for="trip1">régulièrement, à chaque occasion</label><br></div>
-        <div><input type="radio" name="travel" id="trip2" value="0"><label for="trip2">rarement</label><br></div>
-        <div><input type="radio" name="travel" id="trip3" value="0"><label for="trip3">jamais, une fois par mois et encore...</label></div>
+        <div><input type="radio" name="travel" id="trip2" value="0"><label for="trip2">rarement, une fois par an et encore...</label><br></div>
+        <div><input type="radio" name="travel" id="trip3" value="0"><label for="trip3">jamais</label></div>
     </div>
     <div>
         <h2>5. Quelle est la chose la plus importante selon vous dans un animal de compagnie ?

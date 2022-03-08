@@ -91,3 +91,8 @@ article>div {
     margin: 0;
     font-size: 0.95rem;
 }
+.addFriends {
+    font-weight: bold;
+    text-align: center;
+    width: 90%;
+}
