@@ -44,6 +44,29 @@ header {
 
 main .defaultBlock:last-child {
   margin-bottom: 100px;
+  position: relative;
+}
+
+main .defaultBlock:last-child::after {
+  content: "";
+  background-image: url(../images/icons/loader.svg);
+  background-size: contain;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  left: 50%;
+  bottom: -50px;
+  transform-origin: left bottom;
+  animation: loader 2s ease-in-out infinite;
+}
+
+@keyframes loader {
+  0%{
+    transform: rotate(0deg) translate(-50%, 50%);
+  }
+  100%{
+    transform: rotate(360deg) translate(-50%, 50%);
+  }
 }
 
 .textContent {
