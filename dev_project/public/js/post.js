@@ -295,6 +295,8 @@ $(document).ready(function () {
         } else {
           $('#ConfirmationMessage').html('')
           $('#ConfirmationMessage').text(`L'ajout a échoué`)
+          // remove loader
+          $('.loader').remove()
         }
       },
       'text'
@@ -720,6 +722,8 @@ $(document).ready(function () {
         $('#ConfirmationMessage').text(
           `Sélectionnez l'animal pour lequel vous souhaitez poster une image`
         )
+        // remove loader
+        $('.loader').remove()
         return
       }
 
@@ -727,11 +731,15 @@ $(document).ready(function () {
       if (files == null) {
         $('#ConfirmationMessage').html('')
         $('#ConfirmationMessage').text(`Vous n'avez pas ajouté d'image !`)
+        // remove loader
+        $('.loader').remove()
         return
       }
 
       let postedMedia = postPhoto()
       if (postedMedia == 'déconnecté') {
+        // remove loader
+        $('.loader').remove()
         return
       }
 
@@ -799,7 +807,7 @@ $(document).ready(function () {
 
       // remove loader
       $('.loader').remove()
-    }, 50)
+    }, 100)
   })
 
   // modify account

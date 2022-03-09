@@ -65,7 +65,7 @@ ob_start();
     <?php
     } else {
     ?>
-        <p>Ajoutez des amis pour commencer des conversations !</p>
+        <p class="addFriends">Ajoutez des amis pour commencer des conversations !</p>
     <?php
     }
     ?>

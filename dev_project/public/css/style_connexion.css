@@ -27,6 +27,11 @@ body{
   color: #f3811c;
   font-size: 1.8rem;
 }
+.connexion h2 {
+  text-align: center;
+  width: 90%;
+  font-size: calc(1.2rem + 0.5vw);
+}
 .connectForm {
   width: 280px;
   display: flex;

@@ -69,7 +69,7 @@ $viewContent = ob_get_clean();
 // styles BLOCK
 ob_start(); ?>
 <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_post.css" />
-<link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_popup.css" />
+<link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_popUp.css" />
 <?php
 $stylesBlock = ob_get_clean();
 
