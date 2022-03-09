@@ -13,6 +13,7 @@ label > img {
 
 label > h3 {
   margin: 0;
+  word-break: break-word;
 }
 
 h3 {
@@ -35,7 +36,7 @@ h3 {
 
 .selectAnimal {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 80vw;
   overflow-x: auto;
   padding: 10px 0;
@@ -101,9 +102,11 @@ label[for="media"]{
 
 .cardSelector {
   min-width: 100px;
+  max-width: 125px;
   height: 125px;
   transition: 0.15s ease-in-out;
   margin: 0 37.5px;
+  padding: 10px;
   border-radius: 10px;
 }
 
