@@ -280,10 +280,28 @@ function getFeed($num = 1)
 
     $start = ($num - 1) * 10;
 
-    $sql = "SELECT profil_animal_de_compagnie_utilisateur_idutilisateur1 idutilisateur, idpost, post.description, media, date_publication, profil_animal_de_compagnie_idprofil_animal_de_compagnie idanimal, profil_animal_de_compagnie.nom 
+    $selected = "SELECT profil_animal_de_compagnie_utilisateur_idutilisateur1 idutilisateur, idpost, post.description, media, date_publication, profil_animal_de_compagnie_idprofil_animal_de_compagnie idanimal, profil_animal_de_compagnie.nom 
     FROM post 
-    INNER JOIN profil_animal_de_compagnie ON post.profil_animal_de_compagnie_idprofil_animal_de_compagnie = profil_animal_de_compagnie.idprofil_animal_de_compagnie
-    ORDER BY date_publication DESC LIMIT 10 OFFSET $start";
+    INNER JOIN profil_animal_de_compagnie ON post.profil_animal_de_compagnie_idprofil_animal_de_compagnie = profil_animal_de_compagnie.idprofil_animal_de_compagnie";
+
+    if(isset($_GET['id'])){
+
+        $id = htmlspecialchars($_GET['id']);
+        $sql = "
+        ($selected WHERE idpost = $id)
+        UNION
+        ($selected WHERE profil_animal_de_compagnie_idprofil_animal_de_compagnie =
+        (SELECT profil_animal_de_compagnie_idprofil_animal_de_compagnie FROM post WHERE idpost = $id)
+        ORDER BY date_publication DESC LIMIT 10 OFFSET $start)";
+
+    }else{
+
+        $sql = "
+        $selected
+        ORDER BY date_publication DESC LIMIT 10 OFFSET $start";
+        
+    }
+
     $req = $db->prepare($sql);
 
     $req->execute();

@@ -93,7 +93,8 @@ function printFeed()
 function printPost()
 {
     $post = getPost();
-    require(BASE_URL . "view/postView.php");
+    $feed = getFeed();
+    require(BASE_URL . "view/feedView.php");
 }
 
 // function printAdoptionWithMatch(){

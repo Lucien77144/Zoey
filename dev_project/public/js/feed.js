@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 {
                     posts : numPosts
                 },
-    
+
                 function(ReturnedMessage){
                     addContent(ReturnedMessage);
                 },
@@ -35,12 +35,31 @@ document.addEventListener("DOMContentLoaded", function(){
             }else{
                 document.querySelector("main").innerHTML+=content;
                 document.querySelector("main").classList.add("hiddenAfter");
+
+                document.querySelectorAll(".descMore, .endDesc").forEach(e => {
+                    e.parentNode.removeEventListener("click", moreDesc, false);
+                    e.parentNode.addEventListener("click", moreDesc, false);
+                });
             }
         }, 150);
     }
 
     function addContent(content){
         scrollEnd(document.querySelector("main"), content);
+    }
+
+    document.querySelectorAll(".descMore, .endDesc").forEach(e => {
+        e.parentNode.addEventListener("click", moreDesc, false);
+    });
+
+    function moreDesc(){
+        if(this.querySelector(".endDesc").style.height == "0px" || this.querySelector(".endDesc").style.height == ""){
+            this.querySelector(".endDesc").style.height=this.querySelector(".endDesc span").offsetHeight+5+"px";
+            this.querySelector(".dot").style.opacity = 0;
+        }else{
+            this.querySelector(".endDesc").style.height = "0px";
+            this.querySelector(".dot").style.opacity = 1;
+        }
     }
 
 });

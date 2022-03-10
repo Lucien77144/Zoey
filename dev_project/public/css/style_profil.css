@@ -347,7 +347,6 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-right: auto;
     margin: 5px;
     min-width: 155px;
     min-height: 250px;
@@ -562,5 +561,17 @@ body{
             bottom: 165px;
             transform: translateY(0);
         }
+    }
+}
+
+@media (max-width: 372px) {
+    .publi{
+        margin: 10px;
+        min-width: unset;
+        min-height: unset;
+        width: 70vw;
+        height: 100vw;
+        max-width: unset;
+        max-height: unset;
     }
 }

@@ -98,7 +98,7 @@ main .defaultBlock:last-child::after {
   );
 }
 
-.textContent > * {
+.textContent * {
   color: white;
   text-decoration: none;
   overflow-wrap: break-word;
@@ -125,13 +125,45 @@ main .defaultBlock:last-child::after {
 
 .textContent h1 {
   margin: 0;
-  margin-bottom: 10px;
   display: inline-block;
   padding: 2.5px 25px 2.5px 25px;
   font-size: 1.1em;
   font-weight: 600;
   border-radius: 10px;
   background: #ffa319;
+}
+
+.headMsg{
+  margin-bottom: 10px;
+}
+
+.headMsg span{
+  color: #ffa319;
+}
+
+.descMore{
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.descWrapper{
+  text-shadow: 0px 0px 5px #00000099;
+}
+
+.endDesc{
+  height: 0;
+  overflow: hidden;
+  transition: 0.35s ease-in-out;
+}
+
+.dot{
+  margin-left: 50px;
+  text-decoration: underline;
+  transition: 0.35s ease-in-out;
+}
+
+.descMore, .endDesc{
+  cursor: pointer;
 }
 
 .menuInner svg>path{
@@ -193,7 +225,6 @@ main .defaultBlock:last-child::after {
   }
   .menuInner h2 {
     color: rgb(235, 235, 235);
-    font-weight: bold;
     transition: 0.25s ease-in-out;
   }
   .menuInner h2:hover {
