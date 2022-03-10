@@ -208,7 +208,7 @@ header > img {
   width: 50%;
 }
 
-.menuInner > a > img {
+.menuInner > a > svg {
   height: 30px;
   width: 30px;
 }
@@ -340,8 +340,7 @@ header > img {
   }
 
   .menuBlur,
-  .menu > svg,
-  .menu img {
+  .menu svg {
     display: none;
   }
 

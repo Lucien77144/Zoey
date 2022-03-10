@@ -28,7 +28,7 @@ header {
 }
 
 .defaultBlock {
-  height: calc(100vh - 40px);
+  height: calc(100vh - 70px);
   width: 100%;
   max-width: 500px;
   padding: 0;
@@ -43,7 +43,7 @@ header {
 }
 
 main .defaultBlock:last-child {
-  margin-bottom: 100px;
+  margin-bottom: 240px;
   position: relative;
 }
 
@@ -58,6 +58,17 @@ main .defaultBlock:last-child::after {
   bottom: -50px;
   transform-origin: left bottom;
   animation: loader 2s ease-in-out infinite;
+}
+
+.hiddenAfter .defaultBlock:last-child::after{
+  content: "Tout le contenu a été chargé";
+  color: #ffa319;
+  background-image: none;
+  height: auto;
+  width: auto;
+  transform: translate(-50%, 50%);
+  text-align: center;
+  animation: none;
 }
 
 @keyframes loader {
@@ -123,6 +134,45 @@ main .defaultBlock:last-child::after {
   background: #ffa319;
 }
 
+.menuInner svg>path{
+  fill: #ffa319;
+}
+
+.menuInner h2{
+  color: white;
+  font-weight: normal;
+}
+
+.menu>svg>path{
+  fill: rgb(34, 34, 34);
+}
+
+.menu>svg, .menuBlur{
+  display: none;
+}
+
+.menuInner{
+  width: 50%;
+}
+
+.menu>.menuInner{
+  background-color: unset;
+}
+
+.menuInner, .menu{
+  height: 70px;
+}
+
+.menu{
+  bottom: -2px;
+  background-color: rgb(34, 34, 34);
+  box-shadow: #00000022 0px 0px 4px 4px;
+}
+
+.feed{
+  display: none;
+}
+
 @media (min-width: 800px) {
   body {
     background: rgb(27, 27, 27);
@@ -143,6 +193,7 @@ main .defaultBlock:last-child::after {
   }
   .menuInner h2 {
     color: rgb(235, 235, 235);
+    font-weight: bold;
     transition: 0.25s ease-in-out;
   }
   .menuInner h2:hover {
@@ -150,6 +201,16 @@ main .defaultBlock:last-child::after {
   }
   .textContent {
     padding: 0 5% 5% 5%;
+  }
+  main .defaultBlock:last-child {
+    margin-bottom: 100px;
+  }
+  .menu, .menuInner{
+    height: 60px;
+  }
+  .menu{
+    background-color: unset;
+    box-shadow: none;
   }
 }
 

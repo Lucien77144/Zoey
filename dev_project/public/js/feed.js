@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 addContent(content);
             }else{
                 document.querySelector("main").innerHTML+=content;
+                document.querySelector("main").classList.add("hiddenAfter");
             }
         }, 150);
     }

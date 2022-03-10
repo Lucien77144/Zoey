@@ -6,7 +6,7 @@ $feed = getFeed(htmlspecialchars($_POST['posts']));
 while ($post = $feed->fetch()) {
 ?>
     <article class="defaultBlock">
-        <img class="blockIllus" src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($post['media']) ?>" alt="">
+        <img class="blockIllus" src="<?='public/images/upload/' . htmlspecialchars($post['media']) ?>" alt="">
         <div class="textContent">
             <a href="index.php?action=account&id=<?= htmlspecialchars($post['idutilisateur']) ?>" title="voir le profil de <?= htmlspecialchars($post['nom']) ?>">
                 <h1>
