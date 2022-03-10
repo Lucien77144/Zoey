@@ -1,5 +1,9 @@
 // this page is made to refresh the messages page (with ajax calls)
 
+function hideLoader() {
+  document.getElementById('loaderContainer').style.display = 'none'
+}
+
 $(document).ready(function () {
   $('main').animate(
     { scrollTop: document.querySelector('main').scrollHeight },
@@ -45,7 +49,7 @@ $(document).ready(function () {
 
         function (ReturnedMessage) {
           console.log('function Received : ' + ReturnedMessage)
-          $('.loader').remove()
+          hideLoader()
           if (ReturnedMessage) {
             console.log('new messages found !!')
             $('#noMessagesYet').remove()

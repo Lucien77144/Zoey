@@ -16,6 +16,18 @@ function getCookie(cname) {
   return ''
 }
 
+function showLoader(callback) {
+  document.getElementById('loaderContainer').style.display = 'flex'
+  console.log('loader loaded')
+  setTimeout(() => {
+    callback()
+  }, 10)
+}
+
+function hideLoader() {
+  document.getElementById('loaderContainer').style.display = 'none'
+}
+
 $(document).ready(function () {
   console.log('ready')
 
@@ -295,8 +307,7 @@ $(document).ready(function () {
         } else {
           $('#ConfirmationMessage').html('')
           $('#ConfirmationMessage').text(`L'ajout a échoué`)
-          // remove loader
-          $('.loader').remove()
+          hideLoader()
         }
       },
       'text'
@@ -700,13 +711,10 @@ $(document).ready(function () {
   $('#submitAddPost').click(function (e) {
     e.preventDefault()
 
-    $('body').append(
-      "<div class='loader'><img src='public/images/icons/loader.svg'></div>"
-    )
-
-    setTimeout(() => {
+    console.log('before')
+    document.getElementById('loaderContainer').style.display = 'flex'
+    showLoader(() => {
       console.log('click')
-
       function testChecked() {
         if (
           document.querySelector('input[name=idAnimal]:checked', '#addPostForm')
@@ -716,35 +724,28 @@ $(document).ready(function () {
           return false
         }
       }
-
       if (!testChecked()) {
         $('#ConfirmationMessage').html('')
         $('#ConfirmationMessage').text(
           `Sélectionnez l'animal pour lequel vous souhaitez poster une image`
         )
-        // remove loader
-        $('.loader').remove()
+        hideLoader()
         return
       }
-
       let files = $('#media')[0].files[0]
       if (files == null) {
         $('#ConfirmationMessage').html('')
         $('#ConfirmationMessage').text(`Vous n'avez pas ajouté d'image !`)
-        // remove loader
-        $('.loader').remove()
+        hideLoader()
         return
       }
-
       let postedMedia = postPhoto()
       if (postedMedia == 'déconnecté') {
-        // remove loader
-        $('.loader').remove()
+        hideLoader()
         return
       }
-
-      postAddPost(postedMedia)
-    }, 50)
+      postAddPost(null)
+    })
   })
 
   $('#submitNewsletter').click(function (e) {
@@ -762,25 +763,23 @@ $(document).ready(function () {
       document.querySelector('#msg').value != '' ||
       document.querySelector('#media').value != ''
     ) {
-      $('body').append(
-        "<div class='loader'><img src='public/images/icons/loader.svg'></div>"
-      )
+      showLoader(() => {
+        console.log('click')
+
+        let postedMedia = postPhoto()
+        // if (postedMedia == "déconnecté"){
+        // return;
+        // }
+
+        postAddMessage(postedMedia)
+        $('main').animate(
+          { scrollTop: document.querySelector('main').scrollHeight },
+          750
+        )
+      })
     }
 
-    setTimeout(() => {
-      console.log('click')
-
-      let postedMedia = postPhoto()
-      // if (postedMedia == "déconnecté"){
-      // return;
-      // }
-
-      postAddMessage(postedMedia)
-      $('main').animate(
-        { scrollTop: document.querySelector('main').scrollHeight },
-        750
-      )
-    }, 50)
+    // setTimeout(() => {}, 50)
   })
 
   $('#submitAddAnimal').click(function (e) {
@@ -790,12 +789,7 @@ $(document).ready(function () {
 
     console.log('click')
 
-    // launch loader
-    $('body').append(
-      "<div class='loader'><img src='public/images/icons/loader.svg'></div>"
-    )
-
-    setTimeout(() => {
+    showLoader(() => {
       let postedMedia = postPhoto()
       if (postedMedia == 'déconnecté') {
         $('#ConfirmationMessage').html('')
@@ -805,9 +799,8 @@ $(document).ready(function () {
 
       postAddAnimal(postedMedia)
 
-      // remove loader
-      $('.loader').remove()
-    }, 100)
+      hideLoader()
+    })
   })
 
   // modify account
