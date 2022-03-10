@@ -129,8 +129,7 @@ function postAddMessage()
 
     foreach ($usersInConv as $id) {
         if (
-            getConvReadState($postedIdConv, $id) == 1
-            || !isUserConnected($id)
+            getConvReadState($postedIdConv, $id) == 1 && !isUserConnected($id)
         ) { // if is read OR connected
             setConvReadState($postedIdConv, $id, 2); //set unread and send mail
             $pseudo = getPseudoFromId($id);
