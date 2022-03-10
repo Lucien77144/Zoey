@@ -146,7 +146,11 @@ if ($accountAnimals) { // renvoie false si aucun animal lié à ce compte n'a é
 ?>
     <section class="profilAnimal">
         <?php
-        printAnimal($animalId[0]);
+        if(isset($_GET['animal'])){
+            printAnimal(htmlspecialchars($_GET["animal"]));
+        }else{
+            printAnimal($animalId[0]);
+        }
         ?>
     </section>
 <?php

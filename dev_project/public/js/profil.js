@@ -12,8 +12,27 @@ document.addEventListener('DOMContentLoaded', function () {
     1500
   );
 
+  function $_GET(param) { // Source : creativejuiz.fr
+    var vars = {};
+    window.location.href.replace( location.hash, '' ).replace( 
+      /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+      function( m, key, value ) { // callback
+        vars[key] = value !== undefined ? value : '';
+      }
+    );
+  
+    if ( param ) {
+      return vars[param] ? vars[param] : null;	
+    }
+    return vars;
+  }
+
   if (document.querySelector('.menuAnimauxWrapper li') != null) {
-    document.querySelector('.menuAnimauxWrapper li:first-child').classList.add('active');
+    if($_GET("animal") == null){
+      document.querySelector('.menuAnimauxWrapper li:first-child').classList.add('active');
+    }else{
+      document.querySelector(`.menuAnimauxWrapper li[data-animalid="${$_GET("animal")}"]`).classList.add('active');
+    }
   }
 
   document.querySelectorAll('.menuAnimauxWrapper li').forEach((e) => {

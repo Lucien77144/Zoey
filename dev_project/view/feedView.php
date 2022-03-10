@@ -31,7 +31,7 @@ if($feed->rowCount() < 5){
             <img class="blockIllus" src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($post['media']) ?>" alt="">
             <div class="textContent">
                 <div class="headMsg">
-                    <a href="index.php?action=account&id=<?= htmlspecialchars($post['idutilisateur']) ?>" title="voir le profil de <?= htmlspecialchars($post['nom']) ?>">
+                    <a href="index.php?action=account&id=<?= htmlspecialchars($post['idutilisateur']) ?>&animal=<?= $post['idanimal']?>" title="voir le profil de <?= htmlspecialchars($post['nom']) ?>">
                         <h1>
                             <?= htmlspecialchars($post['nom']) ?>
                         </h1>
