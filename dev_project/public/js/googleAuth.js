@@ -7,19 +7,16 @@ function getParameterByName(name, url = window.location.href) {
   return decodeURIComponent(results[2].replace(/\+/g, ' '))
 }
 
-async function handleConnect(infos) {
-  //   fetch('model/postConnect.php', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       Accept: 'application/json',
-  //     },
-  //     body: JSON.stringify(infos),
-  //   }).then((response) => {
-  //     response.json().then(function (data) {
-  //       return response
-  //     })
-  //   })
+function showLoader(callback) {
+  document.getElementById('loaderContainer').style.display = 'flex'
+  console.log('loader loaded')
+  setTimeout(() => {
+    callback()
+  }, 10)
+}
+
+function hideLoader() {
+  document.getElementById('loaderContainer').style.display = 'none'
 }
 
 function postConnect(infos) {
@@ -87,6 +84,7 @@ function postConnect(infos) {
 }
 
 function googleError() {
+  hideLoader()
   $('#ConfirmationMessage').html('')
   $('#ConfirmationMessage').html(
     `La connexion avec Google n'a pas fonctionné. Vous pouvez nous signaler cette erreur par mail : <a href="mailto:contact@zoey-app.fr">contact@zoey-app.fr</a>.`
@@ -96,35 +94,37 @@ function googleError() {
 async function handleCredentialResponse(response) {
   // console.log('Encoded JWT ID token: ' + response.credential)
 
-  fetch('model/googleAuth.php', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-    },
-    body: JSON.stringify(response.credential),
-  }).then((response) => {
-    response.json().then(function (data) {
-      if (data[0] == 'connect') {
-        // $connectStatus = handleConnect(data[1])
-        $connectStatus = postConnect(data[1]) // ce script envoie à postConnect en AJAX et gère la réponse (recharge la page)
+  showLoader(() => {
+    fetch('model/googleAuth.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify(response.credential),
+    }).then((response) => {
+      response.json().then(function (data) {
+        if (data[0] == 'connect') {
+          // $connectStatus = handleConnect(data[1])
+          $connectStatus = postConnect(data[1]) // ce script envoie à postConnect en AJAX et gère la réponse (recharge la page)
 
-        // if ($connectStatus) {
-        //   // recharger la page pour retourner à la page demandée avant redirection vers connexion, sauf si page demandée = connexion, et aller vers profil
-        //   //   if (getParameterByName('action') == 'connect') {
-        //   //     window.location.href = 'index.php?action=account'
-        //   //   } else {
-        //   //     location.reload() // renvoie vers la page initialement demandée
-        //   //   }
-        //   console.log('connected')
-        // } else {
-        //   console.log("can't connect")
-        //   googleError()
-        // }
-      } else {
-        googleError()
-      }
-      return response
+          // if ($connectStatus) {
+          //   // recharger la page pour retourner à la page demandée avant redirection vers connexion, sauf si page demandée = connexion, et aller vers profil
+          //   //   if (getParameterByName('action') == 'connect') {
+          //   //     window.location.href = 'index.php?action=account'
+          //   //   } else {
+          //   //     location.reload() // renvoie vers la page initialement demandée
+          //   //   }
+          //   console.log('connected')
+          // } else {
+          //   console.log("can't connect")
+          //   googleError()
+          // }
+        } else {
+          googleError()
+        }
+        return response
+      })
     })
   })
 }

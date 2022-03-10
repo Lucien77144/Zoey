@@ -111,6 +111,8 @@
     }
     ?>
 
+    <div class='loader' id="loaderContainer" style="display: none;"><img src='public/images/icons/loader.svg'></div>
+
     <script src="<?= BASE_URL ?>public/js/post.js"></script>
     <?php if (isset($scriptsBlock)) echo $scriptsBlock ?>
 
