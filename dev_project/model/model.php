@@ -885,13 +885,32 @@ function getChat($offsetCoef)
     return $req;
 }
 
+function decrypt($ciphertext, $tag, $path = null)
+{
+    // decrypt
+    $path .= "private_crypt/key.json";
+    $ressource = fopen($path, 'r');
+    $stored = fread($ressource, filesize($path));
+    $stored = json_decode($stored, true);
+    $key = base64_decode($stored['key']);
+    $iv = base64_decode($stored['iv']);
+    // tag and ciphertext from db
+    $original_plaintext = openssl_decrypt($ciphertext, "aes-128-gcm", $key, $options = 0, $iv, $tag);
+
+    if ($original_plaintext) {
+        return $original_plaintext;
+    } else {
+        return false;
+    }
+}
+
 function getLastMessagePreview(int $idconv)
 {
     require("PDO.php");
 
     $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
-    $sql = "SELECT texte_message msg, url_media media, date_envoi_msg, tag
+    $sql = "SELECT idutilisateur, texte_message msg, url_media media, date_envoi_msg, tag
 	FROM `message` 
 	INNER JOIN utilisateur ON message.utilisateur_idutilisateur = utilisateur.idutilisateur
 	WHERE conversation_idconversation = :idConv
@@ -903,12 +922,18 @@ function getLastMessagePreview(int $idconv)
         ':idConv' => $idconv
     ));
 
-    if ($req->rowCount() != 0)
+    if ($req->rowCount() != 1)
         return "Envoyez le premier le message";
 
     $msg = $req->fetchAll();
     if (!empty($msg[0]['msg'])) {
+        $sender = getPseudoFromId($msg[0]['idutilisateur']);
+        $txt = substr(decrypt($msg[0]['msg'], $msg[0]['tag']), 0, 40);
+        return $sender . ' : ' . $txt . '...';
     } else if (!empty($msg[0]['media'])) {
+        $sender = getPseudoFromId($msg[0]['idutilisateur']);
+        return $sender . ' : voir la photo';
     } else {
+        return "Envoyez le premier le message !";
     }
 }
