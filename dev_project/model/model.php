@@ -884,3 +884,31 @@ function getChat($offsetCoef)
 
     return $req;
 }
+
+function getLastMessagePreview(int $idconv)
+{
+    require("PDO.php");
+
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
+
+    $sql = "SELECT texte_message msg, url_media media, date_envoi_msg, tag
+	FROM `message` 
+	INNER JOIN utilisateur ON message.utilisateur_idutilisateur = utilisateur.idutilisateur
+	WHERE conversation_idconversation = :idConv
+	ORDER BY date_envoi_msg DESC
+    LIMIT 1";
+    $req = $db->prepare($sql);
+
+    $req->execute(array(
+        ':idConv' => $idconv
+    ));
+
+    if ($req->rowCount() != 0)
+        return "Envoyez le premier le message";
+
+    $msg = $req->fetchAll();
+    if (!empty($msg[0]['msg'])) {
+    } else if (!empty($msg[0]['media'])) {
+    } else {
+    }
+}

@@ -28,6 +28,7 @@ ob_start();
                 } else {
                     throw new Exception("La conversation n'a pas été trouvée");
                 }
+                $lastMessage = getLastMessagePreview($chat['idconversation']);
             ?>
                 <a href="index.php?action=messages&id=<?= htmlspecialchars($chat['idconversation']) ?>">
                     <div class="profilePicturesContainer">
@@ -55,7 +56,7 @@ ob_start();
                             }
                             ?>
                         </p>
-                        <p>Dernier message lu...</p>
+                        <p><?= htmlspecialchars($lastMessage) ?></p>
                     </div>
                 </a>
             <?php
