@@ -1,24 +1,6 @@
 <?php
 $pageTitle = 'Conversation';
 
-function decrypt($ciphertext, $tag)
-{
-    // decrypt
-    $ressource = fopen('./private_crypt/key.json', 'r');
-    $stored = fread($ressource, filesize('./private_crypt/key.json'));
-    $stored = json_decode($stored, true);
-    $key = base64_decode($stored['key']);
-    $iv = base64_decode($stored['iv']);
-    // tag and ciphertext from db
-    $original_plaintext = openssl_decrypt($ciphertext, "aes-128-gcm", $key, $options = 0, $iv, $tag);
-
-    if ($original_plaintext) {
-        return $original_plaintext;
-    } else {
-        return false;
-    }
-}
-
 // CONTENT BLOCK
 ob_start();
 ?>
