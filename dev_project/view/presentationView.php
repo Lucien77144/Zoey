@@ -86,7 +86,7 @@ ob_start();
       <p class="desc">
         Il imagine et crée l’interface visuelle du site web. Il cherche une identité graphique pouvant mettre en avant les valeurs du site, tout en proposant un parcours utilisateur intuitif.
       </p>
-      <a class="btn" target="_blank" href="https://www.linkedin.com/in/matthis-rousselle-29b3121b7/">Mieux me connaître</a>
+      <a class="btn" target="_blank" href="https://matthisrousselle.fr/">Mieux me connaître</a>
     </section>
 
     <section>
