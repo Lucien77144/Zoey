@@ -28,7 +28,10 @@ ob_start();
     <a href="index.php?action=messages">
         <img src="<?= BASE_URL ?>public/images/icons/arrowback.svg" alt="">
     </a>
-
+    <?php
+        // var_dump($convUsers);
+    ?>
+    <a href="index.php?action=account&id=<?=$convUsers[0]["user"]?>">
     <h1>
         <?php
         if (isset($convUsers[0]['titre'])) {
@@ -43,6 +46,7 @@ ob_start();
         }
         ?>
     </h1>
+    </a>
 </div>
 
 <!-- <button class="btn" id="loadMoreMessages">Charger plus</button> -->
@@ -97,6 +101,8 @@ ob_start();
                         <article>
                         <?php } ?>
 
+                
+
                         <div class="chatMsgContainer">
                             <?php
                             if (!empty($msg)) {
@@ -115,17 +121,19 @@ ob_start();
                             <?php
                             }
                             ?>
+                          
 
                             <p>
                                 <?php
                                 if (!empty($message['authorPic'])) {
                                 ?>
+                                <a class="username" href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>"><?= htmlspecialchars($message['authorPseudo']) ?>
                                     <img class="authorPic" src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['authorPic']) ?>" alt="">
 
                                 <?php
                                 }
                                 ?>
-                                <a class="username" href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>"><?= htmlspecialchars($message['authorPseudo']) ?></a>
+                                </a>
                                 <?= $time ?>.
                             </p>
                         </div>
