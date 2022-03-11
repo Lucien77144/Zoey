@@ -185,11 +185,12 @@ article p:last-child {
   align-self: flex-end;
   justify-self: flex-end;
   display: flex;
-  width: 75%;
+  width: 50%;
   min-width: 225px;
   justify-content: space-around;
   align-items: center; 
   font-size: 0.9rem;
+  font-style: italic;
 }
 
 .authorPic {

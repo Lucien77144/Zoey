@@ -109,9 +109,8 @@ ob_start();
                                 <?php
                                 if (!empty($message['authorPic'])) {
                                 ?>
-                                <a class="username" href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>"><?= htmlspecialchars($message['authorPseudo']) ?>
+                                <a class="username" href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>">
                                     <img class="authorPic" src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['authorPic']) ?>" alt="">
-
                                 <?php
                                 }
                                 ?>
