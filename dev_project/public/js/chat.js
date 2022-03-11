@@ -9,7 +9,7 @@ $(document).ready(function () {
     { scrollTop: document.querySelector('main').scrollHeight },
     750
   )
-
+  
   function getParameterByName(name, url = window.location.href) {
     name = name.replace(/[\[\]]/g, '\\$&')
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
