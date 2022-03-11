@@ -8,18 +8,14 @@ function getParameterByName(name, url = window.location.href) {
 }
 
 $(document).ready(function () {
+  console.log(document.querySelector(".filterWrapper").offsetWidth)
   if (getParameterByName('slider') != 'prevent') {
-    $('.filterInner').animate(
-      {
-        scrollLeft: 300,
-      },
-      1000
-    )
+    document.querySelector('.filterInner').scrollTo(document.querySelector(".filterWrapper").offsetWidth, 0)
     $('.filterInner').animate(
       {
         scrollLeft: 0,
       },
-      1000
+      750
     )
   }
 })
