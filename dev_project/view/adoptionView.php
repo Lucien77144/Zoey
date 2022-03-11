@@ -22,7 +22,7 @@ ob_start();
             <?php
             while ($categorie = $types_animaux->fetch()) {
             ?>
-                <li class="animalBreed" id="filterType0<?= $categorie['id'] ?>"><?= mb_strtoupper($categorie['nom']) ?></li>
+                <li class="animalBreed" id="filterType0<?= $categorie['id'] ?>"><?= ucfirst(($categorie['nom'])) ?></li>
             <?php
             }
             ?>

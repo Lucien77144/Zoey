@@ -3,6 +3,31 @@ body {
   background: rgb(34, 34, 34);
 }
 
+.return{
+  position: fixed;
+  top: 67.5px;
+  left: 5%;
+  z-index: 1000;
+}
+
+.return svg{
+  height: 35px;
+  width: 35px;
+  transition: 0.25s ease-in-out;
+}
+
+.return:hover svg{
+  transform: skewX(5deg);
+}
+
+.return svg path{
+  transition: 0.25s ease-in-out;
+}
+
+.return:hover svg path{
+  fill: #cc9900;
+}
+
 main {
   scroll-snap-type: y mandatory;
   height: 100vh;
