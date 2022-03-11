@@ -134,7 +134,6 @@ article {
   background-color: #eeeeee;
   border-radius: 25px 25px 25px 0px;
   margin-right: 0;
-  padding-bottom: 30px;
 }
 
 .myMessages {
@@ -160,6 +159,8 @@ article {
 article p:first-child {
   width: 80%;
   justify-self: center;
+  margin: 0;
+  margin-top: 10px;
   margin-left: 20px;
   font-size: 1.1rem;
   word-wrap: break-word;
@@ -181,14 +182,13 @@ article p a {
 }
 
 article p:last-child {
-  position: absolute;
-  bottom: 0;
-  right: 10px;
+  align-self: flex-end;
+  justify-self: flex-end;
   display: flex;
   width: 75%;
   min-width: 225px;
   justify-content: space-around;
-  align-items: center;
+  align-items: center; 
   font-size: 0.9rem;
 }
 
