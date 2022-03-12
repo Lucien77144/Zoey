@@ -1,7 +1,6 @@
 <?php
 require_once(BASE_URL . "model/model.php");
 require_once(BASE_URL . "model/verifyToken.php");
-require_once(BASE_URL . "model/isFriend.php");
 require_once(BASE_URL . "controller/isMemberOfTheConversation.php");
 
 function printBlog()

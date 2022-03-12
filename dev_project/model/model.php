@@ -245,7 +245,7 @@ function setConvReadState($idconv, $idUser, $newreadstate)
     }
 }
 
-function getIdFromPseudo($pseudo)
+function getIdFromPseudoSearch($pseudo)
 {
     if (isset($pseudo)) {
 
@@ -253,22 +253,14 @@ function getIdFromPseudo($pseudo)
 
         $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
-        $sql = "SELECT idutilisateur id FROM utilisateur WHERE pseudo = ?";
+        $sql = "SELECT idutilisateur id FROM utilisateur WHERE pseudo LIKE CONCAT('%', :search ,'%')";
         $req = $db->prepare($sql);
 
-        $req->execute(array($pseudo));
+        $req->execute(array(':search' => $pseudo));
 
-        if ($req->rowCount() > 1) {
-            // throw new Exception("Nous n'avons pas trouvé ce pseudo");
-            return false;
-        } else if ($req->rowCount() <= 0) {
-            // throw new Exception("Nous n'avons pas trouvé ce pseudo");
-            return false;
-        }
+        $id = $req->fetchAll();
 
-        $id = $req->fetch();
-
-        return $id['id'];
+        return $id;
     } else {
         throw new Exception("Aucun pseudo renseigné");
     }
@@ -607,29 +599,31 @@ function getAnimal($animalId = null)
     }
 }
 
-function getAccount()
+function getAccount(int $id = null)
 {
-    if (isset($_GET['id']) && is_numeric($_GET['id']) && intval($_GET['id']) > 0) {
+    if (isset($id)) {
+        $accountId = $id;
+    } else if (isset($_GET['id']) && is_numeric($_GET['id']) && intval($_GET['id']) > 0) {
         $accountId = intval($_GET['id']);
-
-        require("PDO.php");
-
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
-
-        $sql = "SELECT utilisateur.pseudo pseudo_user, utilisateur.url_photo photo_user, utilisateur.description, idutilisateur iduser
-        FROM utilisateur
-        WHERE idutilisateur = ?;";
-        $req = $db->prepare($sql);
-
-        $req->execute(array($accountId));
-
-        if ($req->rowCount() <= 0)
-            throw new Exception("Ce compte n'existe pas");
-
-        return $req;
     } else {
         throw new Exception("Ce compte n'existe pas");
     }
+
+    require("PDO.php");
+
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
+
+    $sql = "SELECT utilisateur.pseudo pseudo_user, utilisateur.url_photo photo_user, utilisateur.description, idutilisateur iduser
+        FROM utilisateur
+        WHERE idutilisateur = ?";
+    $req = $db->prepare($sql);
+
+    $req->execute(array($accountId));
+
+    if ($req->rowCount() <= 0)
+        throw new Exception("Ce compte n'existe pas");
+
+    return $req;
 }
 
 function getAccountAnimals()
@@ -745,7 +739,7 @@ function getDirectConversation($idToSearch)
                  WHERE conversation_has_utilisateur.utilisateur_idutilisateur = :idUser
          ) AND conversation.idconversation IN (
                  SELECT conversation_idconversation FROM `conversation_has_utilisateur` GROUP BY conversation_idconversation HAVING count(*) = 2
-         );";
+         )";
         $req = $db->prepare($sql);
 
         $req->execute(array(
@@ -830,11 +824,17 @@ function getFilteredMessages($idToSearch)
 
         $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
-        $sql = "SELECT filter.idconversation, filter.titre
-        FROM (SELECT idconversation, titre
+        // get user's conv
+        // get these conv's users
+        // keep only the convs where idToSearch is member of the conv
+
+        $sql = "SELECT filter.idconversation id
+        FROM (
+            SELECT idconversation
                 FROM `conversation`
                 INNER JOIN conversation_has_utilisateur ON conversation_has_utilisateur.conversation_idconversation = conversation.idconversation
-                WHERE conversation_has_utilisateur.utilisateur_idutilisateur = :idUser) filter
+                WHERE conversation_has_utilisateur.utilisateur_idutilisateur = :idUser
+            ) filter
         INNER JOIN conversation_has_utilisateur ON conversation_has_utilisateur.conversation_idconversation = filter.idconversation
         WHERE conversation_has_utilisateur.utilisateur_idutilisateur = :idToSearch";
         $req = $db->prepare($sql);
@@ -847,7 +847,7 @@ function getFilteredMessages($idToSearch)
         if ($req->rowCount() <= 0)
             return false;
 
-        return $req;
+        return $req->fetch(PDO::FETCH_ASSOC);
     } else {
         throw new Exception("Vous êtes déconnecté.");
     }
@@ -924,7 +924,7 @@ function decrypt($ciphertext, $tag, $path = null)
     }
 }
 
-function getLastMessagePreview(int $idconv)
+function getLastMessagePreview(int $idconv, $path = './')
 {
     require("PDO.php");
 
@@ -948,12 +948,68 @@ function getLastMessagePreview(int $idconv)
     $msg = $req->fetchAll();
     if (!empty($msg[0]['msg'])) {
         $sender = getPseudoFromId($msg[0]['idutilisateur']);
-        $txt = substr(decrypt($msg[0]['msg'], $msg[0]['tag']), 0, 40);
+        $txt = substr(decrypt($msg[0]['msg'], $msg[0]['tag'], $path), 0, 40);
         return $sender . ' : ' . $txt . '...';
     } else if (!empty($msg[0]['media'])) {
         $sender = getPseudoFromId($msg[0]['idutilisateur']);
         return $sender . ' : voir la photo';
     } else {
         return "Envoyez le premier le message !";
+    }
+}
+
+function isFriend_checkFromDb($idDest)
+{
+    require("PDO.php");
+
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
+
+    $sql = 'SELECT id_demandeur, idliste_amis, statut, id_bloqueur FROM `liste_amis` 
+            WHERE ((id_demandeur = :idDest AND id_receveur = :idUser) OR (id_demandeur = :idUser AND id_receveur = :idDest))'; // statut : 0 en attente, 1 amis, 2 bloqué
+
+    $req = $db->prepare($sql);
+
+    $req->execute(array(':idDest' => $idDest, ':idUser' => $_SESSION['idUser']));
+
+    if ($req->rowCount() <= 0) {
+        return false;
+    } else {
+        if ($req->rowCount() == 1) {
+            $statut = $req->fetchAll(PDO::FETCH_ASSOC);
+
+            if ($statut[0]['statut'] == 1) { // 1 : en attente
+
+                if ($statut[0]['id_demandeur'] == $_SESSION['idUser']) {
+                    return 11; // 11 : en attente, utilisateur demandeur
+                } else if ($statut[0]['id_demandeur'] == $idDest) {
+                    return 12; // 12 : en attente, utilisateur receveur
+                } else {
+                    throw new Exception("Nous n'avons pas trouvé cet utilisateur");
+                }
+            } else {
+                return $statut[0]['statut']; // renvoie -> 2: ami, 3: bloqué
+            }
+
+            $statut[0]['statut'];
+        } else {
+            throw new Exception("Nous n'avons pas trouvé cet utilisateur");
+        }
+    }
+}
+function isFriend($idDest)
+{
+    try {
+        if (
+            isset($_SESSION['idUser'])
+            && isset($idDest)
+        ) {
+            $isFriend = isFriend_checkFromDb($idDest);
+            return $isFriend; //renvoie 1, 11, 12, 2 (ami), 3
+        } else {
+            return false;
+        }
+    } catch (Exception $e) {
+        $errorMsg = $e->getMessage();
+        echo $errorMsg;
     }
 }

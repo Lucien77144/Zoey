@@ -682,19 +682,135 @@ $(document).ready(function () {
         console.log(ReturnedMessage)
 
         if (ReturnedMessage) {
-          // window.location.href = "index.php?action=account";
-          // location.reload();
-          $('#confirmationMessage').html('')
-          $('#messagesContainer').html('')
-          $('#messagesContainer').html(ReturnedMessage)
-          console.log('valid !!')
+          try {
+            console.log('try')
+            $('#confirmationMessage').html('')
+            $('#messagesContainer').html('')
+            results = JSON.parse(ReturnedMessage)
+            console.log(results)
+            let container = document.getElementById('messagesContainer')
+
+            let friendsTitle = document.createElement('h3')
+            let friendsText = document.createTextNode('Amis')
+            friendsTitle.appendChild(friendsText)
+            container.appendChild(friendsTitle)
+
+            console.log('before generateDOM')
+            function generateDOM(pic, name, id, last = null) {
+              let filename =
+                pic && pic != 'déconnecté' ? pic : 'defaultProfile.png'
+
+              // user's pic
+              let picDiv = document.createElement('div')
+              let picImg = document.createElement('img')
+              picDiv.classList.add('profilePicturesContainer')
+              picImg.classList.add('profilePicture')
+              picImg.setAttribute('src', './public/images/upload/' + filename)
+              picDiv.appendChild(picImg)
+
+              // username
+              let nameDiv = document.createElement('div')
+              let nameP = document.createElement('p')
+              nameDiv.classList.add('ConversationTextsContainer')
+              let nameText = document.createTextNode(name)
+              nameP.appendChild(nameText)
+              nameDiv.appendChild(nameP)
+
+              let action = 'account'
+              if (last) {
+                let lastMessageP = document.createElement('p')
+                let lastMessageText = document.createTextNode(last)
+                lastMessageP.appendChild(lastMessageText)
+                nameDiv.appendChild(lastMessageP)
+                action = 'messages'
+              }
+
+              // container (link)
+              let newUser = document.createElement('a')
+              newUser.setAttribute(
+                'href',
+                `index.php?action=${action}&id=${id}`
+              )
+              newUser.appendChild(picDiv)
+              newUser.appendChild(nameDiv)
+              container.appendChild(newUser)
+            }
+
+            console.log('before friend ')
+            let friends = 0
+            for (conv of results.friends) {
+              friends++
+              console.log(conv)
+              generateDOM(
+                conv.photo,
+                conv.pseudo,
+                conv.idconv,
+                conv.lastMessage
+              )
+            }
+
+            if (friends == 0) {
+              console.log('no friend')
+              let noFriendP = document.createElement('p')
+              let noFriendsText = document.createTextNode(
+                'Aucun amis trouvé :/'
+              )
+              noFriendP.appendChild(noFriendsText)
+              container.appendChild(noFriendP)
+            }
+
+            let othersTitle = document.createElement('h3')
+            let othersText = document.createTextNode('Autres profils')
+            othersTitle.appendChild(othersText)
+            container.appendChild(othersTitle)
+
+            let others = 0
+            for (users of results.others) {
+              others++
+              console.log('users')
+              for (user of users) {
+                console.log(user.iduser)
+                generateDOM(user.photo_user, user.pseudo_user, user.iduser)
+              }
+            }
+            if (others == 0) {
+              console.log('no others')
+              let noOthersP = document.createElement('p')
+              let noOthersText = document.createTextNode(
+                'Aucun autre profil trouvé :/'
+              )
+              noOthersP.appendChild(noOthersText)
+              container.appendChild(noOthersP)
+            }
+          } catch (e) {
+            $('#messagesContainer').html('')
+            $('#confirmationMessage').html('')
+            $('#confirmationMessage').text(
+              `Nous n'avons trouvé aucune conversation :/1`
+            )
+          }
         } else {
           $('#messagesContainer').html('')
           $('#confirmationMessage').html('')
           $('#confirmationMessage').text(
-            `Nous n'avons trouvé aucune conversation :/`
+            `Nous n'avons trouvé aucune conversation :/2`
           )
         }
+
+        // if (ReturnedMessage) {
+        //   // window.location.href = "index.php?action=account";
+        //   // location.reload();
+        //   $('#confirmationMessage').html('')
+        //   $('#messagesContainer').html('')
+
+        //   console.log('valid !!')
+        // } else {
+        //   $('#messagesContainer').html('')
+        //   $('#confirmationMessage').html('')
+        //   $('#confirmationMessage').text(
+        //     `Nous n'avons trouvé aucune conversation :/`
+        //   )
+        // }
       },
       'text'
     )

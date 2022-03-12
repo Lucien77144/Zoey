@@ -3,7 +3,6 @@
 session_start();
 
 require("model.php");
-require_once("isFriend.php");
 
 function postAcceptFriend()
 {
