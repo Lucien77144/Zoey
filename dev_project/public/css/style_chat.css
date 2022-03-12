@@ -49,17 +49,17 @@ main {
   color: #ffa319;
 }
 
-.convName>a>img {
+.convName > a > img {
   width: 30px;
   height: 30px;
   transition: 0.25s ease-in-out;
 }
 
-.convName>a>img:hover {
+.convName > a > img:hover {
   transform: translateX(-7.5px);
 }
 
-.convName>a:nth-of-type(1) {
+.convName > a:nth-of-type(1) {
   position: absolute;
   transform: translate(-50%, -50%);
   left: min(7.5%, 60px);
@@ -128,7 +128,6 @@ article {
   width: 90%;
   max-width: 450px;
   min-width: 250px;
-  min-height: 100px;
   height: fit-content;
   margin-top: 50px;
   background-color: #eeeeee;
@@ -187,16 +186,18 @@ article p:last-child {
   display: flex;
   width: 50%;
   min-width: 225px;
-  justify-content: space-around;
-  align-items: center; 
+  justify-content: flex-end;
+  align-items: center;
   font-size: 0.9rem;
   font-style: italic;
+  margin-right: 10px;
 }
 
 .authorPic {
   object-fit: cover;
   width: 30px;
   height: 30px;
+  margin-right: 10px;
   border-radius: 50%;
 }
 
