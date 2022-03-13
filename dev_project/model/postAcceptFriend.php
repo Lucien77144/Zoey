@@ -26,11 +26,46 @@ function postAcceptFriend()
     ));
 
     if (!$valid) {
-        // throw new Exception("La demande d'ami n'a pas pu être envoyée");
         return false;
     } else {
-        return true;
+        // vérifier s'il existe déjà une conversation entre l'utilisateur et l'ami
+        $sql = "SELECT utilisateur_idutilisateur
+                FROM conversation_has_utilisateur
+                WHERE conversation_has_utilisateur.conversation_idconversation IN (SELECT conversation_has_utilisateur.conversation_idconversation
+                        FROM ( 
+                            SELECT conversation_idconversation idConv
+                            FROM `conversation_has_utilisateur` 
+                            WHERE utilisateur_idutilisateur = :idUser
+                        ) userConv
+                        INNER JOIN conversation_has_utilisateur ON conversation_has_utilisateur.conversation_idconversation = userConv.idConv
+                        WHERE conversation_has_utilisateur.utilisateur_idutilisateur != :idUser AND conversation_has_utilisateur.utilisateur_idutilisateur = :addFriendId)
+                AND conversation_has_utilisateur.utilisateur_idutilisateur != :idUser";
+        $req = $db->prepare($sql);
+        $req->execute(array(
+            ':addFriendId' => $idUser,
+            ':idUser' => $acceptFriendId
+        ));
+
+        $alreadyHasAConversation = $req->fetchAll();
+
+        if ($alreadyHasAConversation) { // il existe déjà une conversation avec cet ami, mettre fin à la fonction postAddFriend()
+            return true;
+        } else { // il n'existe pas encore de conversation avec cet ami, créer cette conversation
+            $sql = "INSERT INTO `conversation` (`idconversation`) VALUES (NULL)";
+            $req = $db->prepare($sql);
+            $req->execute();
+            $createdId = $db->lastInsertId();
+
+            $sql = "INSERT INTO `conversation_has_utilisateur` (`conversation_idconversation`, `utilisateur_idutilisateur`) VALUES (:idConv, :idUser), (:idConv, :addFriendId);";
+            $req = $db->prepare($sql);
+            $req->execute(array(
+                ':idConv' => $createdId,
+                ':addFriendId' => $idUser,
+                ':idUser' => $acceptFriendId
+            ));
+        }
     }
+    return true;
 }
 
 try {
