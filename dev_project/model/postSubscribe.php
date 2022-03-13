@@ -32,7 +32,22 @@ function sendMail($pseudo, $to)
 
 function isEmailOk($str)
 {
-    return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) ? false : true;
+    if (preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) {
+        $path = "disposable_mail.json";
+        $ressource = fopen($path, 'r');
+        $list_json = fread($ressource, filesize($path));
+        $list_array = json_decode($list_json, true);
+        $exploded_mail = explode('@', $str);
+        $mail_domaine = $exploded_mail[1];
+        foreach ($list_array as $disposable_mail) {
+            if ($mail_domaine == $disposable_mail['mail'])
+                return false;
+        }
+        return true;
+    } else {
+        return false;
+    }
+    // return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) ? false : true;
 }
 
 function testSub()
