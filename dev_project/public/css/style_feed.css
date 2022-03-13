@@ -3,6 +3,79 @@ body {
   background: rgb(34, 34, 34);
 }
 
+.trash{
+  height: 26px;
+  width: 26px;
+  cursor: pointer;
+}
+
+.trash path{
+  transition: 0.25s ease-in-out;
+}
+
+.trash:hover path{
+  fill: #ffc165;
+}
+
+.popUpRm{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(20, 20, 20, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.popUpRm>p{
+  margin-bottom: 30px;
+  color: white;
+}
+
+.popUpRm>h2{
+  color: white;
+}
+
+#submitDeletePost{
+  margin-right: 20px;
+}
+
+#cancelRemove{
+  margin-left: 20px;
+}
+
+.returnMessage{
+  position: fixed;
+  z-index: 1001;
+  bottom: 25px;
+  left: 25px;
+  width: 50%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 25px 25px 25px 0;
+  white-space: normal;
+  animation: poping 4s ease-in-out;
+  opacity: 0;
+  transform: translateY(200%);
+}
+
+@keyframes poping{
+    0%, 100%{
+      opacity: 0;
+      bottom: 0;
+      transform: translateY(100%);
+    }
+    20%, 80%{
+      opacity: 1;
+      bottom: 25px;
+      transform: translateY(0);
+    }
+}
+
 .return{
   position: fixed;
   top: 67.5px;
@@ -160,6 +233,8 @@ main .defaultBlock:last-child::after {
 
 .headMsg{
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .headMsg span{

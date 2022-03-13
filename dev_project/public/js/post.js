@@ -617,30 +617,6 @@ $(document).ready(function () {
     )
   }
 
-  function postDeletePost() {
-    console.log('postDeletePost')
-
-    $.post(
-      'model/postDeletePost.php',
-      {
-        idpost: getParameterByName('id'),
-      },
-
-      function (ReturnedMessage) {
-        console.log('function Received')
-        console.log(ReturnedMessage)
-
-        if (ReturnedMessage == 'valid') {
-          window.location.href = 'index.php'
-        } else {
-          $('#confirmationMessage').html('')
-          $('#confirmationMessage').text(`Le post n'a pas pu être supprimé.`)
-        }
-      },
-      'text'
-    )
-  }
-
   function postDeleteRefuge() {
     console.log('postDeleteRefuge')
 
@@ -1059,13 +1035,6 @@ $(document).ready(function () {
     }
 
     postAjouterAA(postedMedia)
-  })
-  $('#submitDeletePost').click(function (e) {
-    e.preventDefault()
-
-    console.log('click delete')
-
-    postDeletePost()
   })
   $('#deleteRefuge').click(function (e) {
     e.preventDefault()
