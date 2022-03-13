@@ -3,21 +3,21 @@ body {
   background: rgb(34, 34, 34);
 }
 
-.trash{
+.postButtonSvg {
   height: 26px;
   width: 26px;
   cursor: pointer;
 }
 
-.trash path{
+.postButtonSvg path {
   transition: 0.25s ease-in-out;
 }
 
-.trash:hover path{
+.postButtonSvg:hover path {
   fill: #ffc165;
 }
 
-.popUpRm{
+.popUpRm {
   position: fixed;
   top: 0;
   left: 0;
@@ -30,24 +30,24 @@ body {
   flex-direction: column;
 }
 
-.popUpRm>p{
+.popUpRm > p {
   margin-bottom: 30px;
   color: white;
 }
 
-.popUpRm>h2{
+.popUpRm > h2 {
   color: white;
 }
 
-#submitDeletePost{
+.popUpFirstBtn {
   margin-right: 20px;
 }
 
-#cancelRemove{
+#cancelRemove {
   margin-left: 20px;
 }
 
-.returnMessage{
+.returnMessage {
   position: fixed;
   z-index: 1001;
   bottom: 25px;
@@ -63,41 +63,43 @@ body {
   transform: translateY(200%);
 }
 
-@keyframes poping{
-    0%, 100%{
-      opacity: 0;
-      bottom: 0;
-      transform: translateY(100%);
-    }
-    20%, 80%{
-      opacity: 1;
-      bottom: 25px;
-      transform: translateY(0);
-    }
+@keyframes poping {
+  0%,
+  100% {
+    opacity: 0;
+    bottom: 0;
+    transform: translateY(100%);
+  }
+  20%,
+  80% {
+    opacity: 1;
+    bottom: 25px;
+    transform: translateY(0);
+  }
 }
 
-.return{
+.return {
   position: fixed;
   top: 67.5px;
   left: 5%;
   z-index: 1000;
 }
 
-.return svg{
+.return svg {
   height: 35px;
   width: 35px;
   transition: 0.25s ease-in-out;
 }
 
-.return:hover svg{
+.return:hover svg {
   transform: skewX(5deg);
 }
 
-.return svg path{
+.return svg path {
   transition: 0.25s ease-in-out;
 }
 
-.return:hover svg path{
+.return:hover svg path {
   fill: #cc9900;
 }
 
@@ -146,7 +148,7 @@ main .defaultBlock:last-child {
 }
 
 main .defaultBlock:last-child::after {
-  content: "";
+  content: '';
   background-image: url(../images/icons/loader.svg);
   background-size: contain;
   height: 50px;
@@ -158,8 +160,8 @@ main .defaultBlock:last-child::after {
   animation: loader 2s ease-in-out infinite;
 }
 
-.hiddenAfter .defaultBlock:last-child::after{
-  content: "Tout le contenu a été chargé";
+.hiddenAfter .defaultBlock:last-child::after {
+  content: 'Tout le contenu a été chargé';
   color: #ffa319;
   background-image: none;
   height: auto;
@@ -170,10 +172,10 @@ main .defaultBlock:last-child::after {
 }
 
 @keyframes loader {
-  0%{
+  0% {
     transform: rotate(0deg) translate(-50%, 50%);
   }
-  100%{
+  100% {
     transform: rotate(360deg) translate(-50%, 50%);
   }
 }
@@ -231,77 +233,80 @@ main .defaultBlock:last-child::after {
   background: #ffa319;
 }
 
-.headMsg{
+.headMsg {
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
 }
 
-.headMsg span{
+.headMsg span {
   color: #ffa319;
 }
 
-.descMore{
+.descMore {
   margin-bottom: 0;
   width: 100%;
 }
 
-.descWrapper{
+.descWrapper {
   text-shadow: 0px 0px 5px #00000099;
 }
 
-.endDesc{
+.endDesc {
   height: 0;
   overflow: hidden;
   transition: 0.35s ease-in-out;
 }
 
-.dot{
+.dot {
   margin-left: 50px;
   text-decoration: underline;
   transition: 0.35s ease-in-out;
 }
 
-.descMore, .endDesc{
+.descMore,
+.endDesc {
   cursor: pointer;
 }
 
-.menuInner svg>path{
+.menuInner svg > path {
   fill: #ffa319;
 }
 
-.menuInner h2{
+.menuInner h2 {
   color: white;
   font-weight: normal;
 }
 
-.menu>svg>path{
+.menu > svg > path {
   fill: rgb(34, 34, 34);
 }
 
-.menu>svg, .menuBlur{
+.menu > svg,
+.menuBlur {
   display: none;
 }
 
-.menuInner{
+.menuInner {
   width: 50%;
 }
 
-.menu>.menuInner{
+.menu > .menuInner {
   background-color: unset;
 }
 
-.menuInner, .menu{
+.menuInner,
+.menu {
   height: 70px;
 }
 
-.menu{
+.menu {
   bottom: -2px;
   background-color: rgb(34, 34, 34);
   box-shadow: #00000022 0px 0px 4px 4px;
 }
 
-.feed{
+.feed {
   display: none;
 }
 
@@ -336,15 +341,16 @@ main .defaultBlock:last-child::after {
   main .defaultBlock:last-child {
     margin-bottom: 100px;
   }
-  .menu, .menuInner{
+  .menu,
+  .menuInner {
     height: 60px;
   }
-  .menu{
+  .menu {
     background-color: unset;
     box-shadow: none;
   }
 }
 
-body::before{
+body::before {
   color: white;
 }
