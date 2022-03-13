@@ -89,6 +89,8 @@ body{
     width: fit-content;
     width: -moz-fit-content;
     display: inline-block;
+    word-wrap: break-word;
+    width: 150px;
     margin: 0;
     margin-right: 10px;
     font-size: 1.5rem;
