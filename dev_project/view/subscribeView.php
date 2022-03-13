@@ -30,7 +30,7 @@ ob_start();
     </div>
 
     ou
-    <form class="subscribeForm">
+    <form class="subscribeForm" id="subscribeForm">
 
         <div class="accountContainer">
             <div class="pseudoContainer formContent">
@@ -61,6 +61,8 @@ ob_start();
             <a href="index.php?action=connect">Déjà inscrit ?</a>
         </div>
 
+        <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+
         <p>*: Champs obligatoires</p>
 
     </form>
@@ -79,6 +81,16 @@ $stylesBlock = ob_get_clean();
 // SCRIPT BLOCK
 ob_start(); ?>
 <script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6Ld4D9oeAAAAAECFDuVReBAtfMb_jpIJF5yrQBCw"></script>
+<script>
+    grecaptcha.ready(() => {
+        grecaptcha.execute('6Ld4D9oeAAAAAECFDuVReBAtfMb_jpIJF5yrQBCw', {
+            action: 'subscribe'
+        }).then(token => {
+            document.querySelector('#recaptchaResponse').value = token;
+        });
+    });
+</script>
 <script src="<?= BASE_URL ?>public/js/googleAuth.js"></script>
 <?php
 $scriptsBlock = ob_get_clean();

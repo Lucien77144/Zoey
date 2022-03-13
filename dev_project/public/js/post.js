@@ -96,6 +96,7 @@ $(document).ready(function () {
         mail: $('#mail').val(),
         date_naissance: $('#date_naissance').val(),
         password: $('#password').val(),
+        recaptcha_response: $('#recaptchaResponse').val(),
       },
 
       function (ReturnedMessage) {

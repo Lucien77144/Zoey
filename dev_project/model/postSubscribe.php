@@ -140,26 +140,48 @@ function postSubscribe()
         return "valid";
     } else if (isPseudoFree($_POST['pseudo']) && testMail() && isset($_POST['password'])) {
         // regular subscribe
-        $new_password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-        $sql = "INSERT INTO utilisateur (pseudo, url_photo, adresse_mail, mot_de_passe) VALUES (:pseudo, :url_photo, :adresse_mail, :mot_de_passe)";
-        $req = $db->prepare($sql);
+        if (!empty($_POST['recaptcha_response'])) {
+            // handle reCaptcha
+            // Build POST request:
+            $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
+            $recaptcha_secret = '6Ld4D9oeAAAAAFTmDjSDluQsDJdUd-VAdIAo6iVx';
+            $recaptcha_response = $_POST['recaptcha_response'];
 
-        $req->execute(array(
-            ':pseudo' => $pseudo,
-            ':url_photo' => $fileName,
-            ':adresse_mail' => $adresse_mail,
-            ':mot_de_passe' => $new_password_hash
-        ));
+            // Make and decode POST request:
+            $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
+            $recaptcha = json_decode($recaptcha);
 
-        if ($req->rowCount() <= 0)
-            throw new Exception("Votre compte n'a pas pu être ajouté, il y a une erreur dans les champs remplis.");
+            // Take action based on the score returned:
+            if ($recaptcha->success == true && $recaptcha->score >= 0.5) {
+                // Verified - send email
+                // register
+                $new_password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+                $sql = "INSERT INTO utilisateur (pseudo, url_photo, adresse_mail, mot_de_passe) VALUES (:pseudo, :url_photo, :adresse_mail, :mot_de_passe)";
+                $req = $db->prepare($sql);
+
+                $req->execute(array(
+                    ':pseudo' => $pseudo,
+                    ':url_photo' => $fileName,
+                    ':adresse_mail' => $adresse_mail,
+                    ':mot_de_passe' => $new_password_hash
+                ));
+
+                if ($req->rowCount() <= 0)
+                    throw new Exception("Votre compte n'a pas pu être ajouté, il y a une erreur dans les champs remplis.3");
 
 
-        sendMail($pseudo, $adresse_mail);
-        return "valid";
+                sendMail($pseudo, $adresse_mail);
+                return "valid";
+            } else {
+                throw new Exception("Votre compte n'a pas pu être ajouté, il y a une erreur dans les champs remplis.2");
+            }
+        } else {
+            throw new Exception("Votre compte n'a pas pu être ajouté, il y a une erreur dans les champs remplis.1");
+        }
     } else {
-        throw new Exception("Votre mail est invalide ou est peut-être déjà utilisé avec un compte Zoey.");
+        throw new Exception("Votre mail est invalide ou est peut-être déjà utilisé avec un compte Zoey.4");
     }
 }
 
@@ -183,3 +205,23 @@ try {
     $errorMsg = $e->getMessage();
     echo $errorMsg;
 }
+
+/*
+<?php // Check if form was submitted:
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['recaptcha_response'])) {
+        // Build POST request:
+        $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
+        $recaptcha_secret = 'YOUR_RECAPTCHA_SECRET_KEY';
+        $recaptcha_response = $_POST['recaptcha_response'];
+    
+        // Make and decode POST request:
+        $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
+        $recaptcha = json_decode($recaptcha);
+    
+        // Take action based on the score returned:
+        if ($recaptcha->score >= 0.5) {
+            // Verified - send email
+        } else {
+            // Not verified - show form error
+        }
+    } ?>*/
