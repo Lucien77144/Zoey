@@ -24,13 +24,15 @@ ob_start();
 <div class="subscribe">
     <h1>Inscrivez vous !</h1>
 
-    <div>
-        Inscrivez-vous en 1 clic avec Google
+    <div class="googleContainer">
+        <p>Inscrivez-vous en 1 clic avec Google :</p>
         <div id="googleAuthButton"></div>
+        <p>En créant un compte, vous vous engagez à respecter les <a href="index.php?action=legal">conditions d'utilisation</a>.</p>
     </div>
 
-    ou
-    <form class="subscribeForm" id="subscribeForm">
+    <div class="btn btn-nogoogle" id="btn-nogoogle">Pas de compte google ?</div>
+
+    <form class="subscribeForm" id="subscribeForm" style="display:none;">
 
         <div class="accountContainer">
             <div class="pseudoContainer formContent">
@@ -53,19 +55,24 @@ ob_start();
 
         <div class="checkboxContainer">
             <input type="checkbox" name="checkbox" id="legalAge" required='required'>
-            <label for="checkbox">Je certifie être majeur, ou dans le cas contraire, j’utilise ZOEY sous la supervision d’un responsable légal.</label>
+            <label for="checkbox">Je m'engage à respecter les <a href="index.php?action=legal">conditions d'utilisation</a>.</label>
         </div>
 
         <div class="linksContainer">
             <input type="submit" id="submitSubscribe" value="s'inscrire">
-            <a href="index.php?action=connect">Déjà inscrit ?</a>
+
         </div>
 
         <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
-
-        <p>*: Champs obligatoires</p>
+        <p>
+            *: Champs obligatoires
+        </p>
 
     </form>
+
+    <p>
+        <a class="linkToConnect" href="index.php?action=connect">Déjà inscrit ?</a>
+    </p>
 </div>
 <span id="ConfirmationMessage"></span>
 
@@ -90,6 +97,13 @@ ob_start(); ?>
             document.querySelector('#recaptchaResponse').value = token;
         });
     });
+
+    function showForm() {
+        document.getElementById('btn-nogoogle').onclick = () => {
+            document.getElementById('subscribeForm').style.display = 'flex'
+        }
+    }
+    window.onload = showForm()
 </script>
 <script src="<?= BASE_URL ?>public/js/googleAuth.js"></script>
 <?php

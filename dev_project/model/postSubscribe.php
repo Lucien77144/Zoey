@@ -13,10 +13,13 @@ function sendMail($pseudo, $to)
     <body>
         <h2>Zoey</h2>
         <h3>Bienvenue sur Zoey !</h3>
-        <p><?= $pseudo ?>, vous êtes bien inscrit sur Zoey. Retrouvez <a href="zoey-app.fr/index.php?action=account">votre profil sur Zoey</a> et ajoutez vos animaux de compagnie !</p>
+        <p><?= $pseudo ?>, vous êtes bien inscrit sur Zoey. Retrouvez <a href="zoey-app.fr/index.php?action=account">votre profil sur Zoey</a> 😻.</p>
+        <p>Pour commencer, ajoutez sur votre profil vos animaux de compagnie : chiens, chats, lapins, poissons, tortues ou autres reptiles... Zoey est le premier réseau social dédié à tous vos fidèles compagnons ! Vous pouvez ensuite poster des images de chacun de vos animaux pour partager leur vie et votre expérience avec la communauté.</p>
+        <p>En vous inscrivant, vous acceptez et vous vous engagez à respecter les <a href="index.php?action=legal">conditions d'utilisation de Zoey</a>.</p>
+        <p>Pour rappel, cela signifie notamment que <strong>vous avez plus de 18 ans</strong> (ou que vous utilisez la plateforme sous la supervision d'un responsable légal), et que vous vous engagez à <strong>ne poster que du contenu approprié</strong> sur la plateforme.</p>
         <p>Retrouvez-nous également sur vos réseaux sociaux préférés : <a href="https://www.instagram.com/zoey.app/">Instagram</a>, <a href="https://www.tiktok.com/@zoey.app">Tiktok</a>, <a href="https://www.facebook.com/appli.zoey">Facebook</a> et <a href="https://www.linkedin.com/company/zoeyapp">LinkedIn</a>.</p>
         <p>Pour nous contacter ou si vous avez besoin d'aide sur Zoey, vous pouvez écrire à <a href="mailto:contact@zoey-app.fr">contact@zoey-app.fr</a> ou répondre directement à ce mail.</p>
-        <p>À bientôt sur Zoey !</p>
+        <p>À tout de suite sur Zoey !</p>
     </body>
 
     </html>
