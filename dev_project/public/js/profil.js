@@ -1,16 +1,24 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  // Essai du loader pour indiquer à l'utilisateur qu'il peut slider les différents animaux
-  $('.menuAnimauxInner').animate({
-      scrollLeft: 250,
-    },
-    1500
-  );
-  $('.menuAnimauxInner').animate({
-      scrollLeft: 0,
-    },
-    1500
-  );
+  console.log(document.querySelector(".menuAnimauxInner").offsetWidth)
+  if (getParameterByName('slider') != 'prevent') {
+    document.querySelector('.menuAnimauxInner').scrollTo(document.querySelector(".menuAnimauxInner").offsetWidth, 0)
+    $('.menuAnimauxInner').animate(
+      {
+        scrollLeft: 0,
+      },
+      750
+    )
+  }
+  
+  function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&')
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      results = regex.exec(url)
+    if (!results) return null
+    if (!results[2]) return ''
+    return decodeURIComponent(results[2].replace(/\+/g, ' '))
+  }
 
   function $_GET(param) { // Source : creativejuiz.fr
     var vars = {};
