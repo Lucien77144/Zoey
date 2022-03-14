@@ -118,6 +118,13 @@ function postAddMessage()
     if (!$valid)
         throw new Exception("Nous n'avons pas pu envoyer ce message.");
 
+    $sql = "UPDATE `conversation` SET `date_dernier_message` = NOW() WHERE `conversation`.`idconversation` = :idconv";
+    $req = $db->prepare($sql);
+
+    $valid = $req->execute(array(
+        ':idconv' => $postedIdConv,
+    ));
+
     // 
     // set read / unread on db
     // 

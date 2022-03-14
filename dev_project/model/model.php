@@ -272,10 +272,10 @@ function getFeed($num = 1)
 
     $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
-    if($num == 1){
+    if ($num == 1) {
         $limit = 10;
         $start = ($num - 1) * 10;
-    }else{
+    } else {
         $limit = 5;
         $start = 10 + (($num - 1) * 5);
     }
@@ -284,7 +284,7 @@ function getFeed($num = 1)
     FROM post 
     INNER JOIN profil_animal_de_compagnie ON post.profil_animal_de_compagnie_idprofil_animal_de_compagnie = profil_animal_de_compagnie.idprofil_animal_de_compagnie";
 
-    if(isset($_GET['id'])){
+    if (isset($_GET['id'])) {
 
         $id = htmlspecialchars($_GET['id']);
         $sql = "
@@ -293,13 +293,11 @@ function getFeed($num = 1)
         ($selected WHERE profil_animal_de_compagnie_idprofil_animal_de_compagnie =
         (SELECT profil_animal_de_compagnie_idprofil_animal_de_compagnie FROM post WHERE idpost = $id)
         ORDER BY date_publication DESC LIMIT $limit OFFSET $start)";
-
-    }else{
+    } else {
 
         $sql = "
         $selected
         ORDER BY date_publication DESC LIMIT $limit OFFSET $start";
-        
     }
 
     $req = $db->prepare($sql);
@@ -321,7 +319,8 @@ function getAnimalFeed($animalId)
         $sql = "SELECT idpost, post.description, media, profil_animal_de_compagnie_idprofil_animal_de_compagnie idanimal, profil_animal_de_compagnie.nom
         FROM post
         INNER JOIN profil_animal_de_compagnie ON post.profil_animal_de_compagnie_idprofil_animal_de_compagnie = profil_animal_de_compagnie.idprofil_animal_de_compagnie
-        WHERE profil_animal_de_compagnie_idprofil_animal_de_compagnie = ?;";
+        WHERE profil_animal_de_compagnie_idprofil_animal_de_compagnie = ?
+        order by idpost DESC";
         $req = $db->prepare($sql);
 
         $req->execute(array($animalId));
@@ -807,7 +806,8 @@ function getMessages()
         $sql = "SELECT idconversation, titre
         FROM `conversation`
         INNER JOIN conversation_has_utilisateur ON conversation_has_utilisateur.conversation_idconversation = conversation.idconversation
-        WHERE conversation_has_utilisateur.utilisateur_idutilisateur = ?;";
+        WHERE conversation_has_utilisateur.utilisateur_idutilisateur = ?
+        ORDER BY date_dernier_message DESC";
         $req = $db->prepare($sql);
 
         $req->execute(array($idUser));
