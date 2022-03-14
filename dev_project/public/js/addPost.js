@@ -1,3 +1,15 @@
+  // Essai du loader pour indiquer à l'utilisateur qu'il peut poster des photos de différents animaux
+  $('.selectAnimal').animate({
+    scrollLeft: 150,
+  },
+  1500
+);
+$('.selectAnimal').animate({
+    scrollLeft: 0,
+  },
+  1500
+);
+
 document.addEventListener("DOMContentLoaded", function(){
     document.querySelectorAll(".cardSelector").forEach(e =>{
         e.addEventListener("click", function(){
