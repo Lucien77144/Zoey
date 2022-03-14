@@ -1,9 +1,19 @@
+.googleContainer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.btn-nogoogle {
+  margin-top: 45px;
+  margin-bottom: 30px;
+}
 .subscribe {
   width: 100vw;
   height: 800px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
 }
 .subscribe h1 {
@@ -25,7 +35,7 @@
   font-weight: bold;
 }
 .choose_photo {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   text-decoration: none;
   text-align: center;
@@ -59,7 +69,6 @@
   align-items: center;
   justify-content: center;
   width: 90vw;
-
 }
 .checkboxContainer label {
   font-weight: lighter;
@@ -69,7 +78,7 @@
   width: 50px;
 }
 .linksContainer {
-  margin-top: 50px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,7 +87,7 @@
   width: 150px;
   font-size: 1rem;
 }
-.linksContainer a {
+.linkToConnect {
   font-size: 0.8rem;
   color: black;
 }
@@ -88,6 +97,5 @@
   }
   .checkboxContainer {
     width: 450px;
-  
   }
 }

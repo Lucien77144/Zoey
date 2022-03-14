@@ -36,7 +36,6 @@ h3 {
 
 .selectAnimal {
   display: flex;
-  justify-content: center;
   width: 80vw;
   overflow-x: auto;
   padding: 10px 0;
@@ -127,6 +126,8 @@ label[for="media"]{
 
 .cardActive h3 {
   color: white;
+  word-wrap: break-word;
+  width: 100px;
 }
 
 #description {
@@ -173,7 +174,9 @@ label[for="media"]{
   max-width: 500px;
   height: auto;
 }
-
+h5.button {
+  margin-top: 20px;
+}
 #ConfirmationMessage {
   margin-bottom: 50px;
 }

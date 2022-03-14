@@ -1,5 +1,8 @@
 .section1{
   width: 80vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .article, .contentBlog{
@@ -11,8 +14,9 @@
   align-items: center;
 }
 
-p{
-  max-width: 80vw;
+p {
+  width: 80vw;
+  max-width: 1000px;
   font-family: "Montserrat", sans-serif;
   text-align: justify;
 }
@@ -50,6 +54,7 @@ p{
 .intro{
   font-family: "Montserrat", sans-serif;
   text-align: justify;
+  margin-right: 0;
 }
 
 .illustration img{
@@ -105,7 +110,7 @@ p{
     font-size: 1.15rem;
   }
   .article{
-    display: inline-block;
+    display: flex;
     width: 80vw;
   }
   .illustration{

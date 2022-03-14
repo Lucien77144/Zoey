@@ -74,13 +74,15 @@ $(document).ready(function () {
       $('#confirmationMessage').html(
         `Votre session a expirée, veuillez <a href="index.php?action=connect" target="_blanck">vous reconnecter</a> puis retenter d'envoyer le formulaire.`
       )
-      $('#ConfirmationMessage').html('')
-      $('#ConfirmationMessage').html(
-        `Votre session a expirée, veuillez <a href="index.php?action=connect" target="_blanck">vous reconnecter</a> puis retenter d'envoyer le formulaire.`
-      )
+      return returnedFromAjax
+    } else if (returnedFromAjax) {
       return returnedFromAjax
     } else {
-      return returnedFromAjax
+      $('#ConfirmationMessage').html('')
+      $('#ConfirmationMessage').html(
+        `Il y a eu une erreur dans l'envoi de cette photo`
+      )
+      return false
     }
   }
 
@@ -96,6 +98,7 @@ $(document).ready(function () {
         mail: $('#mail').val(),
         date_naissance: $('#date_naissance').val(),
         password: $('#password').val(),
+        recaptcha_response: $('#recaptchaResponse').val(),
       },
 
       function (ReturnedMessage) {
@@ -617,30 +620,6 @@ $(document).ready(function () {
     )
   }
 
-  function postDeletePost() {
-    console.log('postDeletePost')
-
-    $.post(
-      'model/postDeletePost.php',
-      {
-        idpost: getParameterByName('id'),
-      },
-
-      function (ReturnedMessage) {
-        console.log('function Received')
-        console.log(ReturnedMessage)
-
-        if (ReturnedMessage == 'valid') {
-          window.location.href = 'index.php'
-        } else {
-          $('#confirmationMessage').html('')
-          $('#confirmationMessage').text(`Le post n'a pas pu être supprimé.`)
-        }
-      },
-      'text'
-    )
-  }
-
   function postDeleteRefuge() {
     console.log('postDeleteRefuge')
 
@@ -682,12 +661,113 @@ $(document).ready(function () {
         console.log(ReturnedMessage)
 
         if (ReturnedMessage) {
-          // window.location.href = "index.php?action=account";
-          // location.reload();
-          $('#confirmationMessage').html('')
-          $('#messagesContainer').html('')
-          $('#messagesContainer').html(ReturnedMessage)
-          console.log('valid !!')
+          try {
+            console.log('try')
+            $('#confirmationMessage').html('')
+            $('#messagesContainer').html('')
+            results = JSON.parse(ReturnedMessage)
+            console.log(results)
+            let container = document.getElementById('messagesContainer')
+
+            let friendsTitle = document.createElement('h3')
+            let friendsText = document.createTextNode('Amis')
+            friendsTitle.appendChild(friendsText)
+            container.appendChild(friendsTitle)
+
+            console.log('before generateDOM')
+            function generateDOM(pic, name, id, last = null) {
+              let filename =
+                pic && pic != 'déconnecté' ? pic : 'defaultProfile.png'
+
+              // user's pic
+              let picDiv = document.createElement('div')
+              let picImg = document.createElement('img')
+              picDiv.classList.add('profilePicturesContainer')
+              picImg.classList.add('profilePicture')
+              picImg.setAttribute('src', './public/images/upload/' + filename)
+              picDiv.appendChild(picImg)
+
+              // username
+              let nameDiv = document.createElement('div')
+              let nameP = document.createElement('p')
+              nameDiv.classList.add('ConversationTextsContainer')
+              let nameText = document.createTextNode(name)
+              nameP.appendChild(nameText)
+              nameDiv.appendChild(nameP)
+
+              let action = 'account'
+              if (last) {
+                let lastMessageP = document.createElement('p')
+                let lastMessageText = document.createTextNode(last)
+                lastMessageP.appendChild(lastMessageText)
+                nameDiv.appendChild(lastMessageP)
+                action = 'messages'
+              }
+
+              // container (link)
+              let newUser = document.createElement('a')
+              newUser.setAttribute(
+                'href',
+                `index.php?action=${action}&id=${id}`
+              )
+              newUser.appendChild(picDiv)
+              newUser.appendChild(nameDiv)
+              container.appendChild(newUser)
+            }
+
+            console.log('before friend ')
+            let friends = 0
+            for (conv of results.friends) {
+              friends++
+              console.log(conv)
+              generateDOM(
+                conv.photo,
+                conv.pseudo,
+                conv.idconv,
+                conv.lastMessage
+              )
+            }
+
+            if (friends == 0) {
+              console.log('no friend')
+              let noFriendP = document.createElement('p')
+              let noFriendsText = document.createTextNode(
+                'Aucun amis trouvé :/'
+              )
+              noFriendP.appendChild(noFriendsText)
+              container.appendChild(noFriendP)
+            }
+
+            let othersTitle = document.createElement('h3')
+            let othersText = document.createTextNode('Autres profils')
+            othersTitle.appendChild(othersText)
+            container.appendChild(othersTitle)
+
+            let others = 0
+            for (users of results.others) {
+              others++
+              console.log('users')
+              for (user of users) {
+                console.log(user.iduser)
+                generateDOM(user.photo_user, user.pseudo_user, user.iduser)
+              }
+            }
+            if (others == 0) {
+              console.log('no others')
+              let noOthersP = document.createElement('p')
+              let noOthersText = document.createTextNode(
+                'Aucun autre profil trouvé :/'
+              )
+              noOthersP.appendChild(noOthersText)
+              container.appendChild(noOthersP)
+            }
+          } catch (e) {
+            $('#messagesContainer').html('')
+            $('#confirmationMessage').html('')
+            $('#confirmationMessage').text(
+              `Nous n'avons trouvé aucune conversation :/`
+            )
+          }
         } else {
           $('#messagesContainer').html('')
           $('#confirmationMessage').html('')
@@ -695,6 +775,21 @@ $(document).ready(function () {
             `Nous n'avons trouvé aucune conversation :/`
           )
         }
+
+        // if (ReturnedMessage) {
+        //   // window.location.href = "index.php?action=account";
+        //   // location.reload();
+        //   $('#confirmationMessage').html('')
+        //   $('#messagesContainer').html('')
+
+        //   console.log('valid !!')
+        // } else {
+        //   $('#messagesContainer').html('')
+        //   $('#confirmationMessage').html('')
+        //   $('#confirmationMessage').text(
+        //     `Nous n'avons trouvé aucune conversation :/`
+        //   )
+        // }
       },
       'text'
     )
@@ -744,7 +839,7 @@ $(document).ready(function () {
         hideLoader()
         return
       }
-      postAddPost(null)
+      postAddPost(postedMedia)
     })
   })
 
@@ -943,13 +1038,6 @@ $(document).ready(function () {
     }
 
     postAjouterAA(postedMedia)
-  })
-  $('#submitDeletePost').click(function (e) {
-    e.preventDefault()
-
-    console.log('click delete')
-
-    postDeletePost()
   })
   $('#deleteRefuge').click(function (e) {
     e.preventDefault()

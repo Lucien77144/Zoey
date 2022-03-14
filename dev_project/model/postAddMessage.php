@@ -118,6 +118,13 @@ function postAddMessage()
     if (!$valid)
         throw new Exception("Nous n'avons pas pu envoyer ce message.");
 
+    $sql = "UPDATE `conversation` SET `date_dernier_message` = NOW() WHERE `conversation`.`idconversation` = :idconv";
+    $req = $db->prepare($sql);
+
+    $valid = $req->execute(array(
+        ':idconv' => $postedIdConv,
+    ));
+
     // 
     // set read / unread on db
     // 
@@ -129,8 +136,7 @@ function postAddMessage()
 
     foreach ($usersInConv as $id) {
         if (
-            getConvReadState($postedIdConv, $id) == 1
-            || !isUserConnected($id)
+            getConvReadState($postedIdConv, $id) == 1 && !isUserConnected($id)
         ) { // if is read OR connected
             setConvReadState($postedIdConv, $id, 2); //set unread and send mail
             $pseudo = getPseudoFromId($id);

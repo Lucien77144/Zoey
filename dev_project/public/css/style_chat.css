@@ -14,7 +14,9 @@ main {
   height: 100%;
   overflow-y: scroll;
 }
-
+#noMessagesYet {
+  text-align: center;
+}
 .convName {
   display: flex;
   align-items: center;
@@ -49,17 +51,17 @@ main {
   color: #ffa319;
 }
 
-.convName>a>img {
+.convName > a > img {
   width: 30px;
   height: 30px;
   transition: 0.25s ease-in-out;
 }
 
-.convName>a>img:hover {
+.convName > a > img:hover {
   transform: translateX(-7.5px);
 }
 
-.convName>a:nth-of-type(1) {
+.convName > a:nth-of-type(1) {
   position: absolute;
   transform: translate(-50%, -50%);
   left: min(7.5%, 60px);
@@ -128,13 +130,11 @@ article {
   width: 90%;
   max-width: 450px;
   min-width: 250px;
-  min-height: 100px;
   height: fit-content;
-  margin-top: 50px;
+  margin-top: 40px;
   background-color: #eeeeee;
   border-radius: 25px 25px 25px 0px;
   margin-right: 0;
-  padding-bottom: 30px;
 }
 
 .myMessages {
@@ -160,6 +160,8 @@ article {
 article p:first-child {
   width: 80%;
   justify-self: center;
+  margin: 0;
+  margin-top: 10px;
   margin-left: 20px;
   font-size: 1.1rem;
   word-wrap: break-word;
@@ -181,21 +183,23 @@ article p a {
 }
 
 article p:last-child {
-  position: absolute;
-  bottom: 0;
-  right: 10px;
+  align-self: flex-end;
+  justify-self: flex-end;
   display: flex;
-  width: 75%;
+  width: 50%;
   min-width: 225px;
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
   font-size: 0.9rem;
+  font-style: italic;
+  margin-right: 10px;
 }
 
 .authorPic {
   object-fit: cover;
   width: 30px;
   height: 30px;
+  margin-right: 10px;
   border-radius: 50%;
 }
 

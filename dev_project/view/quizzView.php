@@ -1,6 +1,10 @@
 <?php
 $printNewsletter = false;
 $pageTitle = 'Trouver votre compagnon idéal';
+
+/*
+<label for="idtype<?= $i + 1 ?>">Votre animal <?= $i + 1; echo $i > 0 ? " (facultatif)" : null ?> :</label>
+*/
 ob_start();
 ?>
 <h1>QUIZZ</h1>
@@ -52,14 +56,13 @@ ob_start();
     </div>
 
     <div>
-        <h2>8. Vos trois animaux préférés : </h2>
+        <h2>8. Votre animal préféré : </h2>
 
         <?php
         $categorie = $types_animaux->fetchAll();
-        for ($i = 0; $i < 3; $i++) {
+        for ($i = 0; $i < 1; $i++) {
         ?>
-            <label for="idtype<?= $i + 1 ?>">Votre animal <?= $i + 1;
-                                                            echo $i > 0 ? " (facultatif)" : null ?> :</label>
+            <br>
             <select name="idtype<?= $i + 1 ?>" id="idtype<?= $i + 1 ?>">
                 <option value=""></option>
                 <?php

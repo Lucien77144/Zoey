@@ -3,6 +3,108 @@ body {
   background: rgb(34, 34, 34);
 }
 
+.postButtonSvg {
+  height: 26px;
+  width: 26px;
+  cursor: pointer;
+}
+
+.postButtonSvg path {
+  transition: 0.25s ease-in-out;
+}
+
+.postButtonSvg:hover path {
+  fill: #ffc165;
+}
+
+.popUpRm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(20, 20, 20, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.popUpRm > p {
+  margin-bottom: 30px;
+  color: white;
+}
+
+.popUpRm > h2 {
+  color: white;
+}
+
+.popUpFirstBtn {
+  margin-right: 20px;
+}
+
+#cancelRemove {
+  margin-left: 20px;
+}
+
+.returnMessage {
+  position: fixed;
+  z-index: 1001;
+  bottom: 25px;
+  left: 25px;
+  width: 50%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 25px 25px 25px 0;
+  white-space: normal;
+  animation: poping 4s ease-in-out;
+  opacity: 0;
+  transform: translateY(200%);
+  z-index: 1100;
+  pointer-events: none;
+}
+
+@keyframes poping {
+  0%,
+  100% {
+    opacity: 0;
+    bottom: 0;
+    transform: translateY(100%);
+  }
+  20%,
+  80% {
+    opacity: 1;
+    bottom: 25px;
+    transform: translateY(0);
+  }
+}
+
+.return {
+  position: fixed;
+  top: 67.5px;
+  left: 5%;
+  z-index: 1000;
+}
+
+.return svg {
+  height: 35px;
+  width: 35px;
+  transition: 0.25s ease-in-out;
+}
+
+.return:hover svg {
+  transform: skewX(5deg);
+}
+
+.return svg path {
+  transition: 0.25s ease-in-out;
+}
+
+.return:hover svg path {
+  fill: #cc9900;
+}
+
 main {
   scroll-snap-type: y mandatory;
   height: 100vh;
@@ -28,7 +130,7 @@ header {
 }
 
 .defaultBlock {
-  height: calc(100vh - 70px);
+  height: calc(100vh - 68px);
   width: 100%;
   max-width: 500px;
   padding: 0;
@@ -48,7 +150,7 @@ main .defaultBlock:last-child {
 }
 
 main .defaultBlock:last-child::after {
-  content: "";
+  content: '';
   background-image: url(../images/icons/loader.svg);
   background-size: contain;
   height: 50px;
@@ -60,8 +162,8 @@ main .defaultBlock:last-child::after {
   animation: loader 2s ease-in-out infinite;
 }
 
-.hiddenAfter .defaultBlock:last-child::after{
-  content: "Tout le contenu a été chargé";
+.hiddenAfter .defaultBlock:last-child::after {
+  content: 'Tout le contenu a été chargé';
   color: #ffa319;
   background-image: none;
   height: auto;
@@ -72,10 +174,10 @@ main .defaultBlock:last-child::after {
 }
 
 @keyframes loader {
-  0%{
+  0% {
     transform: rotate(0deg) translate(-50%, 50%);
   }
-  100%{
+  100% {
     transform: rotate(360deg) translate(-50%, 50%);
   }
 }
@@ -98,7 +200,7 @@ main .defaultBlock:last-child::after {
   );
 }
 
-.textContent > * {
+.textContent * {
   color: white;
   text-decoration: none;
   overflow-wrap: break-word;
@@ -125,7 +227,6 @@ main .defaultBlock:last-child::after {
 
 .textContent h1 {
   margin: 0;
-  margin-bottom: 10px;
   display: inline-block;
   padding: 2.5px 25px 2.5px 25px;
   font-size: 1.1em;
@@ -134,42 +235,82 @@ main .defaultBlock:last-child::after {
   background: #ffa319;
 }
 
-.menuInner svg>path{
+.headMsg {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.date {
+  margin-top: 10px;
+  color: #ffa319;
+}
+
+.descMore {
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.descWrapper {
+  text-shadow: 0px 0px 5px #00000099;
+}
+
+.endDesc {
+  height: 0;
+  overflow: hidden;
+  transition: 0.35s ease-in-out;
+}
+
+.dot {
+  white-space: nowrap;
+  margin-left: 50px;
+  text-decoration: underline;
+  transition: 0.35s ease-in-out;
+}
+
+.descMore,
+.endDesc {
+  cursor: pointer;
+}
+
+.menuInner svg > path {
   fill: #ffa319;
 }
 
-.menuInner h2{
+.menuInner h2 {
   color: white;
   font-weight: normal;
 }
 
-.menu>svg>path{
+.menu > svg > path {
   fill: rgb(34, 34, 34);
 }
 
-.menu>svg, .menuBlur{
+.menu > svg,
+.menuBlur {
   display: none;
 }
 
-.menuInner{
+.menuInner {
   width: 50%;
 }
 
-.menu>.menuInner{
+.menu > .menuInner {
   background-color: unset;
 }
 
-.menuInner, .menu{
+.menuInner,
+.menu {
   height: 70px;
 }
 
-.menu{
+.menu {
   bottom: -2px;
   background-color: rgb(34, 34, 34);
   box-shadow: #00000022 0px 0px 4px 4px;
 }
 
-.feed{
+.feed {
   display: none;
 }
 
@@ -193,7 +334,6 @@ main .defaultBlock:last-child::after {
   }
   .menuInner h2 {
     color: rgb(235, 235, 235);
-    font-weight: bold;
     transition: 0.25s ease-in-out;
   }
   .menuInner h2:hover {
@@ -205,15 +345,16 @@ main .defaultBlock:last-child::after {
   main .defaultBlock:last-child {
     margin-bottom: 100px;
   }
-  .menu, .menuInner{
+  .menu,
+  .menuInner {
     height: 60px;
   }
-  .menu{
+  .menu {
     background-color: unset;
     box-shadow: none;
   }
 }
 
-body::before{
+body::before {
   color: white;
 }

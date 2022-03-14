@@ -1,7 +1,6 @@
 <?php
 require_once(BASE_URL . "model/model.php");
 require_once(BASE_URL . "model/verifyToken.php");
-require_once(BASE_URL . "model/isFriend.php");
 require_once(BASE_URL . "controller/isMemberOfTheConversation.php");
 
 function printBlog()
@@ -93,7 +92,8 @@ function printFeed()
 function printPost()
 {
     $post = getPost();
-    require(BASE_URL . "view/postView.php");
+    $feed = getFeed();
+    require(BASE_URL . "view/feedView.php");
 }
 
 // function printAdoptionWithMatch(){

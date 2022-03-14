@@ -28,8 +28,6 @@ ob_start();
         <?php if (isset($_SESSION['idUser']) && $account['iduser'] == $_SESSION['idUser']) { ?>
             <a class="btn disconnect" href="index.php?action=disconnect">se déconnecter</a>
         <?php } ?>
-        <?php // if(($account['iduser'] != $_SESSION['idUser'] && isset($_SESSION['idUser'])) || !isset($_SESSION['idUser'])){ 
-        ?>
         <div class="controls">
             <?php
             if (isset($_SESSION['idUser'])) {
@@ -146,7 +144,11 @@ if ($accountAnimals) { // renvoie false si aucun animal lié à ce compte n'a é
 ?>
     <section class="profilAnimal">
         <?php
-        printAnimal($animalId[0]);
+        if(isset($_GET['animal'])){
+            printAnimal(htmlspecialchars($_GET["animal"]));
+        }else{
+            printAnimal($animalId[0]);
+        }
         ?>
     </section>
 <?php

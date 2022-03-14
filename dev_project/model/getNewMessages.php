@@ -131,7 +131,6 @@ function getNewMessages()
                         <?php
                         }
                         ?>
-                        <a class="username" href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>"><?= htmlspecialchars($message['authorPseudo']) ?></a>
                         <?= $time ?>.
                     </p>
                 </div>

@@ -4,16 +4,15 @@ ob_start();
 ?>
 
 <div id="convContainer">
-    <?php
-    if ($messages) {
-    ?>
-        <form id="formSearch">
-            <label for="convSearch">Rechercher une conversation : </label>
-            <input type="search" id="convSearch" name="convSearch" aria-label="Rechercher une conversation" placeholder="pseudo ou nom du groupe">
-            <span id="confirmationMessage"></span>
-        </form>
-
-        <div id="messagesContainer">
+    <form id="formSearch">
+        <label for="convSearch">Rechercher des amis : </label>
+        <input type="search" id="convSearch" name="convSearch" aria-label="Rechercher une conversation" placeholder="pseudo ou nom du groupe">
+        <span id="confirmationMessage"></span>
+    </form>
+    <div id="messagesContainer">
+        <?php
+        if ($messages) {
+        ?>
             <?php
             while ($chat = $messages->fetch()) {
                 $convUsers = getConversationUsers($chat["idconversation"]);
@@ -59,17 +58,18 @@ ob_start();
                         <p><?= htmlspecialchars($lastMessage) ?></p>
                     </div>
                 </a>
+
             <?php
             }
             ?>
-        </div>
-    <?php
-    } else {
-    ?>
-        <p class="addFriends">Ajoutez des amis pour commencer des conversations !</p>
-    <?php
-    }
-    ?>
+        <?php
+        } else {
+        ?>
+            <p class="addFriends">Ajoutez des amis via le fil d'actualité ou la barre de recherche pour commencer des conversations !</p>
+        <?php
+        }
+        ?>
+    </div>
 </div>
 <?php
 $viewContent = ob_get_clean();
