@@ -5,7 +5,7 @@ ob_start();
 
 <div id="convContainer">
     <form id="formSearch">
-        <label for="convSearch">Rechercher une conversation : </label>
+        <label for="convSearch">Rechercher des amis : </label>
         <input type="search" id="convSearch" name="convSearch" aria-label="Rechercher une conversation" placeholder="pseudo ou nom du groupe">
         <span id="confirmationMessage"></span>
     </form>
