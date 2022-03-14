@@ -646,6 +646,30 @@ $(document).ready(function () {
       'text'
     )
   }
+  function postDeleteAnimal() {
+    console.log('postDeleteAnimal')
+
+    $.post(
+      'model/postDeleteAnimal.php',
+      {
+        idanimal: $('#idanimal').val(),
+      },
+
+      function (ReturnedMessage) {
+        console.log('function Received')
+        console.log(ReturnedMessage)
+
+        if (ReturnedMessage == 'valid') {
+          $('#confirmationMessage').html('')
+          $('#confirmationMessage').text(`L'animal a bien été supprimé.`)
+        } else {
+          $('#confirmationMessage').html('')
+          $('#confirmationMessage').text(`L'animal n'a pas pu être supprimé.`)
+        }
+      },
+      'text'
+    )
+  }
 
   function postDeleteRefuge() {
     console.log('postDeleteRefuge')
@@ -1076,6 +1100,14 @@ $(document).ready(function () {
     console.log('click')
 
     postDeleteAA()
+  })
+
+  $('#deleteProfilAnimal').click(function (e) {
+    e.preventDefault()
+
+    console.log('click')
+
+    postDeleteAnimal()
   })
 
   $('#submitForgotMail').click(function (e) {
