@@ -80,7 +80,17 @@
   font-size: 1.5rem;
   width: calc(100% - 100px);
 }
-
+.popUpTextContainer {
+  width: 90%;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+.popUpText {
+  width: fit-content;
+  margin: 0;
+}
 .popUp form {
   height: 100%;
   display: flex;
@@ -135,11 +145,6 @@
   width: 30px;
   height: 30px;
 }
-
-.location p {
-  width: 90%;
-}
-
 .contactContainer img {
   margin-right: 20px;
 }
@@ -149,7 +154,9 @@
     width: 480px;
     height: fit-content;
   }
-
+  .popUpTextContainer {
+    width: fit-content;
+  }
   .welcome {
     font-size: 1.3rem;
     margin-bottom: 20px;
