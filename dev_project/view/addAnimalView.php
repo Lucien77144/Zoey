@@ -42,7 +42,7 @@ ob_start();
         ?>
     </select>
 
-    <input type="submit" id="submitAddAnimal">
+    <input type="submit" id="submitAddAnimal" value="Ajouter">
 </form>
 <span id="ConfirmationMessage"></span>
 

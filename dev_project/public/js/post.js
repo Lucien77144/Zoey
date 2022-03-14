@@ -74,13 +74,15 @@ $(document).ready(function () {
       $('#confirmationMessage').html(
         `Votre session a expirée, veuillez <a href="index.php?action=connect" target="_blanck">vous reconnecter</a> puis retenter d'envoyer le formulaire.`
       )
-      $('#ConfirmationMessage').html('')
-      $('#ConfirmationMessage').html(
-        `Votre session a expirée, veuillez <a href="index.php?action=connect" target="_blanck">vous reconnecter</a> puis retenter d'envoyer le formulaire.`
-      )
+      return returnedFromAjax
+    } else if (returnedFromAjax) {
       return returnedFromAjax
     } else {
-      return returnedFromAjax
+      $('#ConfirmationMessage').html('')
+      $('#ConfirmationMessage').html(
+        `Il y a eu une erreur dans l'envoi de cette photo`
+      )
+      return false
     }
   }
 
@@ -763,14 +765,14 @@ $(document).ready(function () {
             $('#messagesContainer').html('')
             $('#confirmationMessage').html('')
             $('#confirmationMessage').text(
-              `Nous n'avons trouvé aucune conversation :/1`
+              `Nous n'avons trouvé aucune conversation :/`
             )
           }
         } else {
           $('#messagesContainer').html('')
           $('#confirmationMessage').html('')
           $('#confirmationMessage').text(
-            `Nous n'avons trouvé aucune conversation :/2`
+            `Nous n'avons trouvé aucune conversation :/`
           )
         }
 
@@ -837,7 +839,7 @@ $(document).ready(function () {
         hideLoader()
         return
       }
-      postAddPost(null)
+      postAddPost(postedMedia)
     })
   })
 
