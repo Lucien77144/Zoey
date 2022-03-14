@@ -183,46 +183,41 @@ function isUserConnected($idUser)
     }
 }
 
-function getConvReadState($idconv, $idUser)
+function getUserReadState($idUser)
 {
     if (
-        (isset($idconv) && is_numeric($idconv) && intval($idconv) > 0)
-        && (isset($idUser) && is_numeric($idUser) && intval($idUser) > 0)
+        isset($idUser) && is_numeric($idUser) && intval($idUser) > 0
     ) {
-        $idconv = intval($idconv);
         $idUser = intval($idUser);
 
         require("PDO.php");
 
         $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
-        $sql = "SELECT readstate FROM conversation_has_utilisateur WHERE conversation_idconversation = :idconv and utilisateur_idutilisateur = :iduser";
+        $sql = "SELECT readstate FROM utilisateur WHERE idutilisateur = :iduser";
         $req = $db->prepare($sql);
 
         $req->execute(array(
-            ':idconv' => $idconv,
             ':iduser' => $idUser
         ));
 
         if ($req->rowCount() != 1)
-            throw new Exception("Nous n'avons pas trouvé cette conversation");
+            throw new Exception("Nous n'avons pas trouvé cet utilisateur");
 
         $pseudo = $req->fetch();
 
         return $pseudo["readstate"];
     } else {
-        throw new Exception("Aucune conversation renseignée");
+        throw new Exception("Aucun utilisateur renseignée");
     }
 }
 
-function setConvReadState($idconv, $idUser, $newreadstate)
+function setUserReadState($idUser, $newreadstate)
 {
     if (
-        (isset($idconv) && is_numeric($idconv) && intval($idconv) > 0)
-        && (isset($idUser) && is_numeric($idUser) && intval($idUser) > 0)
+        (isset($idUser) && is_numeric($idUser) && intval($idUser) > 0)
         && (isset($newreadstate) && is_numeric($newreadstate) && (intval($newreadstate) == 1 || intval($newreadstate) == 2))
     ) {
-        $idconv = intval($idconv);
         $idUser = intval($idUser);
         $newreadstate = intval($newreadstate);
 
@@ -230,11 +225,10 @@ function setConvReadState($idconv, $idUser, $newreadstate)
 
         $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
-        $sql = "UPDATE conversation_has_utilisateur SET readstate = :readstate WHERE conversation_idconversation = :idconv and utilisateur_idutilisateur = :iduser";
+        $sql = "UPDATE utilisateur SET readstate = :readstate WHERE idutilisateur = :iduser";
         $req = $db->prepare($sql);
 
         $req->execute(array(
-            ':idconv' => $idconv,
             ':iduser' => $idUser,
             ':readstate' => $newreadstate
         ));

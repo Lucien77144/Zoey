@@ -16,6 +16,27 @@ function getCookie(cname) {
   return ''
 }
 
+async function compressPhoto(path) {
+  const formDataJsonString = JSON.stringify({
+    photo: path,
+  })
+
+  console.log('formDataJsonString ', formDataJsonString)
+
+  fetch('model/compressPhoto.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: formDataJsonString,
+  }).then((response) => {
+    response.json().then(function (data) {
+      console.log('photo compressée ', data)
+    })
+  })
+}
+
 function showLoader(callback) {
   document.getElementById('loaderContainer').style.display = 'flex'
   console.log('loader loaded')
@@ -74,14 +95,20 @@ $(document).ready(function () {
       $('#confirmationMessage').html(
         `Votre session a expirée, veuillez <a href="index.php?action=connect" target="_blanck">vous reconnecter</a> puis retenter d'envoyer le formulaire.`
       )
-      return returnedFromAjax
+      hideLoader()
+      return false
     } else if (returnedFromAjax) {
+      console.log('compress 1', Date.now())
+      compressPhoto(returnedFromAjax)
+      console.log('compress 2', Date.now())
+
       return returnedFromAjax
     } else {
       $('#ConfirmationMessage').html('')
       $('#ConfirmationMessage').html(
         `Il y a eu une erreur dans l'envoi de cette photo`
       )
+      hideLoader()
       return false
     }
   }
@@ -835,8 +862,7 @@ $(document).ready(function () {
         return
       }
       let postedMedia = postPhoto()
-      if (postedMedia == 'déconnecté') {
-        hideLoader()
+      if (!postedMedia) {
         return
       }
       postAddPost(postedMedia)
@@ -862,9 +888,9 @@ $(document).ready(function () {
         console.log('click')
 
         let postedMedia = postPhoto()
-        // if (postedMedia == "déconnecté"){
-        // return;
-        // }
+        if (!postedMedia) {
+          return
+        }
 
         postAddMessage(postedMedia)
         $('main').animate(
@@ -886,9 +912,7 @@ $(document).ready(function () {
 
     showLoader(() => {
       let postedMedia = postPhoto()
-      if (postedMedia == 'déconnecté') {
-        $('#ConfirmationMessage').html('')
-        $('#ConfirmationMessage').text(`L'envoi a échoué`)
+      if (!postedMedia) {
         return
       }
 
@@ -921,7 +945,7 @@ $(document).ready(function () {
     console.log('click')
 
     let postedMedia = postPhoto()
-    if (postedMedia == 'déconnecté') {
+    if (!postedMedia) {
       return
     }
 
@@ -976,7 +1000,7 @@ $(document).ready(function () {
     const id = urlGetParameters.get('id')
 
     let postedMedia = postPhoto()
-    if (postedMedia == 'déconnecté') {
+    if (!postedMedia) {
       return
     }
 
@@ -1021,7 +1045,7 @@ $(document).ready(function () {
     console.log('click')
 
     let postedMedia = postPhoto()
-    if (postedMedia == 'déconnecté') {
+    if (!postedMedia) {
       return
     }
 
@@ -1033,7 +1057,7 @@ $(document).ready(function () {
     console.log('click')
 
     let postedMedia = postPhoto()
-    if (postedMedia == 'déconnecté') {
+    if (!postedMedia) {
       return
     }
 

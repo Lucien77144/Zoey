@@ -10,12 +10,12 @@ if (!verifyToken()) {
     exit('déconnecté');
 }
 
-require_once("../vendor/lib/Tinify/Exception.php");
-require_once("../vendor/lib/Tinify/ResultMeta.php");
-require_once("../vendor/lib/Tinify/Result.php");
-require_once("../vendor/lib/Tinify/Source.php");
-require_once("../vendor/lib/Tinify/Client.php");
-require_once("../vendor/lib/Tinify.php");
+// require_once("../vendor/lib/Tinify/Exception.php");
+// require_once("../vendor/lib/Tinify/ResultMeta.php");
+// require_once("../vendor/lib/Tinify/Result.php");
+// require_once("../vendor/lib/Tinify/Source.php");
+// require_once("../vendor/lib/Tinify/Client.php");
+// require_once("../vendor/lib/Tinify.php");
 
 
 // function compressImage($source_url, $destination_url, $quality) {
@@ -77,19 +77,21 @@ function postPhoto()
 
             // compress
 
-            \Tinify\setKey("pSM69JsH2zKBrydR7x6dpdJdfsBXx3CM");
-            $source = \Tinify\fromFile($uploadPath);
-            $resized = $source->resize(array(
-                "method" => "scale",
-                "width" => 800
-            ));
-            $resized->toFile($uploadPath);
+            // \Tinify\setKey("pSM69JsH2zKBrydR7x6dpdJdfsBXx3CM"); //clé marin
+            // // \Tinify\setKey("X0ZpbDCLBVMgPDbvQGm9mJJzbCmrlSf1"); // clé app.zoey
+            // $source = \Tinify\fromFile($uploadPath);
+            // $resized = $source->resize(array(
+            //     "method" => "scale",
+            //     "width" => 800
+            // ));
+            // $resized->toFile($uploadPath);
 
             return strval($uploadName);
         } else {
             // var_dump($fileTmpName);
             // var_dump($didUpload);
-
+            // var_dump($_FILES);
+            // var_dump($_FILES['media']['error']);
 
             echo "Erreur";
             // return false;
@@ -108,7 +110,14 @@ try {
         isset($_FILES['media'])
     ) {
         $postPhoto = postPhoto();
-        echo $postPhoto;
+
+        $explodedFilename = explode('.', $postPhoto);
+        $fileExtension = strtolower(end($explodedFilename));
+        if (in_array($fileExtension, ['jpeg', 'jpg', 'png'])) {
+            echo $postPhoto;
+        } else {
+            return false;
+        }
     } else {
         // throw new Exception("L'importation a échoué.");
         return false;
