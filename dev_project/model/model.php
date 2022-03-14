@@ -272,7 +272,13 @@ function getFeed($num = 1)
 
     $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
-    $start = ($num - 1) * 10;
+    if($num == 1){
+        $limit = 10;
+        $start = ($num - 1) * 10;
+    }else{
+        $limit = 5;
+        $start = 10 + (($num - 1) * 5);
+    }
 
     $selected = "SELECT profil_animal_de_compagnie_utilisateur_idutilisateur1 idutilisateur, idpost, post.description, media, date_publication, profil_animal_de_compagnie_idprofil_animal_de_compagnie idanimal, profil_animal_de_compagnie.nom 
     FROM post 
@@ -286,13 +292,13 @@ function getFeed($num = 1)
         UNION
         ($selected WHERE profil_animal_de_compagnie_idprofil_animal_de_compagnie =
         (SELECT profil_animal_de_compagnie_idprofil_animal_de_compagnie FROM post WHERE idpost = $id)
-        ORDER BY date_publication DESC LIMIT 10 OFFSET $start)";
+        ORDER BY date_publication DESC LIMIT $limit OFFSET $start)";
 
     }else{
 
         $sql = "
         $selected
-        ORDER BY date_publication DESC LIMIT 10 OFFSET $start";
+        ORDER BY date_publication DESC LIMIT $limit OFFSET $start";
         
     }
 

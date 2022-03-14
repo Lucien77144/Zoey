@@ -56,15 +56,15 @@ if ($feed->rowCount() < 5) {
                         $sendDay = $sendTime->format('d');
                         if ($sendDay == $currentDay - 1) {
                             $time = "Hier à " . $sendTime->format('G') . "h" . $sendTime->format('i'); ?>
-                            <span><?= $time ?></span>
+                            <div class="date"><?= $time ?></div>
                         <?php
                         } else if ($sendDay == $currentDay) {
                             $time = "Aujourd'hui à " . $sendTime->format('G') . "h" . $sendTime->format('i'); ?>
-                            <span><?= $time ?></span>
+                            <div class="date"><?= $time ?></div>
                         <?php
                         } else {
                             $time = "Le " . $sendTime->format('d/m/Y'); ?>
-                            <span><?= $time ?></span>
+                            <div class="date"><?= $time ?></div>
                         <?php
                         }
                         ?>

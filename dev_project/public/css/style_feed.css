@@ -61,6 +61,8 @@ body {
   animation: poping 4s ease-in-out;
   opacity: 0;
   transform: translateY(200%);
+  z-index: 1100;
+  pointer-events: none;
 }
 
 @keyframes poping {
@@ -128,7 +130,7 @@ header {
 }
 
 .defaultBlock {
-  height: calc(100vh - 70px);
+  height: calc(100vh - 68px);
   width: 100%;
   max-width: 500px;
   padding: 0;
@@ -239,7 +241,8 @@ main .defaultBlock:last-child::after {
   justify-content: space-between;
 }
 
-.headMsg span {
+.date {
+  margin-top: 10px;
   color: #ffa319;
 }
 
@@ -259,6 +262,7 @@ main .defaultBlock:last-child::after {
 }
 
 .dot {
+  white-space: nowrap;
   margin-left: 50px;
   text-decoration: underline;
   transition: 0.35s ease-in-out;

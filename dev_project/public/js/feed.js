@@ -8,9 +8,10 @@ document.addEventListener('DOMContentLoaded', function () {
   //     }
   // });
 
-  let numPosts = 1
+  let numPosts = 1;
+  let postToPass = 5;
   document.querySelector('main').addEventListener('scroll', function () {
-    if (this.scrollTop > window.innerHeight * (numPosts * 5)) {
+    if (this.scrollTop > window.innerHeight * (numPosts * postToPass)) {
       numPosts++
       $.post(
         'model/loadFeed.php',

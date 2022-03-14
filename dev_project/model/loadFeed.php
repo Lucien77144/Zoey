@@ -29,27 +29,25 @@ while ($post = $feed->fetch()) {
                     </h1>
                 </a>
                 <?php
-                    $currentTime = new DateTime(date('Y-m-d', time()));
-                    $currentTime->setTimezone(new DateTimeZone('Europe/Paris'));
-                    $currentDay = $currentTime->format('d');
-
-                    $sendTime = new DateTime($post["date_publication"]);
-                    $sendTime->setTimezone(new DateTimeZone('Europe/Paris'));
-                    $sendDay = $sendTime->format('d');
-
-                    if ($sendDay == $currentDay - 1) {
-                        $time = "Hier à " . $sendTime->format('G') . "h" . $sendTime->format('i'); ?>
-                        <span><?=$time?></span>
-                        <?php
-                    } else if ($sendDay == $currentDay) {
-                        $time = "Aujourd'hui à " . $sendTime->format('G') . "h" . $sendTime->format('i'); ?>
-                        <span><?=$time?></span>
-                        <?php
-                    } else {
-                        $time = "Le " . $sendTime->format('d/m/Y'); ?>
-                        <span><?=$time?></span>
-                        <?php
-                    }
+                $currentTime = new DateTime(date('Y-m-d', time()));
+                $currentTime->setTimezone(new DateTimeZone('Europe/Paris'));
+                $currentDay = $currentTime->format('d');
+                $sendTime = new DateTime($post["date_publication"]);
+                $sendTime->setTimezone(new DateTimeZone('Europe/Paris'));
+                $sendDay = $sendTime->format('d');
+                if ($sendDay == $currentDay - 1) {
+                    $time = "Hier à " . $sendTime->format('G') . "h" . $sendTime->format('i'); ?>
+                    <div class="date"><?= $time ?></div>
+                <?php
+                } else if ($sendDay == $currentDay) {
+                    $time = "Aujourd'hui à " . $sendTime->format('G') . "h" . $sendTime->format('i'); ?>
+                    <div class="date"><?= $time ?></div>
+                <?php
+                } else {
+                    $time = "Le " . $sendTime->format('d/m/Y'); ?>
+                    <div class="date"><?= $time ?></div>
+                <?php
+                }
                 ?>
             </div>
 
