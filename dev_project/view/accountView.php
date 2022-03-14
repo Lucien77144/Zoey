@@ -1,4 +1,7 @@
 <?php
+
+$printLegal = true;
+
 $account = $account->fetch();
 
 $pageTitle = htmlspecialchars($account['pseudo_user']);
@@ -144,9 +147,9 @@ if ($accountAnimals) { // renvoie false si aucun animal lié à ce compte n'a é
 ?>
     <section class="profilAnimal">
         <?php
-        if(isset($_GET['animal'])){
+        if (isset($_GET['animal'])) {
             printAnimal(htmlspecialchars($_GET["animal"]));
-        }else{
+        } else {
             printAnimal($animalId[0]);
         }
         ?>
