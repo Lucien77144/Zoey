@@ -7,12 +7,16 @@ session_start();
 define("BASE_URL", "./"); //getcwd();
 $pageTitle = "Zoey";
 $viewContent = "";
+$metaDesc = "Partenaire de refuges et associations certifiés en Île-de-France, Zoey facilite vos démarches d’adoption et vos recherches du parfait compagnon.";
 $printNewsletter = true;
 $printLegal = false;
 $showModifyLink = false;
 // $requestedFromAPI = false;
 require_once("controller/controller.php");
-verifyToken(); //refresh token
+// verifyToken(); //refresh token
+if (verifyToken()) {
+    $_SESSION['readstate'] = getUserReadState($_SESSION['idUser']);
+}
 try {
 
     // ROUTER

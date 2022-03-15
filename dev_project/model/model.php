@@ -503,7 +503,7 @@ function getAdoptionAnimalBadges($animalId)
 
     $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
-    $sql = "SELECT idbadge, url_icone
+    $sql = "SELECT idbadge, url_icone, badge.description alt
     FROM animal_a_adopter_has_badge aahasbadge
     INNER JOIN badge ON badge.idbadge = aahasbadge.badge_idbadge
     INNER JOIN animal_a_adopter aa ON aa.idanimal_a_adopter = aahasbadge.animal_a_adopter_idanimal_a_adopter

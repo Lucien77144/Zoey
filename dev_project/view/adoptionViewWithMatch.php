@@ -46,7 +46,7 @@ ob_start();
                             break;
                         $i++;
                     ?>
-                        <img class="badge" src="public/images/badges/<?= $badge['url_icone'] ?>" alt="">
+                        <img class="badge" src="public/images/badges/<?= $badge['url_icone'] ?>" alt="<?= $badge['alt'] ?>">
                     <?php
                     }
                     ?>

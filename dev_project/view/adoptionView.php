@@ -1,6 +1,8 @@
 <?php
 $printLegal = true;
 $pageTitle = 'Animaux à adopter';
+$metaDesc = "Partenaire de refuges et associations certifiés en Ile de France, Zoey facilite vos démarches d’adoption et vos recherches du parfait compagnon.";
+
 ob_start();
 
 ?>
@@ -55,7 +57,7 @@ ob_start();
                             break;
                         $i++;
                     ?>
-                        <img class="badge" src="public/images/badges/<?= $badge['url_icone'] ?>" alt="">
+                        <img class="badge" src="public/images/badges/<?= $badge['url_icone'] ?>" alt="<?= $badge['alt'] ?>">
                     <?php
                     }
                     ?>
