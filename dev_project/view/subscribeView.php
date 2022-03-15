@@ -34,18 +34,13 @@ ob_start();
 
     <form class="subscribeForm" id="subscribeForm" style="display:none;">
 
-        <div class="accountContainer">
-            <div class="pseudoContainer formContent">
-                <label for="pseudo">Pseudo *</label>
-                <input type="text" name="pseudo" id="pseudoSubscribe" placeholder="pseudo" required='required'> <span id="pseudoConfirmationMessage"></span>
-
-            </div>
+        <div class="pseudoContainer formContent">
+            <label for="pseudo">Pseudo *</label>
+            <input type="text" name="pseudo" id="pseudoSubscribe" placeholder="pseudo" required='required'> <span id="pseudoConfirmationMessage"></span>
         </div>
-        <div class="mailAndBirthContainer">
-            <div class="mailContainer formContent">
-                <label for="mail">Adresse e-mail *</label>
-                <input type="email" name="mail" id="mail" placeholder="exemple@zoey.fr" required='required'>
-            </div>
+        <div class="mailContainer formContent">
+            <label for="mail">Adresse e-mail *</label>
+            <input type="email" name="mail" id="mail" placeholder="exemple@zoey.fr" required='required'>
         </div>
 
         <div class="formContent">
@@ -54,12 +49,14 @@ ob_start();
         </div>
 
         <div class="checkboxContainer">
-            <input type="checkbox" name="checkbox" id="legalAge" required='required'>
-            <label for="checkbox">Je m'engage à respecter les <a href="index.php?action=legal">conditions d'utilisation</a>.</label>
+            <label for="legalAge">
+                <input type="checkbox" name="checkbox" id="legalAge" required='required'>
+                <p>Je m'engage à respecter les <a href="index.php?action=legal">conditions d'utilisation</a>.</p>
+            </label>
         </div>
 
         <div class="linksContainer">
-            <input type="submit" id="submitSubscribe" value="s'inscrire">
+            <input type="submit" id="submitSubscribe" value="S'inscrire">
 
         </div>
 
