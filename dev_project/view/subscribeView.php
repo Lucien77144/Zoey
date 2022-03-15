@@ -97,7 +97,8 @@ ob_start(); ?>
 
     function showForm() {
         document.getElementById('btn-nogoogle').onclick = () => {
-            document.getElementById('subscribeForm').style.display = 'flex'
+            document.getElementById('subscribeForm').style.display = 'flex';
+            document.getElementById('btn-nogoogle').classList.add("active");
         }
     }
     window.onload = showForm()
