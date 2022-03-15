@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
-
-  console.log(document.querySelector(".menuAnimauxInner").offsetWidth)
+  console.log(document.querySelector('.menuAnimauxInner').offsetWidth)
   if (getParameterByName('slider') != 'prevent') {
-    document.querySelector('.menuAnimauxInner').scrollTo(document.querySelector(".menuAnimauxInner").offsetWidth, 0)
+    document
+      .querySelector('.menuAnimauxInner')
+      .scrollTo(document.querySelector('.menuAnimauxInner').offsetWidth, 0)
     $('.menuAnimauxInner').animate(
       {
         scrollLeft: 0,
@@ -10,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
       750
     )
   }
-  
+
   function getParameterByName(name, url = window.location.href) {
     name = name.replace(/[\[\]]/g, '\\$&')
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -20,26 +21,34 @@ document.addEventListener('DOMContentLoaded', function () {
     return decodeURIComponent(results[2].replace(/\+/g, ' '))
   }
 
-  function $_GET(param) { // Source : creativejuiz.fr
-    var vars = {};
-    window.location.href.replace( location.hash, '' ).replace( 
+  function $_GET(param) {
+    // Source : creativejuiz.fr
+    var vars = {}
+    window.location.href.replace(location.hash, '').replace(
       /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
-      function( m, key, value ) { // callback
-        vars[key] = value !== undefined ? value : '';
+      function (m, key, value) {
+        // callback
+        vars[key] = value !== undefined ? value : ''
       }
-    );
-  
-    if ( param ) {
-      return vars[param] ? vars[param] : null;	
+    )
+
+    if (param) {
+      return vars[param] ? vars[param] : null
     }
-    return vars;
+    return vars
   }
 
   if (document.querySelector('.menuAnimauxWrapper li') != null) {
-    if($_GET("animal") == null){
-      document.querySelector('.menuAnimauxWrapper li:first-child').classList.add('active');
-    }else{
-      document.querySelector(`.menuAnimauxWrapper li[data-animalid="${$_GET("animal")}"]`).classList.add('active');
+    if ($_GET('animal') == null) {
+      document
+        .querySelector('.menuAnimauxWrapper li:first-child')
+        .classList.add('active')
+    } else {
+      document
+        .querySelector(
+          `.menuAnimauxWrapper li[data-animalid="${$_GET('animal')}"]`
+        )
+        .classList.add('active')
     }
   }
 
@@ -102,14 +111,16 @@ document.addEventListener('DOMContentLoaded', function () {
       )
     })
   })
-
+  console.log('modif : add listener')
   document
     .querySelector('.profil .iconModif')
     .addEventListener('click', function () {
+      console.log('before openModif')
       openModif(document.querySelector('.profil'), 'model/modifProfil.php')
     })
 
   function openModif(current, action) {
+    console.log('inside openModif')
     let pseudoId = 'pseudoSubscribe'
     let modifId = 'submitModifyAccountPublic'
     let content = [
@@ -179,28 +190,28 @@ document.addEventListener('DOMContentLoaded', function () {
     $('#submitModifyAccountPublic').click(function (e) {
       e.preventDefault()
 
-      console.log('click');
+      console.log('click')
 
-      if (document.querySelector(".profil #pseudoSubscribe").value == "") {
-        console.log("pseudo vide");
-      } else if (document.querySelector(".profil #desc").value == "") {
-        console.log("description vide");
+      if (document.querySelector('.profil #pseudoSubscribe').value == '') {
+        console.log('pseudo vide')
+      } else if (document.querySelector('.profil #desc').value == '') {
+        console.log('description vide')
       } else {
-        postModifyAccount();
+        postModifyAccount()
       }
     })
 
     $('#submitModifyAnimalPublic').click(function (e) {
       e.preventDefault()
 
-      console.log('click');
+      console.log('click')
 
-      if (document.querySelector(".profilAnimal #nomAnimal").value == "") {
-        console.log("nom vide");
-      } else if (document.querySelector(".profilAnimal #desc").value == "") {
-        console.log("description vide");
+      if (document.querySelector('.profilAnimal #nomAnimal').value == '') {
+        console.log('nom vide')
+      } else if (document.querySelector('.profilAnimal #desc').value == '') {
+        console.log('description vide')
       } else {
-        postModifyAnimal();
+        postModifyAnimal()
       }
 
       if (document.querySelector('.profilAnimal #nomAnimal').value == '') {
@@ -216,7 +227,8 @@ document.addEventListener('DOMContentLoaded', function () {
       console.log('isPseudoFreeAPI')
 
       $.post(
-        'model/isPseudoFreeAPI.php', {
+        'model/isPseudoFreeAPI.php',
+        {
           checkPseudo: $('#pseudoSubscribe').val(),
         },
 
@@ -242,7 +254,8 @@ document.addEventListener('DOMContentLoaded', function () {
       console.log('postModifyAccount')
 
       $.post(
-        'model/modifyProfil.php', {
+        'model/modifyProfil.php',
+        {
           pseudo: $('#pseudoSubscribe').val(),
           desc: $('#desc').val(),
         },
@@ -271,7 +284,8 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('postModifyAnimal')
 
     $.post(
-      'model/postModifyAnimal.php', {
+      'model/postModifyAnimal.php',
+      {
         nom: $('#nomAnimal').val(),
         // media: postedMedia,
         description: $('#desc').val(),
@@ -352,7 +366,8 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('postModifyAccount')
 
     $.post(
-      'model/postModifyAccount.php', {
+      'model/postModifyAccount.php',
+      {
         setparam: setparam,
         setvalue: setvalue,
       },
@@ -385,7 +400,8 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('postModifyAnimalPic')
 
     $.post(
-      'model/postModifyAnimalPic.php', {
+      'model/postModifyAnimalPic.php',
+      {
         pic: pic,
         idAnimal: $('ul.menuAnimauxWrapper > li.active').attr('data-animalid'),
       },

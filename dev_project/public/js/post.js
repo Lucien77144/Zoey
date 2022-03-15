@@ -646,13 +646,13 @@ $(document).ready(function () {
       'text'
     )
   }
-  function postDeleteAnimal() {
+  function postDeleteAnimal(idanimal) {
     console.log('postDeleteAnimal')
 
     $.post(
       'model/postDeleteAnimal.php',
       {
-        idanimal: $('#idanimal').val(),
+        idanimal: idanimal,
       },
 
       function (ReturnedMessage) {
@@ -886,7 +886,7 @@ $(document).ready(function () {
         return
       }
       let postedMedia = postPhoto()
-      if (!postedMedia) {
+      if (postedMedia != null && !postedMedia) {
         return
       }
       postAddPost(postedMedia)
@@ -912,7 +912,7 @@ $(document).ready(function () {
         console.log('click')
 
         let postedMedia = postPhoto()
-        if (!postedMedia) {
+        if (postedMedia != null && postedMedia != null && !postedMedia) {
           return
         }
 
@@ -936,7 +936,7 @@ $(document).ready(function () {
 
     showLoader(() => {
       let postedMedia = postPhoto()
-      if (!postedMedia) {
+      if (postedMedia != null && !postedMedia) {
         return
       }
 
@@ -969,7 +969,7 @@ $(document).ready(function () {
     console.log('click')
 
     let postedMedia = postPhoto()
-    if (!postedMedia) {
+    if (postedMedia != null && !postedMedia) {
       return
     }
 
@@ -1024,7 +1024,7 @@ $(document).ready(function () {
     const id = urlGetParameters.get('id')
 
     let postedMedia = postPhoto()
-    if (!postedMedia) {
+    if (postedMedia != null && !postedMedia) {
       return
     }
 
@@ -1069,7 +1069,7 @@ $(document).ready(function () {
     console.log('click')
 
     let postedMedia = postPhoto()
-    if (!postedMedia) {
+    if (postedMedia != null && !postedMedia) {
       return
     }
 
@@ -1081,7 +1081,7 @@ $(document).ready(function () {
     console.log('click')
 
     let postedMedia = postPhoto()
-    if (!postedMedia) {
+    if (postedMedia != null && !postedMedia) {
       return
     }
 
@@ -1107,7 +1107,8 @@ $(document).ready(function () {
 
     console.log('click')
 
-    postDeleteAnimal()
+    let idanimal = $('li.active').attr('data-animalid')
+    postDeleteAnimal(idanimal)
   })
 
   $('#submitForgotMail').click(function (e) {

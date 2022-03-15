@@ -8,6 +8,17 @@ function postDeleteAnimal()
 {
     $idanimal = safeEntry($_POST['idanimal']);
 
+    // vérifier propriété de l'animal
+    $accountAnimals = getAccountAnimals()->fetchAll();
+
+    $animals = array();
+    foreach ($accountAnimals as $animal) {
+        array_push($animals, $animal['idanimal']);
+    }
+    if (!in_array($idanimal, $animals)) {
+        return false;
+    }
+
     require("PDO.php");
 
     $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));

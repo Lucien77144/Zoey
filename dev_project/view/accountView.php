@@ -170,7 +170,6 @@ $stylesBlock = ob_get_clean();
 
 // SCRIPT BLOCK
 ob_start(); ?>
-<script src="public/js/print.js"></script>
 <script src="public/js/profil.js"></script>
 <?php
 $scriptsBlock = ob_get_clean();
