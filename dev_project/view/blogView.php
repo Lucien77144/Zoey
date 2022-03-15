@@ -1,6 +1,7 @@
 <?php
 $pageTitle = 'Blog';
 $printLegal = true;
+$metaDesc = "Flash info sur l’actualité animalière, interviews de professionnels vétérinaires et ostéopathes animaliers, démarches d’adoption dans le but de vous informer au quotidien !";
 ob_start();
 ?>
 <section>
