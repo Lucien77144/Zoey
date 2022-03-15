@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mar. 15 mars 2022 à 10:37
+-- Généré le : lun. 14 mars 2022 à 23:13
 -- Version du serveur : 8.0.28
 -- Version de PHP : 8.1.3
 
@@ -119,16 +119,16 @@ CREATE TABLE `badge` (
 --
 
 INSERT INTO `badge` (`idbadge`, `nom`, `url_icone`, `titre`, `description`) VALUES
-(1, 'Jouer', 'jouer.svg', '', 'partenaire de jeu idéal'),
-(2, 'Enfant(s)', 'enfants.svg', '', 'à l’aise avec les enfants'),
-(3, 'Extérieur', 'exterieur.svg', '', 'besoin d’un espace extérieur'),
-(4, 'hiberner', 'hiberner.svg', '', 'besoin d’hiberner'),
-(5, 'caresser', 'caresser.svg', '', 'aime les contact avec son maître'),
-(6, 'balade', 'balade.svg', '', 'les promenades et balades sont essentielles'),
-(7, 'autonomie', 'autonomie.svg', '', 'autonome mais pas ermite'),
-(8, 'calme', 'calme.svg', '', 'besoin d’un environnement calme'),
-(9, 'contact', 'contact.svg', '', 'besoin de contact avec d’autres animaux'),
-(10, 'securise', 'securise.svg', '', 'besoin d’un logement sécurisé');
+(1, 'Jouer', 'jouer.svg', '', ''),
+(2, 'Enfant(s)', 'enfants.svg', '', ''),
+(3, 'Extérieur', 'exterieur.svg', '', ''),
+(4, 'hiberner', 'hiberner.svg', '', ''),
+(5, 'caresser', 'caresser.svg', '', ''),
+(6, 'balade', 'balade.svg', '', ''),
+(7, 'autonomie', 'autonomie.svg', '', ''),
+(8, 'calme', 'calme.svg', '', ''),
+(9, 'contact', 'contact.svg', '', ''),
+(10, 'securise', 'securise.svg', '', '');
 
 -- --------------------------------------------------------
 
@@ -284,7 +284,7 @@ INSERT INTO `conversation` (`idconversation`, `titre`, `date_creation`, `date_de
 (36, NULL, '2021-11-04 22:23:27', '2022-03-14 09:31:56', NULL),
 (37, NULL, '2022-02-15 11:55:31', '2022-03-14 09:31:56', NULL),
 (38, NULL, '2022-02-15 15:53:11', '2022-03-14 09:31:56', NULL),
-(39, NULL, '2022-03-02 17:07:08', '2022-03-15 09:08:35', NULL),
+(39, NULL, '2022-03-02 17:07:08', '2022-03-15 00:07:20', NULL),
 (40, NULL, '2022-03-12 18:02:50', '2022-03-14 09:46:17', NULL),
 (41, NULL, '2022-03-12 18:20:19', '2022-03-14 09:46:25', NULL);
 
@@ -475,9 +475,7 @@ INSERT INTO `message` (`idmessage`, `texte_message`, `url_media`, `date_envoi_ms
 (264, NULL, '801647299088.jpg', '2022-03-15 00:04:48', 80, 39, NULL),
 (265, NULL, '801647299102.jpg', '2022-03-15 00:05:02', 80, 39, NULL),
 (266, NULL, '801647299138.jpg', '2022-03-15 00:05:38', 80, 39, NULL),
-(267, NULL, '801647299240.jpg', '2022-03-15 00:07:20', 80, 39, NULL),
-(268, '8w==', NULL, '2022-03-15 09:08:33', 83, 39, 0x6cd2cdf7fd87b5d0dc149a7daed1c929),
-(269, '4Q==', NULL, '2022-03-15 09:08:35', 83, 39, 0x3bad2151ce7932cbffc0e151a88f5377);
+(267, NULL, '801647299240.jpg', '2022-03-15 00:07:20', 80, 39, NULL);
 
 -- --------------------------------------------------------
 
@@ -540,8 +538,7 @@ INSERT INTO `post` (`idpost`, `media`, `description`, `date_publication`, `id_li
 (98, '', '', '2022-03-10 08:33:42', NULL, 24, 80),
 (99, '', 'deezdsdff', '2022-03-14 01:19:50', NULL, 28, 80),
 (100, '', '', '2022-03-14 01:23:45', NULL, 29, 80),
-(101, '801647217923.png', 'sdfdsfdsf', '2022-03-14 01:32:03', NULL, 23, 80),
-(102, '831647331395.png', '', '2022-03-15 09:03:15', NULL, 38, 83);
+(101, '801647217923.png', 'sdfdsfdsf', '2022-03-14 01:32:03', NULL, 23, 80);
 
 -- --------------------------------------------------------
 
@@ -599,8 +596,8 @@ INSERT INTO `profil_animal_de_compagnie` (`idprofil_animal_de_compagnie`, `nom`,
 (33, 'd', '801646666078.png', '', NULL, 80, 10),
 (34, 'hit', '801646666098.png', '', NULL, 80, 8),
 (35, 'test', '801646897767.png', '', NULL, 80, 10),
-(37, 'ye', '831647242522.png', 'Bienvenue sur mon profil !', NULL, 83, 9),
-(38, 'e', '831647331419.png', '', NULL, 83, 6);
+(36, 'z', '831647242510.png', '', NULL, 83, 4),
+(37, 'y', '831647242522.png', '', NULL, 83, 9);
 
 -- --------------------------------------------------------
 
@@ -826,11 +823,11 @@ INSERT INTO `utilisateur` (`idutilisateur`, `pseudo`, `mot_de_passe`, `google_su
 (65, 'admin', '$2y$10$zZTUX6mXg0b0rDwcYGHWjeHIrPzU/LZ64.uUiQajUsrrYaDS1rwZa', NULL, 'admin', 'admin', 'admin', 'déconnecté', '0001-01-01', NULL, NULL, '2021-12-22 19:05:11', '2022-03-14 20:16:34', '0eaba20085826476b6ef3b19ac3623019299bfa185a69b516853544cc90da28b2f25bb-65-1647285394', NULL, 1),
 (66, 'Zoey', '$2y$10$jhRHP68VNZ/1snIW9TL07uk78ZhiUxu5J2HUbRAtrLOt2F6BaJH9q', NULL, 'zoey', 'zoey', 'zoey', '', '0001-01-01', NULL, NULL, '2022-01-19 01:22:55', NULL, NULL, NULL, NULL),
 (67, 'zozo', '$2y$10$3sfZi36PiXoxIFEQAir8GeXixLSkCYVgrGx0/ZTQEidtpQ7IYzD3q', NULL, 'zozo', 'zozo', 'zozo', '', '0007-06-05', NULL, NULL, '2022-01-19 01:28:38', NULL, 'f66ffc919df28b85487b6923765cd4f22cb7032d0cba81b3369de70f56170a5f670124-67-1642554479', NULL, 1),
-(68, 'aa', '$argon2i$v=19$m=2048,t=4,p=3$N1REbTJlMDNady4ycUVTWQ$wn3ctMk8Nh8jhn/zrEYJ10n/Q+VrbsqOjiZEkdnUSrE', NULL, 'aa', 'aa', 'a@mail.fr', '681645876715.png', '4567-03-01', NULL, 'Bienvenue sur mon profil ! Test coucou', '2022-01-20 17:51:48', '2022-03-15 09:38:01', '341a427180a7463897dfa4fa699e4b2caf30554b12229c27515eb7d0045c49b7b4c7da-68-1647333481', NULL, NULL),
+(68, 'aa', '$argon2i$v=19$m=2048,t=4,p=3$N1REbTJlMDNady4ycUVTWQ$wn3ctMk8Nh8jhn/zrEYJ10n/Q+VrbsqOjiZEkdnUSrE', NULL, 'aa', 'aa', 'a@mail.fr', '681645876715.png', '4567-03-01', NULL, 'Bienvenue sur mon profil ! Test coucou', '2022-01-20 17:51:48', '2022-03-06 23:34:54', '4852e07300757d64d4618aec845a82ddcbad5ff3654538316530ce6cb75c7742ed5938-68-1646609694', NULL, NULL),
 (74, NULL, NULL, '105790575614120714764222222222222', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-15 00:39:29', NULL, NULL, NULL, NULL),
-(78, 'dd', '$2y$10$fi/HNVljsOwMqNM9WXc/GeswEVDd3iZOaafQbBVK1qzJCJBJqBcvC', NULL, NULL, NULL, 'exemple@zoey.fr', '', NULL, NULL, NULL, '2022-02-15 00:50:44', '2022-03-15 09:38:22', '6f6040e7f863ba58dad1885edef028ed7cdcb403d8eaa5f46a0cc042f1bdd748eb0484-78-1647333502', NULL, NULL),
-(80, 'Marin', NULL, '105790575614120714764', NULL, NULL, 'marin.bouanchaud@gmail.com', '801646897743.png', NULL, NULL, 'azeazaz😉<br>a', '2022-02-26 17:55:04', '2022-03-15 09:57:19', '146e03cceb1555a4107422b76efafba84e5e2533b7d32665e7ab28357481c166d6bf0d-80-1647334639', 2, NULL),
-(83, 'Zoey_5291', NULL, '105601581997729776049', NULL, NULL, 'app.zoey@gmail.com', 'gdl-1646239535.jpg', NULL, NULL, 'Bienvenue sur mon profil !', '2022-03-02 16:45:35', '2022-03-15 09:37:42', 'c775de74200341d835bacbdeb48229fa1deb130a6c7a86a825938016b5b189c957ac54-83-1647333462', 2, NULL),
+(78, 'dd', '$2y$10$fi/HNVljsOwMqNM9WXc/GeswEVDd3iZOaafQbBVK1qzJCJBJqBcvC', NULL, NULL, NULL, 'exemple@zoey.fr', '', NULL, NULL, NULL, '2022-02-15 00:50:44', NULL, 'aadfdaa6f2d54ee18ea0d7c7fe62c09a578bbc586d7f0d92dd523c2cfa61bd85fc6f84-78-1644884289', NULL, NULL),
+(80, 'Marin', NULL, '105790575614120714764', NULL, NULL, 'marin.bouanchaud@gmail.com', '801646897743.png', NULL, NULL, 'azeazaz😉<br>a', '2022-02-26 17:55:04', '2022-03-15 00:09:20', 'eeb2e4bef597a7e5345ece42d58775cf6d6068c5adf4f72e4a93f73d48ab79169b9090-80-1647299360', 1, NULL),
+(83, 'Zoey_5291', NULL, '105601581997729776049', NULL, NULL, 'app.zoey@gmail.com', 'gdl-1646239535.jpg', NULL, NULL, NULL, '2022-03-02 16:45:35', '2022-03-14 09:13:22', 'f86dd0a607fdeb67fa2afa4beadacbd859235bf381fd418f12ec128e17d0a81ecc8ba8-83-1647245602', NULL, NULL),
 (87, 'Marin_', NULL, '116179095823259577328', NULL, NULL, 'contact@marinb.com', '871646240192.png', NULL, NULL, 'Bienvenue sur mon profil ! Je peux le modifier facilement !', '2022-03-02 16:53:01', NULL, '0b6afeef19108b5e35f8d067c3cdae1165475ee3df494bda905ce37647dc899254b1af-87-1646239981', NULL, NULL),
 (88, 'Tt', '$2y$10$8mcr38U9o.bSuIBS.5RR3.c3kPnNw7kcx9wECVASmUbDyiKwOuQ1.', NULL, NULL, NULL, 'tt@mail.fr', 'defaultProfile.jpg', NULL, NULL, NULL, '2022-03-05 15:40:38', '2022-03-06 11:40:57', 'e06cf3dc92671f21c8d74dcd049dac88c50a74a3ba1756df098803cde2c770a14715f6-88-1646566857', NULL, NULL),
 (89, 'b', '$2y$10$4wT7QNEXALB8.ApOy8U8x.t3P4CtbBfBEShyWid/NdIrXnd9WfV8q', NULL, NULL, NULL, 'b@b.fr', 'defaultProfile.png', NULL, NULL, NULL, '2022-03-13 17:48:57', '2022-03-13 17:49:01', 'c1da7668add6f6d0e800652f5af515f44a6e119b82c361fad39a09ecb90d4855951929-89-1647190141', NULL, NULL),
@@ -1174,7 +1171,7 @@ ALTER TABLE `liste_amis`
 -- AUTO_INCREMENT pour la table `message`
 --
 ALTER TABLE `message`
-  MODIFY `idmessage` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=270;
+  MODIFY `idmessage` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=268;
 
 --
 -- AUTO_INCREMENT pour la table `newsletter`
@@ -1186,13 +1183,13 @@ ALTER TABLE `newsletter`
 -- AUTO_INCREMENT pour la table `post`
 --
 ALTER TABLE `post`
-  MODIFY `idpost` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `idpost` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT pour la table `profil_animal_de_compagnie`
 --
 ALTER TABLE `profil_animal_de_compagnie`
-  MODIFY `idprofil_animal_de_compagnie` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `idprofil_animal_de_compagnie` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT pour la table `refuge`
