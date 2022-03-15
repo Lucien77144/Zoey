@@ -1,14 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  console.log(document.querySelector(".menuAnimauxInner").offsetWidth)
-  if (getParameterByName('slider') != 'prevent') {
-    document.querySelector('.menuAnimauxInner').scrollTo(document.querySelector(".menuAnimauxInner").offsetWidth, 0)
-    $('.menuAnimauxInner').animate(
-      {
-        scrollLeft: 0,
-      },
-      750
-    )
+  if(document.querySelector('.menuAnimauxInner') != null){
+    if (getParameterByName('slider') != 'prevent') {
+      document.querySelector('.menuAnimauxInner').scrollTo(document.querySelector(".menuAnimauxInner").offsetWidth, 0)
+      $('.menuAnimauxInner').animate(
+        {
+          scrollLeft: 0,
+        },
+        750
+      )
+    }
   }
   
   function getParameterByName(name, url = window.location.href) {
