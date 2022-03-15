@@ -34,7 +34,7 @@ ob_start();
 
 
         <div class="linksContainer">
-            <input type="submit" id="submitConnect" value="se connecter">
+            <input type="submit" id="submitConnect" value="Se connecter">
             <a href="index.php?action=subscribe">Pas encore inscrit ?</a>
             <br>
             <a href="index.php?action=forgotmypw">Mot de passe oublié ?</a>

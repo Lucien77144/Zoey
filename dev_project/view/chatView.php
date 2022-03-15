@@ -11,23 +11,23 @@ ob_start();
         <img src="<?= BASE_URL ?>public/images/icons/arrowback.svg" alt="">
     </a>
     <?php
-        // var_dump($convUsers);
+    // var_dump($convUsers);
     ?>
-    <a href="index.php?action=account&id=<?=$convUsers[0]["user"]?>">
-    <h1>
-        <?php
-        if (isset($convUsers[0]['titre'])) {
-            echo htmlspecialchars($convUsers[0]['titre']);
-        } else {
-            for ($i = 0; $i < count($convUsers); $i++) {
-                echo htmlspecialchars($convUsers[$i]['pseudo']);
-                if ($i < count($convUsers) - 1) {
-                    echo ", ";
+    <a href="index.php?action=account&id=<?= $convUsers[0]["user"] ?>">
+        <h1>
+            <?php
+            if (isset($convUsers[0]['titre'])) {
+                echo htmlspecialchars($convUsers[0]['titre']);
+            } else {
+                for ($i = 0; $i < count($convUsers); $i++) {
+                    echo htmlspecialchars($convUsers[$i]['pseudo']);
+                    if ($i < count($convUsers) - 1) {
+                        echo ", ";
+                    }
                 }
             }
-        }
-        ?>
-    </h1>
+            ?>
+        </h1>
     </a>
 </div>
 
@@ -50,7 +50,7 @@ ob_start();
             while ($message = $chat->fetch()) {
                 $idMessage = $message['idmessage'];
                 $idConv = $message['idConv'];
-                setConvReadState($message['idConv'], $_SESSION['idUser'], 1);
+                setUserReadState($_SESSION['idUser'], 1);
 
                 if (!empty($message['msg'])) {
                     $msg = decrypt($message['msg'], $message['tag']);
@@ -83,7 +83,7 @@ ob_start();
                         <article>
                         <?php } ?>
 
-                
+
 
                         <div class="chatMsgContainer">
                             <?php
@@ -103,19 +103,19 @@ ob_start();
                             <?php
                             }
                             ?>
-                          
+
 
                             <p>
                                 <?php
                                 if (!empty($message['authorPic'])) {
                                 ?>
-                                <a class="username" href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>">
-                                    <img class="authorPic" src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['authorPic']) ?>" alt="">
-                                <?php
+                                    <a class="username" href="index.php?action=account&id=<?= htmlspecialchars($message['authorId']) ?>">
+                                        <img class="authorPic" src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($message['authorPic']) ?>" alt="">
+                                    <?php
                                 }
-                                ?>
-                                </a>
-                                <?= $time ?>.
+                                    ?>
+                                    </a>
+                                    <?= $time ?>.
                             </p>
                         </div>
                         </article>

@@ -202,7 +202,9 @@ ob_start();
         ?>
             <div class="contactContainer mail">
                 <img src="<?= BASE_URL . 'public/images/icons/popUp/mail.svg' ?>" class="icon" alt="">
-                <p>Mail : <?= htmlspecialchars($animal['refuge_mail']) ?></p>
+                <div class="popUpTextContainer">
+                    <p class="popUpText">Mail : <?= htmlspecialchars($animal['refuge_mail']) ?></p>
+                </div>
             </div>
             <a href="mailto:<?= htmlspecialchars($animal['refuge_mail']) ?>" class="btn">Contacter par mail</a>
 
@@ -210,7 +212,9 @@ ob_start();
 
         <div class="contactContainer web">
             <img src="<?= BASE_URL . 'public/images/icons/popUp/web.svg' ?>" class="icon" alt="">
-            <p>Site web : <?= htmlspecialchars($animal['refuge_lien']) ?></p>
+            <div class="popUpTextContainer">
+                <p class="popUpText">Site web : <?= htmlspecialchars($animal['refuge_lien']) ?></p>
+            </div>
         </div>
         <a href="<?= htmlspecialchars($animal['refuge_lien']) ?>" target="_blank" class="btn">Voir le site web</a>
 
@@ -218,7 +222,9 @@ ob_start();
         ?>
             <div class="contactContainer location">
                 <img src="<?= BASE_URL . 'public/images/icons/popUp/location.svg' ?>" class="icon" alt="">
-                <p>Adresse : <?= htmlspecialchars($animal['refuge_adresse']) ?></p>
+                <div class="popUpTextContainer">
+                    <p class="popUpText">Adresse : <?= htmlspecialchars($animal['refuge_adresse']) ?></p>
+                </div>
             </div>
 
         <?php } ?>

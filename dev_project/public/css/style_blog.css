@@ -50,7 +50,6 @@ article p{
 
 article a{
   grid-area: d;
-  font-weight: bold;
 } 
   
 article a:hover{

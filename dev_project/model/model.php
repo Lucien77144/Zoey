@@ -183,46 +183,41 @@ function isUserConnected($idUser)
     }
 }
 
-function getConvReadState($idconv, $idUser)
+function getUserReadState($idUser)
 {
     if (
-        (isset($idconv) && is_numeric($idconv) && intval($idconv) > 0)
-        && (isset($idUser) && is_numeric($idUser) && intval($idUser) > 0)
+        isset($idUser) && is_numeric($idUser) && intval($idUser) > 0
     ) {
-        $idconv = intval($idconv);
         $idUser = intval($idUser);
 
         require("PDO.php");
 
         $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
-        $sql = "SELECT readstate FROM conversation_has_utilisateur WHERE conversation_idconversation = :idconv and utilisateur_idutilisateur = :iduser";
+        $sql = "SELECT readstate FROM utilisateur WHERE idutilisateur = :iduser";
         $req = $db->prepare($sql);
 
         $req->execute(array(
-            ':idconv' => $idconv,
             ':iduser' => $idUser
         ));
 
         if ($req->rowCount() != 1)
-            throw new Exception("Nous n'avons pas trouvé cette conversation");
+            throw new Exception("Nous n'avons pas trouvé cet utilisateur");
 
         $pseudo = $req->fetch();
 
         return $pseudo["readstate"];
     } else {
-        throw new Exception("Aucune conversation renseignée");
+        throw new Exception("Aucun utilisateur renseignée");
     }
 }
 
-function setConvReadState($idconv, $idUser, $newreadstate)
+function setUserReadState($idUser, $newreadstate)
 {
     if (
-        (isset($idconv) && is_numeric($idconv) && intval($idconv) > 0)
-        && (isset($idUser) && is_numeric($idUser) && intval($idUser) > 0)
+        (isset($idUser) && is_numeric($idUser) && intval($idUser) > 0)
         && (isset($newreadstate) && is_numeric($newreadstate) && (intval($newreadstate) == 1 || intval($newreadstate) == 2))
     ) {
-        $idconv = intval($idconv);
         $idUser = intval($idUser);
         $newreadstate = intval($newreadstate);
 
@@ -230,11 +225,10 @@ function setConvReadState($idconv, $idUser, $newreadstate)
 
         $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
-        $sql = "UPDATE conversation_has_utilisateur SET readstate = :readstate WHERE conversation_idconversation = :idconv and utilisateur_idutilisateur = :iduser";
+        $sql = "UPDATE utilisateur SET readstate = :readstate WHERE idutilisateur = :iduser";
         $req = $db->prepare($sql);
 
         $req->execute(array(
-            ':idconv' => $idconv,
             ':iduser' => $idUser,
             ':readstate' => $newreadstate
         ));
@@ -272,10 +266,10 @@ function getFeed($num = 1)
 
     $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
-    if($num == 1){
+    if ($num == 1) {
         $limit = 10;
         $start = ($num - 1) * 10;
-    }else{
+    } else {
         $limit = 5;
         $start = 10 + (($num - 1) * 5);
     }
@@ -284,7 +278,7 @@ function getFeed($num = 1)
     FROM post 
     INNER JOIN profil_animal_de_compagnie ON post.profil_animal_de_compagnie_idprofil_animal_de_compagnie = profil_animal_de_compagnie.idprofil_animal_de_compagnie";
 
-    if(isset($_GET['id'])){
+    if (isset($_GET['id'])) {
 
         $id = htmlspecialchars($_GET['id']);
         $sql = "
@@ -293,13 +287,11 @@ function getFeed($num = 1)
         ($selected WHERE profil_animal_de_compagnie_idprofil_animal_de_compagnie =
         (SELECT profil_animal_de_compagnie_idprofil_animal_de_compagnie FROM post WHERE idpost = $id)
         ORDER BY date_publication DESC LIMIT $limit OFFSET $start)";
-
-    }else{
+    } else {
 
         $sql = "
         $selected
         ORDER BY date_publication DESC LIMIT $limit OFFSET $start";
-        
     }
 
     $req = $db->prepare($sql);
@@ -321,7 +313,8 @@ function getAnimalFeed($animalId)
         $sql = "SELECT idpost, post.description, media, profil_animal_de_compagnie_idprofil_animal_de_compagnie idanimal, profil_animal_de_compagnie.nom
         FROM post
         INNER JOIN profil_animal_de_compagnie ON post.profil_animal_de_compagnie_idprofil_animal_de_compagnie = profil_animal_de_compagnie.idprofil_animal_de_compagnie
-        WHERE profil_animal_de_compagnie_idprofil_animal_de_compagnie = ?;";
+        WHERE profil_animal_de_compagnie_idprofil_animal_de_compagnie = ?
+        order by idpost DESC";
         $req = $db->prepare($sql);
 
         $req->execute(array($animalId));
@@ -807,7 +800,8 @@ function getMessages()
         $sql = "SELECT idconversation, titre
         FROM `conversation`
         INNER JOIN conversation_has_utilisateur ON conversation_has_utilisateur.conversation_idconversation = conversation.idconversation
-        WHERE conversation_has_utilisateur.utilisateur_idutilisateur = ?;";
+        WHERE conversation_has_utilisateur.utilisateur_idutilisateur = ?
+        ORDER BY date_dernier_message DESC";
         $req = $db->prepare($sql);
 
         $req->execute(array($idUser));

@@ -1,6 +1,7 @@
 <?php
 // this API checks if the user is connected and that his token is still valid
 
+/*
 function verifyToken_checkFromDb()
 {
     require("PDO.php");
@@ -34,16 +35,18 @@ function verifyToken_checkFromDb()
         }
     }
 }
+*/
 
 function verifyToken()
 {
     try {
         if (
             isset($_SESSION['idUser'])
-            && isset($_SESSION['token'])
+            // && isset($_SESSION['token'])
         ) {
-            $verifyToken = verifyToken_checkFromDb();
-            return $verifyToken;
+            // $verifyToken = verifyToken_checkFromDb();
+            // return $verifyToken;
+            return true;
         } else {
             return false;
         }
