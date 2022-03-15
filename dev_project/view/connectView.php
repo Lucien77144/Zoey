@@ -23,25 +23,23 @@ ob_start();
 
         <div class="inputContainer">
             <div class="pseudoContainer">
-                <label for="pseudo">pseudonyme *</label>
-                <input type="text" name="pseudo" id="pseudo" placeholder="pseudo">
+                <label for="pseudo">Identifiant *</label>
+                <input type="text" name="pseudo" id="pseudo" placeholder="Votre identifiant...">
             </div>
             <div class="passwordContainer">
-                <label for="password">mot de passe *</label>
+                <label for="password">Mot de passe *</label>
                 <input type="password" name="password" id="password">
             </div>
         </div>
-
-
-        <div class="linksContainer">
-            <input type="submit" id="submitConnect" value="Se connecter">
-            <a href="index.php?action=subscribe">Pas encore inscrit ?</a>
-            <br>
-            <a href="index.php?action=forgotmypw">Mot de passe oublié ?</a>
-        </div>
-
+        <input type="submit" id="submitConnect" value="Se connecter">
         <p class="champs">*: Champs obligatoires</p>
     </form>
+
+    <div class="linksContainer">
+        <a href="index.php?action=subscribe">Pas encore inscrit ?</a>
+        <br>
+        <a href="index.php?action=forgotmypw">Mot de passe oublié ?</a>
+    </div>
 </div>
 
 <span id="ConfirmationMessage"></span>
