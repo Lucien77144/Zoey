@@ -33,8 +33,19 @@ function postDeleteAnimal()
 
     $photo = $req->fetch();
     if (!empty($photo["photo"])) {
-        unlink('../public/images/upload/' . $photo["photo"]);
+        unlink('./../public/images/upload/' . $photo["photo"]);
     }
+
+    // delete posts 
+    $sql = "DELETE FROM post WHERE profil_animal_de_compagnie_idprofil_animal_de_compagnie = :idanimal";
+    $req = $db->prepare($sql);
+
+    $req->execute(array(
+        ':idanimal' => $idanimal
+    ));
+
+    if (!$req)
+        throw new Exception("L'animal n'a pas pu être supprimé");
 
     // delete animal
     $sql = "DELETE FROM `profil_animal_de_compagnie` WHERE `idprofil_animal_de_compagnie` = :idanimal";
