@@ -38,7 +38,7 @@ h3 {
 
 .selectAnimal {
   display: flex;
-  width: 80vw;
+  max-width: 80vw;
   overflow-x: auto;
   padding: 10px 0;
 }
