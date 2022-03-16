@@ -147,40 +147,34 @@ function getMailFromId($idUser)
     }
 }
 
-function isUserConnected($idUser)
+function isUserConnected(int $idUser)
 {
-    if (isset($idUser) && is_numeric($idUser) && intval($idUser) > 0) {
-        $idUser = intval($idUser);
+    require("PDO.php");
 
-        require("PDO.php");
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
+    $sql = "SELECT date_derniere_connexion lastDate FROM `utilisateur` WHERE idutilisateur = ?";
+    $req = $db->prepare($sql);
 
-        $sql = "SELECT date_derniere_connexion lastDate FROM `utilisateur` WHERE idutilisateur = ?";
-        $req = $db->prepare($sql);
+    $req->execute(array($idUser));
 
-        $req->execute(array($idUser));
+    if ($req->rowCount() != 1)
+        throw new Exception("Nous n'avons pas trouvé cet utilisateur");
 
-        if ($req->rowCount() != 1)
-            throw new Exception("Nous n'avons pas trouvé cet utilisateur");
+    $user = $req->fetch();
 
-        $user = $req->fetch();
+    $currentTime = new DateTime();
 
-        $currentTime = new DateTime();
-
-        if (isset($user["lastDate"])) {
-            $lastConnexion = new DateTime($user["lastDate"]);
-            if (($lastConnexion->getTimestamp() - 3600 + 600) > $currentTime->getTimestamp()) { // 10 min
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
+    // if (isset($user["lastDate"])) {
+    $lastConnexion = new DateTime($user["lastDate"]);
+    if (($lastConnexion->getTimestamp() - 3600 + 600) > $currentTime->getTimestamp()) { // 10 min
+        return true;
     } else {
-        throw new Exception("Aucun pseudo renseigné");
+        return false;
     }
+    // } else {
+    //     return false;
+    // }
 }
 
 function getUserReadState($idUser)
@@ -430,6 +424,165 @@ function getFeedAdoptionByMatch($userId)
                 $score += 40;
                 break;
             }
+        }
+
+        $matchList[$AA['idaa']] = $score;
+    }
+
+    arsort($matchList);
+    $filter = 1;
+
+    if (isset($_GET['filter']) && is_numeric($_GET['filter'])) {
+        $filter = safeEntry($_GET['filter']);
+        $sql = "SELECT idanimal_a_adopter idaa, aa.nom, aa.sexe, aa.photo, aa.description, aa.date_anniversaire anniversaire,
+        types_animaux.nom type_nom
+        FROM animal_a_adopter aa
+        INNER JOIN types_animaux ON types_animaux.idtypes_animaux = aa.idtype
+        WHERE idanimal_a_adopter = :idMatch AND types_animaux.idtypes_animaux = :idFilter";
+    } else {
+        $sql = "SELECT idanimal_a_adopter idaa, aa.nom, aa.sexe, aa.photo, aa.description, aa.date_anniversaire anniversaire,
+        types_animaux.nom type_nom
+        FROM animal_a_adopter aa
+        INNER JOIN types_animaux ON types_animaux.idtypes_animaux = aa.idtype
+        WHERE idanimal_a_adopter = :idMatch AND :idFilter=:idFilter";
+    }
+
+    $req = $db->prepare($sql);
+
+    $listeAnimaux = [];
+    foreach ($matchList as $id => $score) {
+        $req->execute(array(
+            ':idMatch' => $id,
+            ':idFilter' => $filter
+        ));
+
+        if (!$req->rowCount() <= 0) {
+            $animal = $req->fetch();
+            array_push($listeAnimaux, $animal);
+        }
+    }
+    return $listeAnimaux;
+}
+
+function getQuizBadgesFromCookie($quiz)
+{
+    $listeBadges = array();
+    if ($quiz['space'] == 1) {
+        // $space = 1;
+
+        array_push($listeBadges, 1);
+    }
+    if ($quiz['secure'] == 1) {
+        // $security = 1;
+
+        array_push($listeBadges, 2);
+    }
+    if ($quiz['children'] == 1) {
+        // $children = 1;
+
+        array_push($listeBadges, 3);
+    }
+    if ($quiz['travel'] == 1) {
+        // $autonomy = 1;
+
+        array_push($listeBadges, 4);
+    } else if ($quiz['personality'] == 3) {
+        // $autonomy = 1;
+
+        array_push($listeBadges, 4);
+    }
+    if ($quiz['personality'] == 1) {
+        // $play = 1;
+
+        array_push($listeBadges, 5);
+    }
+    if ($quiz['personality'] == 2) {
+        // $caress = 1;
+
+        array_push($listeBadges, 6);
+    }
+    if ($quiz['personality'] == 4) {
+        // $hibernate = 1;
+
+        array_push($listeBadges, 7);
+    }
+    if ($quiz['animals'] == 1) {
+        // $others = 1;
+
+        array_push($listeBadges, 8);
+    }
+    if ($quiz['walk'] == 1) {
+        // $walk = 1;
+
+        array_push($listeBadges, 9);
+    }
+    return $listeBadges;
+}
+
+function getFeedAdoptionByMatchWithCookie($json_quiz)
+{
+    $quiz = json_decode($json_quiz, true);
+    if (
+        isset($quiz['space'])
+        && isset($quiz['secure'])
+        && isset($quiz['children'])
+        && isset($quiz['travel'])
+        && isset($quiz['personality'])
+        && isset($quiz['animals'])
+        && isset($quiz['walk'])
+        && isset($quiz['animal1'])
+    ) {
+        // execute
+    } else {
+        return 'nocookie';
+    }
+
+    require("PDO.php");
+
+    $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
+
+    $sql = "SELECT idanimal_a_adopter idaa, idtype FROM `animal_a_adopter`";
+    $req = $db->prepare($sql);
+    $req->execute();
+    $listeAA = $req->fetchAll();
+
+    // $sql = "SELECT id_badge FROM `utilisateur_has_badges` WHERE id_user = ?";
+    // $req = $db->prepare($sql);
+    // $req->execute(array($userId));
+    // $fetchListeBadgesUser = $req->fetchAll(PDO::FETCH_NUM);
+
+    $listeBadgesUser = getQuizBadgesFromCookie($quiz);
+
+    // $listeBadgesUser = [];
+    // foreach ($fetchListeBadgesUser as $badge) {
+    //     array_push($listeBadgesUser, $badge[0]);
+    // }
+
+    // $sql = "SELECT id_favoriteAnimal idfav FROM `utilisateur_has_favorite_animals` WHERE id_user = ?";
+    // $req = $db->prepare($sql);
+    // $req->execute(array($userId));
+    // $listeFavUser = $req->fetchAll(PDO::FETCH_ASSOC);
+
+    $listeFavUser = array();
+    array_push($listeFavUser, $quiz['animal1']);
+
+    $sql = "SELECT badge_idbadge idbadge FROM `animal_a_adopter_has_badge` WHERE animal_a_adopter_idanimal_a_adopter = ?";
+    $badgeAA = $db->prepare($sql);
+
+    $matchList = [];
+    foreach ($listeAA as $AA) {
+        $score = 0;
+        $badgeAA->execute(array($AA['idaa']));
+        $listeBadgesAA = $badgeAA->fetchAll();
+
+        foreach ($listeBadgesAA as $badge) {
+            if (in_array($badge['idbadge'], $listeBadgesUser)) {
+                $score += 20;
+            }
+        }
+
+        if ($AA['idtype'] == $listeFavUser[0]) {
+            $score += 40;
         }
 
         $matchList[$AA['idaa']] = $score;

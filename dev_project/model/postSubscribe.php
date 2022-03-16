@@ -13,7 +13,7 @@ function sendMail($pseudo, $to)
     <body>
         <h2>Zoey</h2>
         <h3>Bienvenue sur Zoey !</h3>
-        <p><?= $pseudo ?>, vous êtes bien inscrit sur Zoey. Retrouvez <a href="zoey-app.fr/index.php?action=account">votre profil sur Zoey</a> 😻.</p>
+        <p><?= $pseudo ?>, vous êtes bien inscrit sur Zoey. Retrouvez <a href="https://zoey-app.fr/index.php?action=account">votre profil sur Zoey</a> 😻.</p>
         <p>Pour commencer, ajoutez sur votre profil vos animaux de compagnie : chiens, chats, lapins, poissons, tortues ou autres reptiles... Zoey est le premier réseau social dédié à tous vos fidèles compagnons ! Vous pouvez ensuite poster des images de chacun de vos animaux pour partager leur vie et votre expérience avec la communauté.</p>
         <p>En vous inscrivant, vous acceptez et vous vous engagez à respecter les <a href="zoey-app.fr/index.php?action=legal">conditions d'utilisation de Zoey</a>.</p>
         <p>Pour rappel, cela signifie notamment que <strong>vous avez plus de 18 ans</strong> (ou que vous utilisez la plateforme sous la supervision d'un responsable légal), et que vous vous engagez à <strong>ne poster que du contenu approprié</strong> sur la plateforme.</p>

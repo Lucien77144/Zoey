@@ -139,7 +139,7 @@ try {
 
             setcookie("quizz", "", time() - 3600, "/"); // unset the cookie
         } else {
-            setcookie("quizz", json_encode($_POST), time() + 86400, "/");
+            setcookie("quizz", json_encode($_POST), time() + 31556805, "/");
             echo "connect";
         }
     } else {

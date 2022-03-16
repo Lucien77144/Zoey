@@ -15,7 +15,7 @@ function sendMail($to, $pseudo, $friend, $friendId)
         <h2>Zoey</h2>
         <h3>Acceptez <?= $friend ?> en Ami !</h3>
         <p>Bonjour <?= $pseudo ?>, <br>
-            <?= $friend ?> vous demande en Ami sur Zoey, allez <a href="zoey-app.fr/index.php?action=account&id=<?= $friendId ?>">sur son profil</a> pour l'accepter.
+            <?= $friend ?> vous demande en Ami sur Zoey, allez <a href="https://zoey-app.fr/index.php?action=account&id=<?= $friendId ?>">sur son profil</a> pour l'accepter.
         </p>
         <p>Pour nous contacter ou si vous avez besoin d'aide sur Zoey, vous pouvez écrire à <a href="mailto:contact@zoey-app.fr">contact@zoey-app.fr</a> ou répondre directement à ce mail.</p>
         <p>Retrouvez-nous également sur vos réseaux sociaux préférés : <a href="https://www.instagram.com/zoey.app/">Instagram</a>, <a href="https://www.tiktok.com/@zoey.app">Tiktok</a>, <a href="https://www.facebook.com/appli.zoey">Facebook</a> et <a href="https://www.linkedin.com/company/zoeyapp">LinkedIn</a>.</p>
