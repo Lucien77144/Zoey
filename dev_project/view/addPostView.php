@@ -29,7 +29,13 @@ if (!$accountAnimals) {
                     <div class="cardSelector<?= $animal['idanimal'] == $checked ? " cardActive" : "" ?>">
                         <input type="radio" id="idAnimal<?= $animalIdCounter ?>" name="idAnimal" value="<?= $animalIdCounter ?>" <?= $animal['idanimal'] == $checked ? "checked" : "" ?>>
                         <label for="idAnimal<?= $animalIdCounter ?>">
-                            <h3><?= htmlspecialchars($animal['nom']) ?></h3>
+                            <h3> <?php 
+                            if(strlen(htmlspecialchars($animal['nom'])) > 28){
+                                echo substr(htmlspecialchars($animal['nom']), 0, 24)." ...";
+                            }else{
+                                echo htmlspecialchars($animal['nom']);
+                            }
+                            ?> </h3>
                             <img src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($animal['url_photo']) ?>" alt="">
                         </label>
                     </div>
