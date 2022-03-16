@@ -43,6 +43,9 @@ h3 {
 
 .selectAnimal {
   display: flex;
+  width: fit-content;
+  width: -moz-fit-content;
+  margin: auto;
   max-width: 80vw;
   overflow-x: auto;
   padding: 10px 0;

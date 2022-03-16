@@ -31,19 +31,13 @@
         <h1><a href="index.php">ZOEY</a></h1>
         <!-- <div class="navbar"><a href="index.php?action=messages"><img src="<?= BASE_URL ?>public/images/icons/msg.svg" alt=""></a><a href="index.php?action=addpost"><img src="<?= BASE_URL ?>public/images/icons/upload.svg" alt=""></a></div> -->
         <div class="navbar">
-            <a href="index.php?action=messages">
+            <a id='iconMessage' href="index.php?action=messages">
                 <?php
                 if (isset($_SESSION['readstate']) && $_SESSION['readstate'] == 2) {
                 ?>
-                    <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M30.2157 0.186067C29.5335 -0.0581157 28.7914 -0.0581167 28.1093 0.186067L2.70128 9.29088C1.02686 9.88998 0.140961 11.7742 0.722446 13.4993C1.01875 14.3783 1.66078 15.088 2.49101 15.4542L12.9105 20.0541L17.3759 30.7901C18.0796 32.4708 19.9726 33.2455 21.6039 32.5204C21.9727 32.3565 22.3085 32.1227 22.5939 31.8314C22.9376 31.4773 23.1993 31.0478 23.3594 30.575L32.1941 4.39478C32.7758 2.66967 31.8901 0.785357 30.2157 0.186067ZM21.3367 29.8487C21.1426 30.4236 20.533 30.7277 19.9749 30.5279C19.6906 30.4261 19.461 30.2055 19.3426 29.9203L14.9937 19.4665L30.0934 3.9092L21.3367 29.8487ZM13.4808 17.9077L3.33445 13.427C2.9249 13.2536 2.66618 12.8327 2.68918 12.3772C2.69494 11.9192 2.9834 11.516 3.4063 11.3749L28.5805 2.35045L13.4808 17.9077Z" fill="#FFA319" />
-                        <circle cx="8.5" cy="7.5" r="7.5" fill="url(#paint0_linear_2037_2266)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_2037_2266" x1="16" y1="-1" x2="7" y2="8" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#F3811C" />
-                                <stop offset="0.989583" stop-color="#F2923E" />
-                            </linearGradient>
-                        </defs>
+                    <svg width="33" height="34" viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M28.1091 1.18607C28.7912 0.941883 29.5333 0.941884 30.2155 1.18607C31.8899 1.78536 32.7756 3.66967 32.1939 5.39478L23.3592 31.575C23.1991 32.0478 22.9374 32.4773 22.5937 32.8314C22.3083 33.1227 21.9725 33.3565 21.6037 33.5204C19.9724 34.2455 18.0794 33.4708 17.3757 31.7901L12.9103 21.0541L10.5 19.99C11.3273 19.4993 11.7727 19.1875 12.5 18.4747L13.4806 18.9077L28.5803 3.35045L13.5 9C13.1158 8.24816 12.8434 7.81895 12.195 7.13246L28.1091 1.18607ZM19.9747 31.5279C20.5328 31.7277 21.1424 31.4236 21.3365 30.8487L30.0932 4.9092L14.9935 20.4665L19.3424 30.9203C19.4608 31.2055 19.6904 31.4261 19.9747 31.5279Z" fill="#FFA319"/>
+                        <circle cx="7" cy="13" r="6" fill="#FFC800"/>
                     </svg>
                 <?php
                 } else {
@@ -163,6 +157,7 @@
     <?php if (isset($scriptsBlock)) echo $scriptsBlock ?>
 
     <script src="script.js"></script>
+    <script src="public/js/notifications.js"></script>
 </body>
 
 </html>

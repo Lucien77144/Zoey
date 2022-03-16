@@ -147,6 +147,11 @@ article {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.25s ease-in-out;
+}
+
+.sendContainer:hover, .currentPicture:hover{
+  box-shadow: 0px 0px 5px #ffa319aa;
 }
 
 #submitAddMessage{

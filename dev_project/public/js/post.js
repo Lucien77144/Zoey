@@ -646,30 +646,30 @@ $(document).ready(function () {
       'text'
     )
   }
-  function postDeleteAnimal(idanimal) {
-    console.log('postDeleteAnimal')
+  // function postDeleteAnimal(idanimal) {
+  //   console.log('postDeleteAnimal')
 
-    $.post(
-      'model/postDeleteAnimal.php',
-      {
-        idanimal: idanimal,
-      },
+  //   $.post(
+  //     'model/postDeleteAnimal.php',
+  //     {
+  //       idanimal: idanimal,
+  //     },
 
-      function (ReturnedMessage) {
-        console.log('function Received')
-        console.log(ReturnedMessage)
+  //     function (ReturnedMessage) {
+  //       console.log('function Received')
+  //       console.log(ReturnedMessage)
 
-        if (ReturnedMessage == 'valid') {
-          $('#confirmationMessage').html('')
-          $('#confirmationMessage').text(`L'animal a bien été supprimé.`)
-        } else {
-          $('#confirmationMessage').html('')
-          $('#confirmationMessage').text(`L'animal n'a pas pu être supprimé.`)
-        }
-      },
-      'text'
-    )
-  }
+  //       if (ReturnedMessage == 'valid') {
+  //         $('#confirmationMessage').html('')
+  //         $('#confirmationMessage').text(`L'animal a bien été supprimé.`)
+  //       } else {
+  //         $('#confirmationMessage').html('')
+  //         $('#confirmationMessage').text(`L'animal n'a pas pu être supprimé.`)
+  //       }
+  //     },
+  //     'text'
+  //   )
+  // }
 
   function postDeleteRefuge() {
     console.log('postDeleteRefuge')
@@ -917,7 +917,13 @@ $(document).ready(function () {
           return
         }
 
-        postAddMessage(postedMedia)
+        postAddMessage(postedMedia);
+        
+        document.querySelector("#submitAddMessage").style.animation="flySend 0.75s ease-in-out";
+        setTimeout(() => {
+          document.querySelector("#submitAddMessage").style.animation="";
+        }, 750);
+
         $('main').animate(
           { scrollTop: document.querySelector('main').scrollHeight },
           750

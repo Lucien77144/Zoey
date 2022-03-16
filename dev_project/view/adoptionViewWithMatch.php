@@ -23,7 +23,13 @@ ob_start();
 
 <main>
     <?php
+    $flag = 0;
     foreach ($feedAdoption as $animal) {
+        $lazy = "";
+        $flag++;
+        if($flag > 20){
+            $lazy = 'loading="lazy"';
+        }
         $adoptionAnimalBadges = getAdoptionAnimalBadges($animal['idaa']);
         // convertir anniversaire en âge
         $date1 = new DateTime(date('Y-m-d', time()));
@@ -34,7 +40,7 @@ ob_start();
 
         <article class="card">
             <a class="imgWrap" href="index.php?action=adoption&id=<?= htmlspecialchars($animal['idaa']) ?>">
-                <div class="img" style="background-image: url('<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($animal['photo']) ?>');"></div>
+                <img <?= $lazy ?> class="img" src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($animal['photo']) ?>">
             </a>
             <div class="desc">
                 <h2 class="title2"><?= htmlspecialchars($animal['nom']) ?></h2>
