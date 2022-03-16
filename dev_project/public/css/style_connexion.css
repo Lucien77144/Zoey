@@ -69,7 +69,9 @@ body{
 #submitConnect{
   margin: 10px auto;
 }
-
+.forgotMDP {
+  text-align: center;
+}
 
 body{
   min-height: 100vh;
