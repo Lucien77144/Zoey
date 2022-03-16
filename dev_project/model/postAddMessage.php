@@ -135,17 +135,17 @@ function postAddMessage()
     // 
 
     foreach ($usersInConv as $id) {
-        if ($id == $idUser) {
-            return "valid";
+        if ($id != $idUser) {
+            setUserReadState($id, 2);
         }
-        if (
-            getUserReadState($id) != 2
-        ) { // if is read OR connected
-            setUserReadState($id, 2); //set unread and send mail
-            // $pseudo = getPseudoFromId($id);
-            // $mail = getMailFromId($id);
-            // sendMail($pseudo, $mail);
-        }
+        // if (
+        //     getUserReadState($id) != 2
+        // ) { // if is read OR connected
+        //     setUserReadState($id, 2); //set unread and send mail
+        //     // $pseudo = getPseudoFromId($id);
+        //     // $mail = getMailFromId($id);
+        //     // sendMail($pseudo, $mail);
+        // }
     }
 
     return "valid";
