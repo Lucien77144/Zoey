@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
 
         function (ReturnedMessage) {
-          addContent(ReturnedMessage)
+          addContent(ReturnedMessage);
         },
         'text'
       )
@@ -33,23 +33,26 @@ document.addEventListener('DOMContentLoaded', function () {
       if (scrollPos != element.scrollTop) {
         addContent(content)
       } else {
-        document.querySelector('main').innerHTML += content
-        document.querySelector('main').classList.add('hiddenAfter')
+        document.querySelector('main').innerHTML += content;
 
         document.querySelectorAll('.descMore, .endDesc').forEach((e) => {
           e.parentNode.removeEventListener('click', moreDesc, false)
           e.parentNode.addEventListener('click', moreDesc, false)
-        })
+        });
 
         document.querySelectorAll('#popUpLauncherRm').forEach((e) => {
           e.removeEventListener('click', initRemove, false)
           e.addEventListener('click', initRemove, false)
-        })
+        });
 
         document.querySelectorAll('#popUpLauncherReport').forEach((e) => {
           e.removeEventListener('click', initReport, false)
           e.addEventListener('click', initReport, false)
-        })
+        });
+
+        if(content.includes("ended") || document.querySelector("article[data-end]") != null){
+          document.querySelector('main').classList.add('hiddenAfter');
+        }
       }
     }, 150)
   }

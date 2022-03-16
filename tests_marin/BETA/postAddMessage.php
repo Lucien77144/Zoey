@@ -15,7 +15,7 @@ function sendMail($pseudo, $to)
     <body>
         <h2>Zoey</h2>
         <h3><?= $pseudo ?>, vous avez des messages non lus.</h3>
-        <p><a href="zoey-app.fr/index.php?action=messages">Voir votre messagerie Zoey</a></p>
+        <p><a href="https://zoey-app.fr/index.php?action=messages">Voir votre messagerie Zoey</a></p>
         <p>Retrouvez-nous également sur vos réseaux sociaux préférés : <a href="https://www.instagram.com/zoey.app/">Instagram</a>, <a href="https://www.tiktok.com/@zoey.app">Tiktok</a>, <a href="https://www.facebook.com/appli.zoey">Facebook</a> et <a href="https://www.linkedin.com/company/zoeyapp">LinkedIn</a>.</p>
         <p>Pour nous contacter ou si vous avez besoin d'aide sur Zoey, vous pouvez écrire à <a href="mailto:contact@zoey-app.fr">contact@zoey-app.fr</a> ou répondre directement à ce mail.</p>
         <p>À bientôt sur Zoey !</p>

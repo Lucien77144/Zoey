@@ -117,8 +117,18 @@ function printAdoption()
             require(BASE_URL . "view/adoptionView.php");
         }
     } else {
-        $feedAdoption = getFeedAdoption();
-        require(BASE_URL . "view/adoptionView.php");
+        if (isset($_COOKIE["quizz"])) {
+            $feedAdoption = getFeedAdoptionByMatchWithCookie($_COOKIE["quizz"]);
+            if ($feedAdoption == 'nocookie') {
+                $feedAdoption = getFeedAdoption();
+                require(BASE_URL . "view/adoptionView.php");
+            } else {
+                require(BASE_URL . "view/adoptionViewWithMatch.php");
+            }
+        } else {
+            $feedAdoption = getFeedAdoption();
+            require(BASE_URL . "view/adoptionView.php");
+        }
     }
 }
 

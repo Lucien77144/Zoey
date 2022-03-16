@@ -8,7 +8,8 @@ ob_start();
     if (isset($_GET["src"]) && $_GET["src"] = "quizz") {
     ?>
         <h1>Connectez vous !</h1>
-        <h2>Pour sauvegarder vos résultats du quizz et découvrir votre compagnon idéal.</h2>
+        <h2>Pour sauvegarder vos résultats du quiz et accéder à l'ensemble des services de Zoey.</h2>
+        <p>Pour voir les résultats du quiz sans créer de compte, <a href="index.php?action=adoption">c'est par ici</a>.</p>
     <?php
     }
     ?>

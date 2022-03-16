@@ -66,7 +66,7 @@ function generateToken($id_demandeur)
 {
     $token = bin2hex(random_bytes(5));
     $token_hash = password_hash($token, PASSWORD_DEFAULT);
-    $link = "https://zoey-app.fr/services/forgotMyPassword.php?id=$id_demandeur&token=$token";
+    $link = "https://zoey-app.fr/index.php?action=passwordrecovery&id=$id_demandeur&token=$token";
 
     return ['link' => $link, 'hash' => $token_hash];
 }
