@@ -913,6 +913,7 @@ $(document).ready(function () {
 
         let postedMedia = postPhoto()
         if (postedMedia != null && postedMedia != null && !postedMedia) {
+          hideLoader()
           return
         }
 
@@ -921,6 +922,7 @@ $(document).ready(function () {
           { scrollTop: document.querySelector('main').scrollHeight },
           750
         )
+        hideLoader()
       })
     }
 

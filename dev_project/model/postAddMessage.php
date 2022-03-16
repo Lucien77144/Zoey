@@ -136,7 +136,7 @@ function postAddMessage()
 
     foreach ($usersInConv as $id) {
         if ($id == $idUser) {
-            return;
+            return "valid";
         }
         if (
             getUserReadState($id) == 1 && !isUserConnected($id)
