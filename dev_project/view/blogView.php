@@ -10,10 +10,10 @@ ob_start();
     $flag = 1;
     while ($article = $blog->fetch()) {
         $lazy = "";
+        $flag++;
         if($flag > 6){
             $lazy = 'loading="lazy"';
         }
-        $flag++;
     ?>
         <article class="contentBlog">
             <h1><?= htmlspecialchars($article['titre']) ?></h1>
