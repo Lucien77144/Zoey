@@ -37,7 +37,7 @@ ob_start();
     while ($animal = $feedAdoption->fetch()) {
         $lazy = "";
         $flag++;
-        if($flag > 6){
+        if($flag > 20){
             $lazy = 'loading="lazy"';
         }
         $adoptionAnimalBadges = getAdoptionAnimalBadges($animal['idaa']);

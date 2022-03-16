@@ -149,7 +149,7 @@ ob_start();
             <textarea placeholder="Envoyer un message..." id="msg" name="description" type="text" rows="5" cols="33"></textarea>
             <!-- <input type="submit" id="submitAddMessage" value="Envoyer"> -->
             <div class="sendContainer">
-                <input type="image" id="submitAddMessage" alt="Login" src="/dev_project/public/images/icons/msg.svg">
+                <input type="image" id="submitAddMessage" alt="Login" src="<?= BASE_URL ?>/public/images/icons/msg.svg">
             </div>
         </form>
         <span id="ConfirmationMessage"></span>
