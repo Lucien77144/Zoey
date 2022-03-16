@@ -139,7 +139,7 @@ function postAddMessage()
             return "valid";
         }
         if (
-            getUserReadState($id) == 1 && !isUserConnected($id)
+            getUserReadState($id) != 2
         ) { // if is read OR connected
             setUserReadState($id, 2); //set unread and send mail
             // $pseudo = getPseudoFromId($id);
