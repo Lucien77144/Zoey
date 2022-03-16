@@ -4,7 +4,7 @@ $pageTitle = "Mot de passe oublié ?";
 ob_start();
 ?>
 
-<h1>Mot de passe oublié</h1>
+<h1 class="forgotMDP">Mot de passe oublié</h1>
 
 <form class="connectForm">
 

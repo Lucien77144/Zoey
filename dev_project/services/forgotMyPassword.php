@@ -25,9 +25,12 @@ function sendNewAndPrintOk(int $id, string $pass)
             <h2>Vous pouvez l'utiliser pour vous reconnecter avec votre pseudo.</h2>
 
             <a class="btn" href="index.php?action=connect">Se connecter</a> <br><br>
-            <p>En cas de problème :</p>
-            <a class="btn" href="mailto:contact@zoey-app.fr">Nous contacter par mail</a>
+
         </section>
+        <div class="helpContainer">
+            <p>En cas de problème :</p>
+            <a class="btn" href="mailto:contact@zoey-app.fr">Nous contacter</a>
+        </div>
     </main>
 <?php
 }
@@ -35,12 +38,17 @@ function sendNewAndPrintOk(int $id, string $pass)
 function printNewpass()
 {
 ?>
-    <h1>Enregistrer un nouveau mot de passe</h1>
-    <form method="POST">
-        <label for="password">Nouveau mot de passe :</label>
-        <input type="password" name="newpassword" id="password" placeholder="mot de passe">
-        <input class="submitButton" type="submit" value="Enregistrer" id="recoveryPassword">
-    </form>
+    <div class="registerNewPasswordContainer">
+        <div class="registerNewPassword">
+            <h1>Enregistrer un nouveau mot de passe</h1>
+            <form method="POST">
+                <label for="password">Nouveau mot de passe :</label>
+                <input type="password" name="newpassword" id="password" placeholder="mot de passe">
+                <input class="submitButton" type="submit" value="Enregistrer" id="recoveryPassword">
+            </form>
+        </div>
+    </div>
+
 <?php
 }
 
