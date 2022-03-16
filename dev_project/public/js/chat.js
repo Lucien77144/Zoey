@@ -9,7 +9,7 @@ $(document).ready(function () {
     { scrollTop: document.querySelector('main').scrollHeight },
     750
   )
-  
+
   function getParameterByName(name, url = window.location.href) {
     name = name.replace(/[\[\]]/g, '\\$&')
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -19,18 +19,20 @@ $(document).ready(function () {
     return decodeURIComponent(results[2].replace(/\+/g, ' '))
   }
 
-  document.querySelector('.moreMsg').addEventListener('click', function () {
-    this.animate(
-      [
-        { transform: 'scale(1)' },
-        { transform: 'scale(0.9)' },
-        { transform: 'scale(1)' },
-      ],
-      {
-        duration: 250,
-      }
-    )
-  })
+  if (document.querySelector('.moreMsg')) {
+    document.querySelector('.moreMsg').addEventListener('click', function () {
+      this.animate(
+        [
+          { transform: 'scale(1)' },
+          { transform: 'scale(0.9)' },
+          { transform: 'scale(1)' },
+        ],
+        {
+          duration: 250,
+        }
+      )
+    })
+  }
 
   document.querySelectorAll('.imgChat').forEach((e) => {
     e.removeEventListener('click', updatePopup, false)
