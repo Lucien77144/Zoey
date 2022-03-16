@@ -23,7 +23,6 @@ ob_start();
                     </svg>
                 <?php } ?>
             </div>
-            <span id="pseudoConfirmationMessage"></span>
         </div>
         <div class="desc">
             <p><?= isset($account['description']) ? htmlspecialchars($account['description']) : 'Bienvenue sur mon profil !' ?></p>
@@ -49,7 +48,6 @@ ob_start();
                 } else if (!isFriend($account['iduser']) && $account['iduser'] != $_SESSION['idUser']) {
                 ?>
                     <button class="controlBtn" id="addFriend" value="<?= htmlspecialchars($account['iduser']) ?>">Ajouter en ami</button>
-                    <span id="confirmationMessage"></span>
                 <?php
                 } else if (isFriend($account['iduser']) == 11) { // 11 : en attente, utilisateur demandeur
                 ?>
@@ -58,7 +56,6 @@ ob_start();
                 } else if (isFriend($account['iduser']) == 12) { // 12 : en attente, utilisateur receveur
                 ?>
                     <button class="controlBtn" id="acceptFriend" value="<?= htmlspecialchars($account['iduser']) ?>">Accepter la demande d'ami</button>
-                    <span id="confirmationMessage"></span>
                 <?php
                 } else if (isset($account['idUser'])) {
                     throw new Exception("Nous n'avons pas trouvé cet utilisateur");

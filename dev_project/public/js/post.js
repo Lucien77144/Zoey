@@ -1102,14 +1102,14 @@ $(document).ready(function () {
     postDeleteAA()
   })
 
-  $('#deleteProfilAnimal').click(function (e) {
-    e.preventDefault()
+  // $('#deleteProfilAnimal').click(function (e) {
+  //   e.preventDefault()
 
-    console.log('click')
+  //   console.log('click')
 
-    let idanimal = $('li.active').attr('data-animalid')
-    postDeleteAnimal(idanimal)
-  })
+  //   let idanimal = $('li.active').attr('data-animalid')
+  //   postDeleteAnimal(idanimal)
+  // });
 
   $('#submitForgotMail').click(function (e) {
     e.preventDefault()
