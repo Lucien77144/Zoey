@@ -3,17 +3,19 @@ $pageTitle = 'Feed';
 $printNewsletter = false;
 ob_start();
 
-$hiddenAfter = "";
-if ($feed->rowCount() < 5) {
-    $hiddenAfter = "class='hiddenAfter'";
+$res = $feed->fetchAll(PDO::FETCH_ASSOC);
+
+$low = "";
+if(count($res) < 10){
+    $low = "class='hiddenAfter'";
 }
 ?>
-
-<main <?= $hiddenAfter ?>>
+<main <?= $low ?>>
 
     <?php
     $flag = 0;
-    while ($post = $feed->fetch()) {
+    foreach ($res as $post) {
+
         $desc = htmlspecialchars($post['description']);
         $descClass = "";
         $descEnd = "";
