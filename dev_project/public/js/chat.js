@@ -53,6 +53,10 @@ $(document).ready(function () {
           console.log('function Received : ' + ReturnedMessage)
           hideLoader()
           if (ReturnedMessage) {
+            document.querySelector("#submitAddMessage").style.animation="flySend 0.75s ease-in-out";
+            setTimeout(() => {
+              document.querySelector("#submitAddMessage").style.animation="";
+            }, 750);
             console.log('new messages found !!')
             $('#noMessagesYet').remove()
             $('#chatContainer').append(ReturnedMessage)

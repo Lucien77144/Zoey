@@ -7,6 +7,7 @@ header,
 body {
   padding: 0;
   height: 100vh;
+  overflow-x: hidden;
 }
 
 main {
@@ -135,6 +136,39 @@ article {
   background-color: #eeeeee;
   border-radius: 25px 25px 25px 0px;
   margin-right: 0;
+}
+
+.sendContainer{
+  min-height: 50px;
+  min-width: 50px;
+  background-color: white;
+  position: relative;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#submitAddMessage{
+  transform-origin: -10% -10%;
+  animation-play-state: paused;
+  position: absolute;
+  background-color: unset;
+  border-radius: unset;
+}
+
+@keyframes flySend {
+  0%{
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  50%{
+    opacity: 0.5;
+  }
+  100%{
+    transform: rotate(-360deg);
+    opacity: 1;
+  }
 }
 
 .myMessages {
