@@ -254,18 +254,18 @@ function getIdFromPseudoSearch($pseudo)
     }
 }
 
-function getFeed($num = 1)
+function getFeed($num = 0)
 {
     require("PDO.php");
 
     $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
-    if ($num == 1) {
+    if ($num == 0) {
         $limit = 10;
-        $start = ($num - 1) * 10;
+        $start = $num * 10;
     } else {
         $limit = 5;
-        $start = 10 + (($num - 1) * 5);
+        $start = 10 + (($num - 2) * 5);
     }
 
     $selected = "SELECT profil_animal_de_compagnie_utilisateur_idutilisateur1 idutilisateur, idpost, post.description, media, date_publication, profil_animal_de_compagnie_idprofil_animal_de_compagnie idanimal, profil_animal_de_compagnie.nom 

@@ -16,10 +16,11 @@ document.addEventListener('DOMContentLoaded', function () {
       $.post(
         'model/loadFeed.php',
         {
-          posts: numPosts,
+          posts: numPosts
         },
 
         function (ReturnedMessage) {
+          console.log(ReturnedMessage)
           addContent(ReturnedMessage);
         },
         'text'
@@ -31,6 +32,10 @@ document.addEventListener('DOMContentLoaded', function () {
     let scrollPos = element.scrollTop
     setTimeout(() => {
       if (scrollPos != element.scrollTop) {
+        if(content.includes("ended") || document.querySelector("article[data-end]") != null){
+          document.querySelector('main').classList.add('hiddenAfter');
+          return;
+        }
         addContent(content)
       } else {
         document.querySelector('main').innerHTML += content;
@@ -58,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function addContent(content) {
-    scrollEnd(document.querySelector('main'), content)
+    scrollEnd(document.querySelector('main'), content);
   }
 
   document.querySelectorAll('.descMore, .endDesc').forEach((e) => {
