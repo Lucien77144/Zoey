@@ -7,12 +7,19 @@ ob_start();
 <section>
 
     <?php
-
+    $flag = 1;
     while ($article = $blog->fetch()) {
+        $lazy = "";
+        if($flag > 6){
+            $lazy = 'loading="lazy"';
+        }
+        $flag++;
     ?>
         <article class="contentBlog">
             <h1><?= htmlspecialchars($article['titre']) ?></h1>
-            <a href="index.php?action=blog&id=<?= htmlspecialchars($article['id']) ?>" class="img" style='background-image: url("<?= BASE_URL ?>public/images/blog/<?= htmlspecialchars($article['url_image']) ?>")'></a>
+            <a href="index.php?action=blog&id=<?= htmlspecialchars($article['id']) ?>" class="img">
+                <img <?= $lazy ?> src="<?= BASE_URL ?>public/images/blog/<?= htmlspecialchars($article['url_image']) ?>" alt="">
+            </a>
             <p><?= nl2br(htmlspecialchars($article['resume'])) ?></p>
             <a class="btn" href="index.php?action=blog&id=<?= htmlspecialchars($article['id']) ?>">Lire la suite</a>
         </article>
