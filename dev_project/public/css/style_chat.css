@@ -372,6 +372,7 @@ article:last-child {
   width: 40px;
   padding: 20px;
   transition: 0.25s ease-in-out;
+  cursor: pointer;
 }
 
 .closePop:hover {
