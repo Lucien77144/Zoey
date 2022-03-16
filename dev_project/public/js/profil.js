@@ -128,9 +128,13 @@ document.addEventListener('DOMContentLoaded', function () {
           $('#confirmationMessage').html('')
           $('#confirmationMessage').text(`L'animal a bien été supprimé.`)
           document.querySelector(`li[data-animalid="${idanimal}"]`).remove();
-                document.querySelector(".menuAnimaux li:first-of-type").classList.add('active');
+
+          let animalId;
+          if(document.querySelector(".menuAnimaux li:first-of-type") != null){
+            document.querySelector(".menuAnimaux li:first-of-type").classList.add('active');
+            animalId = document.querySelector(".menuAnimaux li:first-of-type").getAttribute('data-animalId')
+          }
         
-                let animalId = document.querySelector(".menuAnimaux li:first-of-type").getAttribute('data-animalId')
         
                 document.querySelector('.profilAnimal').style.opacity = 0
                 document.querySelector('.profilAnimal').style.transform =
@@ -166,11 +170,14 @@ document.addEventListener('DOMContentLoaded', function () {
                                 postDeleteAnimal(idanimal);
                               });
                           });
-                          
                       } else {
                         document.querySelector(
                           '.profilAnimal'
                         ).innerHTML = `Nous n'avons pas trouvé cet animal :/`
+                      }
+                          
+                      if(document.querySelector(".menuAnimauxWrapper li") == null){
+                        location.reload();
                       }
                     },
         
@@ -192,6 +199,13 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.profilAnimal'),
         'model/modifAnimal.php'
       )
+      $("#deleteProfilAnimal").click(function(e){
+        e.preventDefault();
+          console.log('click');
+          
+          let idanimal = $('li.active').attr('data-animalid')
+          postDeleteAnimal(idanimal);
+        });
     })
   })
   console.log('modif : add listener')

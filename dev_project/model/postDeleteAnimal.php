@@ -33,7 +33,7 @@ function postDeleteAnimal()
 
     $photo = $req->fetch();
     if (!empty($photo["photo"])) {
-        unlink('../public/images/upload/' . $photo["photo"]);
+        unlink('./../public/images/upload/' . $photo["photo"]);
     }
 
     // delete animal
