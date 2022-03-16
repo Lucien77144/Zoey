@@ -12,13 +12,11 @@ ob_start();
 <p class="intro">
   Apporter notre aide aux 100 000 animaux abandonnés chaque année en France en créant un site web 100% gratuit qui aide et incite les Français à adopter dans des refuges.
   <br><br>
-  Zoey s’articule autour de 4 axes :
+  Zoey s’articule autour de 3 axes :
   <br><br>
   > Actualités : Flash info sur l’actualité animalière.
   <br><br>
   > Adoption : Découvrir des animaux présents en refuges qui vous correspondent et n’attendent qu’une seule chose : être adoptés.
-  <br><br>
-  > Forum : Échanger des conseils, avis, bons plans avec des passionnés qui vous ressemblent.
   <br><br>
   > Réseaux : Partager des photos et des vidéos de votre animal de compagnie.
 </p>

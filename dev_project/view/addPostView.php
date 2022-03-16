@@ -3,7 +3,20 @@ $pageTitle = "Publier un post";
 ob_start();
 if (!$accountAnimals) {
 ?>
-    <p>Vous n'avez pas encore ajouté vos animaux de compagnie dans votre profil ! Seuls les propriétaires d'animaux peuvent poster sur Zoey.</p>
+    <div class="neverAdd">
+        <p>Vous n'avez pas encore ajouté vos animaux de compagnie dans votre profil !</p>
+        <p>Seuls les propriétaires d'animaux peuvent poster sur Zoey.</p>
+        <a class="addFirstWrap" href="index.php?action=addAnimal">
+        <div class="addFirst">
+            Ajouter un animal
+            <svg viewBox="0 0 20 20">
+                <rect x="8.5" width="3" height="20" rx="1.5" fill="white" />
+                <rect y="8.5" width="20" height="3" rx="1.5" fill="white" />
+            </svg>
+        </div>
+    </a>
+
+    </div>
 <?php
 } else {
 ?>
