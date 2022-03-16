@@ -30,8 +30,8 @@ ob_start();
     </div>
     <div>
         <h2>4. A quelle fréquence voyagez-vous ?</h2>
-        <div><input type="radio" name="travel" id="trip1" value="1"><label for="trip1">régulièrement, à chaque occasion</label><br></div>
-        <div><input type="radio" name="travel" id="trip2" value="0"><label for="trip2">rarement, une fois par an et encore...</label><br></div>
+        <div><input type="radio" name="travel" id="trip1" value="1"><label for="trip1">régulièrement</label><br></div>
+        <div><input type="radio" name="travel" id="trip2" value="0"><label for="trip2">rarement</label><br></div>
         <div><input type="radio" name="travel" id="trip3" value="0"><label for="trip3">jamais</label></div>
     </div>
     <div>

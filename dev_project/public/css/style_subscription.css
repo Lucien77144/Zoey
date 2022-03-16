@@ -139,6 +139,10 @@ body{
   text-align: center;
   margin-bottom: 10px;
 }
+#legalAge {
+  cursor: pointer;
+  fill: white;
+}
 
 @media screen and (min-width: 500px) {
   .formContent input {
