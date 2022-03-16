@@ -91,6 +91,10 @@
   display: flex;
   justify-content: center;
 }
+.popUpTextContainer p {
+  width: 95%;
+  word-wrap: break-word;
+}
 .popUpText {
   width: fit-content;
   margin: 0;
