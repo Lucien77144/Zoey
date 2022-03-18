@@ -1,12 +1,31 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // document.querySelectorAll(".blockIllus").forEach(e => {
-  //     let format = e.naturalWidth/e.naturalHeight;
-  //     if(format>1){
-  //         e.style.objectFit="contain";
-  //     }else{
-  //         e.style.objectFit="cover";
-  //     }
-  // });
+
+  isAbleSizePost();
+  function isAbleSizePost(){
+    document.querySelectorAll(".blockIllus").forEach(e => {
+      if(e.complete && e.naturalHeight !== 0){
+        sizePost(e);
+      } else {
+        e.addEventListener("load", function(){
+          sizePost(e);
+        });
+      }
+    });
+  }
+
+  function sizePost(element){
+    // console.log("------------");
+    // console.log(element.naturalWidth);
+    // console.log(element.naturalHeight);
+    // console.log(element.naturalWidth - element.naturalHeight);
+    // console.log(element);
+    // console.log("------------");
+    if(((element.naturalWidth - element.naturalHeight) < -250)){
+      element.style.objectFit="cover";
+    }else{
+      element.style.objectFit="contain";
+    }
+  }
 
   let numPosts = 1;
   let postToPass = 5;
@@ -58,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if(content.includes("ended") || document.querySelector("article[data-end]") != null){
           document.querySelector('main').classList.add('hiddenAfter');
         }
+        isAbleSizePost();
       }
     }, 150)
   }
