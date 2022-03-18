@@ -902,7 +902,9 @@ $(document).ready(function () {
   })
 
   $('#submitAddMessage').click(function (e) {
-    e.preventDefault()
+    e.preventDefault();
+    document.querySelector("textarea").focus();
+    document.querySelector("textarea").select();
 
     if (
       document.querySelector('#msg').value != '' ||
@@ -928,7 +930,7 @@ $(document).ready(function () {
           { scrollTop: document.querySelector('main').scrollHeight },
           750
         )
-        hideLoader()
+        hideLoader();
       })
     }
 
