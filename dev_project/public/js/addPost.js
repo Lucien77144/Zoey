@@ -20,6 +20,15 @@ document.addEventListener('DOMContentLoaded', function () {
   if(document.querySelector('#media') != null){
     document.querySelector('#media').addEventListener('input', function () {
       let file = document.querySelector('#media').files[0]
+      if(file == undefined){
+        console.log("nul");
+        document.querySelector(
+          '.imgLoader'
+        ).innerHTML = "";
+        document.querySelector('h5.btn').innerHTML = "+ Choisir une image"
+        return;
+      }
+
       let reader = new FileReader()
   
       reader.onload = function (e) {
