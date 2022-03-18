@@ -18,7 +18,7 @@ ob_start();
   <br><br>
   > Adoption : Découvrir des animaux présents en refuges qui vous correspondent et n’attendent qu’une seule chose : être adoptés.
   <br><br>
-  > Réseaux : Partager des photos et des vidéos de votre animal de compagnie.
+  > Réseaux : Partager du contenu en lien avec vos animaux de compagnie.
 </p>
 
 <div class="mockupContainer">

@@ -2,17 +2,21 @@ section {
     width: 90vw;
     margin: auto;
 }
+
 h2 {
     font-size: 1.2rem;
 }
+
 h1 {
     text-align: center;
 }
+
 @media screen and (min-width: 800px) {
     section {
         width: 60vw;
     }
 }
+
 @media screen and (min-width:1200px) {
     section {
         width: 50vw;

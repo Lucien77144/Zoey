@@ -2,7 +2,7 @@ input[type='radio'] {
   display: none;
 }
 
-label > img {
+label>img {
   height: 60px;
   width: 60px;
   object-fit: cover;
@@ -11,14 +11,15 @@ label > img {
   background-color: #ffffff66;
 }
 
-label > h3 {
+label>h3 {
   margin: 0;
   word-break: break-word;
   width: 100px;
   font-size: 0.9rem;
 }
+
 .neverAdd {
-text-align: center;
+  text-align: center;
 }
 
 h3 {
@@ -26,17 +27,17 @@ h3 {
   margin-bottom: 10px;
 }
 
-.underTitle{
+.underTitle {
   font-size: 1.35rem;
 }
 
-#submitAddPost{
+#submitAddPost {
   margin: 20px 0;
   font-size: 1rem;
   font-weight: normal;
 }
 
-.underTitle::first-letter{
+.underTitle::first-letter {
   color: #f3811c;
   font-size: 1.1em;
 }
@@ -58,11 +59,9 @@ h3 {
 .containerSelectAnim::after {
   content: '';
   background: rgb(255, 255, 255);
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0) 100%);
   position: absolute;
   top: 0;
   left: 0;
@@ -74,11 +73,9 @@ h3 {
 .containerSelectAnim::before {
   content: '';
   background: rgb(255, 255, 255);
-  background: linear-gradient(
-    270deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(270deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0) 100%);
   position: absolute;
   top: 0;
   right: 0;
@@ -97,7 +94,7 @@ label {
   cursor: pointer;
 }
 
-label[for="media"]{
+label[for="media"] {
   width: fit-content;
   width: -moz-fit-content;
   height: fit-content;
@@ -105,7 +102,7 @@ label[for="media"]{
   margin: 2rem auto;
 }
 
-.imgLoader+h5{
+.imgLoader+h5 {
   font-weight: normal;
   margin: 0;
   margin-top: 15px;
@@ -121,7 +118,7 @@ label[for="media"]{
   border-radius: 10px;
 }
 
-.cardSelector:hover{
+.cardSelector:hover {
   background-color: #f1f1f1;
 }
 
@@ -165,12 +162,12 @@ label[for="media"]{
   justify-content: center;
 }
 
-.sendWrapper > input {
+.sendWrapper>input {
   transition: 0.25s ease-in-out;
   cursor: pointer;
 }
 
-.sendWrapper > input:hover {
+.sendWrapper>input:hover {
   box-shadow: none;
 }
 
@@ -183,17 +180,21 @@ label[for="media"]{
   max-width: 500px;
   height: auto;
 }
+
 h5.button {
   margin-top: 20px;
 }
+
 #ConfirmationMessage {
   margin-bottom: 50px;
 }
+
 /* Bouton Add Animal */
 .neverAdd {
   margin-top: 10vh;
 }
-.addFirstWrap{
+
+.addFirstWrap {
   color: white;
   font-weight: bold;
   text-decoration: none;
@@ -201,12 +202,13 @@ h5.button {
   padding: 10px;
   font-size: 0.9rem;
 }
+
 .neverAdd p {
   font-size: 1.2rem;
   font-weight: bold;
 }
 
-.addFirst{
+.addFirst {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -221,17 +223,19 @@ h5.button {
   box-shadow: 0px 0px 7.5px #f3801c50;
 }
 
-.addFirst svg{
+.addFirst svg {
   margin-left: 15px;
   height: 22px;
   width: 22px;
   cursor: pointer;
 }
 
-.addFirst:hover{
+.addFirst:hover {
   animation: pulse 0.75s ease-in-out;
 }
+
 @media (max-width: 800px) {
+
   .containerSelectAnim,
   #addPostForm {
     width: 100%;
@@ -248,26 +252,26 @@ h5.button {
 
 @keyframes pulse {
   0% {
-      transform: scale(1);
-      box-shadow: 0px 0px 7.5px #f3801c50;
+    transform: scale(1);
+    box-shadow: 0px 0px 7.5px #f3801c50;
   }
 
   10% {
-      transform: scale(1);
-      box-shadow: 0 0 0 0 rgba(243, 128, 28, 0.7);
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(243, 128, 28, 0.7);
   }
 
   80% {
-      transform: scale(1.05);
-      box-shadow: 0 0 0 10px rgba(243, 128, 28, 0);
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(243, 128, 28, 0);
   }
 
-  91%{
-      box-shadow: 0px 0px 7.5px #f3801c00;
+  91% {
+    box-shadow: 0px 0px 7.5px #f3801c00;
   }
-  
+
   100% {
-      transform: scale(1);
-      box-shadow: 0px 0px 7.5px #f3801c50;
+    transform: scale(1);
+    box-shadow: 0px 0px 7.5px #f3801c50;
   }
 }

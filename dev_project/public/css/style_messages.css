@@ -1,51 +1,66 @@
+body {
+  justify-content: start;
+}
+
 #convContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 30px;
 }
+
 #convContainer form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 #convContainer label {
   font-size: 1.4rem;
   font-weight: bold;
   text-align: center;
 }
+
 #convSearch {
   width: 280px;
   height: 35px;
   font-size: 1rem;
 }
+
 #convContainer article {
   width: 300px;
 }
+
 #convContainer a {
   text-decoration: none;
   color: black;
 }
+
 #convContainer article h1 {
   color: #ffa319;
 }
+
 #convContainer p span {
   font-weight: bold;
 }
+
 article {
   display: flex;
   flex-direction: column;
 }
-article > div {
+
+article>div {
   display: flex;
   flex-direction: column;
 }
+
 #messagesContainer {
   height: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 #messagesContainer a {
   display: flex;
   align-items: center;
@@ -57,6 +72,7 @@ article > div {
   margin-bottom: 20px;
   transition: 0.5s ease-in-out;
 }
+
 .profilePicturesContainer {
   display: flex;
   justify-content: center;
@@ -64,6 +80,7 @@ article > div {
   width: 100px;
   height: 80px;
 }
+
 .profilePicture {
   position: absolute;
   width: 60px;
@@ -71,6 +88,7 @@ article > div {
   border-radius: 50%;
   object-fit: cover;
 }
+
 .ConversationTextsContainer {
   display: flex;
   flex-direction: column;
@@ -79,19 +97,23 @@ article > div {
   width: 220px;
   height: 60px;
 }
+
 #messagesContainer a:hover {
   background-color: #dfdfdf;
 }
+
 #messagesContainer a p:first-of-type {
   font-size: 1.3rem;
   font-weight: bold;
   margin: 0;
   color: #ffa319;
 }
+
 #messagesContainer a p:last-of-type {
   margin: 0;
   font-size: 0.95rem;
 }
+
 .addFriends {
   font-weight: bold;
   text-align: center;

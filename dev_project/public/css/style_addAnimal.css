@@ -1,6 +1,7 @@
 h1 {
     text-align: center;
 }
+
 form {
     display: flex;
     flex-direction: column;
@@ -8,20 +9,24 @@ form {
     width: 80vw;
     max-width: 300px;
 }
+
 #media {
     display: none;
 }
+
 label {
     font-weight: bold;
     margin-bottom: 10px;
     margin-top: 10px;
     font-size: 1.3rem;
 }
+
 .mediaContainer {
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
+
 .labelForMedia {
     width: 180px;
     text-align: center;
@@ -29,6 +34,7 @@ label {
     font-weight: bold;
     color: #F3811C;
 }
+
 .currentPicture {
     margin: auto;
     width: 80px;
@@ -37,14 +43,17 @@ label {
     border-radius: 50px;
     object-fit: cover;
 }
+
 label[for="media"] {
     margin-top: 10px;
     cursor: pointer;
     width: fit-content;
 }
+
 input[name="description"] {
     height: 200px;
 }
+
 textarea {
     background: #F3F3F3;
     border: none;
@@ -53,12 +62,14 @@ textarea {
     resize: none;
     margin-bottom: 10px;
 }
+
 select {
     background: #F3F3F3;
     height: 30px;
     border-radius: 15px;
     border: none;
 }
+
 #submitAddAnimal {
     margin: auto;
     margin-top: 50px;

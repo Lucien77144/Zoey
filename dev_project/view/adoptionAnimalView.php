@@ -36,7 +36,9 @@ ob_start();
             ?>
                 <strong>Âge : </strong>moins d'un an
             <?php
-            }
+            }else{ ?>
+                Âge inconnu<br>
+            <?php } 
         ?>
     </div>
     <div class="sexe">

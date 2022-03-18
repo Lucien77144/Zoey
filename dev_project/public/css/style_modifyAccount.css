@@ -2,10 +2,7 @@ header {
   position: absolute;
   top: 0;
 }
-body {
-  min-height: 100vh;
-  box-sizing: border-box;
-}
+
 .mainModifyAccount {
   display: flex;
   flex-direction: column;
@@ -14,12 +11,15 @@ body {
   height: 100%;
   width: 100%;
 }
+
 .mainModifyAccount h1 {
   text-align: center;
 }
+
 h1::first-letter {
   color: #f3811c;
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -27,18 +27,22 @@ form {
   width: 300px;
   margin: auto;
 }
+
 form:first-child {
   margin-top: 50px;
 }
+
 input[type='submit'] {
   padding: 8px 16px 8px 16px;
   align-self: center;
   font-size: 0.95rem;
 }
+
 label {
   font-weight: bold;
   font-size: calc(1rem + 0.5vw);
 }
+
 @media screen and (min-width: 800px) {
   .mainModifyAccount {
     justify-content: flex-start;

@@ -15,9 +15,11 @@ main {
   height: 100%;
   overflow-y: scroll;
 }
+
 #noMessagesYet {
   text-align: center;
 }
+
 .convName {
   display: flex;
   align-items: center;
@@ -52,17 +54,17 @@ main {
   color: #ffa319;
 }
 
-.convName > a > img {
+.convName>a>img {
   width: 30px;
   height: 30px;
   transition: 0.25s ease-in-out;
 }
 
-.convName > a > img:hover {
+.convName>a>img:hover {
   transform: translateX(-7.5px);
 }
 
-.convName > a:nth-of-type(1) {
+.convName>a:nth-of-type(1) {
   position: absolute;
   transform: translate(-50%, -50%);
   left: min(7.5%, 60px);
@@ -138,7 +140,7 @@ article {
   margin-right: 0;
 }
 
-.sendContainer{
+.sendContainer {
   min-height: 50px;
   min-width: 50px;
   background-color: white;
@@ -150,11 +152,12 @@ article {
   transition: 0.25s ease-in-out;
 }
 
-.sendContainer:hover, .currentPicture:hover{
+.sendContainer:hover,
+.currentPicture:hover {
   box-shadow: 0px 0px 5px #ffa319aa;
 }
 
-#submitAddMessage{
+#submitAddMessage {
   transform-origin: -10% -10%;
   animation-play-state: paused;
   position: absolute;
@@ -163,14 +166,16 @@ article {
 }
 
 @keyframes flySend {
-  0%{
+  0% {
     transform: rotate(0deg);
     opacity: 1;
   }
-  50%{
+
+  50% {
     opacity: 0.5;
   }
-  100%{
+
+  100% {
     transform: rotate(-360deg);
     opacity: 1;
   }
@@ -193,9 +198,11 @@ article {
   align-items: center;
   justify-content: space-around;
 }
+
 .username img {
   margin-left: 15px;
 }
+
 article p:first-child {
   width: 80%;
   justify-self: center;

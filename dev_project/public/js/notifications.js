@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
-
-    let getNotfiInterval = setInterval(loadNewNotifs, 5000); 
+  
+    loadNewNotifs();
+    let getNotfiInterval = setInterval(loadNewNotifs, 60000); 
 
     function loadNewNotifs(){
         $.post(

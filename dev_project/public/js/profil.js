@@ -209,12 +209,15 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   })
   console.log('modif : add listener')
-  document
-    .querySelector('.profil .iconModif')
-    .addEventListener('click', function () {
-      console.log('before openModif')
-      openModif(document.querySelector('.profil'), 'model/modifProfil.php')
-    })
+
+  if(document.querySelector('.profil .iconModif') != null){
+    document
+      .querySelector('.profil .iconModif')
+      .addEventListener('click', function () {
+        console.log('before openModif')
+        openModif(document.querySelector('.profil'), 'model/modifProfil.php')
+      })
+  }
 
   function openModif(current, action) {
     console.log('inside openModif')

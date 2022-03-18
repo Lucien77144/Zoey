@@ -1,26 +1,33 @@
-body{
+body {
     margin: 0;
+    justify-content: space-between;
 }
 
-*,*::before,*::after{
+main {
+    max-width: 100%;
+}
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
-.profil{
+.profil {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin: 0px 20px 0px 20px;
+    /* margin: 0px 20px 0px 20px; */
 }
 
-.wrapProfil{
+.wrapProfil {
     display: grid;
-    grid-template-areas: "a b" "a c" "d d";
+    grid-template-areas: "a b""a c""d d";
     align-items: center;
     margin-bottom: 15px;
 }
 
-.avatar{
+.avatar {
     grid-area: a;
     justify-self: flex-end;
     min-width: 110px;
@@ -35,18 +42,18 @@ body{
     position: relative;
 }
 
-.avatar img{
+.avatar img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: 0.25s ease-in-out;
 }
 
-.avatar:hover img{
+.avatar:hover img {
     transform: scale(1.1);
 }
 
-.modifAvatar{
+.modifAvatar {
     background-color: #f3801c;
     opacity: 0.4;
     display: flex;
@@ -61,23 +68,23 @@ body{
     cursor: pointer;
 }
 
-.modifAvatar:hover{
+.modifAvatar:hover {
     opacity: 0.6;
 }
 
-.modifAvatar path{
+.modifAvatar path {
     transform-origin: center;
     transform: scale(0.35) rotate(-5deg);
     pointer-events: none;
     transition: 0.25s ease-in-out;
 }
 
-.modifAvatar:hover path{
+.modifAvatar:hover path {
     transform-origin: center;
     transform: scale(0.35) rotate(5deg);
 }
 
-.username{
+.username {
     grid-area: b;
     display: flex;
     flex-wrap: wrap;
@@ -86,7 +93,7 @@ body{
     justify-content: space-between;
 }
 
-.username h1{
+.username h1 {
     width: calc(100% - 35px);
     display: inline-block;
     word-wrap: break-word;
@@ -96,7 +103,8 @@ body{
     font-family: "Roboto", sans-serif;
 }
 
-.iconModif, .iconSubmit{
+.iconModif,
+.iconSubmit {
     height: 25px;
     width: 25px;
     min-width: 25px;
@@ -105,23 +113,24 @@ body{
     cursor: pointer;
 }
 
-.iconModif:hover .pen{
+.iconModif:hover .pen {
     transform-origin: center;
     animation: write 1s ease-in-out infinite;
 }
 
-.iconModif:hover, .iconSubmit:hover{
+.iconModif:hover,
+.iconSubmit:hover {
     fill: #F3811C;
     transform: scale(1.2);
 }
 
-.desc{
+.desc {
     grid-area: c;
     max-width: 400px;
     width: 50vw;
 }
 
-.desc p{
+.desc p {
     word-break: break-word;
 }
 
@@ -134,23 +143,23 @@ body{
     justify-self: center;
 }
 
-.empty{
+.empty {
     cursor: default !important;
     border-radius: 10px !important;
 }
 
-.controls{
+.controls {
     grid-area: d;
     white-space: nowrap;
     padding: 0;
     margin: 0;
 }
 
-.controls a{
+.controls a {
     text-decoration: none;
 }
 
-.controlBtn{
+.controlBtn {
     display: inline-block;
     font-weight: 600;
     color: white;
@@ -170,53 +179,53 @@ body{
     border: none;
 }
 
-.controlBtn:hover{
+.controlBtn:hover {
     background-color: #fd9030;
     box-shadow: 0 0 0 2px rgba(243, 128, 28, 0.7);
 }
 
-.username .controlBtn{
+.username .controlBtn {
     margin: 0;
     justify-self: flex-end;
 }
 
-.menuAnimaux{
+.menuAnimaux {
     width: 100%;
     position: relative;
 }
 
-.menuAnimauxInner{
+.menuAnimauxInner {
     width: 95%;
     align-self: center;
     overflow: auto;
     margin: auto;
 }
 
-.menuAnimaux::before{
+.menuAnimaux::before {
     content: "";
     position: absolute;
     top: 0;
     left: 2.5%;
     height: calc(100% - 8px);
     width: 15px;
-    background: rgb(255,255,255);
-    background: linear-gradient(270deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
     pointer-events: none;
 }
 
-.menuAnimaux::after{
+.menuAnimaux::after {
     content: "";
     position: absolute;
     top: 0;
     right: 2.5%;
     height: calc(100% - 8px);
     width: 15px;
-    background: rgb(255,255,255);
-    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
     pointer-events: none;
 }
 
-.menuAnimauxWrapper{
+.menuAnimauxWrapper {
     min-width: max-content;
     display: flex;
     justify-content: center;
@@ -225,7 +234,7 @@ body{
     padding: 0;
 }
 
-.addAnimal{
+.addAnimal {
     box-sizing: content-box;
     height: 22px;
     width: 22px;
@@ -238,11 +247,12 @@ body{
     transition: 0.25s ease-in-out;
 }
 
-.addAnimal:hover{
+.addAnimal:hover {
     animation: pulse 0.75s ease-in-out;
 }
 
-.moreModifs, .removeAnimal{
+.moreModifs,
+.removeAnimal {
     align-self: center;
     min-width: 25px;
     min-height: 25px;
@@ -251,7 +261,7 @@ body{
     margin-left: 10px;
 }
 
-.moreModifs svg{
+.moreModifs svg {
     height: 100%;
     width: 100%;
     cursor: pointer;
@@ -262,18 +272,18 @@ body{
     transition: 0.25s ease-in-out;
 }
 
-.removeAnimal svg{
+.removeAnimal svg {
     height: 100%;
     width: 100%;
     cursor: pointer;
     transition: 0.25s ease-in-out;
 }
 
-.removeAnimal svg>*{
+.removeAnimal svg>* {
     transition: 0.25s ease-in-out;
 }
 
-.removeAnimal:hover svg>*{
+.removeAnimal:hover svg>* {
     fill: #ffc165;
 }
 
@@ -281,7 +291,7 @@ body{
     animation: pulse 0.75s ease-in-out;
 }
 
-.menuAnimaux li{
+.menuAnimaux li {
     display: inline-block;
     cursor: pointer;
     font-size: 1.1rem;
@@ -298,13 +308,13 @@ body{
     user-select: none;
 }
 
-.menuAnimaux li:hover{
+.menuAnimaux li:hover {
     box-shadow: 0px 0px 7.5px #f3801c;
     color: #c76000;
     background-color: #fff5eb;
 }
 
-.profilAnimal{
+.profilAnimal {
     position: relative;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -312,13 +322,13 @@ body{
     transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
-.profilAnimal .profil{
+.profilAnimal .profil {
     width: 100%;
     margin: 0;
     margin-bottom: 20px;
 }
 
-.profilAnimal .profil::before{
+.profilAnimal .profil::before {
     content: "";
     position: absolute;
     height: 3px;
@@ -327,7 +337,7 @@ body{
     top: -50px;
 }
 
-.profilAnimal .avatar{
+.profilAnimal .avatar {
     min-width: 90px;
     min-height: 90px;
     width: 20vw;
@@ -336,35 +346,35 @@ body{
     max-height: 120px;
 }
 
-.innerUsername{
+.innerUsername {
     display: flex;
     width: 100%;
     justify-content: space-between;
 }
 
-.menuAnimaux .active{
+.menuAnimaux .active {
     background-color: #f3801c;
     color: white;
 }
 
-.menuAnimaux .active:hover{
+.menuAnimaux .active:hover {
     background-color: #f3801c;
     color: white;
 }
 
-.publiContainer{
+.publiContainer {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.publiWrapper{
+.publiWrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.publi{
+.publi {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -381,31 +391,31 @@ body{
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.15);
 }
 
-.addPubli{
+.addPubli {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #fd903033;
 }
 
-.addPubli:hover svg{
+.addPubli:hover svg {
     transform: scale(.75);
 }
 
-.addPubli svg{
+.addPubli svg {
     height: 50px;
     width: 50px;
     transition: 0.25s ease-in-out;
     transform-origin: center;
 }
 
-.publi:hover{
+.publi:hover {
     transform: scale(1.05);
     z-index: 10;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
 }
 
-.rate{
+.rate {
     position: absolute;
     bottom: 5px;
     right: 5px;
@@ -415,14 +425,14 @@ body{
     cursor: pointer;
 }
 
-.rate svg{
+.rate svg {
     margin-left: 5px;
     height: 16px;
     width: 16px;
     fill: white;
 }
 
-.innerUsername input{
+.innerUsername input {
     background-color: transparent;
     outline: none;
     padding: 0;
@@ -437,7 +447,7 @@ body{
     width: 100%;
 }
 
-.desc textarea{
+.desc textarea {
     resize: none;
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
@@ -452,7 +462,7 @@ body{
     height: auto;
 }
 
-.addFirstWrap{
+.addFirstWrap {
     color: white;
     font-weight: bold;
     text-decoration: none;
@@ -461,7 +471,7 @@ body{
     font-size: 0.9rem;
 }
 
-.addFirst{
+.addFirst {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -476,25 +486,25 @@ body{
     box-shadow: 0px 0px 7.5px #f3801c50;
 }
 
-.addFirst svg{
+.addFirst svg {
     margin-left: 15px;
     height: 22px;
     width: 22px;
     cursor: pointer;
 }
 
-.addFirst:hover{
+.addFirst:hover {
     animation: pulse 0.75s ease-in-out;
 }
 
-.empty{
+.empty {
     padding: 10px 15%;
     background-color: #f1f1f1;
     border-radius: 100px;
     font-size: 1rem;
 }
 
-.disconnected{
+.disconnected {
     position: fixed;
     z-index: 1001;
     bottom: 25px;
@@ -508,34 +518,43 @@ body{
     animation: poping 1s ease-in-out;
 }
 
-.disconnected a{
+.disconnected a {
     text-decoration: none;
     color: #f3801c;
 }
 
-.disconnected a:hover{
+.disconnected a:hover {
     text-decoration: underline;
 }
 
-@keyframes poping{
-    0%{
+@keyframes poping {
+    0% {
         bottom: 0;
         transform: translateY(100%);
     }
-    100%{
+
+    100% {
         bottom: 25px;
         transform: translateY(0);
     }
 }
 
 @keyframes write {
-    0%,100%{
+
+    0%,
+    100% {
         transform: rotate(0deg);
-    }25%{
+    }
+
+    25% {
         transform: rotate(5deg);
-    }50%{
+    }
+
+    50% {
         transform: rotate(0deg);
-    }75%{
+    }
+
+    75% {
         transform: rotate(-5deg);
     }
 }
@@ -556,30 +575,31 @@ body{
         box-shadow: 0 0 0 10px rgba(243, 128, 28, 0);
     }
 
-    91%{
+    91% {
         box-shadow: 0px 0px 7.5px #f3801c00;
     }
-    
+
     100% {
         transform: scale(1);
         box-shadow: 0px 0px 7.5px #f3801c50;
     }
 }
 
-@media (max-width: 800px){
-    .disconnected{
+@media (max-width: 800px) {
+    .disconnected {
         bottom: 155px;
         width: 100%;
         max-width: 500px;
         left: 0;
     }
 
-    @keyframes poping{
-        0%{
+    @keyframes poping {
+        0% {
             bottom: 0;
             transform: translateY(100%);
         }
-        100%{
+
+        100% {
             bottom: 165px;
             transform: translateY(0);
         }
@@ -587,7 +607,7 @@ body{
 }
 
 @media (max-width: 372px) {
-    .publi{
+    .publi {
         margin: 10px;
         min-width: unset;
         min-height: unset;

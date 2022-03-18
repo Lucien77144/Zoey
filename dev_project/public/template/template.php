@@ -88,6 +88,9 @@
                 <h2>Forum</h2>
             </a> -->
         </div>
+        <a href="index.php" class="feedMenu">
+            <h2>Feed</h2>
+        </a>
         <svg width="115" height="100" viewBox="0 0 115 100" fill="none">
             <path d="M114.999 100V0H112.998C112.998 0 101.401 47.3435 55.998 47.3435C10.5947 47.3435 1.99911 0 1.99911 0H0V100H114.999Z" fill="white" />
         </svg>

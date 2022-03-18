@@ -1,11 +1,12 @@
-.section1{
+.section1 {
   width: 80vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.article, .contentBlog{
+.article,
+.contentBlog {
   width: 100%;
   padding: 25px 0 50px 0;
   overflow-x: hidden;
@@ -21,7 +22,7 @@ p {
   text-align: justify;
 }
 
-.categorie{
+.categorie {
   font-family: "Roboto", sans-serif;
   text-align: center;
   font-size: 0.75rem;
@@ -30,7 +31,7 @@ p {
   position: relative;
 }
 
-.categorie::before{
+.categorie::before {
   z-index: -1;
   content: "";
   position: absolute;
@@ -43,7 +44,7 @@ p {
   transform: translate(-50%, -50%) rotate(2.5deg);
 }
 
-.titleArt{
+.titleArt {
   margin-top: 35px;
   font-family: "Roboto", sans-serif;
   text-align: center;
@@ -51,25 +52,26 @@ p {
   font-size: 1.6rem;
 }
 
-.intro{
+.intro {
   font-family: "Montserrat", sans-serif;
   text-align: justify;
   margin-right: 0;
 }
 
-.illustration img{
+.illustration img {
   width: 100%;
 }
 
-.illustration{
+.illustration {
   position: relative;
   height: fit-content;
   height: -moz-fit-content;
-  display: flex;  /* Permet de retirer les quelques pixels de marge en bas de l'image */
+  display: flex;
+  /* Permet de retirer les quelques pixels de marge en bas de l'image */
   width: 100%;
 }
 
-.illustration::after{
+.illustration::after {
   content: "";
   z-index: -1;
   position: absolute;
@@ -81,13 +83,13 @@ p {
   height: 100%;
 }
 
-.btnWrap{
+.btnWrap {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.descIllu{
+.descIllu {
   font-family: "Montserrat", sans-serif;
   font-weight: thin;
   font-size: 0.75rem;
@@ -98,33 +100,39 @@ p {
   left: 0;
 }
 
-@media (min-width: 800px){
+@media (min-width: 800px) {
 
-  .titleArt{
+  .titleArt {
     font-size: 2.5rem;
   }
-  .categorie{
+
+  .categorie {
     font-size: 1rem;
   }
-  p{
+
+  p {
     font-size: 1.15rem;
   }
-  .article{
+
+  .article {
     display: flex;
     width: 80vw;
   }
-  .illustration{
+
+  .illustration {
     width: 50%;
     z-index: -1;
     float: left;
     margin: 0 25px 25px 25px;
   }
-  .btnWrap{
+
+  .btnWrap {
     width: 95%;
     display: flex;
     justify-content: flex-end;
   }
-  .contentBlog a{
+
+  .contentBlog a {
     align-self: flex-end;
   }
 }

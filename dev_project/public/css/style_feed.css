@@ -30,12 +30,12 @@ body {
   flex-direction: column;
 }
 
-.popUpRm > p {
+.popUpRm>p {
   margin-bottom: 30px;
   color: white;
 }
 
-.popUpRm > h2 {
+.popUpRm>h2 {
   color: white;
 }
 
@@ -66,12 +66,14 @@ body {
 }
 
 @keyframes poping {
+
   0%,
   100% {
     opacity: 0;
     bottom: 0;
     transform: translateY(100%);
   }
+
   20%,
   80% {
     opacity: 1;
@@ -177,6 +179,7 @@ main .defaultBlock:last-child::after {
   0% {
     transform: rotate(0deg) translate(-50%, 50%);
   }
+
   100% {
     transform: rotate(360deg) translate(-50%, 50%);
   }
@@ -191,13 +194,11 @@ main .defaultBlock:last-child::after {
   width: 90%;
   padding: 0 5% 70px 5%;
   background: rgb(255, 163, 25);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 163, 25, 0) 0%,
-    rgba(255, 163, 25, 0.1) 40%,
-    rgba(255, 163, 25, 0.25) 60%,
-    rgba(255, 163, 25, 0.4) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(255, 163, 25, 0) 0%,
+      rgba(255, 163, 25, 0.1) 40%,
+      rgba(255, 163, 25, 0.25) 60%,
+      rgba(255, 163, 25, 0.4) 100%);
 }
 
 .textContent * {
@@ -274,20 +275,21 @@ main .defaultBlock:last-child::after {
   cursor: pointer;
 }
 
-.menuInner svg > path {
+.menuInner svg>path {
   fill: #ffa319;
 }
 
-.menuInner h2 {
+.menuInner h2,
+.feedMenu h2 {
   color: white;
   font-weight: normal;
 }
 
-.menu > svg > path {
+.menu>svg>path {
   fill: rgb(34, 34, 34);
 }
 
-.menu > svg,
+.menu>svg,
 .menuBlur {
   display: none;
 }
@@ -296,7 +298,7 @@ main .defaultBlock:last-child::after {
   width: 50%;
 }
 
-.menu > .menuInner {
+.menu>.menuInner {
   background-color: unset;
 }
 
@@ -319,37 +321,47 @@ main .defaultBlock:last-child::after {
   body {
     background: rgb(27, 27, 27);
   }
+
   main {
     margin-top: 60px;
     height: calc(100vh - 60px);
   }
+
   main::-webkit-scrollbar {
     display: block;
   }
+
   .defaultBlock {
     height: 100%;
   }
+
   header {
     background: unset;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px;
   }
+
   .menuInner h2 {
     color: rgb(235, 235, 235);
     transition: 0.25s ease-in-out;
   }
+
   .menuInner h2:hover {
     color: #ffa319;
   }
+
   .textContent {
     padding: 0 5% 5% 5%;
   }
+
   main .defaultBlock:last-child {
     margin-bottom: 100px;
   }
+
   .menu,
   .menuInner {
     height: 60px;
   }
+
   .menu {
     background-color: unset;
     box-shadow: none;

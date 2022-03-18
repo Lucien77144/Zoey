@@ -9,15 +9,23 @@ main {
   width: 90%;
   margin: auto;
 }
+
+.unknownAnimal {
+  text-align: center;
+  margin-top: 50px;
+}
+
 .AnswerQuizz {
   width: 100%;
   text-align: center;
 }
+
 .AnswerQuizz a {
   color: #fd9030;
   text-decoration: underline;
   font-weight: bold;
 }
+
 .filter {
   display: flex;
   width: 100vw;
@@ -71,7 +79,7 @@ main {
   justify-content: space-around;
 }
 
-div.desc > .btn {
+div.desc>.btn {
   align-self: flex-end;
   margin-right: 12px;
 }
@@ -292,11 +300,9 @@ iframe {
   height: calc(100% - 8px);
   width: 15px;
   background: rgb(255, 255, 255);
-  background: linear-gradient(
-    270deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 1) 100%
-  );
+  background: linear-gradient(270deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 100%);
   pointer-events: none;
 }
 
@@ -308,11 +314,9 @@ iframe {
   height: calc(100% - 8px);
   width: 15px;
   background: rgb(255, 255, 255);
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 1) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 100%);
   pointer-events: none;
 }
 
@@ -376,7 +380,7 @@ iframe {
   text-decoration: underline;
 }
 
-.infosG{
+.infosG {
   margin-top: 25px;
   display: flex;
   justify-content: space-around;
@@ -386,15 +390,17 @@ iframe {
   height: 50px;
 }
 
-.infosG>div{
+.infosG>div {
   border-left: solid 4px #ffc800;
   padding: 5px 10px;
 }
+
 @media screen and (max-width:400px) {
   h1.nom {
     margin-top: 50px;
   }
 }
+
 @media (min-width: 800px) {
   .WrapBadge {
     flex-direction: row;

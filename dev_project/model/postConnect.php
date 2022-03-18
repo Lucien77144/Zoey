@@ -11,10 +11,11 @@ function postConnect()
 
     $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
-    $sql = 'SELECT idutilisateur, pseudo, mot_de_passe, statut FROM utilisateur WHERE pseudo = ?';
+    $sql = 'SELECT idutilisateur, pseudo, mot_de_passe, statut FROM utilisateur WHERE pseudo = :loginin OR adresse_mail = :loginin';
     $req = $db->prepare($sql);
+    $req->bindValue(':loginin', $pseudo, PDO::PARAM_STR);
 
-    $req->execute(array($pseudo));
+    $req->execute();
 
     $user = $req->fetch();
 

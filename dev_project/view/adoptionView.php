@@ -34,7 +34,13 @@ ob_start();
 <main>
     <?php
     $flag = 0;
-    while ($animal = $feedAdoption->fetch()) {
+    $animaux = $feedAdoption->fetchall();
+
+    if(count($animaux) == 0){ ?>
+        <p class="unknownAnimal">Ce type d'animal n'est pas encore présent dans nos refuges partenaires !</p>
+    <?php } 
+
+    foreach ($animaux as $animal) {
         $lazy = "";
         $flag++;
         if($flag > 20){
@@ -50,7 +56,7 @@ ob_start();
 
         <article class="card">
             <a class="imgWrap" href="index.php?action=adoption&id=<?= htmlspecialchars($animal['idaa']) ?>">
-                <img <?= $lazy ?> class="img" src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($animal['photo']) ?>">
+                <img <?= $lazy ?> class="img" src="<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($animal['photo']) ?>" alt="">
             </a>
             <div class="desc">
                 <h2 class="title2"><?= htmlspecialchars($animal['nom']) ?></h2>
@@ -62,7 +68,7 @@ ob_start();
                             break;
                         $i++;
                     ?>
-                        <img class="badge" src="public/images/badges/<?= $badge['url_icone'] ?>" alt="<?= $badge['alt'] ?>">
+                        <img class="badge" src="public/images/badges/<?= $badge['url_icone'] ?>" alt="<?= $badge['alt'] ?>" alt="">
                     <?php
                     }
                     ?>

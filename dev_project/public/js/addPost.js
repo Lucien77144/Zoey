@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Selectionner le premier animal par défaut OU checked
-  if (!getParameterByName("checked")) {
+  if (!getParameterByName("checked") && document.querySelector('.cardSelector:first-of-type') != null) {
     document
       .querySelector('.cardSelector:first-of-type')
       .classList.add('cardActive')

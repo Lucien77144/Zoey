@@ -1,4 +1,3 @@
-
 .error {
     width: 100%;
     height: 100%;
@@ -9,7 +8,7 @@
     font-family: "Montserrat", sans-serif;
 }
 
-.error section{
+.error section {
     width: fit-content;
     height: fit-content;
     display: flex;
@@ -25,6 +24,7 @@
 .error section h2 {
     font-size: 1.5rem;
 }
+
 .button_container {
     margin-top: 25px;
     display: flex;
@@ -32,9 +32,11 @@
     justify-content: center;
     align-items: center;
 }
+
 .button_container a[href="index.php"] {
     margin-top: 20px;
 }
+
 /* Page enregistrer un nouveau mot de passe */
 .registerNewPasswordContainer {
     display: flex;
@@ -42,24 +44,29 @@
     align-items: center;
     margin-top: 10vw;
 }
+
 .registerNewPassword {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+
 .registerNewPassword h1 {
     text-align: center;
 }
+
 .registerNewPassword label {
     font-weight: bold;
     font-size: 1.1rem;
 }
+
 .registerNewPassword form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 /* .newsletter {
     display: none;
 } */
@@ -68,12 +75,15 @@
 .error section {
     text-align: center;
 }
+
 .error section h1 {
     font-size: 1.5rem;
 }
+
 .error section h2 {
     font-size: 1.3rem;
 }
+
 .helpContainer {
     position: absolute;
     display: flex;
@@ -83,19 +93,22 @@
     width: 100%;
     bottom: 20%;
     left: 50%;
-    transform:translateX(-50%);
+    transform: translateX(-50%);
 
 }
+
 .helpContainer p {
     font-weight: 600;
     text-align: center;
 }
-@media (min-width: 800px) { 
+
+@media (min-width: 800px) {
     .error section {
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
     }
+
     .button_container {
         margin-top: 25px;
         display: flex;
@@ -104,9 +117,11 @@
         justify-content: space-around;
         align-items: center;
     }
+
     .button_container a {
         margin-top: 20px;
     }
+
     section h2 {
         font-size: 2.2rem;
     }
