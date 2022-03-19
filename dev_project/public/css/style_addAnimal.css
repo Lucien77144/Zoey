@@ -1,9 +1,9 @@
-h1 {
+main h1 {
     text-align: center;
     margin-bottom: 50px;
 }
 
-h1::first-letter{
+main h1::first-letter{
     color: #F3811C;
 }
 
