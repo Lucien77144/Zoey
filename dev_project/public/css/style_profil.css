@@ -17,6 +17,8 @@ main {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    max-width: 600px;
+    margin: auto;
     /* margin: 0px 20px 0px 20px; */
 }
 
@@ -316,8 +318,7 @@ main {
 
 .profilAnimal {
     position: relative;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin: 50px auto;
     width: 90%;
     transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
 }

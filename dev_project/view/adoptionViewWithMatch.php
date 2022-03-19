@@ -24,13 +24,12 @@ ob_start();
 <main>
     <?php
     $flag = 0;
-    $animaux = $feedAdoption->fetchall();
 
-    if(count($animaux) == 0){ ?>
+    if(count($feedAdoption) == 0){ ?>
         <p class="unknownAnimal">Ce type d'animal n'est pas encore présent dans nos refuges partenaires !</p>
     <?php } 
 
-    foreach ($animaux as $animal) {
+    foreach ($feedAdoption as $animal) {
         $lazy = "";
         $flag++;
         if($flag > 20){
