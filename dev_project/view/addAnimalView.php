@@ -8,43 +8,47 @@ $pageTitle = "Ajouter un nouvel animal à mon panier";
 
 ob_start();
 ?>
-<h1>Ajouter un animal</h1>
-<form class="addAnimalForm">
-
-    <label for="nom">nom de l'animal</label>
-    <input type="text" name="nom" id="nom"> <br>
-
-    <div class="mediaContainer">
-        <div class="labelForMedia">photo de profil de l'animal</div>
-        <label for="media">
-            <img src="public/images/icons/addAnimal.svg" class="currentPicture">
-            <input type="file" id="media" name="media" accept="image/png, image/jpeg">
-        </label>
-    </div>
-
-    <br>
-
-    <label for="description">description</label>
-    <textarea id="description" name="description" type="text" rows="5" cols="33"></textarea>
-    <br>
-
-    <label for="idtype">catégorie d'animal</label>
-    <select name="idtype" id="idtype">
-        <option value=""></option>
-        <?php
-        $categoryCounter = 0;
-        while ($categorie = $types_animaux->fetch()) {
-        ?>
-            <option value="<?= $categoryCounter ?>"><?= htmlspecialchars($categorie['nom']) ?></option>
-        <?php
-            $categoryCounter++;
-        }
-        ?>
-    </select>
-
-    <input type="submit" id="submitAddAnimal" value="Ajouter">
-</form>
-<span id="ConfirmationMessage"></span>
+<main>
+    <h1>Ajouter un animal</h1>
+    <form class="addAnimalForm">
+    
+        <div class="nomWrap">
+            <label for="nom">Nom de l'animal</label><br>
+            <input type="text" name="nom" id="nom" placeholder="Snoopy">
+        </div>
+    
+    
+        <div class="mediaContainer">
+            <!-- <div class="labelForMedia">Photo de profil de l'animal</div> -->
+            <label for="media">
+                <img src="public/images/icons/addAnimal.svg" class="currentPicture">
+                <input type="file" id="media" name="media" accept="image/png, image/jpeg">
+            </label>
+        </div>
+    
+        <div class="descWrap">
+            <label for="description">Description</label><br>
+            <textarea id="description" name="description" type="text" rows="5" cols="33" placeholder="Je suis un super camarade, très joueur et amical, j'ai..."></textarea>
+        </div>
+    
+        <!-- <label for="idtype">Catégorie d'animal</label>
+        <select name="idtype" id="idtype">
+            <option value=""></option>
+            <?php
+            $categoryCounter = 0;
+            while ($categorie = $types_animaux->fetch()) {
+            ?>
+                <option value="<?= $categoryCounter ?>"><?= htmlspecialchars($categorie['nom']) ?></option>
+            <?php
+                $categoryCounter++;
+            }
+            ?>
+        </select> -->
+    
+        <input type="submit" id="submitAddAnimal" value="Ajouter">
+    </form>
+    <p id="ConfirmationMessage"></p>
+</main>
 
 
 <?php
