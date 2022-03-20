@@ -144,9 +144,13 @@ main section:nth-child(7) {
     grid-area: g;
 }
 
+main section:nth-child(8) {
+    grid-area: h;
+}
+
 main {
     display: grid;
-    grid-template-areas: "a""b""c""d""e""f""g";
+    grid-template-areas: "a""b""c""d""e""f""g" "h";
 }
 
 .mockupImg {
@@ -212,7 +216,6 @@ section.partenaires {
     font-size: 0.9rem;
 }
 @media (min-width: 800px) {
-
     .resFooter {
         margin-top: 0;
     }
@@ -234,7 +237,8 @@ section.partenaires {
     }
 
     main {
-        grid-template-areas: "a b""c d""e f""g g";
+        grid-template-areas: "a b""c d""e f""g g" "h h";
+        
     }
 
     .imgWrap {
