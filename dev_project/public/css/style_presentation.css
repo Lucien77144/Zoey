@@ -170,7 +170,47 @@ main {
     width: 100%;
     overflow: hidden;
 }
-
+/* Refuges partenaires */
+section.partenaires {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.partenaires h2 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.75rem;
+    margin-bottom: 0;
+    text-align: center;
+}
+.firstText {
+    font-family: "Montserrat", sans-serif;
+    width: 90%;
+    text-align: center;
+}
+.partenaires img {
+    width: 50px;
+    height: 50px;
+    background-color: gray;
+}
+.partenairesContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.refugeContainer {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.refugeContainer p {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
 @media (min-width: 800px) {
 
     .resFooter {
