@@ -118,46 +118,46 @@ ob_start();
   </section>
 
   <section class="partenaires">
-  <h2>Nos partenaires</h2>
-  <p class="firstText">Zoey est en partenariat et en étroite collaboration avec 9 refuges pour animaux en Île de France :</p>
-  <div class="partenairesContainer">
-    <div class="refugeContainer">
-      <p>Sos p'tites bêtes</p>
-      <img src="../public/images/refuges/sosptitesbetes.png" alt="logo de l'asssociation sos ptites bêtes">
+    <h2>Nos partenaires</h2>
+    <p class="firstText">Zoey est en partenariat et en étroite collaboration avec 9 refuges pour animaux en Île de France :</p>
+    <div class="partenairesContainer">
+      <div class="refugeContainer">
+        <p>Sos p'tites bêtes</p>
+        <img src="./public/images/refuges/sosptitesbetes.png" alt="logo de l'asssociation sos ptites bêtes">
+      </div>
+      <div class="refugeContainer">
+        <p>pattes en rond </p>
+        <img src="./public/images/refuges/pattesenrond.png" alt="logo de l'asssociation pattes en rond">
+      </div>
+      <div class="refugeContainer">
+        <p>pitbull sans toit</p>
+        <img src="./public/images/refuges/pitbullsanstoit.png" alt="logo de l'asssociation pitbullsanstoit">
+      </div>
+      <div class="refugeContainer">
+        <p>APAC94</p>
+        <img src="./public/images/refuges/APAC.png" alt="logo de l'asssociation APAC">
+      </div>
+      <div class="refugeContainer">
+        <p>l’arche de bagheera</p>
+        <img src="./public/images/refuges/larchedebagheera.png" alt="logo de l'asssociation l'arche de bagheera">
+      </div>
+      <div class="refugeContainer">
+        <p>Les patounes de bezons</p>
+        <img src="./public/images/refuges/lespatounesdebezons.png" alt="logo de l'asssociation les patounes de bezons">
+      </div>
+      <div class="refugeContainer">
+        <p>adopte un matou</p>
+        <img src="./public/images/refuges/adopteunmatou.png" alt="logo de l'asssociation adopte un matou">
+      </div>
+      <div class="refugeContainer">
+        <p>association emâ</p>
+        <img src="./public/images/refuges/ema.png" alt="logo de l'asssociation ema">
+      </div>
+      <div class="refugeContainer">
+        <p>association louna</p>
+        <img src="" alt="logo de l'asssociation louna">
+      </div>
     </div>
-    <div class="refugeContainer">
-      <p>pattes en rond </p>
-      <img src="../public/images/refuges/pattesenrond.png" alt="logo de l'asssociation pattes en rond">
-    </div>
-    <div class="refugeContainer">
-      <p>pitbull sans toit</p>
-      <img src="../public/images/refuges/pitbullsanstoit.png" alt="logo de l'asssociation pitbullsanstoit">
-    </div>
-    <div class="refugeContainer">
-      <p>APAC94</p>
-      <img src="../public/images/refuges/APAC.png" alt="logo de l'asssociation APAC">
-    </div>
-    <div class="refugeContainer">
-      <p>l’arche de bagheera</p>
-      <img src="../public/images/refuges/larchedebagheera.png" alt="logo de l'asssociation l'arche de bagheera">
-    </div>
-    <div class="refugeContainer">
-      <p>Les patounes de bezons</p>
-      <img src="../public/images/refuges/lespatounesdebezons.png" alt="logo de l'asssociation les patounes de bezons">
-    </div>
-    <div class="refugeContainer">
-      <p>adopte un matou</p>
-      <img src="../public/images/refuges/adopteunmatou.png" alt="logo de l'asssociation adopte un matou">
-    </div>
-    <div class="refugeContainer">
-      <p>association emâ</p>
-      <img src="../public/images/refuges/ema.png" alt="logo de l'asssociation ema">
-    </div>
-    <div class="refugeContainer">
-      <p>association louna</p>
-      <img src="" alt="logo de l'asssociation louna">
-    </div>
-  </div>
   </section>
   <section class="resFooter">
     <h2 class="title2">Nos Réseaux</h2>
