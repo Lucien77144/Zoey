@@ -193,8 +193,9 @@ section.partenaires {
   text-align: center;
 }
 .partenaires img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
 }
 .partenairesContainer {
   width: 100%;

@@ -1,4 +1,4 @@
-<?php 
+<?php
 $pageTitle = 'Mentions légales';
 ob_start();
 ?>
@@ -12,7 +12,7 @@ ob_start();
         <li>77420 Champs-sur-Marne</li>
         <li>France</li>
         <li>Tél : +33(0)7 81 21 63 94</li>
-        <li>email : app.zoey@gmail.com</li>
+        <li>email :contact@zoey-app.fr</li>
     </ul>
     <h2>Informations hébergeur</h2>
     <ul>
@@ -74,6 +74,10 @@ ob_start();
         pourrait être faite sans le consentement de leurs auteurs ou de leurs
         ayants-droit, est illicite.
     </p>
+    <p>
+        Nous nous réservons le droit de supprimer tout contenu qui violerait les conditions d’utilisation définies ci-après, ou parce qu’il constituerait un détournement de la propriété intellectuelle, une appropriation illicite de droits de propriété intellectuelle, une usurpation d’identité, une conduite illicite, des insultes ou un harcèlement.
+
+    </p>
     <h1>
         Conditions générales d’utilisation du site zoey-app.fr
     </h1>
@@ -94,14 +98,14 @@ ob_start();
     <h2>Comptes</h2>
     <p>
         En créant un compte sur zoey-app.fr, vous acceptez ce qui suit :
-        <ul>
-            <li>que vous êtes seul responsable de votre compte, de la sécurité et de la confidentialité de votre compte.
-            </li>
-            <li>que tous les renseignements personnels sont exacts, véridiques et mis à jour s’ils changent.</li>
-        </ul>
-        Nous nous réservons le droit de suspendre ou de supprimer votre compte si vous violez ces conditions, que vous
-        tentez d’usurper l’identité d’un tiers, ou que vous utilisez une adresse mail qui ne vous appartient pas
-        exclusivement.
+    <ul>
+        <li>que vous êtes seul responsable de votre compte, de la sécurité et de la confidentialité de votre compte.
+        </li>
+        <li>que tous les renseignements personnels sont exacts, véridiques et mis à jour s’ils changent.</li>
+    </ul>
+    Nous nous réservons le droit de suspendre ou de supprimer votre compte si vous violez ces conditions, que vous
+    tentez d’usurper l’identité d’un tiers, ou que vous utilisez une adresse mail qui ne vous appartient pas
+    exclusivement.
     </p>
     <h2>
         Publications par l’Utilisateur
@@ -139,10 +143,8 @@ ob_start();
     <p>
         Les cookies utilisés sur le site Zoey permettent de se connecter à son compte sur Zoey en stockant un
         identifiant de connexion anonyme (ne comportant aucune donnée personnelle), ou d’afficher des résultats
-        personnalisés sur la page <a
-            href="https://zoey-app.fr/index.php?action=adoption">https://zoey-app.fr/index.php?action=adoption</a> en
-        stockant les réponses au quiz accessible sur la page suivante : <a
-            href="https://zoey-app.fr/index.php?action=quizz">https://zoey-app.fr/index.php?action=quizz</a>
+        personnalisés sur la page <a href="https://zoey-app.fr/index.php?action=adoption">https://zoey-app.fr/index.php?action=adoption</a> en
+        stockant les réponses au quiz accessible sur la page suivante : <a href="https://zoey-app.fr/index.php?action=quizz">https://zoey-app.fr/index.php?action=quizz</a>
     </p>
     <p>
         En naviguant sur le site, l’Utilisateur accepte les cookies. Leur désactivation peut s’effectuer via les
@@ -153,53 +155,53 @@ ob_start();
     </h2>
     <p>
         L’Utilisateur ne doit en aucun cas utiliser la plateforme zoey-app.fr pour
-        <ul>
-            <li>collecter des informations ou des données personnelles sur d’autres utilisateurs de la plateforme,</li>
-            <li>contacter d’autres utilisateurs à des fins commerciales ou de prospection,</li>
-            <li>distribuer des fichiers ou des liens vers des virus ou tout programme informatique nuisible ou
-                préjudiciable aux utilisateurs de la plateforme ou à la plateforme elle-même.</li>
-        </ul>
+    <ul>
+        <li>collecter des informations ou des données personnelles sur d’autres utilisateurs de la plateforme,</li>
+        <li>contacter d’autres utilisateurs à des fins commerciales ou de prospection,</li>
+        <li>distribuer des fichiers ou des liens vers des virus ou tout programme informatique nuisible ou
+            préjudiciable aux utilisateurs de la plateforme ou à la plateforme elle-même.</li>
+    </ul>
     </p>
     <p>
         L’Utilisateur ne doit pas porter atteinte à l’intégrité de la plateforme et de son contenu, en tentant
-        <ul>
-            <li>de s’introduire dans les parties protégées de la plateforme et sur les pages d’administration - qui sont
-                interdites d’accès aux utilisateurs du site -,
-            </li>
-            <li>de modifier ou d'altérer le contenu du site en dehors des interfaces prévues à cet effet pour les
-                utilisateurs,
-            </li>
-            <li>
-                de détourner les interfaces prévues pour l’utilisation de la plateforme de leur usage normal,
-            </li>
-            <li>
-                d’introduire d’une quelconque façon des informations, fichiers ou programmes informatiques nuisibles sur
-                la plateforme,
-            </li>
-            <li>
-                de se connecter sur un compte qui appartient à un autre utilisateur,
-            </li>
-            <li>
-                de tenter d’obtenir ou de déchiffrer des échanges chiffrés entre des utilisateurs et la plateforme.
-            </li>
-        </ul>
+    <ul>
+        <li>de s’introduire dans les parties protégées de la plateforme et sur les pages d’administration - qui sont
+            interdites d’accès aux utilisateurs du site -,
+        </li>
+        <li>de modifier ou d'altérer le contenu du site en dehors des interfaces prévues à cet effet pour les
+            utilisateurs,
+        </li>
+        <li>
+            de détourner les interfaces prévues pour l’utilisation de la plateforme de leur usage normal,
+        </li>
+        <li>
+            d’introduire d’une quelconque façon des informations, fichiers ou programmes informatiques nuisibles sur
+            la plateforme,
+        </li>
+        <li>
+            de se connecter sur un compte qui appartient à un autre utilisateur,
+        </li>
+        <li>
+            de tenter d’obtenir ou de déchiffrer des échanges chiffrés entre des utilisateurs et la plateforme.
+        </li>
+    </ul>
     </p>
     <h2>Droit applicable</h2>
     <p>L’utilisation de la plateforme Zoey est régie par les présentes Conditions Générales d’Utilisation, ainsi que par le droit français et européen applicable.</p>
 </section>
 <?php
-    $viewContent = ob_get_clean();
-    
-    // styles BLOCK
-    ob_start(); ?>
+$viewContent = ob_get_clean();
+
+// styles BLOCK
+ob_start(); ?>
 <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_mentions.css" />
 <?php
-    $stylesBlock = ob_get_clean();
+$stylesBlock = ob_get_clean();
 
-    // SCRIPT BLOCK
-    ob_start(); ?>
+// SCRIPT BLOCK
+ob_start(); ?>
 <!-- <script src="public/js/ YOUR SCRIPT GOES HERE "></script> -->
 <?php
-    $scriptsBlock = ob_get_clean();
+$scriptsBlock = ob_get_clean();
 
-    require(BASE_URL . 'public/template/template.php');
+require(BASE_URL . 'public/template/template.php');
