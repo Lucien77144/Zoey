@@ -21,6 +21,8 @@ ob_start();
   > Réseaux : Partager du contenu en lien avec vos animaux de compagnie.
 </p>
 
+<div class="btn" id="installPWAbtn"><a href="index.php?action=pwa">Installer l'appli Zoey</a></div>
+
 <div class="mockupContainer">
   <div class="imgWrap mockupImg">
     <img src="<?= BASE_URL ?>public/images/presentation/mockupZoey.jpg" alt="">
@@ -121,42 +123,42 @@ ob_start();
     <h2>Nos partenaires</h2>
     <p class="firstText">Zoey est en partenariat et en étroite collaboration avec 9 refuges pour animaux en Île de France :</p>
     <div class="partenairesContainer">
-      <div class="refugeContainer">
-        <p>Sos p'tites bêtes</p>
+      <a target="blank" href="https://sosptitesbetes.wixsite.com/sosptitesbetes" class="refugeContainer">
+        <p>Sos P'tites Bêtes</p>
         <img src="./public/images/refuges/sosptitesbetes.png" alt="logo de l'asssociation sos ptites bêtes">
-      </div>
-      <div class="refugeContainer">
-        <p>pattes en rond </p>
+      </a>
+      <a target="blank" href="https://pattesenrond.fr/" class="refugeContainer">
+        <p>Pattes En Rond </p>
         <img src="./public/images/refuges/pattesenrond.png" alt="logo de l'asssociation pattes en rond">
-      </div>
-      <div class="refugeContainer">
-        <p>pitbull sans toit</p>
+      </a>
+      <a target="blank" href="https://www.facebook.com/apibullssanstoit/" class="refugeContainer">
+        <p>Pitbull Sans Toit</p>
         <img src="./public/images/refuges/pitbullsanstoit.png" alt="logo de l'asssociation pitbullsanstoit">
-      </div>
-      <div class="refugeContainer">
+      </a>
+      <a target="blank" href="https://www.facebook.com/APAC94ASSO/" class="refugeContainer">
         <p>APAC94</p>
         <img src="./public/images/refuges/APAC.png" alt="logo de l'asssociation APAC">
-      </div>
-      <div class="refugeContainer">
-        <p>l’arche de bagheera</p>
+      </a>
+      <a target="blank" href="http://refuge-larche-de-bagheera.weebly.com/" class="refugeContainer">
+        <p>L’arche De Bagheera</p>
         <img src="./public/images/refuges/larchedebagheera.png" alt="logo de l'asssociation l'arche de bagheera">
-      </div>
-      <div class="refugeContainer">
-        <p>Les patounes de bezons</p>
+      </a>
+      <a target="blank" href="http://les-patounes-de-bezons.fr/" class="refugeContainer">
+        <p>Les Patounes De Bezons</p>
         <img src="./public/images/refuges/lespatounesdebezons.png" alt="logo de l'asssociation les patounes de bezons">
-      </div>
-      <div class="refugeContainer">
-        <p>adopte un matou</p>
+      </a>
+      <a target="blank" href="https://adopteunmatou.com/" class="refugeContainer">
+        <p>Adopte Un Matou</p>
         <img src="./public/images/refuges/adopteunmatou.png" alt="logo de l'asssociation adopte un matou">
-      </div>
-      <div class="refugeContainer">
-        <p>association emâ</p>
+      </a>
+      <a target="blank" href="https://associationema.wixsite.com/associationema" class="refugeContainer">
+        <p>Association Emâ</p>
         <img src="./public/images/refuges/ema.png" alt="logo de l'asssociation ema">
-      </div>
-      <div class="refugeContainer">
-        <p>association louna</p>
+      </a>
+      <a target="blank" href="https://www.facebook.com/associationlouna/" class="refugeContainer">
+        <p>Association Louna</p>
         <img src="./public/images/icons/favicon.svg" alt="">
-      </div>
+      </a>
     </div>
   </section>
   <section class="resFooter">

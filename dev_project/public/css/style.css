@@ -43,14 +43,13 @@ body {
   color: #000;
 }
 
-.loader>img {
+.loader > img {
   height: 50px;
   width: 50px;
   animation: 2s rotation infinite;
 }
 
 @keyframes rotation {
-
   0%,
   100% {
     transform: rotate(0deg);
@@ -162,7 +161,7 @@ a {
   color: #f59644;
 }
 
-header>h1 a {
+header > h1 a {
   text-decoration: none;
   font-family: 'Exo 2', sans-serif;
   margin: 0;
@@ -170,11 +169,11 @@ header>h1 a {
   cursor: pointer;
 }
 
-header>h1:hover {
+header > h1:hover {
   animation: animLogo 0.5s linear;
 }
 
-header>img {
+header > img {
   height: 50%;
 }
 
@@ -227,7 +226,7 @@ header>img {
   z-index: 1;
 }
 
-.menuInner>a {
+.menuInner > a {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -238,7 +237,7 @@ header>img {
   width: 50%;
 }
 
-.menuInner>a>svg {
+.menuInner > a > svg {
   height: 35px;
   width: 35px;
 }
@@ -331,7 +330,6 @@ header>img {
 
 /* Fin spécificité popUp */
 @keyframes animLogo {
-
   0%,
   100% {
     transform: rotate(0deg);
@@ -351,7 +349,6 @@ header>img {
 }
 
 @media (max-width: 300px) {
-
   body *,
   body *::after,
   body *::before {
@@ -375,7 +372,6 @@ header>img {
   .menu h2 {
     display: block;
   }
-
 }
 
 @media (min-width: 800px) {
@@ -401,7 +397,6 @@ header>img {
   .newsletter p {
     align-self: unset;
   }
-
 
   .menuBlur,
   .menu svg {
@@ -442,7 +437,7 @@ header>img {
     width: 20%;
   }
 
-  .menuInner>a {
+  .menuInner > a {
     transition: 0.25s ease-in-out;
   }
 
@@ -451,7 +446,7 @@ header>img {
     margin: 0;
   }
 
-  .menuInner>a:hover {
+  .menuInner > a:hover {
     color: #ffa319;
   }
 
@@ -466,30 +461,30 @@ header>img {
     top: 0;
   }
 
-  .navbar>a {
+  .navbar > a {
     transition: 0.15s ease-in-out;
   }
 
-  .navbar>a:nth-child(1):hover {
+  .navbar > a:nth-child(1):hover {
     transform: rotate(10deg);
   }
 
-  .navbar>a:nth-child(2) rect,
+  .navbar > a:nth-child(2) rect,
   .navbar .cross {
     transform-origin: center;
     transition: 0.5s;
   }
 
-  .navbar>a:nth-child(2):hover .cross {
+  .navbar > a:nth-child(2):hover .cross {
     transform: rotate(180deg);
     fill: #ffc800;
   }
 
-  .navbar>a:nth-child(2):hover .cross rect {
+  .navbar > a:nth-child(2):hover .cross rect {
     fill: #ffc800;
   }
 
-  .navbar>a:nth-child(2):hover>svg>rect {
+  .navbar > a:nth-child(2):hover > svg > rect {
     transform: scale(0.9);
   }
 }

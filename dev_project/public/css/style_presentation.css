@@ -205,11 +205,14 @@ section.partenaires {
   justify-content: space-around;
 }
 .refugeContainer {
-  width: 30%;
+  width: 50%;
+  max-width: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  text-decoration: none;
+  color: black;
 }
 .refugeContainer p {
   width: 100%;
