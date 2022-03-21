@@ -76,6 +76,7 @@ body {
 }
 
 .viewPW{
+  cursor: pointer;
   transform-origin: center;
   transition: 0.25s ease-in-out;
 }
