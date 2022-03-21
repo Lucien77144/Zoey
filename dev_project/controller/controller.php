@@ -20,6 +20,11 @@ function printPresentation()
     require(BASE_URL . "view/presentationView.php");
 }
 
+function printPwa()
+{
+    require(BASE_URL . "view/pwaView.php");
+}
+
 function printQuizz()
 {
     $types_animaux = getAnimalTypes();

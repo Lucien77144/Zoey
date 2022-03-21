@@ -21,7 +21,7 @@ ob_start();
   > Réseaux : Partager du contenu en lien avec vos animaux de compagnie.
 </p>
 
-<div class="btn" id="installPWAbtn">Installer l'appli Zoey</div>
+<div class="btn" id="installPWAbtn"><a href="index.php?action=pwa">Installer l'appli Zoey</a></div>
 
 <div class="mockupContainer">
   <div class="imgWrap mockupImg">
