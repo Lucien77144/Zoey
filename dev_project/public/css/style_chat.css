@@ -270,6 +270,7 @@ textarea {
   background: white;
   border: none;
   border-radius: 15px;
+  border-radius: 3px 3px 3px 3px ;
   font-family: 'Montserrat', sans-serif;
   resize: none;
   padding: 10px;

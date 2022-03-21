@@ -1,0 +1,50 @@
+
+.promptPWA {
+    /* pop up on first opening */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 10000001;
+  }
+  
+  /* bouton installer PWA */
+  
+  .installPWAbtn {
+    /* render btn if installable */
+  }
+  
+.popUpWrapper {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.popUpInstall {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 300px;
+    height: 200px;
+}
+#promptPWAclose {
+    margin-top: 10px;
+    margin-left: 10px;
+    align-self: flex-start;
+}
+.popUpInstall p {
+    text-align: center;
+    width: 90%;
+}

@@ -14,7 +14,7 @@
 
 
     <!-- <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_old.css"> -->
-
+    <link rel="stylesheet" href="public/css/style_popUpInstall.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style.css">
     <!-- <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_header.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_commun.css"> -->
@@ -164,10 +164,12 @@
 
     <!-- prompt PWA : hidden by default -->
     <div class="promptPWA" id="promptPWA" style="display:none;">
-        <div>
-            <div id="promptPWAclose"><img src="<?= BASE_URL . 'public/images/icons/popUp/croix.svg' ?>" alt=""></div>
-            <div class="btn" id="promptPWAinstall">Installer l'appli 😺</div>
-            <p>Pour une meilleure expérience sur Zoey !</p>
+        <div class="popUpWrapper">
+            <div class="popUpInstall">
+                <div id="promptPWAclose"><img src="<?= BASE_URL . 'public/images/icons/popUp/croix.svg' ?>" alt=""></div>
+                <div class="btn" id="promptPWAinstall">Installer l'appli 😺</div>
+                <p>Pour une meilleure expérience sur Zoey !</p>
+            </div>
         </div>
     </div>
 

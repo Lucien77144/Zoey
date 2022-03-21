@@ -110,8 +110,10 @@ article>div {
 }
 
 #messagesContainer a p:last-of-type {
+  width: 100%;
   margin: 0;
   font-size: 0.95rem;
+  word-wrap: break-word;
 }
 
 .addFriends {
