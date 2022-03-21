@@ -50,21 +50,13 @@ function printForgotMyPw()
 
 function printDisconnect()
 {
-
     $_SESSION = array();
     session_destroy();
-
-    // setcookie('login', '');
-    // setcookie('pass_hash', '');
+    setcookie("zoeyaccount", "", time() - 3600, "/");
+    setcookie("g", "d", time() + 34559999, "/"); // prevent auto-reconnect with google
 
     require(BASE_URL . "view/disconnectView.php");
 }
-
-// function printAnimal(){
-//     $animal = getAnimal($_GET['id']);
-//     $animalFeed = getAnimalFeed($_GET['id']);
-//     require(BASE_URL . "view/animalView.php");
-// }
 
 function printAccount()
 {

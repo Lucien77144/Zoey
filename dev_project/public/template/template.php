@@ -154,9 +154,19 @@
     }
     ?>
 
+    <?php
+    if (isset($_SESSION['idUser']) || (isset($_COOKIE['g']) && $_COOKIE['g'] == 'd') || isset($_GET['g']) && $_GET['g'] == 'd') {
+    ?>
+        <div id="googleAuth" hidden></div>
+    <?php
+    }
+    ?>
+
     <div class='loader' id="loaderContainer" style="display: none;"><img src='public/images/icons/loader.svg'></div>
 
     <script src="<?= BASE_URL ?>public/js/post.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="<?= BASE_URL ?>public/js/googleAuth.js"></script>
     <?php if (isset($scriptsBlock)) echo $scriptsBlock ?>
 
     <script src="script.js"></script>

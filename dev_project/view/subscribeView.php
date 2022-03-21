@@ -84,7 +84,6 @@ $stylesBlock = ob_get_clean();
 
 // SCRIPT BLOCK
 ob_start(); ?>
-<script src="https://accounts.google.com/gsi/client" async defer></script>
 <script src="https://www.google.com/recaptcha/api.js?render=6Ld4D9oeAAAAAECFDuVReBAtfMb_jpIJF5yrQBCw"></script>
 <script>
     grecaptcha.ready(() => {
@@ -103,7 +102,6 @@ ob_start(); ?>
     }
     window.onload = showForm()
 </script>
-<script src="<?= BASE_URL ?>public/js/googleAuth.js"></script>
 <?php
 $scriptsBlock = ob_get_clean();
 

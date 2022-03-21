@@ -29,7 +29,7 @@ ob_start();
                 <p><?= isset($account['description']) ? htmlspecialchars($account['description']) : 'Bienvenue sur mon profil !' ?></p>
             </div>
             <?php if (isset($_SESSION['idUser']) && $account['iduser'] == $_SESSION['idUser']) { ?>
-                <a class="btn disconnect" href="index.php?action=disconnect">se déconnecter</a>
+                <a class="btn disconnect" href="index.php?action=disconnect&g=d">se déconnecter</a>
             <?php } ?>
             <div class="controls">
                 <?php
@@ -61,7 +61,7 @@ ob_start();
                     } else if (isset($account['idUser'])) {
                         throw new Exception("Nous n'avons pas trouvé cet utilisateur");
                     }
-    
+
                     if (isFriend($account['iduser']) == 2 && $account['iduser'] != $_SESSION['idUser']) {
                         $conv = getDirectConversation($account['iduser'])->fetch();
                     ?>
@@ -104,11 +104,11 @@ ob_start();
             </div>
         </a>
     <?php } else { ?>
-    
+
         <nav class="menuAnimaux">
             <div class="menuAnimauxInner">
                 <ul class="menuAnimauxWrapper">
-    
+
                     <?php
                     $i = 0;
                     while ($accountAnimal = $accountAnimals->fetch()) {
@@ -121,7 +121,7 @@ ob_start();
                         $i++;
                     }
                     $_SESSION['printAnimal'] = $animalId;
-    
+
                     if (isset($_SESSION['idUser']) && verifyToken() && $account['iduser'] == $_SESSION['idUser']) {
                     ?>
                         <a href="index.php?action=addAnimal">
@@ -133,13 +133,13 @@ ob_start();
                     <?php
                     }
                     ?>
-    
+
                 </ul>
             </div>
         </nav>
     <?php
     }
-    
+
     if ($accountAnimals) { // renvoie false si aucun animal lié à ce compte n'a été trouvé en bdd
         require('print.php');
     ?>

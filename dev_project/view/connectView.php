@@ -55,10 +55,8 @@ ob_start(); ?>
 $stylesBlock = ob_get_clean();
 
 // SCRIPT BLOCK
-ob_start(); ?>
-<script src="https://accounts.google.com/gsi/client" async defer></script>
-<script src="<?= BASE_URL ?>public/js/googleAuth.js"></script>
+/*ob_start(); ?>
 <?php
-$scriptsBlock = ob_get_clean();
+$scriptsBlock = ob_get_clean();*/
 
 require(BASE_URL . 'public/template/template.php');

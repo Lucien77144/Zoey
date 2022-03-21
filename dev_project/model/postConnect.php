@@ -26,6 +26,9 @@ function postConnect()
             $_SESSION['pseudo'] = $user['pseudo'];
             $_SESSION['statut'] = $user['statut'];
             require('generateToken.php');
+            sendToken();
+
+            setcookie("g", "", time() - 3600, "/");
 
             return "valid";
         } else {
@@ -58,6 +61,9 @@ function postConnectWithGoogle()
             $_SESSION['pseudo'] = $user['pseudo'];
             $_SESSION['statut'] = $user['statut'];
             require('generateToken.php');
+            sendToken();
+
+            setcookie("g", "", time() - 3600, "/");
 
             return "valid";
         } else {

@@ -134,13 +134,23 @@ window.onload = function () {
     client_id:
       '866214768583-13jeokh10iam9q1chmeiphgok3gbkr1i.apps.googleusercontent.com',
     callback: handleCredentialResponse,
+    auto_select: true,
   })
-  google.accounts.id.renderButton(
-    document.getElementById('googleAuthButton'),
-    {
-      theme: 'outline',
-      size: 'large',
-    } // customization attributes
-  )
-  google.accounts.id.prompt() // also display the One Tap dialog
+  if (document.getElementById('googleAuthButton')) {
+    google.accounts.id.renderButton(
+      document.getElementById('googleAuthButton'),
+      {
+        theme: 'outline',
+        size: 'large',
+      } // customization attributes
+    )
+  }
+  // google.accounts.id.prompt() // also display the One Tap dialog
+  if (!document.getElementById('googleAuth')) {
+    google.accounts.id.prompt((notification) => {
+      if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+        console.log('skipped google')
+      }
+    })
+  }
 }

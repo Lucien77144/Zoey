@@ -196,7 +196,7 @@ function getUserReadState($idUser)
         ));
 
         if ($req->rowCount() != 1)
-            throw new Exception("Nous n'avons pas trouvé cet utilisateur");
+            return false;
 
         $pseudo = $req->fetch();
 

@@ -6,7 +6,7 @@ ob_start();
 $res = $feed->fetchAll(PDO::FETCH_ASSOC);
 
 $low = "";
-if(count($res) < 10){
+if (count($res) < 10) {
     $low = "class='hiddenAfter'";
 }
 ?>
