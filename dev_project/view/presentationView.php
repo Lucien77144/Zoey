@@ -155,7 +155,7 @@ ob_start();
       </div>
       <div class="refugeContainer">
         <p>association louna</p>
-        <img src="" alt="logo de l'asssociation louna">
+        <img src="./public/images/icons/favicon.svg" alt="">
       </div>
     </div>
   </section>
