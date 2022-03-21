@@ -900,11 +900,26 @@ $(document).ready(function () {
 
     postAddNewsletter()
   })
+  
+  if(document.querySelector(".viewPW") != null){
+    document.querySelector(".viewPW").addEventListener("click", function(){
+      if(document.querySelector("#password").getAttribute("type") == "password") {
+        document.querySelector("#password").setAttribute("type", "text");
+        document.querySelector(".pwContainer").classList.add("showPW");
+      } else {
+        document.querySelector("#password").setAttribute("type", "password");
+        document.querySelector(".pwContainer").classList.remove("showPW");
+      }
+    });
+  }
 
   $('#submitAddMessage').click(function (e) {
     e.preventDefault();
-    document.querySelector("textarea").focus();
-    document.querySelector("textarea").select();
+
+    if(document.querySelector('#msg').value != ''){
+      document.querySelector("textarea").focus();
+      document.querySelector("textarea").select();
+    }
 
     if (
       document.querySelector('#msg').value != '' ||

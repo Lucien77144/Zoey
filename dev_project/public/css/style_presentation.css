@@ -180,6 +180,7 @@ section.partenaires {
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
 }
 .partenaires h2 {
   font-family: 'Exo 2', sans-serif;
@@ -208,6 +209,7 @@ section.partenaires {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 }
 .refugeContainer p {
   width: 100%;
