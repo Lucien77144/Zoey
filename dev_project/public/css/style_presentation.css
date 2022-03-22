@@ -218,6 +218,10 @@ section.partenaires {
   font-weight: bold;
   font-size: 0.9rem;
 }
+#installPWAbtn a {
+  text-decoration: none;
+  color: white;
+}
 @media (min-width: 800px) {
   .resFooter {
     margin-top: 0;

@@ -7,6 +7,7 @@ ob_start();
 <div class="bgContainer">
     <h1 class="underline title">Installer Zoey</h1>
 </div>
+<p>Pour installer ZOEY sur votre téléphone en tant qu'application, il vous suffit de suivre les consignes de cette courte vidéo afin de pouvoir profiter pleinement de notre plateforme.</p>
 
 
 
@@ -15,7 +16,7 @@ $viewContent = ob_get_clean();
 
 // styles BLOCK
 ob_start(); ?>
-<link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_presentation.css" />
+<link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_pwa.css" />
 <?php
 $stylesBlock = ob_get_clean();
 
