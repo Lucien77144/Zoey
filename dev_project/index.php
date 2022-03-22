@@ -2,13 +2,13 @@
 session_start();
 
 define("BASE_URL", "./");
-$pageTitle = "Zoey";
-$viewContent = "";
-$metaDesc = "Partenaire de refuges et associations certifiés en Île-de-France, Zoey facilite vos démarches d’adoption et vos recherches du parfait compagnon.";
+// $pageTitle = "Zoey, le réseau social pour l'adoption";
+// $viewContent = "";
+// $metaDesc = "Partenaire de refuges et associations certifiés en Île-de-France, Zoey facilite vos démarches d’adoption et vos recherches du parfait compagnon.";
 $printNewsletter = true;
 $printLegal = false;
 $showModifyLink = false;
-require_once("controller/controller.php");
+require("controller/controller.php");
 
 try {
     if (verifyToken()) {
@@ -88,6 +88,14 @@ try {
         }
     } else {
         printFeed();
+        // if (!isset($_GET['id']) && isset($_SESSION['idUser'])) {
+        //     $_GET['id'] = $_SESSION['idUser'];
+        // }
+        // if (isset($_GET['id'])) {
+        //     printAccount();
+        // } else {
+        //     printConnect();
+        // }
     }
 } catch (Exception $e) {
     $errorMsg = $e->getMessage();

@@ -334,6 +334,8 @@ input[type='submit'] {
 #ConfirmationMessage {
   margin-bottom: 10px;
   margin-top: 10px;
+  max-width: 100%;
+  word-wrap: break-word;
 }
 
 input[type='submit']:hover {

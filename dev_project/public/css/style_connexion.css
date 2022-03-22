@@ -57,6 +57,35 @@ body {
   align-items: center;
 }
 
+.pwContainer {
+  margin: 10px 0;
+  position: relative;
+}
+
+.viewPW {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  height: 25px;
+  width: 25px;
+  top: 50%;
+  right: 0;
+}
+
+#password {
+  margin: 0;
+}
+
+.viewPW{
+  cursor: pointer;
+  transform-origin: center;
+  transition: 0.25s ease-in-out;
+}
+
+.showPW svg{
+  transform: translate(-50%, -50%) scaleY(0.75);
+  opacity: 0.5;
+}
+
 .linksContainer input {
   width: 150px;
   font-size: 1rem;

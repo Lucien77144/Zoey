@@ -1,5 +1,4 @@
 <?php
-$pageTitle = 'Zoey';
 $printNewsletter = false;
 ob_start();
 

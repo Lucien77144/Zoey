@@ -10,7 +10,15 @@
     <link rel="apple-touch-icon" href="logo192.png" />
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <meta name="description" content="<?= $metaDesc ?>">
+    <meta name="description" content="<?= isset($metaDesc) ? $metaDesc : "Partenaire de refuges et associations certifiés en Île-de-France, Zoey facilite vos démarches d’adoption et vos recherches du parfait compagnon." ?>">
+
+    <!-- open graph -->
+    <meta property="og:title" content="Zoey, le réseau social pour l'adoption" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Partenaire de refuges et associations certifiés en Île-de-France, Zoey facilite vos démarches d’adoption et vos recherches du parfait compagnon." />
+    <meta property="og:url" content="https://zoey-app.fr" />
+    <meta property="og:image" content="https://zoey-app.fr/public/images/presentation/mockupZoey.jpg" />
+    <meta property="og:image:alt" content="Présentation de l'application Zoey" />
 
 
     <!-- <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_old.css"> -->
@@ -22,7 +30,7 @@
     <?php if (isset($stylesBlock)) echo $stylesBlock ?>
 
     <script src="vendor/jquery-3.6.0.min.js"></script>
-    <title><?= $pageTitle ?></title>
+    <title><?= isset($pageTitle) ? $pageTitle : "Zoey, le réseau social pour l'adoption" ?></title>
 </head>
 
 <body>
@@ -175,7 +183,7 @@
 
     <div class='loader' id="loaderContainer" style="display: none;"><img src='public/images/icons/loader.svg'></div>
 
-    <script src="<?= BASE_URL ?>public/js/post.js"></script>
+    <script src="<?= BASE_URL ?>public/js/post.js" async defer></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="<?= BASE_URL ?>public/js/googleAuth.js"></script>
     <?php if (isset($scriptsBlock)) echo $scriptsBlock ?>

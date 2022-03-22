@@ -11,27 +11,27 @@ function postAddAnimal()
     // $date_naissance = safeEntry($_POST['date_naissance']);
     $date_naissance = null;
     $idUser = $_SESSION['idUser'];
-    $postedIdType = intval(safeEntry($_POST['idtype']));
+    // $postedIdType = intval(safeEntry($_POST['idtype']));
 
-    $types_animaux = getAnimalTypes();
+    // $types_animaux = getAnimalTypes();
 
-    if (!$types_animaux) { // renvoie false si aucune catégorie n'a été trouvée
-        throw new Exception("Nous n'avons pas trouvé cette catégorie !");
-    } else {
-        $categorie = $types_animaux->fetchAll();
+    // if (!$types_animaux) { // renvoie false si aucune catégorie n'a été trouvée
+    //     throw new Exception("Nous n'avons pas trouvé cette catégorie !");
+    // } else {
+    //     $categorie = $types_animaux->fetchAll();
 
-        if ($postedIdType <= $types_animaux->rowCount()) {
-            $idType = $categorie[$postedIdType]['id'];
-        } else {
-            throw new Exception("Nous n'avons pas trouvé cette catégorie !");
-        }
-    }
+    //     if ($postedIdType <= $types_animaux->rowCount()) {
+    //         $idType = $categorie[$postedIdType]['id'];
+    //     } else {
+    //         throw new Exception("Nous n'avons pas trouvé cette catégorie !");
+    //     }
+    // }
 
     require("PDO.php");
 
     $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
-    $sql = "INSERT INTO profil_animal_de_compagnie (nom, url_photo, `description`, date_naissance, utilisateur_idutilisateur1, types_animaux_idtypes_animaux) VALUES (:nom, :url_photo, :description, :date_naissance, :iduser, :idtype);";
+    $sql = "INSERT INTO profil_animal_de_compagnie (nom, url_photo, `description`, date_naissance, utilisateur_idutilisateur1, types_animaux_idtypes_animaux) VALUES (:nom, :url_photo, :description, :date_naissance, :iduser, 4);";
     $req = $db->prepare($sql);
 
     $req->execute(array(
@@ -40,7 +40,7 @@ function postAddAnimal()
         ':description' => $description,
         ':date_naissance' => $date_naissance,
         ':iduser' => $idUser,
-        ':idtype' => $idType
+        // ':idtype' => $idType
     ));
 
     if (!$req)
@@ -54,8 +54,8 @@ try {
         isset($_POST['nom'])
         && isset($_POST['media'])
         && isset($_POST['description'])
-        && isset($_POST['idtype'])
-        && is_numeric($_POST['idtype'])
+        // && isset($_POST['idtype'])
+        // && is_numeric($_POST['idtype'])
     ) {
         $postAddAnimal = postAddAnimal();
         echo $postAddAnimal;
@@ -63,7 +63,7 @@ try {
         throw new Exception("Le profil de n'a pas pu être ajouté");
     }
 } catch (Exception $e) {
-    echo "catch";
+    // echo "catch";
     $errorMsg = $e->getMessage();
     echo $errorMsg;
     // require(BASE_URL . "view/errorView.php");
