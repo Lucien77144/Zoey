@@ -8,7 +8,7 @@ $metaDesc = "Partenaire de refuges et associations certifiés en Île-de-France,
 $printNewsletter = true;
 $printLegal = false;
 $showModifyLink = false;
-require_once("controller/controller.php");
+require("controller/controller.php");
 
 try {
     if (verifyToken()) {

@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" href="logo192.png" />
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <meta name="description" content="<?= $metaDesc ?>">
+    <meta name="description" content="<?= isset($metaDesc) ? $metaDesc : "Partenaire de refuges et associations certifiés en Île-de-France, Zoey facilite vos démarches d’adoption et vos recherches du parfait compagnon." ?>">
 
 
     <!-- <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_old.css"> -->
