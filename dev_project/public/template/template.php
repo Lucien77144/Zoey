@@ -175,7 +175,7 @@
 
     <div class='loader' id="loaderContainer" style="display: none;"><img src='public/images/icons/loader.svg'></div>
 
-    <script src="<?= BASE_URL ?>public/js/post.js"></script>
+    <script src="<?= BASE_URL ?>public/js/post.js" async defer></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="<?= BASE_URL ?>public/js/googleAuth.js"></script>
     <?php if (isset($scriptsBlock)) echo $scriptsBlock ?>

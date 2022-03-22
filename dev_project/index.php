@@ -88,6 +88,14 @@ try {
         }
     } else {
         printFeed();
+        // if (!isset($_GET['id']) && isset($_SESSION['idUser'])) {
+        //     $_GET['id'] = $_SESSION['idUser'];
+        // }
+        // if (isset($_GET['id'])) {
+        //     printAccount();
+        // } else {
+        //     printConnect();
+        // }
     }
 } catch (Exception $e) {
     $errorMsg = $e->getMessage();
