@@ -146,10 +146,6 @@
   cursor: pointer;
 }
 
-.grecaptcha-badge {
-  bottom: 115px !important;
-}
-
 #pseudoConfirmationMessage {
   text-align: center;
   margin-bottom: 10px;
