@@ -7,7 +7,15 @@ ob_start();
 <div class="bgContainer">
     <h1 class="underline title">Installer Zoey</h1>
 </div>
-<p>Pour installer ZOEY sur votre téléphone en tant qu'application, il vous suffit de suivre les consignes de cette courte vidéo afin de pouvoir profiter pleinement de notre plateforme.</p>
+<p>Pour installer ZOEY sur votre téléphone en tant qu'application, il vous suffit de suivre <b>les consignes de cette
+    courte vidéo</b> afin de pouvoir profiter pleinement de notre plateforme.</p>
+<div class="videoContainer">
+    <video controls>
+        <source src="./public/images/presentation/tutorial.mp4" type="video/mp4">
+        <p>Votre navigateur ne prend pas en charge les vidéos HTML5.
+            Voici <a href="./public/images/presentation/tutorial.mp4">un lien pour télécharger la vidéo</a>.</p>
+    </video>
+</div>
 
 
 
