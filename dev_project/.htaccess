@@ -69,9 +69,18 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php [QSA]
 
 
-RewriteEngine On
-RewriteCond %{SERVER_PORT} !=443
-RewriteRule ^(.*)$ https://zoey-app.fr/$1 [R=301,L]
+
+# #--------------------------------------------------
+# # Turn on for production only
+# #--------------------------------------------------
+
+# RewriteEngine On
+# RewriteCond %{SERVER_PORT} !=443
+# RewriteRule ^(.*)$ https://zoey-app.fr/$1 [R=301,L]
+
+# #--------------------------------------------------
+
+
 
 
 # <Directory "/BETA">
