@@ -1,3 +1,4 @@
+/* Formulaire pour ajouter un post */
 input[type='radio'] {
   display: none;
 }
@@ -42,6 +43,8 @@ h3 {
   font-size: 1.1em;
 }
 
+/* Selectionner un animal */
+
 .selectAnimal {
   display: flex;
   width: fit-content;
@@ -84,30 +87,6 @@ h3 {
   pointer-events: none;
 }
 
-label {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  cursor: pointer;
-}
-
-label[for="media"] {
-  width: fit-content;
-  width: -moz-fit-content;
-  height: fit-content;
-  height: -moz-fit-content;
-  margin: 2rem auto;
-}
-
-.imgLoader+h5 {
-  font-weight: normal;
-  margin: 0;
-  margin-top: 15px;
-}
-
 .cardSelector {
   min-width: 100px;
   max-width: 125px;
@@ -135,6 +114,45 @@ label[for="media"] {
 .cardActive h3 {
   color: white;
 }
+
+/* Choisir une image */
+
+label {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+label[for="media"] {
+  width: fit-content;
+  width: -moz-fit-content;
+  height: fit-content;
+  height: -moz-fit-content;
+  margin: 2rem auto;
+}
+
+.imgLoader+h5 {
+  font-weight: normal;
+  margin: 0;
+  margin-top: 15px;
+}
+
+#media {
+  display: none;
+}
+
+.imgLoader img {
+  width: 75vw;
+  max-width: 500px;
+  height: auto;
+}
+
+
+/* Description */
 
 #description {
   box-sizing: border-box;
@@ -171,16 +189,6 @@ label[for="media"] {
   box-shadow: none;
 }
 
-#media {
-  display: none;
-}
-
-.imgLoader img {
-  width: 75vw;
-  max-width: 500px;
-  height: auto;
-}
-
 h5.button {
   margin-top: 20px;
 }
@@ -189,7 +197,6 @@ h5.button {
   margin-bottom: 50px;
 }
 
-/* Bouton Add Animal */
 
 .addFirstWrap {
   color: white;
@@ -231,6 +238,10 @@ h5.button {
   animation: pulse 0.75s ease-in-out;
 }
 
+/* ---------------------------- */
+/*       Media Queries          */
+/* ---------------------------- */
+
 @media (max-width: 800px) {
 
   .containerSelectAnim,
@@ -246,6 +257,10 @@ h5.button {
     margin: 0 10px;
   }
 }
+
+/* ---------------------------- */
+/*          KeyFrames           */
+/* ---------------------------- */
 
 @keyframes pulse {
   0% {

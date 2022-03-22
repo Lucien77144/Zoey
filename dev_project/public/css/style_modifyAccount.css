@@ -1,7 +1,17 @@
+/* ---------------------------- */
+/*     Classes générales        */
+/* ---------------------------- */
+
 header {
   position: absolute;
   top: 0;
 }
+
+h1::first-letter {
+  color: #f3811c;
+}
+
+/* Section Modifier le compte */
 
 .mainModifyAccount {
   display: flex;
@@ -14,10 +24,6 @@ header {
 
 .mainModifyAccount h1 {
   text-align: center;
-}
-
-h1::first-letter {
-  color: #f3811c;
 }
 
 form {
@@ -42,6 +48,10 @@ label {
   font-weight: bold;
   font-size: calc(1rem + 0.5vw);
 }
+
+/* ---------------------------- */
+/*       Media Queries          */
+/* ---------------------------- */
 
 @media screen and (min-width: 800px) {
   .mainModifyAccount {

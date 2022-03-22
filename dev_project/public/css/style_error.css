@@ -1,3 +1,4 @@
+/* Section d'erreur */
 .error {
     width: 100%;
     height: 100%;
@@ -67,10 +68,6 @@
     align-items: center;
 }
 
-/* .newsletter {
-    display: none;
-} */
-
 /* Page de redirection vers la connexion */
 .error section {
     text-align: center;
@@ -101,6 +98,10 @@
     font-weight: 600;
     text-align: center;
 }
+
+/* ---------------------------- */
+/*       Media Queries          */
+/* ---------------------------- */
 
 @media (min-width: 800px) {
     .error section {

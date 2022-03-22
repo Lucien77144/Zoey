@@ -1,3 +1,7 @@
+/* ---------------------------- */
+/*     Classes générales        */
+/* ---------------------------- */
+
 body {
   width: 100%;
   display: flex;
@@ -13,21 +17,19 @@ body {
   text-align: center;
 }
 
-.resFooter {
-  margin-top: 25px;
-}
-
-.intro,
-.desc {
-  font-family: 'Montserrat', sans-serif;
-  width: 80vw;
-}
-
 section {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+/* Description de Zoey */
+
+.intro,
+.desc {
+  font-family: 'Montserrat', sans-serif;
+  width: 80vw;
 }
 
 .title2 {
@@ -50,6 +52,8 @@ section .title2 {
   text-align: center;
   font-family: 'Montserrat', sans-serif;
 }
+
+/* Images */
 
 .imgWrap img {
   width: 40vw;
@@ -85,6 +89,8 @@ section .title2 {
   left: 50%;
 }
 
+/* Réseaux sociaux footer */
+
 .reseaux {
   display: flex;
   flex-direction: column;
@@ -101,6 +107,10 @@ section .title2 {
   font-family: 'Roboto', sans-serif;
   margin: 10px 0 10px 0;
   transition: 0.25s ease-in-out;
+}
+
+.resFooter {
+  margin-top: 25px;
 }
 
 .reseaux a:hover {
@@ -150,7 +160,7 @@ main section:nth-child(8) {
 
 main {
   display: grid;
-  grid-template-areas: 'a' 'b' 'c' 'd' 'e' 'f' 'g' 'h';
+  grid-template-areas: 'a''b''c''d''e''f''g''h';
 }
 
 .mockupImg {
@@ -174,6 +184,7 @@ main {
   width: 100%;
   overflow: hidden;
 }
+
 /* Refuges partenaires */
 section.partenaires {
   width: 100%;
@@ -182,28 +193,33 @@ section.partenaires {
   align-items: center;
   box-sizing: border-box;
 }
+
 .partenaires h2 {
   font-family: 'Exo 2', sans-serif;
   font-size: 1.75rem;
   margin-bottom: 0;
   text-align: center;
 }
+
 .firstText {
   font-family: 'Montserrat', sans-serif;
   width: 90%;
   text-align: center;
 }
+
 .partenaires img {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
 }
+
 .partenairesContainer {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
 .refugeContainer {
   width: 50%;
   max-width: 250px;
@@ -214,16 +230,23 @@ section.partenaires {
   text-decoration: none;
   color: black;
 }
+
 .refugeContainer p {
   width: 100%;
   text-align: center;
   font-weight: bold;
   font-size: 0.9rem;
 }
+
 #installPWAbtn a {
   text-decoration: none;
   color: white;
 }
+
+/* ---------------------------- */
+/*       Media Queries          */
+/* ---------------------------- */
+
 @media (min-width: 800px) {
   .resFooter {
     margin-top: 0;
@@ -246,7 +269,7 @@ section.partenaires {
   }
 
   main {
-    grid-template-areas: 'a b' 'c d' 'e f' 'g g' 'h h';
+    grid-template-areas: 'a b''c d''e f''g g''h h';
   }
 
   .imgWrap {

@@ -1,47 +1,6 @@
-/* JS HANDLER */
-#popUpContainer {
-  display: none;
-}
-
-/* popUp de bienvenue */
-.welcome {
-  font-family: 'Exo 2', sans-serif;
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-.description {
-  width: 95%;
-  font-size: 0.9rem;
-}
-
-.zoey_container {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  align-content: center;
-  align-items: center;
-}
-
-.zoey_container h2 {
-  font-family: 'Exo 2', sans-serif;
-  color: #f3811c;
-  font-size: 5rem;
-  margin: 0;
-}
-
-.zoey_container img {
-  width: 5%;
-}
-
-.redirection {
-  color: black;
-  font-size: 0.9rem;
-  font-family: 'Roboto', sans-serif;
-}
-
 /* Spécifiques aux popUp */
 
+/* Centrer la popUp */
 .wrapperPopUp {
   position: fixed;
   top: 0;
@@ -56,6 +15,7 @@
   z-index: 10000001;
 }
 
+/* PopUp */
 .popUp {
   font-family: 'Roboto', sans-serif;
   position: relative;
@@ -112,7 +72,7 @@
   flex-direction: column;
 }
 
-/* popUp page refuge contact */
+/* Spécifique à la popUp page refuge contact */
 .contactContainer {
   display: flex;
   flex-direction: column;
@@ -121,18 +81,6 @@
   align-items: center;
   margin-top: 20px;
 }
-
-/* .contactContainer:nth-of-type(2) img {
-  margin-right: 20px;
-}
-
-.contactContainer:nth-of-type(3) img {
-  margin-right: 20px;
-} */
-
-/* .contactContainer:nth-of-type(4) {
-    flex-direction: column;
-} */
 .contactContainer .icon {
   width: 25px;
 }
@@ -158,9 +106,51 @@
   height: 30px;
 }
 
-/* .contactContainer img {
-  margin-right: 20px;
-} */
+/* Spécifique à la popUp de bienvenue */
+.welcome {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.description {
+  width: 95%;
+  font-size: 0.9rem;
+}
+
+.zoey_container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+}
+
+.zoey_container h2 {
+  font-family: 'Exo 2', sans-serif;
+  color: #f3811c;
+  font-size: 5rem;
+  margin: 0;
+}
+
+.zoey_container img {
+  width: 5%;
+}
+
+.redirection {
+  color: black;
+  font-size: 0.9rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* JS HANDLER */
+#popUpContainer {
+  display: none;
+}
+
+/* ---------------------------- */
+/*       Media Queries          */
+/* ---------------------------- */
 
 @media screen and (min-width: 500px) {
   .popUp {
@@ -205,16 +195,11 @@
     font-size: 7rem;
     margin: 0;
   }
-
-  /* .popUp {
-    height: 85vh;
-  } */
 }
 
 @media screen and (min-width: 800px) {
   .popUp {
     width: 600px;
-    /* height: 600px; */
   }
 
   .description {

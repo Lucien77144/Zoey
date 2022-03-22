@@ -1,3 +1,7 @@
+/* ---------------------------- */
+/*     Classes générales        */
+/* ---------------------------- */
+
 main h1 {
     text-align: center;
     margin-bottom: 50px;
@@ -6,6 +10,9 @@ main h1 {
 main h1::first-letter{
     color: #F3811C;
 }
+
+
+/* Formulaire d'ajout d'animal */
 
 form {
     display: grid;

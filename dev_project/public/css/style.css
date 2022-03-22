@@ -18,7 +18,7 @@ body {
   min-height: 100vh;
   box-sizing: border-box;
 }
-
+/* Scrollbar */
 ::-moz-selection {
   background: #f59644;
   color: #fff;
@@ -47,7 +47,7 @@ body {
   background: #f3811c;
   border-radius: 20px;
 }
-
+/* Loader */
 .loader {
   z-index: 1000;
   position: fixed;
@@ -96,7 +96,7 @@ header>img {
   height: 50%;
 }
 
-
+/* Newsletter */
 .newsletter {
   display: flex;
   flex-direction: column;
@@ -116,7 +116,7 @@ header>img {
   margin-bottom: 15px;
   text-align: center;
 }
-
+/* Footer / Menu en bas  */
 .menu {
   padding: 0;
   margin: 0;
@@ -227,7 +227,7 @@ header>img {
 /* ---------------------------- */
 /*      Classes globales        */
 /* ---------------------------- */
-
+/* Boutons */
 input {
   border: none;
   background-color: #f3f3f3;
@@ -270,9 +270,12 @@ input[type='submit']:hover,
   box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.35);
 }
 
+/* Liens */
 a {
   color: #f59644;
 }
+
+/* Titres surlignés */
 
 .underline {
   position: relative;
@@ -337,6 +340,8 @@ a {
     padding: 60px 0 0 0;
   }
 
+  /* Header */
+
   header {
     z-index: 100;
     top: 0;
@@ -371,6 +376,7 @@ a {
     transform: scale(0.9);
   }
 
+  /* Newsletter */
   .newsletter {
     justify-content: center;
   }
@@ -383,6 +389,8 @@ a {
     align-self: unset;
   }
 
+
+  /* Footer / Menu du bas */
   .feed {
     display: none;
   }

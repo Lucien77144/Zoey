@@ -1,3 +1,7 @@
+/* ---------------------------- */
+/*     Classes générales        */
+/* ---------------------------- */
+
 body {
   margin: 0;
 }
@@ -10,9 +14,25 @@ main {
   margin: auto;
 }
 
-.unknownAnimal {
-  text-align: center;
-  margin-top: 50px;
+
+/* Invitation a participer au quizz  */
+
+.quizzBubble {
+  width: 70%;
+  padding: 7.5px 20px;
+  border-radius: 0 25px 25px 25px;
+  background-color: #f1f1f1;
+  margin-bottom: 10px;
+}
+
+.quizzBubble a {
+  color: #f3801c;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.quizzBubble a:hover {
+  text-decoration: underline;
 }
 
 .AnswerQuizz {
@@ -26,14 +46,6 @@ main {
   font-weight: bold;
 }
 
-.filter {
-  display: flex;
-  width: 100vw;
-  max-width: 600px;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
 
 .animalBreed {
   cursor: pointer;
@@ -55,6 +67,107 @@ main {
   -webkit-box-shadow: 0 0 2px 2px rgba(243, 128, 28, 0.7);
 }
 
+/* Filtre de catégories d'animaux */
+
+.filter {
+  display: flex;
+  width: 100vw;
+  max-width: 600px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.filterAnimal {
+  width: 100%;
+  position: relative;
+}
+
+.filterInner {
+  width: 95%;
+  align-self: center;
+  overflow: auto;
+  margin: auto;
+  transition: ease-in-out;
+}
+
+.filterAnimal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 2.5%;
+  height: calc(100% - 8px);
+  width: 15px;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(270deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 100%);
+  pointer-events: none;
+}
+
+.filterAnimal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 2.5%;
+  height: calc(100% - 8px);
+  width: 15px;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 100%);
+  pointer-events: none;
+}
+
+.filterWrapper {
+  min-width: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.filterAnimal li {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 17.5px 17.5px 17.5px 17.5px;
+  padding: 7.5px 15px 7.5px 15px;
+  border-radius: 100vw;
+  background-color: rgb(240, 240, 240);
+  box-shadow: 0px 0px 7.5px rgba(0, 0, 0, 0.25);
+  transition: 0.25s ease-in-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.filterAnimal li:hover {
+  box-shadow: 0px 0px 7.5px #f3801c;
+  color: #c76000;
+  background-color: #fff5eb;
+}
+
+.filterAnimal .activeFilter {
+  background-color: #f3801c;
+  color: white;
+}
+
+.filterAnimal .activeFilter:hover {
+  background-color: #f3801c;
+  color: white;
+}
+
+/* S'il n'y a pas encore d'animaux dans cette catégorie */
+.unknownAnimal {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Animal à adopter */
 .card {
   border-radius: 25px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
@@ -125,23 +238,13 @@ div.desc>.btn {
   border-radius: 25px 0px 0px 25px;
 }
 
+/* Page d'un animal */
+
 .title2 {
   font-family: 'Exo 2', sans-serif;
   font-size: 1.5rem;
   margin: 0;
   text-align: center;
-}
-
-.back {
-  position: absolute;
-  top: 95px;
-  left: 50px;
-  transform: translate(-50%, -50%);
-}
-
-.back svg {
-  width: 42px;
-  height: 32px;
 }
 
 .nom,
@@ -263,6 +366,7 @@ h1.underline {
   background-position: center;
 }
 
+/* Carte */
 iframe {
   margin-top: 25px;
   margin-bottom: 25px;
@@ -274,110 +378,10 @@ iframe {
   border: 0;
 }
 
+/* Refuge */
 .refuge {
   align-self: center;
   margin-bottom: 50px;
-}
-
-.filterAnimal {
-  width: 100%;
-  position: relative;
-}
-
-.filterInner {
-  width: 95%;
-  align-self: center;
-  overflow: auto;
-  margin: auto;
-  transition: ease-in-out;
-}
-
-.filterAnimal::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 2.5%;
-  height: calc(100% - 8px);
-  width: 15px;
-  background: rgb(255, 255, 255);
-  background: linear-gradient(270deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 1) 100%);
-  pointer-events: none;
-}
-
-.filterAnimal::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 2.5%;
-  height: calc(100% - 8px);
-  width: 15px;
-  background: rgb(255, 255, 255);
-  background: linear-gradient(90deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 1) 100%);
-  pointer-events: none;
-}
-
-.filterWrapper {
-  min-width: max-content;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
-
-.filterAnimal li {
-  display: inline-block;
-  cursor: pointer;
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin: 17.5px 17.5px 17.5px 17.5px;
-  padding: 7.5px 15px 7.5px 15px;
-  border-radius: 100vw;
-  background-color: rgb(240, 240, 240);
-  box-shadow: 0px 0px 7.5px rgba(0, 0, 0, 0.25);
-  transition: 0.25s ease-in-out;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.filterAnimal li:hover {
-  box-shadow: 0px 0px 7.5px #f3801c;
-  color: #c76000;
-  background-color: #fff5eb;
-}
-
-.filterAnimal .activeFilter {
-  background-color: #f3801c;
-  color: white;
-}
-
-.filterAnimal .activeFilter:hover {
-  background-color: #f3801c;
-  color: white;
-}
-
-.quizzBubble {
-  width: 70%;
-  padding: 7.5px 20px;
-  border-radius: 0 25px 25px 25px;
-  background-color: #f1f1f1;
-  margin-bottom: 10px;
-}
-
-.quizzBubble a {
-  color: #f3801c;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.quizzBubble a:hover {
-  text-decoration: underline;
 }
 
 .infosG {
@@ -394,6 +398,23 @@ iframe {
   border-left: solid 4px #ffc800;
   padding: 5px 10px;
 }
+
+/* Flèche pour retourner à la page adoption */
+.back {
+  position: absolute;
+  top: 95px;
+  left: 50px;
+  transform: translate(-50%, -50%);
+}
+
+.back svg {
+  width: 42px;
+  height: 32px;
+}
+
+/* ---------------------------- */
+/*       Media Queries          */
+/* ---------------------------- */
 
 @media screen and (max-width:400px) {
   h1.nom {

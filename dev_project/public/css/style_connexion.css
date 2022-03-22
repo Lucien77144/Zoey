@@ -1,7 +1,17 @@
+/* ---------------------------- */
+/*     Classes générales        */
+/* ---------------------------- */
+
 body {
   display: flex;
   justify-content: center;
 }
+
+.champs {
+  font-size: 0.75rem;
+}
+
+/* Connexion avec google */
 
 .googleWrapper {
   display: flex;
@@ -10,9 +20,8 @@ body {
   text-align: center;
 }
 
-.champs {
-  font-size: 0.75rem;
-}
+
+/* formulaire de connexion */
 
 .inputContainer input {
   width: 100%;
@@ -49,13 +58,7 @@ body {
   font-weight: bold;
 }
 
-.linksContainer {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+/* Mot de passe de connexion */
 
 .pwContainer {
   margin: 10px 0;
@@ -75,16 +78,33 @@ body {
   margin: 0;
 }
 
-.viewPW{
+.viewPW {
   cursor: pointer;
   transform-origin: center;
   transition: 0.25s ease-in-out;
 }
 
-.showPW svg{
+.showPW svg {
   transform: translate(-50%, -50%) scaleY(0.75);
   opacity: 0.5;
 }
+
+/* Envoyer la connexion */
+
+#submitConnect {
+  margin: 10px auto;
+}
+
+
+/* Liens d'inscription et d'oubli de mot de passe */
+.linksContainer {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 
 .linksContainer input {
   width: 150px;
@@ -98,10 +118,6 @@ body {
 
 .subscribeForm p {
   font-size: 0.8rem;
-}
-
-#submitConnect {
-  margin: 10px auto;
 }
 
 .forgotMDP {

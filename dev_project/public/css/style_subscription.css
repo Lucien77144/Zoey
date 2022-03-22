@@ -1,3 +1,5 @@
+/* Connexion avec Google */
+
 .googleContainer {
   text-align: center;
   display: flex;
@@ -39,6 +41,26 @@
 .btn-nogoogle.active::after {
   width: 75%;
 }
+/* Liens d'inscription */
+
+.linksContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.linksContainer input {
+  width: 150px;
+  font-size: 1rem;
+}
+
+.linkToConnect {
+  font-size: 0.8rem;
+  color: black;
+}
+
+
+/* Inscription si pas de compte google */
 
 .subscribe {
   width: 100%;
@@ -120,22 +142,6 @@
   width: 50px;
 }
 
-.linksContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.linksContainer input {
-  width: 150px;
-  font-size: 1rem;
-}
-
-.linkToConnect {
-  font-size: 0.8rem;
-  color: black;
-}
-
 #submitSubscribe {
   cursor: pointer;
 }
@@ -153,6 +159,8 @@
   cursor: pointer;
   fill: white;
 }
+
+/* Mot de passe */
 
 .pwContainer {
   margin: 10px 0;
@@ -182,6 +190,10 @@
   transform: translate(-50%, -50%) scaleY(0.75);
   opacity: 0.5;
 }
+
+/* ---------------------------- */
+/*       Media Queries          */
+/* ---------------------------- */
 
 @media screen and (min-width: 500px) {
   .formContent input {

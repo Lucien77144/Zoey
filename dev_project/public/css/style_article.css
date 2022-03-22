@@ -1,3 +1,7 @@
+/* ---------------------------- */
+/*     Classes générales        */
+/* ---------------------------- */
+
 .section1 {
   width: 80vw;
   display: flex;
@@ -5,6 +9,7 @@
   align-items: center;
 }
 
+/* Texte de l'article */
 .article,
 .contentBlog {
   width: 100%;
@@ -58,6 +63,9 @@ p {
   margin-right: 0;
 }
 
+
+
+/* Image / Illustration */
 .illustration img {
   width: 100%;
 }
@@ -67,7 +75,6 @@ p {
   height: fit-content;
   height: -moz-fit-content;
   display: flex;
-  /* Permet de retirer les quelques pixels de marge en bas de l'image */
   width: 100%;
 }
 
@@ -99,6 +106,10 @@ p {
   bottom: 0;
   left: 0;
 }
+
+/* ---------------------------- */
+/*       Media Queries          */
+/* ---------------------------- */
 
 @media (min-width: 800px) {
 

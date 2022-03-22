@@ -1,3 +1,6 @@
+/* ---------------------------- */
+/*     Classes générales        */
+/* ---------------------------- */
 body {
     margin: 0;
     justify-content: space-between;
@@ -13,6 +16,10 @@ main {
 *::after {
     box-sizing: border-box;
 }
+
+/* ---------------------------- */
+/*     Gestion du profil        */
+/* ---------------------------- */
 
 .profil {
     display: flex;
@@ -195,6 +202,10 @@ main {
     justify-self: flex-end;
 }
 
+/* ---------------------------- */
+/*     Menu des animaux         */
+/* ---------------------------- */
+
 .menuAnimaux {
     width: 100%;
     position: relative;
@@ -256,6 +267,40 @@ main {
 .addAnimal:hover {
     animation: pulse 0.75s ease-in-out;
 }
+
+/* Gestion du compte de l'animal */
+
+.profilAnimal {
+    position: relative;
+    margin: 50px auto;
+    width: 90%;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.profilAnimal .profil {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.profilAnimal .profil::before {
+    content: "";
+    position: absolute;
+    height: 3px;
+    border-radius: 3px;
+    width: 100%;
+    top: -50px;
+}
+
+.profilAnimal .avatar {
+    min-width: 90px;
+    min-height: 90px;
+    width: 20vw;
+    height: 20vw;
+    max-width: 120px;
+    max-height: 120px;
+}
+
 
 .moreModifs,
 .removeAnimal {
@@ -320,37 +365,6 @@ main {
     background-color: #fff5eb;
 }
 
-.profilAnimal {
-    position: relative;
-    margin: 50px auto;
-    width: 90%;
-    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
-}
-
-.profilAnimal .profil {
-    width: 100%;
-    margin: 0;
-    margin-bottom: 20px;
-}
-
-.profilAnimal .profil::before {
-    content: "";
-    position: absolute;
-    height: 3px;
-    border-radius: 3px;
-    width: 100%;
-    top: -50px;
-}
-
-.profilAnimal .avatar {
-    min-width: 90px;
-    min-height: 90px;
-    width: 20vw;
-    height: 20vw;
-    max-width: 120px;
-    max-height: 120px;
-}
-
 .innerUsername {
     display: flex;
     width: 100%;
@@ -372,6 +386,8 @@ main {
     display: flex;
     justify-content: center;
 }
+
+/* Publication des animaux */
 
 .publiWrapper {
     display: flex;
@@ -509,6 +525,8 @@ main {
     font-size: 1rem;
 }
 
+/* Si déconnecté, bouton pour se reconnecter */
+
 .disconnected {
     position: fixed;
     z-index: 1001;
@@ -531,6 +549,48 @@ main {
 .disconnected a:hover {
     text-decoration: underline;
 }
+
+
+/* ---------------------------- */
+/*       Media Queries          */
+/* ---------------------------- */
+
+@media (max-width: 800px) {
+    .disconnected {
+        bottom: 155px;
+        width: 100%;
+        max-width: 500px;
+        left: 0;
+    }
+
+    @keyframes poping {
+        0% {
+            bottom: 0;
+            transform: translateY(100%);
+        }
+
+        100% {
+            bottom: 165px;
+            transform: translateY(0);
+        }
+    }
+}
+
+@media (max-width: 372px) {
+    .publi {
+        margin: 10px;
+        min-width: unset;
+        min-height: unset;
+        width: 70vw;
+        height: 100vw;
+        max-width: unset;
+        max-height: unset;
+    }
+}
+
+/* ---------------------------- */
+/*          KeyFrames           */
+/* ---------------------------- */
 
 @keyframes poping {
     0% {
@@ -587,38 +647,5 @@ main {
     100% {
         transform: scale(1);
         box-shadow: 0px 0px 7.5px #f3801c50;
-    }
-}
-
-@media (max-width: 800px) {
-    .disconnected {
-        bottom: 155px;
-        width: 100%;
-        max-width: 500px;
-        left: 0;
-    }
-
-    @keyframes poping {
-        0% {
-            bottom: 0;
-            transform: translateY(100%);
-        }
-
-        100% {
-            bottom: 165px;
-            transform: translateY(0);
-        }
-    }
-}
-
-@media (max-width: 372px) {
-    .publi {
-        margin: 10px;
-        min-width: unset;
-        min-height: unset;
-        width: 70vw;
-        height: 100vw;
-        max-width: unset;
-        max-height: unset;
     }
 }
