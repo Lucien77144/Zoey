@@ -22,7 +22,7 @@
     <?php if (isset($stylesBlock)) echo $stylesBlock ?>
 
     <script src="vendor/jquery-3.6.0.min.js"></script>
-    <title><?= $pageTitle ?></title>
+    <title><?= isset($pageTitle) ? $pageTitle : "Zoey, le réseau social pour l'adoption" ?></title>
 </head>
 
 <body>

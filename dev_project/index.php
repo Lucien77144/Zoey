@@ -2,9 +2,9 @@
 session_start();
 
 define("BASE_URL", "./");
-$pageTitle = "Zoey";
-$viewContent = "";
-$metaDesc = "Partenaire de refuges et associations certifiés en Île-de-France, Zoey facilite vos démarches d’adoption et vos recherches du parfait compagnon.";
+// $pageTitle = "Zoey, le réseau social pour l'adoption";
+// $viewContent = "";
+// $metaDesc = "Partenaire de refuges et associations certifiés en Île-de-France, Zoey facilite vos démarches d’adoption et vos recherches du parfait compagnon.";
 $printNewsletter = true;
 $printLegal = false;
 $showModifyLink = false;
