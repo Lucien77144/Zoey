@@ -129,7 +129,8 @@ async function handleCredentialResponse(response) {
   })
 }
 
-window.onload = function () {
+function start() {
+  console.log('init google button')
   google.accounts.id.initialize({
     client_id:
       '866214768583-13jeokh10iam9q1chmeiphgok3gbkr1i.apps.googleusercontent.com',
@@ -154,3 +155,5 @@ window.onload = function () {
     })
   }
 }
+
+window.onload = start()
