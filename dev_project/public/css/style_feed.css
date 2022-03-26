@@ -158,6 +158,7 @@ main .defaultBlock:last-child::after {
   animation: loader 2s ease-in-out infinite;
 }
 
+/* Cette classe est ajoutée en JS lorsque l'ensemble du contenu a été chargé par l'utilisateur */
 .hiddenAfter .defaultBlock:last-child::after {
   content: 'Tout le contenu a été chargé';
   color: #ffa319;

@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let file = current.files[0];
         let reader = new FileReader();
 
+        // Changer la preview de l'image
         reader.onload = function (e) {
             document.querySelector('.currentPicture').src = e.target.result;
         }

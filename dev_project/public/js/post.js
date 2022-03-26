@@ -13,7 +13,7 @@ function getCookie(cname) {
       return c.substring(name.length, c.length)
     }
   }
-  return ''
+  return '';
 }
 
 async function compressPhoto(path) {
@@ -21,7 +21,7 @@ async function compressPhoto(path) {
     photo: path,
   })
 
-  console.log('formDataJsonString ', formDataJsonString)
+ // console.log('formDataJsonString ', formDataJsonString)
 
   fetch('model/compressPhoto.php', {
     method: 'POST',
@@ -32,14 +32,14 @@ async function compressPhoto(path) {
     body: formDataJsonString,
   }).then((response) => {
     response.json().then(function (data) {
-      console.log('photo compressée ', data)
+      // console.log('photo compressée ', data)
     })
   })
 }
 
 function showLoader(callback) {
   document.getElementById('loaderContainer').style.display = 'flex'
-  console.log('loader loaded')
+  // console.log('loader loaded')
   setTimeout(() => {
     callback()
   }, 10)
@@ -50,7 +50,7 @@ function hideLoader() {
 }
 
 $(document).ready(function () {
-  console.log('ready')
+  // console.log('ready')
 
   function getParameterByName(name, url = window.location.href) {
     name = name.replace(/[\[\]]/g, '\\$&')
@@ -63,7 +63,7 @@ $(document).ready(function () {
 
   function postPhoto() {
     // renvoie basename fichier uploadé
-    console.log('postPhoto')
+    // console.log('postPhoto')
 
     let fd = new FormData()
     let files = $('#media')[0].files[0]
@@ -88,7 +88,7 @@ $(document).ready(function () {
       async: false,
     })
 
-    console.log(returnedFromAjax)
+    // console.log(returnedFromAjax)
 
     if (returnedFromAjax == 'déconnecté') {
       $('#confirmationMessage').html('')
@@ -98,9 +98,9 @@ $(document).ready(function () {
       hideLoader()
       return false
     } else if (returnedFromAjax) {
-      console.log('compress 1', Date.now())
+      // console.log('compress 1', Date.now())
       compressPhoto(returnedFromAjax)
-      console.log('compress 2', Date.now())
+      // console.log('compress 2', Date.now())
 
       return returnedFromAjax
     } else {
@@ -114,7 +114,7 @@ $(document).ready(function () {
   }
 
   function postSubscribe() {
-    console.log('postSubscribe')
+    // console.log('postSubscribe')
 
     $.post(
       'model/postSubscribe.php',
@@ -129,12 +129,12 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-        console.log('function Received')
-        console.log(ReturnedMessage)
+        // console.log('function Received')
+        // console.log(ReturnedMessage)
 
         if (ReturnedMessage == 'valid') {
           window.location.href = 'index.php?action=connect'
-          console.log('valid !!')
+          // console.log('valid !!')
         } else {
           $('#ConfirmationMessage').html('')
           $('#ConfirmationMessage').text(
@@ -147,7 +147,7 @@ $(document).ready(function () {
   }
 
   function postForgotPassword() {
-    console.log('postForgotPassword')
+    // console.log('postForgotPassword')
 
     $.post(
       'model/postForgotPassword.php',
@@ -156,12 +156,12 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-        console.log(ReturnedMessage)
-        console.log('function Received1')
+        // console.log(ReturnedMessage)
+        // console.log('function Received1')
 
         if (ReturnedMessage == 'valid') {
           // window.location.href = 'index.php?action=connect'
-          console.log('valid forgot password')
+          // console.log('valid forgot password')
           $('#confirmationMessage').html('')
           $('#confirmationMessage').text(
             `Vérifiez bien vos spams ! Vous allez recevoir un email pour vous aider à retrouver l'accès à votre compte.`
@@ -178,30 +178,22 @@ $(document).ready(function () {
   }
 
   function postModifyAccount(setparam, setvalue) {
-    console.log('postModifyAccount')
+    // console.log('postModifyAccount')
 
     $.post(
       'model/postModifyAccount.php',
       {
         setparam: setparam,
         setvalue: setvalue,
-
-        // pseudo : $("#pseudoSubscribe").val(),
-        // media : postedMedia,
-        // nom : $("#nom").val(),
-        // prenom : $("#prenom").val(),
-        // mail : $("#mail").val(),
-        // date_naissance : $("#date_naissance").val(),
-        // password : $("#password").val()
       },
 
       function (ReturnedMessage) {
-        console.log(ReturnedMessage)
-        console.log('function Received1')
+        // console.log(ReturnedMessage)
+        // console.log('function Received1')
 
         if (ReturnedMessage == 'valid') {
           window.location.href = 'index.php?action=connect'
-          console.log('valid !!')
+          // console.log('valid !!')
         } else {
           $('#confirmationMessage').html('')
           $('#confirmationMessage').text(
@@ -214,7 +206,7 @@ $(document).ready(function () {
   }
 
   function postConnect() {
-    console.log('postConnect')
+    // console.log('postConnect')
 
     $.post(
       'model/postConnect.php',
@@ -224,14 +216,14 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-        console.log('function Received')
-        console.log(ReturnedMessage)
+        // console.log('function Received')
+        // console.log(ReturnedMessage)
 
         if (ReturnedMessage == 'valid') {
           if (getCookie('quizz')) {
             let quizz = JSON.parse(getCookie('quizz'))
-            console.log(quizz)
-            console.log(quizz.space)
+            // console.log(quizz)
+            // console.log(quizz.space)
             $.post(
               'model/postQuizz.php',
               {
@@ -248,18 +240,7 @@ $(document).ready(function () {
               },
 
               function (ReturnedMessage) {
-                console.log(ReturnedMessage)
-
-                // if (ReturnedMessage == "valid"){
-                //     window.location.href = "index.php?action=adoption";
-                // } else if (ReturnedMessage == "connect"){
-                //     window.location.href = "index.php?action=connect&src=quizz";
-                // } else {
-                //     $('#confirmationMessage').html('');
-                //     $('#confirmationMessage').text(
-                //         `Nous n'avons pas réussi à envoyer vos réponses, il y a eu une erreur :/`
-                //     );
-                // }
+                // console.log(ReturnedMessage)
               },
               'text'
             )
@@ -270,7 +251,7 @@ $(document).ready(function () {
           } else {
             location.reload() // renvoie vers la page initialement demandée
           }
-          console.log('valid !!')
+          // console.log('valid !!')
         } else {
           $('#ConfirmationMessage').html('')
           $('#ConfirmationMessage').text(
@@ -283,7 +264,7 @@ $(document).ready(function () {
   }
 
   function isPseudoFreeAPI() {
-    console.log('isPseudoFreeAPI')
+    // console.log('isPseudoFreeAPI')
 
     $.post(
       'model/isPseudoFreeAPI.php',
@@ -292,8 +273,8 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-        console.log('function Received')
-        console.log(ReturnedMessage)
+        // console.log('function Received')
+        // console.log(ReturnedMessage)
 
         if (ReturnedMessage == true) {
           $('#pseudoConfirmationMessage').html('')
@@ -310,8 +291,8 @@ $(document).ready(function () {
   }
 
   function postAddPost(postedMedia) {
-    console.log(postedMedia)
-    console.log('addpost')
+    // console.log(postedMedia)
+    // console.log('addpost')
 
     $.post(
       'model/postAddPost.php',
@@ -325,15 +306,15 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-        console.log('function Received')
-        console.log(ReturnedMessage)
+        // console.log('function Received')
+        // console.log(ReturnedMessage)
 
         returned = JSON.parse(ReturnedMessage)
 
         if (returned[0] == 'valid') {
           window.location.href = 'index.php?action=feed&id=' + returned[1]
           // location.reload()
-          console.log('valid 1 !!')
+          // console.log('valid 1 !!')
         } else {
           $('#ConfirmationMessage').html('')
           $('#ConfirmationMessage').text(`L'ajout a échoué`)
@@ -345,7 +326,7 @@ $(document).ready(function () {
   }
 
   function postAddNewsletter() {
-    console.log('postAddNewsletter')
+    // console.log('postAddNewsletter')
 
     $.post(
       'model/postAddNewsletter.php',
@@ -355,14 +336,14 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-        console.log('function Received')
-        console.log(ReturnedMessage)
+        // console.log('function Received')
+        // console.log(ReturnedMessage)
 
         if (ReturnedMessage == 'valid') {
           $('#newsletterForm').trigger('reset')
           $('#confirmationMessage').html('')
           $('#confirmationMessage').text(`Vous êtes bien inscrit !`)
-          console.log('valid 1 !!')
+          // console.log('valid 1 !!')
         } else {
           $('#confirmationMessageNewsletter').html('')
           $('#confirmationMessageNewsletter').text(
@@ -375,8 +356,8 @@ $(document).ready(function () {
   }
 
   function postAddMessage(postedMedia) {
-    console.log(postedMedia)
-    console.log('addMessage')
+    // console.log(postedMedia)
+    // console.log('addMessage')
 
     $.post(
       'model/postAddMessage.php',
@@ -387,12 +368,12 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-        console.log('function Received')
-        console.log(ReturnedMessage)
+        // console.log('function Received')
+        // console.log(ReturnedMessage)
 
         if (ReturnedMessage == 'valid') {
           // window.location.href = "index.php?action=connect";
-          console.log('valid 1')
+          // console.log('valid 1')
           $('#addMessageForm').trigger('reset')
           $('#ConfirmationMessage').html('')
         } else {
@@ -405,7 +386,7 @@ $(document).ready(function () {
   }
 
   function postAddAnimal(postedMedia) {
-    console.log('postAddAnimal')
+    // console.log('postAddAnimal')
 
     $.post(
       'model/postAddAnimal.php',
@@ -418,12 +399,12 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-        console.log('function Received')
-        console.log(ReturnedMessage)
+        // console.log('function Received')
+        // console.log(ReturnedMessage)
 
         if (ReturnedMessage == 'valid') {
           window.location.href = 'index.php?action=account'
-          console.log('valid !!')
+          // console.log('valid !!')
         } else {
           $('#ConfirmationMessage').html('')
           $('#ConfirmationMessage').text(
@@ -436,7 +417,7 @@ $(document).ready(function () {
   }
 
   function postModifyAnimal(postedMedia, id) {
-    console.log('postModifyAnimal')
+    // console.log('postModifyAnimal')
 
     $.post(
       'model/postModifyAnimal.php',
@@ -450,11 +431,11 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-        console.log('function Received')
-        console.log(ReturnedMessage)
+        // console.log('function Received')
+        // console.log(ReturnedMessage)
 
         if (ReturnedMessage == 'valid') {
-          console.log('valid !!')
+          // console.log('valid !!')
         } else {
           $('#ConfirmationMessage').html('')
           $('#ConfirmationMessage').text(
@@ -467,7 +448,7 @@ $(document).ready(function () {
   }
 
   function postAddFriend() {
-    console.log('postAddFriend')
+    // console.log('postAddFriend')
 
     $.post(
       'model/postAddFriend.php',
@@ -476,13 +457,13 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-        console.log('function Received')
-        console.log(ReturnedMessage)
+        // console.log('function Received')
+        // console.log(ReturnedMessage)
 
         if (ReturnedMessage == true) {
           // window.location.href = "index.php?action=account";
           location.reload()
-          console.log('valid !!')
+          // console.log('valid !!')
         } else {
           $('#confirmationMessage').html('')
           $('#confirmationMessage').text(
@@ -495,7 +476,7 @@ $(document).ready(function () {
   }
 
   function postRemoveFriend() {
-    console.log('postRemoveFriend')
+    // console.log('postRemoveFriend')
 
     $.post(
       'model/postRemoveFriend.php',
@@ -504,13 +485,13 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-        console.log('function Received')
-        console.log(ReturnedMessage)
+        // console.log('function Received')
+        // console.log(ReturnedMessage)
 
         if (ReturnedMessage == true) {
           // window.location.href = "index.php?action=account";
           location.reload()
-          console.log('valid !!')
+          // console.log('valid !!')
         } else {
           $('#confirmationMessage').html('')
           $('#confirmationMessage').text(`La demande n'a pas pu être envoyée.`)
@@ -521,7 +502,7 @@ $(document).ready(function () {
   }
 
   function postAcceptFriend() {
-    console.log('postAcceptFriend')
+    // console.log('postAcceptFriend')
 
     $.post(
       'model/postAcceptFriend.php',
@@ -530,13 +511,13 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-        console.log('function Received')
-        console.log(ReturnedMessage)
+        // console.log('function Received')
+        // console.log(ReturnedMessage)
 
         if (ReturnedMessage == true) {
           // window.location.href = "index.php?action=account";
           location.reload()
-          console.log('valid !!')
+          // console.log('valid !!')
         } else {
           $('#confirmationMessage').html('')
           $('#confirmationMessage').text(`La demande n'a pas pu être envoyée.`)
@@ -547,7 +528,7 @@ $(document).ready(function () {
   }
 
   function postAjouterRefuge(postedMedia) {
-    console.log('postAjouterRefuge')
+    // console.log('postAjouterRefuge')
 
     $.post(
       'model/postAjouterRefuge.php',
@@ -563,8 +544,8 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-        console.log('function Received')
-        console.log(ReturnedMessage)
+        // console.log('function Received')
+        // console.log(ReturnedMessage)
 
         if (ReturnedMessage == 'valid') {
           $('#confirmationMessage').html('')
@@ -581,7 +562,7 @@ $(document).ready(function () {
   }
 
   function postAjouterAA(postedMedia) {
-    console.log('postAjouterAA')
+    // console.log('postAjouterAA')
 
     $.post(
       'model/postAjouterAA.php',
@@ -600,8 +581,8 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-        console.log('function Received')
-        console.log(ReturnedMessage)
+        // console.log('function Received')
+        // console.log(ReturnedMessage)
 
         if (ReturnedMessage == 'valid') {
           $('#confirmationMessage').html('')
@@ -619,7 +600,7 @@ $(document).ready(function () {
     )
   }
   function postDeleteAA() {
-    console.log('postDeleteAA')
+    // console.log('postDeleteAA')
 
     $.post(
       'model/postDeleteAA.php',
@@ -628,8 +609,8 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-        console.log('function Received')
-        console.log(ReturnedMessage)
+        // console.log('function Received')
+        // console.log(ReturnedMessage)
 
         if (ReturnedMessage == 'valid') {
           $('#confirmationMessageAA').html('')
@@ -646,33 +627,9 @@ $(document).ready(function () {
       'text'
     )
   }
-  // function postDeleteAnimal(idanimal) {
-  //   console.log('postDeleteAnimal')
-
-  //   $.post(
-  //     'model/postDeleteAnimal.php',
-  //     {
-  //       idanimal: idanimal,
-  //     },
-
-  //     function (ReturnedMessage) {
-  //       console.log('function Received')
-  //       console.log(ReturnedMessage)
-
-  //       if (ReturnedMessage == 'valid') {
-  //         $('#confirmationMessage').html('')
-  //         $('#confirmationMessage').text(`L'animal a bien été supprimé.`)
-  //       } else {
-  //         $('#confirmationMessage').html('')
-  //         $('#confirmationMessage').text(`L'animal n'a pas pu être supprimé.`)
-  //       }
-  //     },
-  //     'text'
-  //   )
-  // }
 
   function postDeleteRefuge() {
-    console.log('postDeleteRefuge')
+   // console.log('postDeleteRefuge')
 
     $.post(
       'model/postDeleteRefuge.php',
@@ -681,8 +638,8 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-        console.log('function Received')
-        console.log(ReturnedMessage)
+       // console.log('function Received')
+       // console.log(ReturnedMessage)
 
         if (ReturnedMessage == 'valid') {
           $('#confirmationMessageRefuge').html('')
@@ -699,7 +656,7 @@ $(document).ready(function () {
   }
 
   function postConvSearch(search) {
-    console.log('postConvSearch')
+   // console.log('postConvSearch')
 
     $.post(
       'model/postConvSearch.php',
@@ -708,16 +665,16 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-        console.log('function Received')
-        console.log(ReturnedMessage)
+       // console.log('function Received')
+       // console.log(ReturnedMessage)
 
         if (ReturnedMessage) {
           try {
-            console.log('try')
+           // console.log('try')
             $('#confirmationMessage').html('')
             $('#messagesContainer').html('')
             results = JSON.parse(ReturnedMessage)
-            console.log(results)
+           // console.log(results)
             let container = document.getElementById('messagesContainer')
 
             let friendsTitle = document.createElement('h3')
@@ -725,7 +682,7 @@ $(document).ready(function () {
             friendsTitle.appendChild(friendsText)
             container.appendChild(friendsTitle)
 
-            console.log('before generateDOM')
+           // console.log('before generateDOM')
             function generateDOM(pic, name, id, last = null) {
               let filename =
                 pic && pic != 'déconnecté' ? pic : 'defaultProfile.png'
@@ -766,11 +723,11 @@ $(document).ready(function () {
               container.appendChild(newUser)
             }
 
-            console.log('before friend ')
+           // console.log('before friend ')
             let friends = 0
             for (conv of results.friends) {
               friends++
-              console.log(conv)
+             // console.log(conv)
               generateDOM(
                 conv.photo,
                 conv.pseudo,
@@ -780,7 +737,7 @@ $(document).ready(function () {
             }
 
             if (friends == 0) {
-              console.log('no friend')
+             // console.log('no friend')
               let noFriendP = document.createElement('p')
               let noFriendsText = document.createTextNode(
                 'Aucun amis trouvé :/'
@@ -797,14 +754,14 @@ $(document).ready(function () {
             let others = 0
             for (users of results.others) {
               others++
-              console.log('users')
+             // console.log('users')
               for (user of users) {
-                console.log(user.iduser)
+               // console.log(user.iduser)
                 generateDOM(user.photo_user, user.pseudo_user, user.iduser)
               }
             }
             if (others == 0) {
-              console.log('no others')
+             // console.log('no others')
               let noOthersP = document.createElement('p')
               let noOthersText = document.createTextNode(
                 'Aucun autre profil trouvé :/'
@@ -826,21 +783,6 @@ $(document).ready(function () {
             `Nous n'avons trouvé aucune conversation :/`
           )
         }
-
-        // if (ReturnedMessage) {
-        //   // window.location.href = "index.php?action=account";
-        //   // location.reload();
-        //   $('#confirmationMessage').html('')
-        //   $('#messagesContainer').html('')
-
-        //   console.log('valid !!')
-        // } else {
-        //   $('#messagesContainer').html('')
-        //   $('#confirmationMessage').html('')
-        //   $('#confirmationMessage').text(
-        //     `Nous n'avons trouvé aucune conversation :/`
-        //   )
-        // }
       },
       'text'
     )
@@ -849,7 +791,7 @@ $(document).ready(function () {
   $('#submitSubscribe').click(function (e) {
     e.preventDefault()
 
-    console.log('click')
+   // console.log('click')
 
     postSubscribe()
   })
@@ -857,10 +799,10 @@ $(document).ready(function () {
   $('#submitAddPost').click(function (e) {
     e.preventDefault()
 
-    console.log('before')
+   // console.log('before')
     document.getElementById('loaderContainer').style.display = 'flex'
     showLoader(() => {
-      console.log('click')
+     // console.log('click')
       function testChecked() {
         if (
           document.querySelector('input[name=idAnimal]:checked', '#addPostForm')
@@ -896,7 +838,7 @@ $(document).ready(function () {
   $('#submitNewsletter').click(function (e) {
     e.preventDefault()
 
-    console.log('click')
+   // console.log('click')
 
     postAddNewsletter()
   })
@@ -926,7 +868,7 @@ $(document).ready(function () {
       document.querySelector('#media').value != ''
     ) {
       showLoader(() => {
-        console.log('click')
+       // console.log('click')
 
         let postedMedia = postPhoto()
         if (postedMedia != null && postedMedia != null && !postedMedia) {
@@ -957,7 +899,7 @@ $(document).ready(function () {
 
     $('#ConfirmationMessage').html('')
 
-    console.log('click')
+   // console.log('click')
 
     showLoader(() => {
       let postedMedia = postPhoto()
@@ -971,69 +913,58 @@ $(document).ready(function () {
     })
   })
 
-  // modify account
-  // $("#submitModifyAccount").click(function(e){
-  //     e.preventDefault();
-
-  //     console.log("click")
-
-  //     let postedMedia = postPhoto();
-
-  //     postModifyAccount(postedMedia);
-  // });
   $('#submitModifyAccountPseudo').click(function (e) {
     e.preventDefault()
 
-    console.log('click')
+   // console.log('click')
 
     postModifyAccount('pseudo', $('#pseudoSubscribe').val())
   })
   $('#submitModifyAccountMedia').click(function (e) {
     e.preventDefault()
 
-    console.log('click')
+   // console.log('click')
 
     let postedMedia = postPhoto()
     if (postedMedia != null && !postedMedia) {
       return
     }
 
-    console.log(postedMedia)
+   // console.log(postedMedia)
 
-    // postModifyAccount("media",postedMedia);
   })
   $('#submitModifyAccountNom').click(function (e) {
     e.preventDefault()
 
-    console.log('click')
+   // console.log('click')
 
     postModifyAccount('nom', $('#nom').val())
   })
   $('#submitModifyAccountPrenom').click(function (e) {
     e.preventDefault()
 
-    console.log('click')
+   // console.log('click')
 
     postModifyAccount('prenom', $('#prenom').val())
   })
   $('#submitModifyAccountMail').click(function (e) {
     e.preventDefault()
 
-    console.log('click')
+   // console.log('click')
 
     postModifyAccount('mail', $('#mail').val())
   })
   $('#submitModifyAccountDate').click(function (e) {
     e.preventDefault()
 
-    console.log('click')
+   // console.log('click')
 
     postModifyAccount('date_naissance', $('#date_naissance').val())
   })
   $('#submitModifyAccountPassword').click(function (e) {
     e.preventDefault()
 
-    console.log('click')
+   // console.log('click')
 
     postModifyAccount('password', $('#password').val())
   })
@@ -1042,7 +973,7 @@ $(document).ready(function () {
   $('#submitModifyAnimal').click(function (e) {
     e.preventDefault()
 
-    console.log('click')
+   // console.log('click')
 
     const pageUrl = window.location.search
     const urlGetParameters = new URLSearchParams(pageUrl)
@@ -1059,7 +990,7 @@ $(document).ready(function () {
   $('#submitConnect').click(function (e) {
     e.preventDefault()
 
-    console.log('click')
+   // console.log('click')
 
     postConnect()
   })
@@ -1067,7 +998,7 @@ $(document).ready(function () {
   $('#addFriend').click(function (e) {
     e.preventDefault()
 
-    console.log('addFriend')
+   // console.log('addFriend')
 
     postAddFriend()
   })
@@ -1075,7 +1006,7 @@ $(document).ready(function () {
   $('#removeFriend').click(function (e) {
     e.preventDefault()
 
-    console.log('removeFriend')
+   // console.log('removeFriend')
 
     postRemoveFriend()
   })
@@ -1083,7 +1014,7 @@ $(document).ready(function () {
   $('#acceptFriend').click(function (e) {
     e.preventDefault()
 
-    console.log('acceptFriend')
+   // console.log('acceptFriend')
 
     postAcceptFriend()
   })
@@ -1091,7 +1022,7 @@ $(document).ready(function () {
   $('#submitAjouterRefuge').click(function (e) {
     e.preventDefault()
 
-    console.log('click')
+   // console.log('click')
 
     let postedMedia = postPhoto()
     if (postedMedia != null && !postedMedia) {
@@ -1103,7 +1034,7 @@ $(document).ready(function () {
   $('#submitAjouterAnimalAdopter').click(function (e) {
     e.preventDefault()
 
-    console.log('click')
+   // console.log('click')
 
     let postedMedia = postPhoto()
     if (postedMedia != null && !postedMedia) {
@@ -1115,31 +1046,22 @@ $(document).ready(function () {
   $('#deleteRefuge').click(function (e) {
     e.preventDefault()
 
-    console.log('click')
+   // console.log('click')
 
     postDeleteRefuge()
   })
   $('#deleteAA').click(function (e) {
     e.preventDefault()
 
-    console.log('click')
+   // console.log('click')
 
     postDeleteAA()
   })
 
-  // $('#deleteProfilAnimal').click(function (e) {
-  //   e.preventDefault()
-
-  //   console.log('click')
-
-  //   let idanimal = $('li.active').attr('data-animalid')
-  //   postDeleteAnimal(idanimal)
-  // });
-
   $('#submitForgotMail').click(function (e) {
     e.preventDefault()
 
-    console.log('click')
+   // console.log('click')
 
     postForgotPassword()
   })
@@ -1149,7 +1071,7 @@ $(document).ready(function () {
   let convSearch
   $('#convSearch').keyup(function (e) {
     e.preventDefault()
-    console.log('convSearch')
+   // console.log('convSearch')
 
     if (!searchFlag) {
       // si pas de recherche en cours
@@ -1158,7 +1080,7 @@ $(document).ready(function () {
         if (convSearch != $('#convSearch').val()) {
           // si la recherche a changé
           convSearch = $('#convSearch').val() // j'actualise la recherche dans la variable
-          console.log(convSearch)
+         // console.log(convSearch)
           if (convSearch) {
             postConvSearch(convSearch) // je recherche en db
           }
@@ -1174,7 +1096,7 @@ $(document).ready(function () {
   // loadMoreMessages on the chat :
   offsetCoef = 1
   $('#loadMoreMessages').click(function (e) {
-    console.log('loadMoreMessages')
+   // console.log('loadMoreMessages')
 
     $.post(
       'model/postLoadMoreMessages.php',
@@ -1184,11 +1106,11 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-        console.log('function Received')
-        console.log(ReturnedMessage)
+       // console.log('function Received')
+       // console.log(ReturnedMessage)
 
         if (ReturnedMessage) {
-          console.log('valid !!')
+         // console.log('valid !!')
           $('#chatContainer').prepend(ReturnedMessage)
           offsetCoef += 1
         } else {
@@ -1207,26 +1129,5 @@ $(document).ready(function () {
   $('#pseudoSubscribe').keyup(function () {
     isPseudoFreeAPI()
   })
-  // A OPTIMISER !!! -> limiter les requetes
 
-  // console.log("keyup")
-
-  // if(!flagPseudoCheck){
-  //     let regularCheck = setInterval(() => {
-  //                             console.log("check")
-
-  //                             isPseudoFreeAPI();
-  //                         }, 1000);
-
-  //     setTimeout(() => {
-  //     clearInterval(regularCheck);
-  //     }, 5000);
-  // }
-
-  // flagPseudoCheck = true;
-  // setTimeout(() => {
-  //     flagPseudoCheck = false;
-  //     console.log("timeout -> false again")
-  //     // isPseudoFreeAPI();
-  // }, 1000);
 })

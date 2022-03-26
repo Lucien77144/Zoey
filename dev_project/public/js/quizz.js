@@ -3,7 +3,7 @@
 $(document).ready(function(){
 
     function postQuizz(){
-        console.log("quizz")
+        // console.log("quizz")
         
         $.post(
             'model/postQuizz.php',
@@ -22,7 +22,7 @@ $(document).ready(function(){
 
             function(ReturnedMessage){
                 // console.log("function Received")
-                console.log(ReturnedMessage);
+                // console.log(ReturnedMessage);
 
                 if (ReturnedMessage == "valid"){
                     window.location.href = "index.php?action=adoption";
@@ -39,11 +39,11 @@ $(document).ready(function(){
         );
     };
     
+    // Enregistrer les résultats au quizz
     $("#submitQuizz").click(function(e){
         e.preventDefault();
-
-        console.log("click");
-
+        
+        // console.log("click");
         postQuizz();
     });
 });

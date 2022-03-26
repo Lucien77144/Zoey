@@ -1,3 +1,4 @@
+// Cette fonction marche comme un $_GET en php, elle renvoie les éléments dans l'URL
 function getParameterByName(name, url = window.location.href) {
   name = name.replace(/[\[\]]/g, '\\$&')
   var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -7,20 +8,23 @@ function getParameterByName(name, url = window.location.href) {
   return decodeURIComponent(results[2].replace(/\+/g, ' '))
 }
 
+// Fonction d'affichage du loader
 function showLoader(callback) {
   document.getElementById('loaderContainer').style.display = 'flex'
-  console.log('loader loaded')
+  // console.log('loader loaded')
   setTimeout(() => {
     callback()
   }, 10)
 }
 
+// Cacher le loader
 function hideLoader() {
   document.getElementById('loaderContainer').style.display = 'none'
 }
 
+// Connecter l'utilisateur (et enregistrer ses résultats au quiz si ce dernier a été effectué)
 function postConnect(infos) {
-  console.log('postConnect')
+  // console.log('postConnect')
 
   $.post(
     'model/postConnect.php',
@@ -30,14 +34,14 @@ function postConnect(infos) {
     },
 
     function (ReturnedMessage) {
-      console.log('function Received')
-      console.log(ReturnedMessage)
+      // console.log('function Received')
+      // console.log(ReturnedMessage)
 
       if (ReturnedMessage == 'valid') {
         if (getCookie('quizz')) {
           let quizz = JSON.parse(getCookie('quizz'))
-          console.log(quizz)
-          console.log(quizz.space)
+          // console.log(quizz)
+          // console.log(quizz.space)
           $.post(
             'model/postQuizz.php',
             {
@@ -54,7 +58,7 @@ function postConnect(infos) {
             },
 
             function (ReturnedMessage) {
-              console.log(ReturnedMessage)
+              // console.log(ReturnedMessage)
             },
             'text'
           )
@@ -68,15 +72,11 @@ function postConnect(infos) {
         } else {
           location.reload() // renvoie vers la page initialement demandée
         }
-        console.log('valid !!')
+        // console.log('valid !!')
         return true
       } else {
         googleError()
         return false
-        // $('#ConfirmationMessage').html('')
-        // $('#ConfirmationMessage').text(
-        //   `Il y a une erreur dans un des champs remplis.`
-        // )
       }
     },
     'text'
@@ -105,21 +105,7 @@ async function handleCredentialResponse(response) {
     }).then((response) => {
       response.json().then(function (data) {
         if (data[0] == 'connect') {
-          // $connectStatus = handleConnect(data[1])
           $connectStatus = postConnect(data[1]) // ce script envoie à postConnect en AJAX et gère la réponse (recharge la page)
-
-          // if ($connectStatus) {
-          //   // recharger la page pour retourner à la page demandée avant redirection vers connexion, sauf si page demandée = connexion, et aller vers profil
-          //   //   if (getParameterByName('action') == 'connect') {
-          //   //     window.location.href = 'index.php?action=account'
-          //   //   } else {
-          //   //     location.reload() // renvoie vers la page initialement demandée
-          //   //   }
-          //   console.log('connected')
-          // } else {
-          //   console.log("can't connect")
-          //   googleError()
-          // }
         } else {
           googleError()
         }
@@ -130,7 +116,7 @@ async function handleCredentialResponse(response) {
 }
 
 function start() {
-  console.log('init google button')
+  // console.log('init google button')
   google.accounts.id.initialize({
     client_id:
       '866214768583-13jeokh10iam9q1chmeiphgok3gbkr1i.apps.googleusercontent.com',
@@ -146,11 +132,11 @@ function start() {
       } // customization attributes
     )
   }
-  // google.accounts.id.prompt() // also display the One Tap dialog
+  
   if (!document.getElementById('googleAuth')) {
     google.accounts.id.prompt((notification) => {
       if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
-        console.log('skipped google')
+        // console.log('skipped google')
       }
     })
   }

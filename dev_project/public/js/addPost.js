@@ -1,3 +1,4 @@
+// Cette fonction marche comme un $_GET en php, elle renvoie les éléments dans l'URL
 function getParameterByName(name, url = window.location.href) {
   name = name.replace(/[\[\]]/g, '\\$&')
   var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -8,6 +9,9 @@ function getParameterByName(name, url = window.location.href) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+
+  // Menu de selection de l'animal auxquel ajouter le post (cartes),
+  // Styliser la carte cliquée
   document.querySelectorAll('.cardSelector').forEach((e) => {
     e.addEventListener('click', function () {
       if (document.querySelector('.cardActive') != undefined) {
@@ -17,11 +21,14 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   })
 
+  // Ce if permet de vérifier que l'input de media existe (et donc que l'utilisateur a des animaux)
   if(document.querySelector('#media') != null){
+    // En cas de changement de l'image chargée :
     document.querySelector('#media').addEventListener('input', function () {
       let file = document.querySelector('#media').files[0]
+      // Si il n'y a pas de fichier dans l'input, alors réinitialiser la préview et changer l'intitulé du bouton d'ajout
       if(file == undefined){
-        console.log("nul");
+        // console.log("nul");
         document.querySelector(
           '.imgLoader'
         ).innerHTML = "";
@@ -29,8 +36,8 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
+      // Charger l'image et sa preview :
       let reader = new FileReader()
-  
       reader.onload = function (e) {
         document.querySelector(
           '.imgLoader'
