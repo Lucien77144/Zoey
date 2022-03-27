@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+// delete a partner shelter (admins only)
+
 require("model.php");
 require("verifyToken.php");
 

@@ -102,7 +102,5 @@ try {
         throw new Exception("Nous n'avons pas trouvé d'autres messages");
     }
 } catch (Exception $e) {
-    echo "catch";
     $errorMsg = $e->getMessage();
-    echo $errorMsg;
 }

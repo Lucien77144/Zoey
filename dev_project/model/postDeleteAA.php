@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+// remove an animal from the adoption page (admins only)
+
 require("model.php");
 require("verifyToken.php");
 
@@ -63,5 +65,4 @@ try {
     }
 } catch (Exception $e) {
     $errorMsg = $e->getMessage();
-    echo $errorMsg;
 }

@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+// to connect to the app : handles credentials, returns valid if users could be authenticated
+
 require('model.php');
 
 function postConnect()
@@ -92,5 +94,4 @@ try {
     }
 } catch (Exception $e) {
     $errorMsg = $e->getMessage();
-    echo $errorMsg;
 }

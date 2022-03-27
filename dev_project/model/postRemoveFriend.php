@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+// remove a friendship relation between two users
+
 require("model.php");
 
 function postRemoveFriend()
@@ -9,7 +11,6 @@ function postRemoveFriend()
     $idUser = $_SESSION['idUser'];
 
     if (!isFriend($removeFriendId))
-        // throw new Exception("Votre demande a déjà été envoyée");
         return false;
 
     require("PDO.php");
@@ -25,7 +26,6 @@ function postRemoveFriend()
     ));
 
     if (!$req)
-        // throw new Exception("La demande d'ami n'a pas pu être envoyée");
         return false;
 
     return true;
@@ -39,13 +39,9 @@ try {
         $postRemoveFriend = postRemoveFriend();
         echo $postRemoveFriend;
     } else {
-        // throw new Exception("La demande d'ami n'a pas pu être envoyée");
         return false;
     }
 } catch (Exception $e) {
-    // echo "catch";
     $errorMsg = $e->getMessage();
-    // echo $errorMsg;
     return false;
-    // require(BASE_URL . "view/errorView.php");
 }

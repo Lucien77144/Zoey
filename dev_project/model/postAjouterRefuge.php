@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+// add a partnership with a shelter (admins only)
+
 require("model.php");
 require("verifyToken.php");
 
@@ -45,11 +47,7 @@ try {
         verifyToken()
         && $_SESSION['statut'] == 1
         && isset($_POST['nom'])
-        // &&isset($_POST['description'])
-        // &&isset($_POST['logo'])
         && isset($_POST['maps'])
-        // &&isset($_POST['adresse'])
-        // &&isset($_POST['tel'])
         && isset($_POST['mail'])
         && isset($_POST['lien'])
     ) {
@@ -60,5 +58,4 @@ try {
     }
 } catch (Exception $e) {
     $errorMsg = $e->getMessage();
-    echo $errorMsg;
 }

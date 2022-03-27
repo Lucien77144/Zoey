@@ -1,6 +1,8 @@
 <?php
 require('model.php');
 
+// when a users asks to get a new password
+
 function sendMailGoogle($pseudo, $to)
 {
     $subject = 'Réinitialisez votre mot de passe sur Zoey';
@@ -119,5 +121,4 @@ try {
     }
 } catch (Exception $e) {
     $errorMsg = $e->getMessage();
-    echo $errorMsg;
 }

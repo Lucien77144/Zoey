@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+// modify a user's account
+
 require("model.php");
 require("verifyToken.php");
 

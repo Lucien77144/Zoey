@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+// delete a user's animal
+
 require("model.php");
 require("verifyToken.php");
 
@@ -73,5 +75,4 @@ try {
     }
 } catch (Exception $e) {
     $errorMsg = $e->getMessage();
-    // echo $errorMsg;
 }

@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+// delete a user's post
+
 require("model.php");
 require("verifyToken.php");
 
@@ -65,5 +67,4 @@ try {
     }
 } catch (Exception $e) {
     $errorMsg = $e->getMessage();
-    echo $errorMsg;
 }

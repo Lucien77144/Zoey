@@ -22,13 +22,9 @@ try {
             return false;
         }
     } else {
-        // throw new Exception("La demande d'ami n'a pas pu être envoyée");
         return false;
     }
 } catch (Exception $e) {
-    // echo "catch";
     $errorMsg = $e->getMessage();
-    // echo $errorMsg;
     return false;
-    // require(BASE_URL . "view/errorView.php");
 }

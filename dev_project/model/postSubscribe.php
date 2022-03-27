@@ -2,6 +2,8 @@
 
 require("model.php");
 
+// handles informations given by user (or by google) to create an account
+
 function sendMail($pseudo, $to)
 {
     $subject = 'Bienvenue ' . $pseudo . ' !';
@@ -50,7 +52,6 @@ function isEmailOk($str)
     } else {
         return false;
     }
-    // return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) ? false : true;
 }
 
 function testSub()
@@ -67,7 +68,6 @@ function testSub()
     ));
 
     if ($req->rowCount() <= 0) {
-        // echo 'sub';
         return true;
     } else {
         return false;
@@ -90,7 +90,6 @@ function testMail()
         ));
 
         if ($req->rowCount() <= 0) {
-            // echo 'mail';
             return true;
         } else {
             return false;
@@ -103,11 +102,7 @@ function testMail()
 function postSubscribe()
 {
     $pseudo = safeEntry($_POST['pseudo']);
-    // $nom = safeEntry($_POST['nom']);
-    // $prenom = safeEntry($_POST['prenom']);
     $adresse_mail = safeEntry($_POST['mail']);
-    // $date_naissance = safeEntry($_POST['date_naissance']);
-    // $new_password_hash = password_hash($_POST['password'], PASSWORD_ARGON2I, ['memory_cost' => 2048, 'time_cost' => 4, 'threads' => 3]);
 
     if (isset($_POST["media"])) {
         $fileName = safeEntry($_POST['media']);
@@ -191,12 +186,7 @@ function postSubscribe()
 try {
     if (
         isset($_POST['pseudo'])
-        // && isPseudoFree($_POST['pseudo'])
-        // &&isset($_POST['nom'])
-        // &&isset($_POST['prenom'])
         && isset($_POST['mail'])
-        // &&isset($_POST['date_naissance'])
-        // && isset($_POST['password'])
     ) {
 
         $postSubscribe = postSubscribe();
@@ -206,25 +196,4 @@ try {
     }
 } catch (Exception $e) {
     $errorMsg = $e->getMessage();
-    echo $errorMsg;
 }
-
-/*
-<?php // Check if form was submitted:
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['recaptcha_response'])) {
-        // Build POST request:
-        $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
-        $recaptcha_secret = 'YOUR_RECAPTCHA_SECRET_KEY';
-        $recaptcha_response = $_POST['recaptcha_response'];
-    
-        // Make and decode POST request:
-        $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
-        $recaptcha = json_decode($recaptcha);
-    
-        // Take action based on the score returned:
-        if ($recaptcha->score >= 0.5) {
-            // Verified - send email
-        } else {
-            // Not verified - show form error
-        }
-    } ?>*/

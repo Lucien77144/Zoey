@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+// modify a user's animal's profile picture
+
 require("model.php");
 
 function sendPic()

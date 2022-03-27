@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+// publish a post on the social network part
+
 if (!isset($_SESSION['idUser']) && is_numeric($_SESSION['idUser'])) {
     exit('déconnecté');
 }

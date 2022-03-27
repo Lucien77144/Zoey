@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+// add an animal in the adoption part (for admins only)
+
 require("model.php");
 require("verifyToken.php");
 
@@ -96,7 +98,7 @@ function postAjouterAA()
 try {
     if (
         verifyToken()
-        && $_SESSION['statut'] == 1
+        && $_SESSION['statut'] == 1 // checks for admins account rights
         && isset($_POST['nom'])
         && isset($_POST['sexe'])
         && isset($_POST['photo'])
