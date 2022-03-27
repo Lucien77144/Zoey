@@ -1,6 +1,8 @@
 <?php
-
 require("model.php");
+
+// (newsletter fonctions have been removed since march 2021)
+// handles ajax calls to subscribe to the newsletter
 
 function isEmailOk($str)
 {
@@ -42,8 +44,5 @@ try {
         throw new Exception("Cette adresse mail n'est pas valide");
     }
 } catch (Exception $e) {
-    echo "catch";
     $errorMsg = $e->getMessage();
-    echo $errorMsg;
-    // require(BASE_URL . "view/errorView.php");
 }

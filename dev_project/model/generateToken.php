@@ -1,6 +1,6 @@
 <?php
 
-// this API generates a personnal token (when connection or verifyToken) to identify a user session
+// this API generates a personnal token (when connection or verifyToken) to identify a user
 
 // sql send token
 function sendToken()
@@ -67,14 +67,3 @@ function sendToken()
 
     return true;
 }
-
-// try {
-//     if (isset($_SESSION['idUser'])) {
-//         sendToken();
-//     } else {
-//         return false;
-//     }
-// } catch (Exception $e) {
-//     $errorMsg = $e->getMessage();
-//     echo $errorMsg;
-// }

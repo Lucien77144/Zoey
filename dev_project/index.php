@@ -1,16 +1,16 @@
 <?php
 session_start();
 
+// this index is the router, it calls every page's controller on each request
+
 define("BASE_URL", "./");
-// $pageTitle = "Zoey, le réseau social pour l'adoption";
-// $viewContent = "";
-// $metaDesc = "Partenaire de refuges et associations certifiés en Île-de-France, Zoey facilite vos démarches d’adoption et vos recherches du parfait compagnon.";
 $printNewsletter = true;
 $printLegal = false;
 $showModifyLink = false;
 require("controller/controller.php");
 
 try {
+    // look for notifications
     if (verifyToken()) {
         $_SESSION['readstate'] = getUserReadState($_SESSION['idUser']);
     }
@@ -87,17 +87,9 @@ try {
             printFeed();
         }
     } else {
-        printFeed();
-        // if (!isset($_GET['id']) && isset($_SESSION['idUser'])) {
-        //     $_GET['id'] = $_SESSION['idUser'];
-        // }
-        // if (isset($_GET['id'])) {
-        //     printAccount();
-        // } else {
-        //     printConnect();
-        // }
+        printFeed(); // default page
     }
 } catch (Exception $e) {
     $errorMsg = $e->getMessage();
-    require(BASE_URL . "view/errorView.php");
+    require(BASE_URL . "view/errorView.php"); // send the error message to this page to handle an error anywhere in the script
 }

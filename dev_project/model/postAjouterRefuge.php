@@ -16,12 +16,6 @@ function postAjouterRefuge()
     isset($_POST['tel']) ? $tel = safeEntry($_POST['tel']) : $tel = NULL;
     isset($_POST['mail']) ? $mail = safeEntry($_POST['mail']) : $mail = NULL;
 
-    // $logo = safeEntry($_POST['logo']);
-    // $adresse = safeEntry($_POST['adresse']);
-    // $tel = safeEntry($_POST['tel']);
-    // $mail = safeEntry($_POST['mail']);
-
-
     require("PDO.php");
 
     $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));

@@ -3,6 +3,8 @@ require_once(BASE_URL . "model/model.php");
 require_once(BASE_URL . "model/verifyToken.php");
 require_once(BASE_URL . "controller/isMemberOfTheConversation.php");
 
+// MAIN PAGES
+
 function printBlog()
 {
     $blog = getBlog();
@@ -38,13 +40,11 @@ function printLegal()
 
 function printSubscribe()
 {
-    // postSubscribe en AJAX
     require(BASE_URL . "view/subscribeView.php");
 }
 
 function printConnect()
 {
-    // postConnect en AJAX 
     require(BASE_URL . "view/connectView.php");
 }
 
@@ -55,6 +55,7 @@ function printForgotMyPw()
 
 function printDisconnect()
 {
+    // stop and destroy user session
     $_SESSION = array();
     session_destroy();
     setcookie("zoeyaccount", "", time() - 3600, "/");
@@ -93,15 +94,6 @@ function printPost()
     require(BASE_URL . "view/feedView.php");
 }
 
-// function printAdoptionWithMatch(){
-//     if (verifyToken()){
-//         $feedAdoption = getFeedAdoptionByMatch($_SESSION['idUser']);
-//     } else {
-//         $feedAdoption = getFeedAdoption();
-//     }
-//     require(BASE_URL . "view/adoptionViewWithMatch.php");
-// }
-
 function printAdoption()
 {
     $types_animaux = getAnimalTypes();
@@ -132,7 +124,6 @@ function printAdoption()
 function printAdoptionAnimal()
 {
     $adoptionAnimal = getAdoptionAnimal();
-    // $adoptionAnimalBadges = getAdoptionAnimalBadges($idaa);
     require(BASE_URL . "view/adoptionAnimalView.php");
 }
 

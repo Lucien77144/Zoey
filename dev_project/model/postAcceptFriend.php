@@ -1,6 +1,7 @@
 <?php
-
 session_start();
+
+// handles ajax calls to accept a friend request
 
 require("model.php");
 

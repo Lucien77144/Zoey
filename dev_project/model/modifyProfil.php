@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+// this script handles ajax calls to modify one's pseudo and description on profile
+
 require("model.php");
 require("verifyToken.php");
 
@@ -27,9 +29,6 @@ function postModifyAccount()
     ));
 
     $_SESSION['pseudo'] = $pseudo;
-
-    // if ($req->rowCount() <= 0)
-    //     throw new Exception("Votre compte n'a pas pu être modifié, il y a une erreur dans les champs remplis.1");
 
     return "valid";
 }

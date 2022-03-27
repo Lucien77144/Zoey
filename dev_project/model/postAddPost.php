@@ -25,7 +25,7 @@ function postAddPost()
         if ($postedIdAnimal <= $accountAnimals->rowCount()) {
             $idAnimal = $animal[$postedIdAnimal]['idanimal'];
         } else {
-            throw new Exception("Nous n'avons pas trouvé cet animal ! 2");
+            throw new Exception("Nous n'avons pas trouvé cet animal !");
         }
     }
 
@@ -44,11 +44,10 @@ function postAddPost()
     ));
 
     if (!$valid)
-        throw new Exception("L'importation a échoué.1");
+        throw new Exception("L'importation a échoué.");
 
     $id = $db->lastInsertId();
     return json_encode(array("valid", $id));
-    // return "valid - " . $id;
 }
 
 try {
@@ -60,11 +59,8 @@ try {
         $postAddPost = postAddPost();
         echo $postAddPost;
     } else {
-        throw new Exception("L'importation a échoué.2");
+        throw new Exception("L'importation a échoué.");
     }
 } catch (Exception $e) {
-    // echo "catch";
     $errorMsg = $e->getMessage();
-    echo $errorMsg;
-    // require(BASE_URL . "view/errorView.php");
 }

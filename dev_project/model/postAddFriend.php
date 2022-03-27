@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+// handles ajax calls to send a friend request
+
 require("model.php");
 
 function sendMail($to, $pseudo, $friend, $friendId)
@@ -39,7 +41,6 @@ function postAddFriend()
     $idUser = $_SESSION['idUser'];
 
     if (isFriend($addFriendId)) {
-        // throw new Exception("Votre demande a déjà été envoyée");
         return false;
     }
 
@@ -57,7 +58,6 @@ function postAddFriend()
 
 
     if (!$valid) {
-        // throw new Exception("La demande d'ami n'a pas pu être envoyée");
         return false;
     } else { // Si l'ajout d'un nouvel ami a fonctionné :
 
@@ -76,43 +76,6 @@ function postAddFriend()
         $friend = $req->fetchAll();
 
         sendMail($friend[0]['mail'], $friend[0]['pseudo'], $user[0]['pseudo'], $idUser);
-
-        // // vérifier s'il existe déjà une conversation entre l'utilisateur et l'ami
-        // $sql = "SELECT utilisateur_idutilisateur
-        //         FROM conversation_has_utilisateur
-        //         WHERE conversation_has_utilisateur.conversation_idconversation IN (SELECT conversation_has_utilisateur.conversation_idconversation
-        //                 FROM ( 
-        //                     SELECT conversation_idconversation idConv
-        //                     FROM `conversation_has_utilisateur` 
-        //                     WHERE utilisateur_idutilisateur = :idUser
-        //                 ) userConv
-        //                 INNER JOIN conversation_has_utilisateur ON conversation_has_utilisateur.conversation_idconversation = userConv.idConv
-        //                 WHERE conversation_has_utilisateur.utilisateur_idutilisateur != :idUser AND conversation_has_utilisateur.utilisateur_idutilisateur = :addFriendId)
-        //         AND conversation_has_utilisateur.utilisateur_idutilisateur != :idUser";
-        // $req = $db->prepare($sql);
-        // $req->execute(array(
-        //     ':addFriendId' => $addFriendId,
-        //     ':idUser' => $idUser
-        // ));
-
-        // $alreadyHasAConversation = $req->fetchAll();
-
-        // if ($alreadyHasAConversation) { // il existe déjà une conversation avec cet ami, mettre fin à la fonction postAddFriend()
-        //     return true;
-        // } else { // il n'existe pas encore de conversation avec cet ami, créer cette conversation
-        //     $sql = "INSERT INTO `conversation` (`idconversation`) VALUES (NULL)";
-        //     $req = $db->prepare($sql);
-        //     $req->execute();
-        //     $createdId = $db->lastInsertId();
-
-        //     $sql = "INSERT INTO `conversation_has_utilisateur` (`conversation_idconversation`, `utilisateur_idutilisateur`) VALUES (:idConv, :idUser), (:idConv, :addFriendId);";
-        //     $req = $db->prepare($sql);
-        //     $req->execute(array(
-        //         ':idConv' => $createdId,
-        //         ':addFriendId' => $addFriendId,
-        //         ':idUser' => $idUser
-        //     ));
-        // }
     }
 
     return true;
@@ -126,7 +89,6 @@ try {
         $postAddFriend = postAddFriend();
         echo $postAddFriend;
     } else {
-        // throw new Exception("La demande d'ami n'a pas pu être envoyée");
         return false;
     }
 } catch (Exception $e) {

@@ -1,10 +1,9 @@
 <?php
 session_start();
 
+// this page looks for new messages on the instant messaging page (opened conversations)
+
 define("BASE_URL", "");
-
-// this page looks for new messages on the instant messaging page (openend conversations)
-
 require("model.php");
 require_once("verifyToken.php");
 
@@ -22,9 +21,6 @@ function getNewMessages()
         } else {
             throw new Exception("Nous n'avons pas trouvé cette conversation");
         }
-
-        // if (!isset($flagGetChatPrepare)){ // check flag prepare PDO : don't prepare the request if already prepared
-
         require("PDO.php");
 
         $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
@@ -34,21 +30,7 @@ function getNewMessages()
         INNER JOIN utilisateur ON message.utilisateur_idutilisateur = utilisateur.idutilisateur
         WHERE conversation_idconversation = :idConv AND idmessage > :lastId";
 
-
-        // $sql = "SELECT msg.* 
-        //     FROM ( 
-        //         SELECT idmessage, texte_message msg, url_media media, utilisateur_idutilisateur iduser, utilisateur_idutilisateur authorId, utilisateur.pseudo authorPseudo, conversation_idconversation idConv, utilisateur.url_photo authorPic, date_envoi_msg
-        //         FROM `message` 
-        //         INNER JOIN utilisateur ON message.utilisateur_idutilisateur = utilisateur.idutilisateur
-        //         WHERE conversation_idconversation = :idConv
-        //         ORDER BY date_envoi_msg DESC LIMIT :offset, :numberOfMessages
-        //     ) msg
-        //     ORDER BY idmessage ASC";
-
         $req = $db->prepare($sql);
-
-        //     $flagGetChatPrepare = true; // flag prepare PDO
-        // }
 
         $req->execute(
             array(
@@ -155,8 +137,5 @@ try {
         throw new Exception("Vous êtes déconnecté.");
     }
 } catch (Exception $e) {
-    // echo "catch";
     $errorMsg = $e->getMessage();
-    // echo $errorMsg;
-    // require("../view/errorView.php");
 }

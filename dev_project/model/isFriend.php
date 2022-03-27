@@ -55,6 +55,5 @@ function isFriend($idDest)
         }
     } catch (Exception $e) {
         $errorMsg = $e->getMessage();
-        echo $errorMsg;
     }
 }

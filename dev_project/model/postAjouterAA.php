@@ -9,7 +9,6 @@ function postAjouterAA()
     $nom = safeEntry($_POST['nom']);
     $description = safeEntry($_POST['description']);
     $date_anniversaire = safeEntry($_POST['date_anniversaire']);
-    // $unknownAge = safeEntry($_POST['unknownAge']);
     $sexe = safeEntry($_POST['sexe']);
     $photo = safeEntry($_POST['photo']);
     $idrefuge = safeEntry($_POST['idrefuge']);

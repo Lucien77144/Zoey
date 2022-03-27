@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+// this page tells if the user has a new notification or not
+
 require("model.php");
 require_once("verifyToken.php");
 
@@ -12,4 +15,3 @@ if (isset($_SESSION['readstate']) && $_SESSION['readstate'] == 2) {
 } else {
     echo "No notification";
 }
-?>

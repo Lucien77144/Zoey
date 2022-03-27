@@ -17,5 +17,5 @@ if (!isset($_SESSION['pseudo'])) {
 } else if ($_SESSION['pseudo'] != $_POST['checkPseudo']) {
     sendRequest();
 } else {
-    echo "2";
+    echo "2"; // default
 }

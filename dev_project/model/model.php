@@ -1,11 +1,12 @@
 <?php
 
+// these are all model's functions (getters)
+
 // sécuriser les variables d'entrées de script (data utilisateur -> GET, POST...)
 function safeEntry($validate)
 {
     $validate = trim($validate);
     $validate = stripslashes($validate);
-    // $validate = htmlspecialchars($validate);
     return $validate;
 }
 
@@ -165,16 +166,12 @@ function isUserConnected(int $idUser)
 
     $currentTime = new DateTime();
 
-    // if (isset($user["lastDate"])) {
     $lastConnexion = new DateTime($user["lastDate"]);
     if (($lastConnexion->getTimestamp() - 3600 + 600) > $currentTime->getTimestamp()) { // 10 min
         return true;
     } else {
         return false;
     }
-    // } else {
-    //     return false;
-    // }
 }
 
 function getUserReadState($idUser)
@@ -354,10 +351,6 @@ function getFeedAdoption()
         $req = $db->prepare($sql);
         $req->execute();
     }
-
-    // if ($req->rowCount() <= 0)
-    //     throw new Exception("Aucun animal n'a été trouvé");
-
     return $req;
 }
 
@@ -468,51 +461,41 @@ function getQuizBadgesFromCookie($quiz)
 {
     $listeBadges = array();
     if ($quiz['space'] == 1) {
-        // $space = 1;
 
         array_push($listeBadges, 1);
     }
     if ($quiz['secure'] == 1) {
-        // $security = 1;
 
         array_push($listeBadges, 2);
     }
     if ($quiz['children'] == 1) {
-        // $children = 1;
 
         array_push($listeBadges, 3);
     }
     if ($quiz['travel'] == 1) {
-        // $autonomy = 1;
 
         array_push($listeBadges, 4);
     } else if ($quiz['personality'] == 3) {
-        // $autonomy = 1;
 
         array_push($listeBadges, 4);
     }
     if ($quiz['personality'] == 1) {
-        // $play = 1;
 
         array_push($listeBadges, 5);
     }
     if ($quiz['personality'] == 2) {
-        // $caress = 1;
 
         array_push($listeBadges, 6);
     }
     if ($quiz['personality'] == 4) {
-        // $hibernate = 1;
 
         array_push($listeBadges, 7);
     }
     if ($quiz['animals'] == 1) {
-        // $others = 1;
 
         array_push($listeBadges, 8);
     }
     if ($quiz['walk'] == 1) {
-        // $walk = 1;
 
         array_push($listeBadges, 9);
     }
@@ -545,24 +528,7 @@ function getFeedAdoptionByMatchWithCookie($json_quiz)
     $req = $db->prepare($sql);
     $req->execute();
     $listeAA = $req->fetchAll();
-
-    // $sql = "SELECT id_badge FROM `utilisateur_has_badges` WHERE id_user = ?";
-    // $req = $db->prepare($sql);
-    // $req->execute(array($userId));
-    // $fetchListeBadgesUser = $req->fetchAll(PDO::FETCH_NUM);
-
     $listeBadgesUser = getQuizBadgesFromCookie($quiz);
-
-    // $listeBadgesUser = [];
-    // foreach ($fetchListeBadgesUser as $badge) {
-    //     array_push($listeBadgesUser, $badge[0]);
-    // }
-
-    // $sql = "SELECT id_favoriteAnimal idfav FROM `utilisateur_has_favorite_animals` WHERE id_user = ?";
-    // $req = $db->prepare($sql);
-    // $req->execute(array($userId));
-    // $listeFavUser = $req->fetchAll(PDO::FETCH_ASSOC);
-
     $listeFavUser = array();
     array_push($listeFavUser, $quiz['animal1']);
 
@@ -697,34 +663,6 @@ function getPost()
     }
 }
 
-//    OLD VERSION GET ANIMAL
-
-// function getAnimal(){
-//     if (isset($_GET['id']) && is_numeric($_GET['id']) && intval($_GET['id']) > 0){
-//         $animalId = intval($_GET['id']);
-
-//         require("PDO.php");
-
-//         $db = new PDO ("mysql:host={$host};dbname={$dbname};", $username, $password, array
-//         (PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
-
-//         $sql = "SELECT idprofil_animal_de_compagnie idanimal, animal.nom nom_animal, animal.url_photo photo_animal, animal.description description_animal, animal.date_naissance, utilisateur_idutilisateur1 iduser, types_animaux_idtypes_animaux, utilisateur.pseudo pseudo_user, utilisateur.url_photo photo_user
-//         FROM profil_animal_de_compagnie animal
-//         INNER JOIN utilisateur ON animal.utilisateur_idutilisateur1 = utilisateur.idutilisateur
-//         WHERE idprofil_animal_de_compagnie = ?;";
-//         $req = $db -> prepare($sql);
-
-//         $req -> execute(array($animalId));
-
-//         if ($req->rowCount() <= 0)
-//             throw new Exception("Ce profil d'animal de compagnie n'existe pas");
-
-//         return $req;
-//     } else {
-//         throw new Exception("Ce profil d'animal de compagnie n'existe pas");
-//     }
-// }
-
 function getAnimal($animalId = null)
 {
     if (isset($animalId) && is_numeric($animalId) && intval($animalId) > 0) {
@@ -832,9 +770,6 @@ function getRefugesList()
 
     $req->execute();
 
-    // if ($req->rowCount() <= 0)
-    //     throw new Exception("Aucun refuge n'a été trouvé");
-
     return $req;
 }
 
@@ -848,9 +783,6 @@ function getAAList()
     $req = $db->prepare($sql);
 
     $req->execute();
-
-    // if ($req->rowCount() <= 0)
-    //     throw new Exception("Aucun animal à adopter n'a été trouvé");
 
     return $req;
 }
@@ -909,7 +841,7 @@ function getDirectConversation($idToSearch)
 }
 
 function getConversationUsers($sentIdConv)
-{ // renvoie les users d'une conversation
+{ // renvoie les users (id) d'une conversation
     if (isset($sentIdConv) && is_numeric($sentIdConv) && $sentIdConv != 0) {
         $idConv = intval($sentIdConv);
     } else if (isset($_GET['id']) && is_numeric($_GET['id']) && intval($_GET['id']) > 0) {
@@ -977,6 +909,7 @@ function getFilteredMessages($idToSearch)
 
         $db = new PDO("mysql:host={$host};dbname={$dbname};", $username, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4'));
 
+        // what this SQL request is doing :
         // get user's conv
         // get these conv's users
         // keep only the convs where idToSearch is member of the conv
@@ -1044,13 +977,7 @@ function getChat($offsetCoef)
     $req->bindValue(':idConv', $idConv, PDO::PARAM_INT);
     $req->bindValue(':offset', $offset, PDO::PARAM_INT);
 
-    $req->execute(
-        // array(
-        // ':idConv' => $idConv
-        // ':numberOfMessages' => (int)$numberOfMessages // can't bind parameters in LIMIT
-        // ':offset' => "0"
-        // )
-    );
+    $req->execute();
 
     if ($req->rowCount() <= 0)
         return false;
@@ -1149,6 +1076,7 @@ function isFriend_checkFromDb($idDest)
         }
     }
 }
+
 function isFriend($idDest)
 {
     try {

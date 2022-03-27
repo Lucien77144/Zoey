@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+// handles an ajax call to send a message
+
 require("model.php");
 require_once("verifyToken.php");
 
@@ -138,14 +140,6 @@ function postAddMessage()
         if ($id != $idUser) {
             setUserReadState($id, 2);
         }
-        // if (
-        //     getUserReadState($id) != 2
-        // ) { // if is read OR connected
-        //     setUserReadState($id, 2); //set unread and send mail
-        //     // $pseudo = getPseudoFromId($id);
-        //     // $mail = getMailFromId($id);
-        //     // sendMail($pseudo, $mail);
-        // }
     }
 
     return "valid";
@@ -165,5 +159,4 @@ try {
     }
 } catch (Exception $e) {
     $errorMsg = $e->getMessage();
-    echo $errorMsg;
 }

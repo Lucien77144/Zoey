@@ -1,4 +1,7 @@
 <?php
+
+// this page is called to verify the users "forgot my password" token (sent by mail only to verify email adress ownership), then prompts for a new password, then saves it.
+
 $pageTitle = "Retrouver mon mot de passe";
 
 ob_start();
@@ -113,9 +116,4 @@ ob_start(); ?>
 <?php
 $stylesBlock = ob_get_clean();
 
-// SCRIPT BLOCK
-ob_start(); ?>
-<!-- <script src="public/js/ YOUR SCRIPT GOES HERE "></script> -->
-<?php
-$scriptsBlock = ob_get_clean();
 require(BASE_URL . 'public/template/template.php');
