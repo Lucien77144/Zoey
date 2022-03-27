@@ -69,8 +69,6 @@ try {
             printAddPost();
         } else if ($_GET['action'] == 'addAnimal') {
             printAddAnimal();
-        } else if ($_GET['action'] == 'modifyAnimal') {
-            printModifyAnimal();
         } else if ($_GET['action'] == 'adoption') {
             if (isset($_GET['id'])) {
                 printAdoptionAnimal();

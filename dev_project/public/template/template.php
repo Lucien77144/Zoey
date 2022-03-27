@@ -134,26 +134,7 @@
     <?= $viewContent ?>
 
     <?php
-
-    // NEWSLETTER
-    /* if (isset($printNewsletter) && !$printNewsletter) {
-        $printNewsletter = true;
-    } else if (isset($_SESSION['idUser'])) {
-        $printNewsletter = true;
-    } else {
-    ?>
-        <form class="newsletter" id="newsletterForm">
-            <h1>Rejoignez notre Newsletter !</h1>
-            <input type="text" name="prenom" id="newsletterName" placeholder="Votre prénom">
-            <input type="email" name="email" id="newsletterMail" placeholder="Votre e-mail *" required>
-            <input type="submit" value="S'abonner" id="submitNewsletter">
-            <p>*: Champs obligatoires</p>
-            <span id="confirmationMessageNewsletter"></span>
-        </form>
-    <?php
-    }
-    */
-
+    // print link to legal notices
     if (isset($printLegal) && $printLegal) { ?>
         <div class="legalLink">
             <a href="index.php?action=legal">Mentions légales</a>
@@ -163,6 +144,7 @@
     ?>
 
     <?php
+    // disables auto connection with google
     if (isset($_SESSION['idUser']) || (isset($_COOKIE['g']) && $_COOKIE['g'] == 'd') || isset($_GET['g']) && $_GET['g'] == 'd') {
     ?>
         <div id="googleAuth" hidden></div>

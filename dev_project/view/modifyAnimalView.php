@@ -1,4 +1,6 @@
-<?php 
+<?php
+// form to modify a user's animal profile
+
 $animal = $animal->fetch();
 $pageTitle = "Modifier le profil de "  . $animal['nom_animal'];
 ob_start();
@@ -18,17 +20,17 @@ ob_start();
     <label for="date_naissance">date de naissance</label>
     <input type="date" name="date_naissance" id="date_naissance"> <br>
 
-    
+
     <label for="idtype">catégorie d'animal</label>
-    
+
     <select name="idtype" id="idtype">
         <option value=""></option>
         <?php
         $categoryCounter = 0;
-        while ($categorie = $types_animaux -> fetch()){
-            ?>
-                <option value="<?= $categoryCounter ?>"><?= htmlspecialchars($categorie['nom']) ?></option>
-            <?php
+        while ($categorie = $types_animaux->fetch()) {
+        ?>
+            <option value="<?= $categoryCounter ?>"><?= htmlspecialchars($categorie['nom']) ?></option>
+        <?php
             $categoryCounter++;
         }
         ?>
@@ -38,6 +40,6 @@ ob_start();
 </form>
 <span id="ConfirmationMessage"></span>
 
-<?php 
-    $viewContent = ob_get_clean();
-    require(BASE_URL . 'public/template/template.php');
+<?php
+$viewContent = ob_get_clean();
+require(BASE_URL . 'public/template/template.php');

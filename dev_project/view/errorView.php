@@ -1,4 +1,6 @@
 <?php
+// page displayed when an error occured somewhere in the app
+
 // default page title
 $printNewsletter = false;
 if (!isset($errorMsg)) {
@@ -29,9 +31,4 @@ ob_start(); ?>
 <?php
 $stylesBlock = ob_get_clean();
 
-// SCRIPT BLOCK
-ob_start(); ?>
-<!-- <script src="public/js/ YOUR SCRIPT GOES HERE "></script> -->
-<?php
-$scriptsBlock = ob_get_clean();
 require(BASE_URL . 'public/template/template.php');

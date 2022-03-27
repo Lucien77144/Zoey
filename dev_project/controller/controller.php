@@ -147,17 +147,6 @@ function printAddAnimal()
     }
 }
 
-function printModifyAnimal()
-{
-    if (verifyToken()) {
-        $animal = getAnimal();
-        $types_animaux = getAnimalTypes();
-        require(BASE_URL . "view/modifyAnimalView.php");
-    } else {
-        printConnect();
-    }
-}
-
 function printMessages()
 {
     if (verifyToken()) {

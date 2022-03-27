@@ -1,4 +1,6 @@
 <?php
+// profile of an animal in the adoption part
+
 $animal = $adoptionAnimal->fetch();
 $adoptionAnimalBadges = getAdoptionAnimalBadges($animal['idaa']);
 
@@ -24,37 +26,37 @@ ob_start();
 <div class="infosG">
     <div class="age">
         <?php
-            $date1 = new DateTime(date('Y-m-d', time()));
-            $date2 = new DateTime($animal['anniversaire']);
-            $interval = $date1->diff($date2);
-            $ageAA = $interval->y;
-            if ($ageAA < 200 && $ageAA >= 1) {
-            ?>
-                <strong>Âge : </strong><?= $ageAA ?> ans
-            <?php
-            } else if ($ageAA < 1) {
-            ?>
-                <strong>Âge : </strong>moins d'un an
-            <?php
-            }else{ ?>
-                Âge inconnu<br>
-            <?php } 
+        $date1 = new DateTime(date('Y-m-d', time()));
+        $date2 = new DateTime($animal['anniversaire']);
+        $interval = $date1->diff($date2);
+        $ageAA = $interval->y;
+        if ($ageAA < 200 && $ageAA >= 1) {
+        ?>
+            <strong>Âge : </strong><?= $ageAA ?> ans
+        <?php
+        } else if ($ageAA < 1) {
+        ?>
+            <strong>Âge : </strong>moins d'un an
+        <?php
+        } else { ?>
+            Âge inconnu<br>
+        <?php }
         ?>
     </div>
     <div class="sexe">
         <strong>Sexe : </strong>
         <?php
-            switch ($animal['sexe']) {
-                case 0:
-                    echo 'Mâle';
-                    break;
-                case 1:
-                    echo 'Femelle';
-                    break;
-                case 2:
-                    echo 'Autre ou inconnu';
-                    break;
-            }
+        switch ($animal['sexe']) {
+            case 0:
+                echo 'Mâle';
+                break;
+            case 1:
+                echo 'Femelle';
+                break;
+            case 2:
+                echo 'Autre ou inconnu';
+                break;
+        }
         ?>
     </div>
 </div>

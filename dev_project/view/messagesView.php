@@ -1,4 +1,6 @@
 <?php
+// view all conversations (every friend on zoey)
+
 $pageTitle = 'Mes messages';
 ob_start();
 ?>

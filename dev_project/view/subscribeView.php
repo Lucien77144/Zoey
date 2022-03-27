@@ -1,22 +1,8 @@
 <?php
+// form to create an account on Zoey
+
 $printNewsletter = false;
 $pageTitle = "S'inscrire";
-
-/*
-<input type="file" id="media" hidden />
-<label class="choose_photo" for="media">Choisir une photo</label>
-
-<div class="name formContent">
-    <label for="nom">Nom et prénom *</label>
-    <input type="text" name="nom" id="nom" placeholder="nom" required='required'>
-    <input type="text" name="prenom" id="prenom" placeholder="prenom" required='required'>
-</div>
-
-<div class="dateOfBirthContainer formContent">
-    <label for="date_naissance">date de naissance *</label>
-    <input type="date" name="date_naissance" id="date_naissance" required='required'>
-</div>
-*/
 
 ob_start();
 ?>

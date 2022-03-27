@@ -1,4 +1,6 @@
 <?php
+// main page for adoption, if the user has answered the quiz before
+
 $pageTitle = 'Animaux à adopter';
 ob_start();
 
@@ -25,14 +27,14 @@ ob_start();
     <?php
     $flag = 0;
 
-    if(count($feedAdoption) == 0){ ?>
+    if (count($feedAdoption) == 0) { ?>
         <p class="unknownAnimal">Ce type d'animal n'est pas encore présent dans nos refuges partenaires !</p>
-    <?php } 
+    <?php }
 
     foreach ($feedAdoption as $animal) {
         $lazy = "";
         $flag++;
-        if($flag > 20){
+        if ($flag > 20) {
             $lazy = 'loading="lazy"';
         }
         $adoptionAnimalBadges = getAdoptionAnimalBadges($animal['idaa']);

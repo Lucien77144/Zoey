@@ -1,7 +1,9 @@
 <?php
+// ADMINS ONLY - add animal in the adoption part
+
 $pageTitle = "Administration";
 $printNewsletter = false;
-$badges = $badges_list -> fetchAll();
+$badges = $badges_list->fetchAll();
 ob_start();
 ?>
 
@@ -27,73 +29,73 @@ ob_start();
     <textarea name="description" id="description" cols="30" rows="10"></textarea> <br>
 
     <label for="date_anniversaire">date de naissance</label>
-    <input type="date" name="date_naissance" id="date_anniversaire"> 
+    <input type="date" name="date_naissance" id="date_anniversaire">
     <p><em>- Indiquer une date qui permette de calculer un âge à 1 an près<br>- Si son âge est inconnu, remplir la date de 0 (ou une date de plus de 200 ans, l'âge ne s'affichera pas).</em></p>
     <br>
-    
+
     <label for="badge1">Badge 1 (obligatoire)</label>
-    
+
     <select name="badge1" id="badge1">
         <option value=""></option>
         <?php
         foreach ($badges as $badge) {
-            ?>
-                <option value="<?= htmlspecialchars($badge['id']) ?>"><?= htmlspecialchars($badge['nom']) ?></option>
-            <?php
+        ?>
+            <option value="<?= htmlspecialchars($badge['id']) ?>"><?= htmlspecialchars($badge['nom']) ?></option>
+        <?php
         };
-        ?>        
+        ?>
     </select> <br><br>
 
     <label for="badge2">Badge 2</label>
-    
+
     <select name="badge2" id="badge2">
         <option value=""></option>
         <?php
         foreach ($badges as $badge) {
-            ?>
-                <option value="<?= htmlspecialchars($badge['id']) ?>"><?= htmlspecialchars($badge['nom']) ?></option>
-            <?php
+        ?>
+            <option value="<?= htmlspecialchars($badge['id']) ?>"><?= htmlspecialchars($badge['nom']) ?></option>
+        <?php
         };
-        ?>  
+        ?>
     </select> <br><br>
 
     <label for="badge3">Badge 3</label>
-    
+
     <select name="badge3" id="badge3">
         <option value=""></option>
         <?php
         foreach ($badges as $badge) {
-            ?>
-                <option value="<?= htmlspecialchars($badge['id']) ?>"><?= htmlspecialchars($badge['nom']) ?></option>
-            <?php
+        ?>
+            <option value="<?= htmlspecialchars($badge['id']) ?>"><?= htmlspecialchars($badge['nom']) ?></option>
+        <?php
         };
-        ?>  
+        ?>
     </select> <br><br>
 
     <label for="idtype">catégorie d'animal</label>
-    
+
     <select name="idtype" id="idtype">
         <option value=""></option>
         <?php
         $categoryCounter = 0;
-        while ($categorie = $types_animaux -> fetch()){
-            ?>
-                <option value="<?= $categoryCounter ?>"><?= htmlspecialchars($categorie['nom']) ?></option>
-            <?php
+        while ($categorie = $types_animaux->fetch()) {
+        ?>
+            <option value="<?= $categoryCounter ?>"><?= htmlspecialchars($categorie['nom']) ?></option>
+        <?php
             $categoryCounter++;
         }
         ?>
     </select> <br><br>
 
     <label for="idrefuge">refuge</label>
-    
+
     <select name="idrefuge" id="idrefuge">
         <option value=""></option>
         <?php
-        while ($refuge = $liste_refuges -> fetch()){
-            ?>
-                <option value="<?= htmlspecialchars($refuge['id']) ?>"><?= htmlspecialchars($refuge['nom']) ?></option>
-            <?php
+        while ($refuge = $liste_refuges->fetch()) {
+        ?>
+            <option value="<?= htmlspecialchars($refuge['id']) ?>"><?= htmlspecialchars($refuge['nom']) ?></option>
+        <?php
         }
         ?>
     </select> <br><br>

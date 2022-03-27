@@ -1,4 +1,6 @@
 <?php
+// view one conversation (chat with an other user)
+
 $pageTitle = 'Conversation';
 
 // CONTENT BLOCK
@@ -31,10 +33,8 @@ ob_start();
     </a>
 </div>
 
-<!-- <button class="btn" id="loadMoreMessages">Charger plus</button> -->
-
 <main>
-    <?php if($chat){ ?>
+    <?php if ($chat) { ?>
         <div class="moreMsg">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" id="loadMoreMessages">
                 <rect x="7" width="2" height="16" rx="1" fill="#F3811C" />

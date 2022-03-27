@@ -1,3 +1,5 @@
+// the main script is used for the progressive web app : register a service worker, show the "install the app" button...
+
 /* Only register a service worker if it's supported */
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('service-worker.js')
@@ -6,6 +8,7 @@ if ('serviceWorker' in navigator) {
 // Initialize deferredPrompt for use later to show browser install prompt.
 let deferredPrompt
 
+// when the navigator is ready to install the PWA
 window.addEventListener('beforeinstallprompt', (e) => {
   function popUp() {
     function getCookie(cname) {
@@ -25,9 +28,9 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
     let pwa = getCookie('pwa')
     const now = new Date()
-    console.log(pwa)
+
+    // the 'pwa' cookie helps us know if the user has previously refused to install the app or if it is shown for the first time. For the first time, wait before showing the pop up again
     if (!pwa && pwa != 'd' && !Date.parse(pwa)) {
-      console.log('pas encore de cookie pwa')
       const dw = new Date()
       dw.setTime(dw.getTime())
       let time = dw.toUTCString()
@@ -35,7 +38,6 @@ window.addEventListener('beforeinstallprompt', (e) => {
       let expires = dw.toUTCString()
       document.cookie = `pwa=${time}; expires=${expires}; path=/`
     } else {
-      console.log('déjà un cookie')
       function showInstallPromotion(e) {
         // Prevent the mini-infobar from appearing on mobile
         e.preventDefault()
@@ -59,9 +61,6 @@ window.addEventListener('beforeinstallprompt', (e) => {
             if (outcome == 'dismissed') {
               saveUserChoice()
             }
-            // Optionally, send analytics event with outcome of user choice
-            console.log(`User response to the install prompt: ${outcome}`)
-            // We've used the prompt, and can't use it again, throw it away
             deferredPrompt = null
           })
       }
@@ -73,8 +72,6 @@ window.addEventListener('beforeinstallprompt', (e) => {
         document.cookie = `pwa=d; expires=${expires}; path=/`
       }
 
-      // original -----------------
-
       // Stash the event so it can be triggered later.
       deferredPrompt = e
       pwa = getCookie('pwa')
@@ -83,18 +80,11 @@ window.addEventListener('beforeinstallprompt', (e) => {
         // Update UI notify the user they can install the PWA
         showInstallPromotion(e)
         // Optionally, send analytics event that PWA install promo was shown.
-        console.log(`'beforeinstallprompt' event was fired.`)
       } else if (pwa != 'd' && Date.parse(now) && Date.parse(pwa)) {
-        console.log(Date.parse(now))
-        console.log(Date.parse(pwa))
         const remaining = Date.parse(pwa) + 15 * 1000 - Date.parse(now)
-        console.log('settimeout', remaining)
         setTimeout(() => {
-          console.log('timout !')
           showInstallPromotion(e)
         }, remaining)
-      } else {
-        console.log('user already refused to install PWA')
       }
       if (document.getElementById('installPWAbtn')) {
         document
@@ -108,9 +98,6 @@ window.addEventListener('beforeinstallprompt', (e) => {
             if (outcome == 'dismissed') {
               saveUserChoice()
             }
-            // Optionally, send analytics event with outcome of user choice
-            console.log(`User response to the install prompt: ${outcome}`)
-            // We've used the prompt, and can't use it again, throw it away
             deferredPrompt = null
           })
       }

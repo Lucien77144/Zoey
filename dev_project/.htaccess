@@ -1,60 +1,3 @@
-#Alias "/Zoey/Zoey/project" "/Zoey"
-#AliasMatch "/project" "/public/template/template.php"
-
-#Redirect "/a" "/public/template/template.php"
-
-#RewriteRule blog index.php?action=blog
-
-#RewriteCond %{REQUEST_URI} !^/index.php?action=blog
-#RewriteRule ^(.*)$ /blog/
-
-#RewriteCond %{HTTP_HOST} ^localhost/Zoey/Zoey/project
-#RewriteCond %{REQUEST_URI} !^/index.php
-#RewriteRule ^(.*)$ /MonSite/    
-
-#RewriteCond %{REQUEST_URI} !index.php [OR]
-#RewriteCond %{REQUEST_URI} !a.a
-#RewriteRule (.*) index.php?var=1
-
-
-#RewriteEngine On
-#RewriteRule ^blog/([0-9]+)$ index.php?action=blog&id=$1 [L]
-#RewriteRule ^blog$ index.php?action=blog [L]
-#RewriteRule ^hw/a/b/c$ helloworld.php [L]
-
-#RewriteCond %{HTTP_HOST} ^localhost$ [NC]
-#RewriteCond %{QUERY_STRING} ^$
-#RewriteRule ^helloworld.php$ http://localhost/Zoey/Zoey/project/index.php? [R=302,NE,NC,L]
-
-
-#RewriteCond %{QUERY_STRING} ^action\=blog&id\=1$
-#RewriteRule ^index\.php$ /blog? [R=301,L]
-
-
-# DirectoryIndex index.php
-# RewriteEngine on
-
-# # set your rewrite base
-# # Edit this in your init method too if you script lives in a subfolder
-# RewriteBase /
-
-# # Deliver the folder or file directly if it exists on the server
-# RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteCond %{REQUEST_FILENAME} !-d
-
-# # Push every request to index.php
-# RewriteRule ^(.*)$ index.php [QSA]
-
-# RewriteRule ^inconnu.html$  /index.php [L]
-
-# ///////////////////////
-
-
-
-#RewriteEngine On
-#RewriteCond %{SERVER_PORT} !=443
-#RewriteRule ^(.*)$ https://zoey-app.fr/$1 [R=301,L]
-
 DirectoryIndex index.php
 
 # set your rewrite base
@@ -68,8 +11,6 @@ RewriteCond %{REQUEST_FILENAME} !-d
 # Push every request to index.php
 RewriteRule ^(.*)$ index.php [QSA]
 
-
-
 # #--------------------------------------------------
 # # Turn on for production only
 # #--------------------------------------------------
@@ -79,33 +20,3 @@ RewriteRule ^(.*)$ index.php [QSA]
 # RewriteRule ^(.*)$ https://zoey-app.fr/$1 [R=301,L]
 
 # #--------------------------------------------------
-
-
-
-
-# <Directory "/BETA">
-# Allow From All
-# Satisfy Any
-# </Directory>
-
-
-
-# #--------------------------------------------------
-# # Répertoire : /articles/
-# #--------------------------------------------------
-
-# # Le serveur doit suivre les liens symboliques :
-# Options +FollowSymlinks
-
-# # Activation du module de réécriture d'URL :
-# RewriteEngine on
-
-# #--------------------------------------------------
-# # Règles de réécriture d'URL :
-# #--------------------------------------------------
-
-# # Article sans numéro de page :
-# RewriteRule ^article-([0-9]+).html$   index.php?action=blog&id=$1 [L]
-
-# # Article avec numéro de page :
-# # RewriteRule ^article-([0-9]+)-([0-9]+)-([0-9]+).html   /articles/article.php?id=$1&page=$2&rubrique=$3 [L]

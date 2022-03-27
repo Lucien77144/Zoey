@@ -1,4 +1,6 @@
 <?php
+// ADMINS ONLY - add partner shelter
+
 $pageTitle = "Administration";
 $printNewsletter = false;
 ob_start();
@@ -12,7 +14,7 @@ ob_start();
 
     <!-- <label for="description">description</label>
     <textarea name="description" id="description" cols="30" rows="10"></textarea> <br> -->
-    
+
     <label for="lien">lien (site web, sinon page facebook ou autre)*</label>
     <input type="text" name="lien" id="lien"> <br>
 
@@ -23,7 +25,7 @@ ob_start();
     <input type="tel" name="tel" id="tel"> <br> -->
 
     <label for="maps">lien google maps (vf <a href="https://drive.google.com/file/d/14KIEP_cR4EEhS5pTobZRoCDlT5H5jczq/view?usp=sharing" target="_blank">tuto lien embed</a>)*</label>
-    
+
     <input type="text" name="maps" id="maps"> <br>
 
     <label for="adresse">adresse</label>

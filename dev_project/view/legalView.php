@@ -1,4 +1,6 @@
 <?php
+// view legal notices for the projet Zoey
+
 $pageTitle = 'Mentions légales';
 ob_start();
 ?>

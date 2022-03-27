@@ -1,4 +1,6 @@
 <?php
+// view one article from the blog
+
 $article = $article->fetch();
 $pageTitle = htmlspecialchars($article['titre']);
 
@@ -39,9 +41,4 @@ ob_start(); ?>
 <?php
 $stylesBlock = ob_get_clean();
 
-// SCRIPT BLOCK
-ob_start(); ?>
-<!-- <script src="public/js/ YOUR SCRIPT GOES HERE "></script> -->
-<?php
-$scriptsBlock = ob_get_clean();
 require(BASE_URL . 'public/template/template.php');

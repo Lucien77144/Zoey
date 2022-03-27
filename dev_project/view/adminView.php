@@ -1,4 +1,6 @@
 <?php
+// ADMINS ONLY - administration main page
+
 $pageTitle = "Administration";
 $printNewsletter = false;
 ob_start();
@@ -11,17 +13,17 @@ ob_start();
 <br><br>
 
 <label for="idrefuge">Refuges</label>
-    
+
 <select name="idrefuge" id="idrefuge">
     <option value=""></option>
     <?php
-    while ($refuge = $liste_refuges -> fetch()){
-        ?>
-            <option value="<?= htmlspecialchars($refuge['id']) ?>"><?= htmlspecialchars($refuge['nom']) ?></option>
-        <?php
+    while ($refuge = $liste_refuges->fetch()) {
+    ?>
+        <option value="<?= htmlspecialchars($refuge['id']) ?>"><?= htmlspecialchars($refuge['nom']) ?></option>
+    <?php
     }
     ?>
-</select> 
+</select>
 
 <button id="deleteRefuge">Supprimer ce refuge</button>
 <span id="confirmationMessageRefuge"></span>
@@ -35,20 +37,20 @@ ob_start();
 <br><br><br><br>
 
 <label for="idanimal">Animaux à adopter</label>
-    
+
 <select name="idanimal" id="idanimal">
     <option value=""></option>
     <?php
-    while ($aa = $liste_aa -> fetch()){
-        ?>
-            <option value="<?= htmlspecialchars($aa['id']) ?>"><?= htmlspecialchars($aa['nom']) . " (" . htmlspecialchars($aa['refuge']) . ")" ?></option>
-        <?php
+    while ($aa = $liste_aa->fetch()) {
+    ?>
+        <option value="<?= htmlspecialchars($aa['id']) ?>"><?= htmlspecialchars($aa['nom']) . " (" . htmlspecialchars($aa['refuge']) . ")" ?></option>
+    <?php
     }
     ?>
 </select>
 <button id="deleteAA">Supprimer cet animal</button>
 <span id="confirmationMessageAA"></span>
- <br><br>
+<br><br>
 
 <br>
 

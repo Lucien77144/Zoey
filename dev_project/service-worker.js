@@ -1,8 +1,12 @@
+// this script is a service worker
+// https://developer.chrome.com/docs/workbox/service-worker-overview/
+// it takes control of the website, shows an offline page when offline, and is needed for the PWA
+
 const CACHE_NAME = 'offline'
 const OFFLINE_URL = 'offline.html'
 
 self.addEventListener('install', function (event) {
-  console.log('[ServiceWorker] Install')
+  // console.log('[ServiceWorker] Install')
 
   event.waitUntil(
     (async () => {
@@ -17,11 +21,10 @@ self.addEventListener('install', function (event) {
 })
 
 self.addEventListener('activate', (event) => {
-  console.log('[ServiceWorker] Activate')
+  // console.log('[ServiceWorker] Activate')
   event.waitUntil(
     (async () => {
       // Enable navigation preload if it's supported.
-      // See https://developers.google.com/web/updates/2017/02/navigation-preload
       if ('navigationPreload' in self.registration) {
         await self.registration.navigationPreload.enable()
       }

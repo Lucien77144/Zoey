@@ -1,4 +1,6 @@
 <?php
+// main page for the blog : view all articles
+
 $pageTitle = 'Blog';
 $printLegal = true;
 $metaDesc = "Flash info sur l’actualité animalière, interviews de professionnels vétérinaires et ostéopathes animaliers, démarches d’adoption dans le but de vous informer au quotidien !";
@@ -11,7 +13,7 @@ ob_start();
     while ($article = $blog->fetch()) {
         $lazy = "";
         $flag++;
-        if($flag > 6){
+        if ($flag > 6) {
             $lazy = 'loading="lazy"';
         }
     ?>

@@ -1,10 +1,9 @@
 <?php
+// form to answer the quiz and get personnalized results on the adoption page
+
 $printNewsletter = false;
 $pageTitle = 'Trouver votre compagnon idéal';
 
-/*
-<label for="idtype<?= $i + 1 ?>">Votre animal <?= $i + 1; echo $i > 0 ? " (facultatif)" : null ?> :</label>
-*/
 ob_start();
 ?>
 <h1>QUIZZ</h1>

@@ -1,4 +1,6 @@
 <?php
+// when one asks to get a new password. This page sends him an email with a personnal link generated to let him save a new password
+
 $printNewsletter = false;
 $pageTitle = "Mot de passe oublié ?";
 ob_start();
@@ -35,10 +37,5 @@ ob_start(); ?>
 <link rel="stylesheet" href="<?= BASE_URL ?>public/css/style_connexion.css">
 <?php
 $stylesBlock = ob_get_clean();
-
-// SCRIPT BLOCK
-ob_start(); ?>
-<?php
-$scriptsBlock = ob_get_clean();
 
 require(BASE_URL . 'public/template/template.php');

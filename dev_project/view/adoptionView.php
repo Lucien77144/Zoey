@@ -1,4 +1,6 @@
 <?php
+// main adoption page : all animals to adopt and filters to select them
+
 $printLegal = true;
 $pageTitle = 'Animaux à adopter';
 $metaDesc = "Partenaire de refuges et associations certifiés en Ile de France, Zoey facilite vos démarches d’adoption et vos recherches du parfait compagnon.";
@@ -36,14 +38,14 @@ ob_start();
     $flag = 0;
     $animaux = $feedAdoption->fetchall();
 
-    if(count($animaux) == 0){ ?>
+    if (count($animaux) == 0) { ?>
         <p class="unknownAnimal">Ce type d'animal n'est pas encore présent dans nos refuges partenaires !</p>
-    <?php } 
+    <?php }
 
     foreach ($animaux as $animal) {
         $lazy = "";
         $flag++;
-        if($flag > 20){
+        if ($flag > 20) {
             $lazy = 'loading="lazy"';
         }
         $adoptionAnimalBadges = getAdoptionAnimalBadges($animal['idaa']);

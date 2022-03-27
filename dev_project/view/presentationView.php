@@ -1,4 +1,6 @@
 <?php
+// presentation of the Zoey project
+
 $pageTitle = 'Qui sommes-nous ?';
 $printLegal = true;
 $metaDesc = "Nous apportons notre aide aux 100 000 animaux abandonnés chaque année en France en créant un site web 100% gratuit qui aide et incite les Français à adopter dans des refuges.";

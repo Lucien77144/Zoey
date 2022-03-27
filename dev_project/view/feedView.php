@@ -1,4 +1,6 @@
 <?php
+// default page of the app : display latests posts from users
+
 $printNewsletter = false;
 ob_start();
 

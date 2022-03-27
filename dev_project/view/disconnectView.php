@@ -1,4 +1,6 @@
-<?php 
+<?php
+// when you disconnect from your zoey account
+
 $printNewsletter = false;
 $pageTitle = "Vous avez bien été déconnecté";
 ob_start();
@@ -10,7 +12,7 @@ ob_start();
 </div>
 
 
-    
+
 <?php
 $viewContent = ob_get_clean();
 

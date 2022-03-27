@@ -1,22 +1,10 @@
 <?php
 
-
 // THIS PAGE IS MADE FOR AJAX CALLS
-
-
 // affichage du profil de l'animal
 
 function printAnimal($animalId)
 {
-    // $idUser = $_SESSION['idUser'];
-
-    // if (isFriend($acceptFriendId) != 12){ // l'animal appartient bien à ce compte
-    //     return false;
-    // }
-
-    // $animalId = safeEntry($_POST['animalId']);
-
-
     $animal = getAnimal($animalId);
     $animalFeed = getAnimalFeed($animalId);
     $animal = $animal->fetch();
@@ -44,19 +32,6 @@ function printAnimal($animalId)
                 }
                 ?>
             </div>
-            <?php /*
-            // if(isset($_SESSION['idUser']) && ($animal['iduser'] != $_SESSION['idUser'] && verifyToken())){
-            ?>
-            <!-- <h3 class="controlBtn">S'abonner</h3> -->
-            <?php
-            // }else if(!isset($_SESSION['idUser'])){
-            ?>
-            <!-- <a href="index.php?action=connect">
-                <h3 class="controlBtn">S'abonner</h3>
-            </a> -->
-            <?php
-            // } */
-            ?>
         </div>
         <div class="desc">
             <p><?= nl2br(htmlspecialchars($animal['description_animal'])) ?></p>
@@ -72,12 +47,6 @@ function printAnimal($animalId)
                 <?php while ($post = $animalFeed->fetch()) { ?>
                     <a href="index.php?action=feed&id=<?= htmlspecialchars($post['idpost']) ?>">
                         <article class="publi" style="background-image:url(<?= BASE_URL . 'public/images/upload/' . htmlspecialchars($post['media']) ?>)">
-                            <!-- <div class="rate">
-                                <?php $post['likes'] ?>
-                                <svg viewBox="0 0 495 488">
-                                    <path d="M247.5 57.16C272.25 22.55 312.77 0 358.55 0C433.91 0 495 61.09 495 136.44C495 169.2 483.46 199.26 464.21 222.78L247.5 487.18L30.79 222.78C11.54 199.26 0 169.2 0 136.44C0 61.09 61.09 0 136.45 0C182.23 0 222.75 22.55 247.5 57.16Z" fill="white"></path>
-                                </svg>
-                            </div> -->
                         </article>
                     </a>
                 <?php } ?>
