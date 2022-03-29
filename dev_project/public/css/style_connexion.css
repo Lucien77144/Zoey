@@ -58,6 +58,11 @@ body {
   font-weight: bold;
 }
 
+h2 + p {
+  text-align: center;
+  width: 80%;
+  max-width: 260px;
+}
 /* Mot de passe de connexion */
 
 .pwContainer {
