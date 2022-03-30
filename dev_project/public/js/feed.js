@@ -28,20 +28,47 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  // Cette fonction marche comme un $_GET en php, elle renvoie les éléments dans l'URL
+  function $_GET(param) {
+    // Source : creativejuiz.fr
+    var vars = {}
+    window.location.href.replace(location.hash, '').replace(
+      /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+      function (m, key, value) {
+        // callback
+        vars[key] = value !== undefined ? value : ''
+      }
+    )
+
+    if (param) {
+      return vars[param] ? vars[param] : null
+    }
+    return vars
+  }
+
   let numPosts = 1;
   let postToPass = 5;
+  let id;
   document.querySelector('main').addEventListener('scroll', function () {
     // Charger les 5 prochains posts tous les 5 posts scrollés :
     if (this.scrollTop > window.innerHeight * (numPosts * postToPass)) {
-      numPosts++
+      numPosts++;
+
+      let idPost = $_GET().id;
+      if(idPost != null || idPost != undefined){
+        id = "?idPost="+idPost;
+      }else{
+        id = "";
+      }
       $.post(
-        'model/loadFeed.php',
+        'model/loadFeed.php'+id,
         {
           posts: numPosts
         },
 
         function (ReturnedMessage) {
-          // console.log(ReturnedMessage)
+          // console.log(ReturnedMessage);
+          // console.log('model/loadFeed.php'+id);
           addContent(ReturnedMessage);
         },
         'text'

@@ -280,10 +280,19 @@ function getFeed($num = 0)
         ORDER BY date_publication DESC LIMIT $limit OFFSET $start)";
     } else {
 
+        $otherPosts = "";
+        if(isset($_GET['idPost'])){
+            $idPost = htmlspecialchars($_GET['idPost']);
+            $otherPosts .= "WHERE post.profil_animal_de_compagnie_idprofil_animal_de_compagnie = (SELECT post.profil_animal_de_compagnie_idprofil_animal_de_compagnie FROM post WHERE idpost = $idPost)"; 
+        }
+
         $sql = "
-        $selected
+        $selected 
+        $otherPosts 
         ORDER BY date_publication DESC LIMIT $limit OFFSET $start";
     }
+
+    
 
     $req = $db->prepare($sql);
 
