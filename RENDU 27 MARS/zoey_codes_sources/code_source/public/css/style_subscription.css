@@ -1,0 +1,198 @@
+/* Connexion avec Google */
+
+.googleContainer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-nogoogle {
+  margin: 20px 0;
+  position: relative;
+}
+
+.btn-nogoogle::after {
+  content: "";
+  height: 3px;
+  width: 0px;
+  background-color: #f3811c;
+  position: absolute;
+  bottom: -5px;
+  transform: translateX(-50%);
+  left: 50%;
+  transition: 0.5s ease-in-out 0.25s;
+}
+
+.btn-nogoogle.active::first-letter {
+  color: #f3811c;
+}
+
+.btn-nogoogle.active {
+  transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
+  cursor: unset;
+  background-color: unset;
+  color: #0A0A0A;
+  box-shadow: none;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.btn-nogoogle.active::after {
+  width: 75%;
+}
+/* Liens d'inscription */
+
+.linksContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.linksContainer input {
+  width: 150px;
+  font-size: 1rem;
+}
+
+.linkToConnect {
+  font-size: 0.8rem;
+  color: black;
+}
+
+
+/* Inscription si pas de compte google */
+
+.subscribe {
+  width: 100%;
+  min-height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.subscribe h1 {
+  color: #f3811c;
+  font-size: 1.6rem;
+}
+
+.subscribeForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.subscribeForm label {
+  font-weight: bold;
+}
+
+.choose_photo {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  background-color: #f3811c;
+  padding: 10px 20px 10px 20px;
+  height: fit-content;
+  height: -moz-fit-content;
+  width: fit-content;
+  width: -moz-fit-content;
+  border-radius: 20px;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.35);
+  transition: 0.25s ease-in-out;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  white-space: nowrap;
+  display: block;
+}
+
+.formContent input {
+  width: 200px;
+}
+
+#media {
+  color: #f3811c;
+  font-weight: bold;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 450px;
+}
+
+.checkboxContainer label {
+  font-weight: lighter;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkboxContainer input {
+  width: 50px;
+}
+
+#submitSubscribe {
+  cursor: pointer;
+}
+
+#pseudoConfirmationMessage {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#legalAge {
+  cursor: pointer;
+  fill: white;
+}
+
+/* Mot de passe */
+
+.pwContainer {
+  margin: 10px 0;
+  position: relative;
+}
+
+.viewPW {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  height: 25px;
+  width: 25px;
+  top: 50%;
+  right: 0;
+}
+
+#password {
+  margin: 0;
+}
+
+.viewPW{
+  transform-origin: center;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+}
+
+.showPW svg{
+  transform: translate(-50%, -50%) scaleY(0.75);
+  opacity: 0.5;
+}
+
+/* ---------------------------- */
+/*       Media Queries          */
+/* ---------------------------- */
+
+@media screen and (min-width: 500px) {
+  .formContent input {
+    width: 300px;
+  }
+}

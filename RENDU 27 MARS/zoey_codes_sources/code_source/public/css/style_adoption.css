@@ -1,0 +1,440 @@
+/* ---------------------------- */
+/*     Classes générales        */
+/* ---------------------------- */
+
+body {
+  margin: 0;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
+}
+
+
+/* Invitation a participer au quizz  */
+
+.quizzBubble {
+  width: 70%;
+  padding: 7.5px 20px;
+  border-radius: 0 25px 25px 25px;
+  background-color: #f1f1f1;
+  margin-bottom: 10px;
+}
+
+.quizzBubble a {
+  color: #f3801c;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.quizzBubble a:hover {
+  text-decoration: underline;
+}
+
+.AnswerQuizz {
+  width: 100%;
+  text-align: center;
+}
+
+.AnswerQuizz a {
+  color: #fd9030;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+
+.animalBreed {
+  cursor: pointer;
+  align-self: flex-start;
+  padding: 5px 10px 5px 10px;
+  margin-top: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 25px;
+  background-color: rgb(240, 240, 240);
+  transition: 0.3s ease-in-out;
+  -webkit-box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+.animalBreed:hover {
+  background-color: #fd9030;
+  box-shadow: 0 0 2px 2px rgba(243, 128, 28, 0.7);
+  -webkit-box-shadow: 0 0 2px 2px rgba(243, 128, 28, 0.7);
+}
+
+/* Filtre de catégories d'animaux */
+
+.filter {
+  display: flex;
+  width: 100vw;
+  max-width: 600px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.filterAnimal {
+  width: 100%;
+  position: relative;
+}
+
+.filterInner {
+  width: 95%;
+  align-self: center;
+  overflow: auto;
+  margin: auto;
+  transition: ease-in-out;
+}
+
+.filterAnimal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 2.5%;
+  height: calc(100% - 8px);
+  width: 15px;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(270deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 100%);
+  pointer-events: none;
+}
+
+.filterAnimal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 2.5%;
+  height: calc(100% - 8px);
+  width: 15px;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 100%);
+  pointer-events: none;
+}
+
+.filterWrapper {
+  min-width: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.filterAnimal li {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 17.5px 17.5px 17.5px 17.5px;
+  padding: 7.5px 15px 7.5px 15px;
+  border-radius: 100vw;
+  background-color: rgb(240, 240, 240);
+  box-shadow: 0px 0px 7.5px rgba(0, 0, 0, 0.25);
+  transition: 0.25s ease-in-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.filterAnimal li:hover {
+  box-shadow: 0px 0px 7.5px #f3801c;
+  color: #c76000;
+  background-color: #fff5eb;
+}
+
+.filterAnimal .activeFilter {
+  background-color: #f3801c;
+  color: white;
+}
+
+.filterAnimal .activeFilter:hover {
+  background-color: #f3801c;
+  color: white;
+}
+
+/* S'il n'y a pas encore d'animaux dans cette catégorie */
+.unknownAnimal {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Animal à adopter */
+.card {
+  border-radius: 25px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: min(10px, 2.5vw);
+  margin-right: min(10px, 2.5vw);
+  width: 95vw;
+  max-width: 450px;
+  height: 60vw;
+  min-height: 250px;
+  max-height: 270px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.desc {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+div.desc>.btn {
+  align-self: flex-end;
+  margin-right: 12px;
+}
+
+.badges {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.badge {
+  width: 25%;
+  height: auto;
+  min-width: 40px;
+  min-height: 40px;
+  max-width: 50px;
+  max-height: 50px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 7px;
+  transition: 0.25s ease-in-out;
+  background-color: #ffc800;
+}
+
+.badge:hover {
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.35);
+}
+
+.desc p {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+.imgWrap {
+  height: 100%;
+  width: 40%;
+}
+
+.img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 25px 0px 0px 25px;
+}
+
+/* Page d'un animal */
+
+.title2 {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 1.5rem;
+  margin: 0;
+  text-align: center;
+}
+
+.nom,
+h1.underline {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  margin: 0;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.illus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80px;
+}
+
+.illus img {
+  width: 80%;
+  margin: -10%;
+}
+
+.illus h2 {
+  font-size: 0.6rem;
+  font-weight: bold;
+  text-align: center;
+  width: 90%;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+
+.descWrap {
+  width: calc(100% - 100px);
+  background-color: #f6f6f6;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 10px #00000030;
+  max-height: 100px;
+
+  transition: 0.5s ease-in-out;
+}
+
+.badgeDesc {
+  margin: 5px 0 5px 0;
+  background-color: #ffc800;
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 450px;
+  height: 110px;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+
+  transition: 0.5s ease-in-out;
+}
+
+.WrapBadge {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.descWrap p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.85rem;
+  transition: opacity 0.25s ease-in-out 0.4s;
+}
+
+.close {
+  max-width: 80px;
+  transition: 0.5s ease-in-out 0.25s;
+}
+
+.close .descWrap {
+  opacity: 0;
+  box-shadow: 0px 0px 0px #00000000;
+  width: 0;
+  height: 100px;
+  padding: 0;
+  transition: 0.5s ease-in-out 0.25s;
+}
+
+.close p {
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.close .illus {
+  width: 80px;
+}
+
+.nom {
+  font-size: 1.75rem;
+  margin: 15px 0 15px 0;
+}
+
+.descAnimal {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  width: 85%;
+  margin-bottom: 25px;
+  max-width: 800px;
+  text-align: justify;
+}
+
+.image {
+  width: 95%;
+  height: 55vw;
+  max-width: 800px;
+  max-height: 445px;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Carte */
+iframe {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  width: 100%;
+  height: 50vh;
+  max-width: 800px;
+  max-height: 445px;
+  border-radius: 10px;
+  border: 0;
+}
+
+/* Refuge */
+.refuge {
+  align-self: center;
+  margin-bottom: 50px;
+}
+
+.infosG {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 95%;
+  max-width: 800px;
+  height: 50px;
+}
+
+.infosG>div {
+  border-left: solid 4px #ffc800;
+  padding: 5px 10px;
+}
+
+/* Flèche pour retourner à la page adoption */
+.back {
+  position: absolute;
+  top: 95px;
+  left: 50px;
+  transform: translate(-50%, -50%);
+}
+
+.back svg {
+  width: 42px;
+  height: 32px;
+}
+
+/* ---------------------------- */
+/*       Media Queries          */
+/* ---------------------------- */
+
+@media screen and (max-width:400px) {
+  h1.nom {
+    margin-top: 50px;
+  }
+}
+
+@media (min-width: 800px) {
+  .WrapBadge {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .badgeDesc {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .filterAnimal {
+    width: 90%;
+  }
+}

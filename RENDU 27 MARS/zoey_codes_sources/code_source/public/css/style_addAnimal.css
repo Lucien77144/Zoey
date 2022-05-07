@@ -1,0 +1,115 @@
+/* ---------------------------- */
+/*     Classes générales        */
+/* ---------------------------- */
+
+main h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+main h1::first-letter{
+    color: #F3811C;
+}
+
+
+/* Formulaire d'ajout d'animal */
+
+form {
+    display: grid;
+    grid-template-areas: "a b" "c c" "d d";
+    flex-direction: column;
+    justify-content: center;
+    max-width: 500px;
+}
+
+.nomWrap{
+    grid-area: b;
+    margin-left: 20px;
+}
+
+.descWrap{
+    grid-area: c;
+    margin-top: 40px;
+}
+
+.mediaContainer {
+    grid-area: a;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#media {
+    display: none;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 1.3rem;
+}
+
+input[type="text"], textarea{
+    margin: 10px 0 !important;
+}
+
+.labelForMedia {
+    width: 180px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #F3811C;
+}
+
+.currentPicture {
+    margin: auto;
+    width: 60px;
+    height: 60px;
+    background: #F3F3F3;
+    border-radius: 50px;
+    object-fit: cover;
+    transition: 0.2s ease-in-out;
+}
+
+#ConfirmationMessage{
+    width: 100%;
+    text-align: center;
+}
+
+.mediaContainer:hover .currentPicture {
+    box-shadow: 0px 0px 10px #F3811C88;
+}
+
+label[for="media"] {
+    margin-top: 10px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+input[name="description"] {
+    height: 200px;
+}
+
+textarea {
+    background: #F3F3F3;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
+    resize: none;
+    margin-bottom: 10px;
+}
+
+select {
+    background: #F3F3F3;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+}
+
+#submitAddAnimal {
+    grid-area: d;
+    margin: auto;
+    margin-top: 20px;
+}

@@ -1,0 +1,499 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* ---------------------------- */
+/*           Général            */
+/* ---------------------------- */
+body {
+  margin: 0;
+  padding: 0 0 150px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+  scrollbar-color: #f3811c rgb(230, 230, 230);
+  scrollbar-width: thin;
+
+  /* positionnement mentions légales */
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+/* Scrollbar */
+::-moz-selection {
+  background: #f59644;
+  color: #fff;
+}
+
+::selection {
+  background: #f59644;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(230, 230, 230);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffd5b0;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f3811c;
+  border-radius: 20px;
+}
+/* Loader */
+.loader {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #00000055;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+}
+
+.loader>img {
+  height: 50px;
+  width: 50px;
+  animation: 2s rotation infinite;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  width: 90%;
+  padding: 0 5%;
+  box-sizing: initial;
+}
+
+header>h1 a {
+  text-decoration: none;
+  font-family: 'Exo 2', sans-serif;
+  margin: 0;
+  color: #ffa319;
+  cursor: pointer;
+}
+
+header>h1:hover {
+  animation: animLogo 0.5s linear;
+}
+
+header>img {
+  height: 50%;
+}
+
+/* Newsletter */
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.newsletter h1 {
+  text-align: center;
+}
+
+#submitNewsletter {
+  cursor: pointer;
+}
+
+#ConfirmationMessage,
+#confirmationMessage {
+  margin-bottom: 15px;
+  text-align: center;
+}
+/* Footer / Menu en bas  */
+.menu {
+  padding: 0;
+  margin: 0;
+  height: 100px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  min-width: 112px;
+  position: fixed;
+  bottom: -10px;
+  z-index: 1010;
+}
+
+.menu svg {
+  margin: 0 -2px;
+}
+
+.navbar {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.menuInner {
+  background-color: white;
+  width: calc(50vw - 54px);
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+
+.menuInner>a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+  height: 100%;
+  width: 50%;
+}
+
+.menuInner>a>svg {
+  height: 35px;
+  width: 35px;
+}
+
+.menuBlur {
+  z-index: 1009;
+  filter: blur(4px);
+  bottom: -10px;
+}
+
+.menuBlur::after,
+.menuBlur::before {
+  content: '';
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: calc(50vw - 56px);
+}
+
+.menu h2 {
+  display: none;
+  margin: 5px 0 0 0;
+  font-size: 0.75rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.feed {
+  z-index: 1000;
+  position: fixed;
+  transform: translate(-50%, 50%);
+  width: 65px;
+  height: 65px;
+  left: 50%;
+  bottom: 105px;
+  border-radius: 100%;
+  box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+.feed img {
+  height: 100%;
+  width: 100%;
+}
+
+.feedMenu {
+  display: none;
+  text-decoration: none;
+  color: black;
+  height: 100%;
+  width: 50%;
+}
+
+.feedMenu h2 {
+  font-size: 1rem;
+  margin: 0;
+  transition: 0.25s ease-in-out;
+}
+
+.feedMenu:hover h2 {
+  color: #ffa319;
+}
+
+
+/* ---------------------------- */
+/*      Classes globales        */
+/* ---------------------------- */
+/* Boutons */
+input {
+  border: none;
+  background-color: #f3f3f3;
+  border-radius: 25px;
+  padding: 5px 10px;
+  margin: 10px;
+  color: #949393;
+  height: fit-content;
+  height: -moz-fit-content;
+  min-height: 25px;
+}
+
+input[name='email'],
+input[name='prenom'] {
+  width: 230px;
+}
+
+input[type='submit'],
+.btn {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  background-color: #f3811c;
+  padding: 10px 20px 10px 20px;
+  height: fit-content;
+  height: -moz-fit-content;
+  width: fit-content;
+  width: -moz-fit-content;
+  border-radius: 20px;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.35);
+  transition: 0.25s ease-in-out;
+  cursor: pointer;
+}
+
+input[type='submit']:hover,
+.btn:hover {
+  border-radius: 10px;
+  box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.35);
+}
+
+/* Liens */
+a {
+  color: #f59644;
+}
+
+/* Titres surlignés */
+
+.underline {
+  position: relative;
+  z-index: 1;
+}
+
+.underline::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  transform: translate(-50%, -50%) rotate(2deg);
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  width: 100%;
+  transition: 0.25s ease-in-out;
+  background-color: #ffc800;
+}
+
+.underline:hover::after {
+  width: 110%;
+}
+
+.underline:hover::after {
+  width: 110%;
+}
+
+/* ---------------------------- */
+/*        Media Queries         */
+/* ---------------------------- */
+
+
+@media (max-width: 300px) {
+
+  body *,
+  body *::after,
+  body *::before {
+    display: none !important;
+  }
+
+  body::before {
+    content: "Zoey n'est pas encore disponible à ce format :(";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+  }
+}
+
+@media (min-width: 400px) {
+  .menu h2 {
+    display: block;
+  }
+}
+
+@media (min-width: 800px) {
+  body {
+    padding: 60px 0 0 0;
+  }
+
+  /* Header */
+
+  header {
+    z-index: 100;
+    top: 0;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.75);
+  }
+
+  .navbar>a {
+    transition: 0.15s ease-in-out;
+  }
+
+  .navbar>a:nth-child(1):hover {
+    transform: rotate(10deg);
+  }
+
+  .navbar>a:nth-child(2) rect,
+  .navbar .cross {
+    transform-origin: center;
+    transition: 0.5s;
+  }
+
+  .navbar>a:nth-child(2):hover .cross {
+    transform: rotate(180deg);
+    fill: #ffc800;
+  }
+
+  .navbar>a:nth-child(2):hover .cross rect {
+    fill: #ffc800;
+  }
+
+  .navbar>a:nth-child(2):hover>svg>rect {
+    transform: scale(0.9);
+  }
+
+  /* Newsletter */
+  .newsletter {
+    justify-content: center;
+  }
+
+  .newsletter h1 {
+    font-size: 1.5rem;
+  }
+
+  .newsletter p {
+    align-self: unset;
+  }
+
+
+  /* Footer / Menu du bas */
+  .feed {
+    display: none;
+  }
+
+  .menuInner {
+    background-color: initial;
+    height: 100%;
+    width: 40% !important;
+  }
+
+  .feedMenu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+  }
+
+  .menuBlur,
+  .menu svg {
+    display: none;
+  }
+
+  .menuInner>a {
+    transition: 0.25s ease-in-out;
+  }
+
+  .menuInner h2 {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .menuInner>a:hover {
+    color: #ffa319;
+  }
+
+  .menu {
+    height: 60px;
+    width: 50vw;
+    max-width: 800px;
+    min-width: 500px;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    top: 0;
+  }
+
+  /* lien mentions légales */
+  .legalLink {
+    margin-top: 100px;
+    margin-bottom: 20px;
+  }
+
+  .legalLink a {
+    color: rgb(44, 44, 44);
+    font-size: 0.8rem;
+    white-space: nowrap;
+    word-wrap: unset;
+  }
+
+  /* GOOGLE AUTH */
+  #googleAuthButton {
+    z-index: 1000000;
+  }
+
+}
+
+/* ---------------------------- */
+/*          Keyframes           */
+/* ---------------------------- */
+
+@keyframes rotation {
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  49.9999% {
+    transform: rotate(360deg);
+  }
+
+  50% {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Fin spécificité popUp */
+@keyframes animLogo {
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(10deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(-10deg);
+  }
+}

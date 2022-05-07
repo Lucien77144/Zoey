@@ -1,0 +1,14 @@
+/* Deconnexion, message d'information */
+.disconnectContainer h1,
+h4 {
+    text-align: center;
+}
+
+a {
+    color: #f3811c;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

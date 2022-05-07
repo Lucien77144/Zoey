@@ -1,0 +1,125 @@
+/* ---------------------------- */
+/*     Classes générales        */
+/* ---------------------------- */
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.champs {
+  font-size: 0.75rem;
+}
+
+/* Connexion avec google */
+
+.googleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+
+/* formulaire de connexion */
+
+.inputContainer input {
+  width: 100%;
+  margin: 10px 0;
+  box-sizing: border-box;
+  padding: 10px 12.5px;
+}
+
+.connexion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.connexion h1 {
+  color: #f3811c;
+  font-size: 1.8rem;
+}
+
+.connexion h2 {
+  text-align: center;
+  width: 90%;
+  font-size: calc(1rem + 0.5vw);
+}
+
+.connectForm {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.connectForm label {
+  font-weight: bold;
+}
+
+/* Mot de passe de connexion */
+
+.pwContainer {
+  margin: 10px 0;
+  position: relative;
+}
+
+.viewPW {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  height: 25px;
+  width: 25px;
+  top: 50%;
+  right: 0;
+}
+
+#password {
+  margin: 0;
+}
+
+.viewPW {
+  cursor: pointer;
+  transform-origin: center;
+  transition: 0.25s ease-in-out;
+}
+
+.showPW svg {
+  transform: translate(-50%, -50%) scaleY(0.75);
+  opacity: 0.5;
+}
+
+/* Envoyer la connexion */
+
+#submitConnect {
+  margin: 10px auto;
+}
+
+
+/* Liens d'inscription et d'oubli de mot de passe */
+.linksContainer {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.linksContainer input {
+  width: 150px;
+  font-size: 1rem;
+}
+
+.linksContainer a {
+  font-size: 0.8rem;
+  color: black;
+}
+
+.subscribeForm p {
+  font-size: 0.8rem;
+}
+
+.forgotMDP {
+  text-align: center;
+}
