@@ -85,7 +85,7 @@ try {
             printFeed();
         }
     } else {
-        printFeed(); // default page
+        printPresentation(); // default page
     }
 } catch (Exception $e) {
     $errorMsg = $e->getMessage();

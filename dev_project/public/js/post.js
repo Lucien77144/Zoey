@@ -13,7 +13,7 @@ function getCookie(cname) {
       return c.substring(name.length, c.length)
     }
   }
-  return '';
+  return ''
 }
 
 async function compressPhoto(path) {
@@ -21,7 +21,7 @@ async function compressPhoto(path) {
     photo: path,
   })
 
- // console.log('formDataJsonString ', formDataJsonString)
+  // console.log('formDataJsonString ', formDataJsonString)
 
   fetch('model/compressPhoto.php', {
     method: 'POST',
@@ -50,8 +50,6 @@ function hideLoader() {
 }
 
 $(document).ready(function () {
-  // console.log('ready')
-
   function getParameterByName(name, url = window.location.href) {
     name = name.replace(/[\[\]]/g, '\\$&')
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -60,6 +58,24 @@ $(document).ready(function () {
     if (!results[2]) return ''
     return decodeURIComponent(results[2].replace(/\+/g, ' '))
   }
+
+  const page = getParameterByName('action')
+  console.log('page', page, document.getElementById('menuActus'))
+
+  if (page == 'blog')
+    document.getElementById('menuActus').classList.add('current')
+
+  if (page == 'presentation')
+    document.getElementById('menuPresentation').classList.add('current')
+
+  if (page == 'feed')
+    document.getElementById('menuFeed').classList.add('current')
+
+  if (page == 'adoption')
+    document.getElementById('menuAdoption').classList.add('current')
+
+  if (page == 'account')
+    document.getElementById('menuProfil').classList.add('current')
 
   function postPhoto() {
     // renvoie basename fichier uploadé
@@ -629,7 +645,7 @@ $(document).ready(function () {
   }
 
   function postDeleteRefuge() {
-   // console.log('postDeleteRefuge')
+    // console.log('postDeleteRefuge')
 
     $.post(
       'model/postDeleteRefuge.php',
@@ -638,8 +654,8 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-       // console.log('function Received')
-       // console.log(ReturnedMessage)
+        // console.log('function Received')
+        // console.log(ReturnedMessage)
 
         if (ReturnedMessage == 'valid') {
           $('#confirmationMessageRefuge').html('')
@@ -656,7 +672,7 @@ $(document).ready(function () {
   }
 
   function postConvSearch(search) {
-   // console.log('postConvSearch')
+    // console.log('postConvSearch')
 
     $.post(
       'model/postConvSearch.php',
@@ -665,16 +681,16 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-       // console.log('function Received')
-       // console.log(ReturnedMessage)
+        // console.log('function Received')
+        // console.log(ReturnedMessage)
 
         if (ReturnedMessage) {
           try {
-           // console.log('try')
+            // console.log('try')
             $('#confirmationMessage').html('')
             $('#messagesContainer').html('')
             results = JSON.parse(ReturnedMessage)
-           // console.log(results)
+            // console.log(results)
             let container = document.getElementById('messagesContainer')
 
             let friendsTitle = document.createElement('h3')
@@ -682,7 +698,7 @@ $(document).ready(function () {
             friendsTitle.appendChild(friendsText)
             container.appendChild(friendsTitle)
 
-           // console.log('before generateDOM')
+            // console.log('before generateDOM')
             function generateDOM(pic, name, id, last = null) {
               let filename =
                 pic && pic != 'déconnecté' ? pic : 'defaultProfile.png'
@@ -723,11 +739,11 @@ $(document).ready(function () {
               container.appendChild(newUser)
             }
 
-           // console.log('before friend ')
+            // console.log('before friend ')
             let friends = 0
             for (conv of results.friends) {
               friends++
-             // console.log(conv)
+              // console.log(conv)
               generateDOM(
                 conv.photo,
                 conv.pseudo,
@@ -737,7 +753,7 @@ $(document).ready(function () {
             }
 
             if (friends == 0) {
-             // console.log('no friend')
+              // console.log('no friend')
               let noFriendP = document.createElement('p')
               let noFriendsText = document.createTextNode(
                 'Aucun amis trouvé :/'
@@ -754,14 +770,14 @@ $(document).ready(function () {
             let others = 0
             for (users of results.others) {
               others++
-             // console.log('users')
+              // console.log('users')
               for (user of users) {
-               // console.log(user.iduser)
+                // console.log(user.iduser)
                 generateDOM(user.photo_user, user.pseudo_user, user.iduser)
               }
             }
             if (others == 0) {
-             // console.log('no others')
+              // console.log('no others')
               let noOthersP = document.createElement('p')
               let noOthersText = document.createTextNode(
                 'Aucun autre profil trouvé :/'
@@ -791,7 +807,7 @@ $(document).ready(function () {
   $('#submitSubscribe').click(function (e) {
     e.preventDefault()
 
-   // console.log('click')
+    // console.log('click')
 
     postSubscribe()
   })
@@ -799,10 +815,10 @@ $(document).ready(function () {
   $('#submitAddPost').click(function (e) {
     e.preventDefault()
 
-   // console.log('before')
+    // console.log('before')
     document.getElementById('loaderContainer').style.display = 'flex'
     showLoader(() => {
-     // console.log('click')
+      // console.log('click')
       function testChecked() {
         if (
           document.querySelector('input[name=idAnimal]:checked', '#addPostForm')
@@ -838,29 +854,31 @@ $(document).ready(function () {
   $('#submitNewsletter').click(function (e) {
     e.preventDefault()
 
-   // console.log('click')
+    // console.log('click')
 
     postAddNewsletter()
   })
-  
-  if(document.querySelector(".viewPW") != null){
-    document.querySelector(".viewPW").addEventListener("click", function(){
-      if(document.querySelector("#password").getAttribute("type") == "password") {
-        document.querySelector("#password").setAttribute("type", "text");
-        document.querySelector(".pwContainer").classList.add("showPW");
+
+  if (document.querySelector('.viewPW') != null) {
+    document.querySelector('.viewPW').addEventListener('click', function () {
+      if (
+        document.querySelector('#password').getAttribute('type') == 'password'
+      ) {
+        document.querySelector('#password').setAttribute('type', 'text')
+        document.querySelector('.pwContainer').classList.add('showPW')
       } else {
-        document.querySelector("#password").setAttribute("type", "password");
-        document.querySelector(".pwContainer").classList.remove("showPW");
+        document.querySelector('#password').setAttribute('type', 'password')
+        document.querySelector('.pwContainer').classList.remove('showPW')
       }
-    });
+    })
   }
 
   $('#submitAddMessage').click(function (e) {
-    e.preventDefault();
+    e.preventDefault()
 
-    if(document.querySelector('#msg').value != ''){
-      document.querySelector("textarea").focus();
-      document.querySelector("textarea").select();
+    if (document.querySelector('#msg').value != '') {
+      document.querySelector('textarea').focus()
+      document.querySelector('textarea').select()
     }
 
     if (
@@ -868,7 +886,7 @@ $(document).ready(function () {
       document.querySelector('#media').value != ''
     ) {
       showLoader(() => {
-       // console.log('click')
+        // console.log('click')
 
         let postedMedia = postPhoto()
         if (postedMedia != null && postedMedia != null && !postedMedia) {
@@ -876,18 +894,19 @@ $(document).ready(function () {
           return
         }
 
-        postAddMessage(postedMedia);
-        
-        document.querySelector("#submitAddMessage").style.animation="flySend 0.75s ease-in-out";
+        postAddMessage(postedMedia)
+
+        document.querySelector('#submitAddMessage').style.animation =
+          'flySend 0.75s ease-in-out'
         setTimeout(() => {
-          document.querySelector("#submitAddMessage").style.animation="";
-        }, 750);
+          document.querySelector('#submitAddMessage').style.animation = ''
+        }, 750)
 
         $('main').animate(
           { scrollTop: document.querySelector('main').scrollHeight },
           750
         )
-        hideLoader();
+        hideLoader()
       })
     }
 
@@ -899,7 +918,7 @@ $(document).ready(function () {
 
     $('#ConfirmationMessage').html('')
 
-   // console.log('click')
+    // console.log('click')
 
     showLoader(() => {
       let postedMedia = postPhoto()
@@ -916,55 +935,54 @@ $(document).ready(function () {
   $('#submitModifyAccountPseudo').click(function (e) {
     e.preventDefault()
 
-   // console.log('click')
+    // console.log('click')
 
     postModifyAccount('pseudo', $('#pseudoSubscribe').val())
   })
   $('#submitModifyAccountMedia').click(function (e) {
     e.preventDefault()
 
-   // console.log('click')
+    // console.log('click')
 
     let postedMedia = postPhoto()
     if (postedMedia != null && !postedMedia) {
       return
     }
 
-   // console.log(postedMedia)
-
+    // console.log(postedMedia)
   })
   $('#submitModifyAccountNom').click(function (e) {
     e.preventDefault()
 
-   // console.log('click')
+    // console.log('click')
 
     postModifyAccount('nom', $('#nom').val())
   })
   $('#submitModifyAccountPrenom').click(function (e) {
     e.preventDefault()
 
-   // console.log('click')
+    // console.log('click')
 
     postModifyAccount('prenom', $('#prenom').val())
   })
   $('#submitModifyAccountMail').click(function (e) {
     e.preventDefault()
 
-   // console.log('click')
+    // console.log('click')
 
     postModifyAccount('mail', $('#mail').val())
   })
   $('#submitModifyAccountDate').click(function (e) {
     e.preventDefault()
 
-   // console.log('click')
+    // console.log('click')
 
     postModifyAccount('date_naissance', $('#date_naissance').val())
   })
   $('#submitModifyAccountPassword').click(function (e) {
     e.preventDefault()
 
-   // console.log('click')
+    // console.log('click')
 
     postModifyAccount('password', $('#password').val())
   })
@@ -973,7 +991,7 @@ $(document).ready(function () {
   $('#submitModifyAnimal').click(function (e) {
     e.preventDefault()
 
-   // console.log('click')
+    // console.log('click')
 
     const pageUrl = window.location.search
     const urlGetParameters = new URLSearchParams(pageUrl)
@@ -990,7 +1008,7 @@ $(document).ready(function () {
   $('#submitConnect').click(function (e) {
     e.preventDefault()
 
-   // console.log('click')
+    // console.log('click')
 
     postConnect()
   })
@@ -998,7 +1016,7 @@ $(document).ready(function () {
   $('#addFriend').click(function (e) {
     e.preventDefault()
 
-   // console.log('addFriend')
+    // console.log('addFriend')
 
     postAddFriend()
   })
@@ -1006,7 +1024,7 @@ $(document).ready(function () {
   $('#removeFriend').click(function (e) {
     e.preventDefault()
 
-   // console.log('removeFriend')
+    // console.log('removeFriend')
 
     postRemoveFriend()
   })
@@ -1014,7 +1032,7 @@ $(document).ready(function () {
   $('#acceptFriend').click(function (e) {
     e.preventDefault()
 
-   // console.log('acceptFriend')
+    // console.log('acceptFriend')
 
     postAcceptFriend()
   })
@@ -1022,7 +1040,7 @@ $(document).ready(function () {
   $('#submitAjouterRefuge').click(function (e) {
     e.preventDefault()
 
-   // console.log('click')
+    // console.log('click')
 
     let postedMedia = postPhoto()
     if (postedMedia != null && !postedMedia) {
@@ -1034,7 +1052,7 @@ $(document).ready(function () {
   $('#submitAjouterAnimalAdopter').click(function (e) {
     e.preventDefault()
 
-   // console.log('click')
+    // console.log('click')
 
     let postedMedia = postPhoto()
     if (postedMedia != null && !postedMedia) {
@@ -1046,14 +1064,14 @@ $(document).ready(function () {
   $('#deleteRefuge').click(function (e) {
     e.preventDefault()
 
-   // console.log('click')
+    // console.log('click')
 
     postDeleteRefuge()
   })
   $('#deleteAA').click(function (e) {
     e.preventDefault()
 
-   // console.log('click')
+    // console.log('click')
 
     postDeleteAA()
   })
@@ -1061,7 +1079,7 @@ $(document).ready(function () {
   $('#submitForgotMail').click(function (e) {
     e.preventDefault()
 
-   // console.log('click')
+    // console.log('click')
 
     postForgotPassword()
   })
@@ -1071,7 +1089,7 @@ $(document).ready(function () {
   let convSearch
   $('#convSearch').keyup(function (e) {
     e.preventDefault()
-   // console.log('convSearch')
+    // console.log('convSearch')
 
     if (!searchFlag) {
       // si pas de recherche en cours
@@ -1080,7 +1098,7 @@ $(document).ready(function () {
         if (convSearch != $('#convSearch').val()) {
           // si la recherche a changé
           convSearch = $('#convSearch').val() // j'actualise la recherche dans la variable
-         // console.log(convSearch)
+          // console.log(convSearch)
           if (convSearch) {
             postConvSearch(convSearch) // je recherche en db
           }
@@ -1096,7 +1114,7 @@ $(document).ready(function () {
   // loadMoreMessages on the chat :
   offsetCoef = 1
   $('#loadMoreMessages').click(function (e) {
-   // console.log('loadMoreMessages')
+    // console.log('loadMoreMessages')
 
     $.post(
       'model/postLoadMoreMessages.php',
@@ -1106,11 +1124,11 @@ $(document).ready(function () {
       },
 
       function (ReturnedMessage) {
-       // console.log('function Received')
-       // console.log(ReturnedMessage)
+        // console.log('function Received')
+        // console.log(ReturnedMessage)
 
         if (ReturnedMessage) {
-         // console.log('valid !!')
+          // console.log('valid !!')
           $('#chatContainer').prepend(ReturnedMessage)
           offsetCoef += 1
         } else {
@@ -1129,5 +1147,4 @@ $(document).ready(function () {
   $('#pseudoSubscribe').keyup(function () {
     isPseudoFreeAPI()
   })
-
 })

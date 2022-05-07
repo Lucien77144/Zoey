@@ -8,22 +8,30 @@ ob_start();
 ?>
 
 <div class="bgContainer">
-  <h1 class="underline title">Qui sommes nous?</h1>
+  <h1 class="underline title">Bienvenue sur Zoey</h1>
 </div>
-<h2 class="title2">Le projet étudiant</h2>
 <p class="intro">
-  Apporter notre aide aux 100 000 animaux abandonnés chaque année en France en créant un site web 100% gratuit qui aide et incite les Français à adopter dans des refuges.
-  <br><br>
-  Zoey s’articule autour de 3 axes :
-  <br><br>
-  > Actualités : Flash info sur l’actualité animalière.
-  <br><br>
-  > Adoption : Découvrir des animaux présents en refuges qui vous correspondent et n’attendent qu’une seule chose : être adoptés.
-  <br><br>
-  > Réseaux : Partager du contenu en lien avec vos animaux de compagnie.
+  Chaque année, 100 000 animaux sont abandonnés en France. La solution la plus simple pour lutter contre l'abandon, c'est l'adoption.</p>
+
+<div class="wrapperCTA">
+  <a class="btn" href="/?action=adoption">Adoptez</a>
+  <a class="btn" href="/?action=feed">Partagez</a>
+  <a class="btn" href="/?action=blog">Actus</a>
+</div>
+
+<p class="introList">
+  Retrouvez des flash info sur l'actualité animalière,
+</p>
+<p class="introList">
+  Partagez la vie de vos animaux de compagnie,
+</p>
+<p class="introList">
+  Et si vous cherchez un nouveau compagnon, pensez à adopter !
 </p>
 
-<div class="btn" id="installPWAbtn">Installer l'appli Zoey
+<h2 class="title2 titleMargin">Sur Zoey, plus de 150 animaux attendent d'être adoptés dans des refuges partenaires.</h2>
+
+<div class="btn" id="installPWAbtn">Installez l'appli Zoey
 </div>
 
 <div class="mockupContainer">
@@ -32,159 +40,170 @@ ob_start();
   </div>
 </div>
 
-<h2 class="title2">Notre équipe</h2>
+<section class="partenaires">
+  <h2>Nos partenaires</h2>
+  <p class="firstText">Zoey est en partenariat et en étroite collaboration avec 9 refuges pour animaux en Île de France :</p>
+  <div class="partenairesContainer">
+    <a target="blank" href="https://sosptitesbetes.wixsite.com/sosptitesbetes" class="refugeContainer">
+      <p>Sos P'tites Bêtes</p>
+      <img src="./public/images/refuges/sosptitesbetes.png" alt="logo de l'asssociation sos ptites bêtes">
+    </a>
+    <a target="blank" href="https://pattesenrond.fr/" class="refugeContainer">
+      <p>Pattes En Rond </p>
+      <img src="./public/images/refuges/pattesenrond.png" alt="logo de l'asssociation pattes en rond">
+    </a>
+    <a target="blank" href="https://www.facebook.com/apibullssanstoit/" class="refugeContainer">
+      <p>Pitbull Sans Toit</p>
+      <img src="./public/images/refuges/pitbullsanstoit.png" alt="logo de l'asssociation pitbullsanstoit">
+    </a>
+    <a target="blank" href="https://www.facebook.com/APAC94ASSO/" class="refugeContainer">
+      <p>APAC94</p>
+      <img src="./public/images/refuges/APAC.png" alt="logo de l'asssociation APAC">
+    </a>
+    <a target="blank" href="http://refuge-larche-de-bagheera.weebly.com/" class="refugeContainer">
+      <p>L’arche De Bagheera</p>
+      <img src="./public/images/refuges/larchedebagheera.png" alt="logo de l'asssociation l'arche de bagheera">
+    </a>
+    <a target="blank" href="http://les-patounes-de-bezons.fr/" class="refugeContainer">
+      <p>Les Patounes De Bezons</p>
+      <img src="./public/images/refuges/lespatounesdebezons.png" alt="logo de l'asssociation les patounes de bezons">
+    </a>
+    <a target="blank" href="https://adopteunmatou.com/" class="refugeContainer">
+      <p>Adopte Un Matou</p>
+      <img src="./public/images/refuges/adopteunmatou.png" alt="logo de l'asssociation adopte un matou">
+    </a>
+    <a target="blank" href="https://associationema.wixsite.com/associationema" class="refugeContainer">
+      <p>Association Emâ</p>
+      <img src="./public/images/refuges/ema.png" alt="logo de l'asssociation ema">
+    </a>
+    <a target="blank" href="https://www.facebook.com/associationlouna/" class="refugeContainer">
+      <p>Association Louna</p>
+      <img src="./public/images/icons/favicon.svg" alt="">
+    </a>
+  </div>
+</section>
+<section class="resFooter">
+  <h2>Abonnez-vous pour nous soutenir</h2>
+  <div class="reseaux">
+    <a target="_blank" href="https://www.facebook.com/appli.zoey">
+      <img src="<?= BASE_URL ?>public/images/presentation/facebook.svg" alt="">
+      Appli.zoey
+    </a>
+    <a target="_blank" href="https://www.instagram.com/zoey.app/">
+      <img src="<?= BASE_URL ?>public/images/presentation/instagram.svg" alt="">
+      Zoey.app
+    </a>
+    <a target="_blank" href="https://www.tiktok.com/@zoey.app">
+      <img src="<?= BASE_URL ?>public/images/presentation/tiktok.svg" alt="">
+      Zoey.app
+    </a>
+    <a target="_blank" href="https://www.linkedin.com/company/zoeyapp/about/">
+      <img src="<?= BASE_URL ?>public/images/presentation/linkedin.svg" alt="">
+      Zoey
+    </a>
+  </div>
+</section>
 
-<main>
-  <section>
-    <div>
-      <h2 class="title2">Clémentine Gilama</h2>
-      <p class="poste">Scrum Master & Community Manager</p>
-    </div>
-    <div class="imgWrap">
-      <img src="<?= BASE_URL ?>public/images/presentation/clementine.jpg" alt="">
-    </div>
-    <p class="desc">
-      Elle anime les réseaux sociaux Zoey en créant et en réalisant des contenus visuels ou textuels. Elle analyse les posts et communique avec les internautes régulièrement. Elle veille au bon déroulement du projet et organise les réunions d’équipe.
-    </p>
-    <a class="btn" target="_blank" href="https://www.linkedin.com/in/clementine-gilama/">Mieux me connaître</a>
-  </section>
+<section>
+  <h2>L'équipe Zoey</h2>
 
-  <section>
-    <div>
-      <h2 class="title2">Marin Bouanchaud</h2>
-      <p class="poste">Product Owner & Développeur Back-end</p>
-    </div>
-    <div class="imgWrap">
-      <img src="<?= BASE_URL ?>public/images/presentation/marin.jpg" alt="">
-    </div>
-    <p class="desc">
-      Il crée l’architecture du site web. Il développe toute la partie “back” du site web, afin de définir toutes les fonctionnalités de la plateforme.
-    </p>
-    <a class="btn" target="_blank" href="https://www.linkedin.com/in/marin-bouanchaud/">Mieux me connaître</a>
-  </section>
+  <main>
+    <section>
+      <div>
+        <h2 class="title2 titleFirst">Clémentine Gilama</h2>
+        <p class="poste">Scrum Master & Community Manager</p>
+      </div>
+      <div class="imgWrap">
+        <img src="<?= BASE_URL ?>public/images/presentation/clementine.jpg" alt="">
+      </div>
+      <p class="desc">
+        Elle anime les réseaux sociaux Zoey en créant et en réalisant des contenus visuels ou textuels. Elle analyse les posts et communique avec les internautes régulièrement. Elle veille au bon déroulement du projet et organise les réunions d’équipe.
+      </p>
+      <a class="btn" target="_blank" href="https://www.linkedin.com/in/clementine-gilama/">Mieux me connaître</a>
+    </section>
 
-  <section>
-    <div>
-      <h2 class="title2">Lucien Boisseau Sablé</h2>
-      <p class="poste">Développeur Full Stack & Lead Developer</p>
-    </div>
-    <div class="imgWrap">
-      <img src="<?= BASE_URL ?>public/images/presentation/lucien.jpg" alt="">
-    </div>
-    <p class="desc">
-      Il est chargé de développer le site web dans son ensemble. Il réfléchit à l’optimisation de la plateforme
-      pour tout type d’utilisateurs, afin que le site soit accessible sur un ordinateur aussi bien que sur un
-      mobile.
-    </p>
-    <a class="btn" target="_blank" href="https://www.linkedin.com/in/lucien-boisseau-sable/">Mieux me connaître</a>
-  </section>
+    <section>
+      <div>
+        <h2 class="title2">Marin Bouanchaud</h2>
+        <p class="poste">Product Owner & Développeur Back-end</p>
+      </div>
+      <div class="imgWrap">
+        <img src="<?= BASE_URL ?>public/images/presentation/marin.jpg" alt="">
+      </div>
+      <p class="desc">
+        Il crée l’architecture du site web. Il développe toute la partie “back” du site web, afin de définir toutes les fonctionnalités de la plateforme.
+      </p>
+      <a class="btn" target="_blank" href="https://www.linkedin.com/in/marin-bouanchaud/">Mieux me connaître</a>
+    </section>
 
-  <section>
-    <div>
-      <h2 class="title2">Matthis Rousselle</h2>
-      <p class="poste">UX/UI Designer & Développeur Front-End</p>
-    </div>
-    <div class="imgWrap">
-      <img src="<?= BASE_URL ?>public/images/presentation/matthis.jpg" alt="">
-    </div>
-    <p class="desc">
-      Il imagine et crée l’interface visuelle du site web. Il cherche une identité graphique pouvant mettre en avant les valeurs du site, tout en proposant un parcours utilisateur intuitif.
-    </p>
-    <a class="btn" target="_blank" href="https://matthisrousselle.fr/">Mieux me connaître</a>
-  </section>
+    <section>
+      <div>
+        <h2 class="title2">Lucien Boisseau Sablé</h2>
+        <p class="poste">Développeur Full Stack & Lead Developer</p>
+      </div>
+      <div class="imgWrap">
+        <img src="<?= BASE_URL ?>public/images/presentation/lucien.jpg" alt="">
+      </div>
+      <p class="desc">
+        Il est chargé de développer le site web dans son ensemble. Il réfléchit à l’optimisation de la plateforme
+        pour tout type d’utilisateurs, afin que le site soit accessible sur un ordinateur aussi bien que sur un
+        mobile.
+      </p>
+      <a class="btn" target="_blank" href="https://www.linkedin.com/in/lucien-boisseau-sable/">Mieux me connaître</a>
+    </section>
 
-  <section>
-    <div>
-      <h2 class="title2">Amélie Rubiales</h2>
-      <p class="poste">Chargée de communication & marketing</p>
-    </div>
-    <div class="imgWrap">
-      <img src="<?= BASE_URL ?>public/images/presentation/amelie.jpg" alt="">
-    </div>
-    <p class="desc">
-      Elle crée du contenu textuel pour le site web et contacte les refuges. Elle s’occupe de la newsletter Zoey, rédige les différents aspects marketing et juridique du projet.
-    </p>
-    <a class="btn" target="_blank" href="https://www.linkedin.com/in/am%C3%A9lie-rubiales/">Mieux me connaître</a>
-  </section>
+    <section>
+      <div>
+        <h2 class="title2">Matthis Rousselle</h2>
+        <p class="poste">UX/UI Designer & Développeur Front-End</p>
+      </div>
+      <div class="imgWrap">
+        <img src="<?= BASE_URL ?>public/images/presentation/matthis.jpg" alt="">
+      </div>
+      <p class="desc">
+        Il imagine et crée l’interface visuelle du site web. Il cherche une identité graphique pouvant mettre en avant les valeurs du site, tout en proposant un parcours utilisateur intuitif.
+      </p>
+      <a class="btn" target="_blank" href="https://matthisrousselle.fr/">Mieux me connaître</a>
+    </section>
 
-  <section>
-    <div>
-      <h2 class="title2">Zoé la tortue</h2>
-      <p class="poste">Mascotte</p>
-    </div>
-    <div class="imgWrap">
-      <img src="<?= BASE_URL ?>public/images/presentation/zoe.jpg" alt="">
-    </div>
-    <p class="desc">
-      Notre mascotte préférée, Zoé, est une inspiration quotidienne pour notre projet. Vous l'avez peut-être compris, <strong>Zoey</strong> vient directement de <strong>Zoé</strong>, elle travaille toujours avec nous. (sauf quand elle hiberne !)
-    </p>
-    <a class="btn" target="_blank" href="https://www.instagram.com/zoelatortue_/">Mieux me connaître</a>
-  </section>
+    <section>
+      <div>
+        <h2 class="title2">Amélie Rubiales</h2>
+        <p class="poste">Chargée de communication & marketing</p>
+      </div>
+      <div class="imgWrap">
+        <img src="<?= BASE_URL ?>public/images/presentation/amelie.jpg" alt="">
+      </div>
+      <p class="desc">
+        Elle crée du contenu textuel pour le site web et contacte les refuges. Elle s’occupe de la newsletter Zoey, rédige les différents aspects marketing et juridique du projet.
+      </p>
+      <a class="btn" target="_blank" href="https://www.linkedin.com/in/am%C3%A9lie-rubiales/">Mieux me connaître</a>
+    </section>
 
-  <section class="partenaires">
-    <h2>Nos partenaires</h2>
-    <p class="firstText">Zoey est en partenariat et en étroite collaboration avec 9 refuges pour animaux en Île de France :</p>
-    <div class="partenairesContainer">
-      <a target="blank" href="https://sosptitesbetes.wixsite.com/sosptitesbetes" class="refugeContainer">
-        <p>Sos P'tites Bêtes</p>
-        <img src="./public/images/refuges/sosptitesbetes.png" alt="logo de l'asssociation sos ptites bêtes">
-      </a>
-      <a target="blank" href="https://pattesenrond.fr/" class="refugeContainer">
-        <p>Pattes En Rond </p>
-        <img src="./public/images/refuges/pattesenrond.png" alt="logo de l'asssociation pattes en rond">
-      </a>
-      <a target="blank" href="https://www.facebook.com/apibullssanstoit/" class="refugeContainer">
-        <p>Pitbull Sans Toit</p>
-        <img src="./public/images/refuges/pitbullsanstoit.png" alt="logo de l'asssociation pitbullsanstoit">
-      </a>
-      <a target="blank" href="https://www.facebook.com/APAC94ASSO/" class="refugeContainer">
-        <p>APAC94</p>
-        <img src="./public/images/refuges/APAC.png" alt="logo de l'asssociation APAC">
-      </a>
-      <a target="blank" href="http://refuge-larche-de-bagheera.weebly.com/" class="refugeContainer">
-        <p>L’arche De Bagheera</p>
-        <img src="./public/images/refuges/larchedebagheera.png" alt="logo de l'asssociation l'arche de bagheera">
-      </a>
-      <a target="blank" href="http://les-patounes-de-bezons.fr/" class="refugeContainer">
-        <p>Les Patounes De Bezons</p>
-        <img src="./public/images/refuges/lespatounesdebezons.png" alt="logo de l'asssociation les patounes de bezons">
-      </a>
-      <a target="blank" href="https://adopteunmatou.com/" class="refugeContainer">
-        <p>Adopte Un Matou</p>
-        <img src="./public/images/refuges/adopteunmatou.png" alt="logo de l'asssociation adopte un matou">
-      </a>
-      <a target="blank" href="https://associationema.wixsite.com/associationema" class="refugeContainer">
-        <p>Association Emâ</p>
-        <img src="./public/images/refuges/ema.png" alt="logo de l'asssociation ema">
-      </a>
-      <a target="blank" href="https://www.facebook.com/associationlouna/" class="refugeContainer">
-        <p>Association Louna</p>
-        <img src="./public/images/icons/favicon.svg" alt="">
-      </a>
-    </div>
-  </section>
-  <section class="resFooter">
-    <h2 class="title2">Nos Réseaux</h2>
-    <div class="reseaux">
-      <a target="_blank" href="https://www.facebook.com/appli.zoey">
-        <img src="<?= BASE_URL ?>public/images/presentation/facebook.svg" alt="">
-        Appli.zoey
-      </a>
-      <a target="_blank" href="https://www.instagram.com/zoey.app/">
-        <img src="<?= BASE_URL ?>public/images/presentation/instagram.svg" alt="">
-        Zoey.app
-      </a>
-      <a target="_blank" href="https://www.tiktok.com/@zoey.app">
-        <img src="<?= BASE_URL ?>public/images/presentation/tiktok.svg" alt="">
-        Zoey.app
-      </a>
-      <a target="_blank" href="https://www.linkedin.com/company/zoeyapp/about/">
-        <img src="<?= BASE_URL ?>public/images/presentation/linkedin.svg" alt="">
-        Zoey
-      </a>
-    </div>
-  </section>
-</main>
+    <section>
+      <div>
+        <h2 class="title2">Zoé la tortue</h2>
+        <p class="poste">Mascotte</p>
+      </div>
+      <div class="imgWrap">
+        <img src="<?= BASE_URL ?>public/images/presentation/zoe.jpg" alt="">
+      </div>
+      <p class="desc">
+        Notre mascotte préférée, Zoé, est une inspiration quotidienne pour notre projet. Vous l'avez peut-être compris, <strong>Zoey</strong> vient directement de <strong>Zoé</strong>, elle travaille toujours avec nous. (sauf quand elle hiberne !)
+      </p>
+      <a class="btn" target="_blank" href="https://www.instagram.com/zoelatortue_/">Mieux me connaître</a>
+    </section>
+  </main>
+
+</section>
+
+<h2 class="title2 titleLast">À tout de suite sur Zoey !</h2>
+
+<div class="wrapperCTA">
+  <a class="btn" href="/?action=adoption">Adoptez</a>
+  <a class="btn" href="/?action=feed">Partagez</a>
+  <a class="btn" href="/?action=blog">Actus</a>
+</div>
 
 
 

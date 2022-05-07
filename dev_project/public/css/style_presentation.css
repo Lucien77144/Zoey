@@ -26,21 +26,64 @@ section {
 
 /* Description de Zoey */
 
-.intro,
-.desc {
-  font-family: 'Montserrat', sans-serif;
+.wrapperCTA{
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.wrapperCTA>a{
+  display: block;
+  margin: 10px;
+}
+
+.intro{
+  text-align: center;
   width: 80vw;
+}
+
+.desc{
+  width: 80vw;
+}
+
+.introList{
+  max-width: 80vw;
+  text-align: center;
+}
+
+.intro, .introList, .desc {
+  font-family: 'Montserrat', sans-serif;
+}
+
+@media (max-width: 750px) {
+  .title2:first-of-type{
+    font-size: 1.25rem;
+  }
 }
 
 .title2 {
   font-family: 'Exo 2', sans-serif;
   font-size: 1.75rem;
-  margin-bottom: 0;
   text-align: center;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.titleLast{
+  margin-top: 60px;
+}
+
+.titleMargin {
+  margin-bottom: 30px;
+}
+
+.titleFirst {
+  margin-top: 35px;
 }
 
 section h2 {
-  margin-top: 100px;
+  margin-top: 75px;
+  text-align: center;
 }
 
 section .title2 {
@@ -181,6 +224,7 @@ main {
 }
 
 .mockupContainer {
+  margin-top: 30px;
   width: 100%;
   overflow: hidden;
 }
@@ -215,6 +259,7 @@ section.partenaires {
 
 .partenairesContainer {
   width: 100%;
+  max-width: 1300px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
