@@ -156,7 +156,10 @@
     <div class="promptPWA" id="promptPWA" style="display:none;">
         <div class="popUpWrapper">
             <div class="popUpInstall">
-                <div id="promptPWAclose"><img src="<?= BASE_URL . 'public/images/icons/popUp/croix.svg' ?>" alt=""></div>
+                <div id="promptPWAclose">
+                    <img src="<?= BASE_URL . 'public/images/icons/popUp/croix.svg' ?>" alt="">
+                    <h2 class="titlePopup">Vous aimez Zoey ?</h2>
+                </div>
                 <div class="btn" id="promptPWAinstall">Installer l'appli 😺</div>
                 <p>Pour une meilleure expérience sur Zoey !</p>
             </div>

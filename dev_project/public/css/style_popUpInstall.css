@@ -28,18 +28,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: white;
+    padding: 20px;
     border-radius: 15px;
     width: 80%;
-    max-width: 300px;
+    max-width: 500px;
     height: 200px;
 }
 
+.titlePopup {
+    margin: 0;
+}
+
 #promptPWAclose {
-    margin-top: 10px;
-    margin-left: 10px;
+    width: 100%;
+    display: flex;
     align-self: flex-start;
+}
+
+#promptPWAclose h2 {
+    margin: 0 auto;
+}
+
+#promptPWAclose img {
+    cursor: pointer;
+    position: absolute;
 }
 
 .popUpInstall p {

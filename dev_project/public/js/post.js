@@ -60,22 +60,22 @@ $(document).ready(function () {
   }
 
   const page = getParameterByName('action')
-  console.log('page', page, document.getElementById('menuActus'))
+  // console.log('page', page, document.getElementById('menuActus'))
 
   if (page == 'blog')
-    document.getElementById('menuActus').classList.add('current')
+    document.getElementById('menuActus').parentNode.classList.add('current')
 
   if (page == 'presentation')
-    document.getElementById('menuPresentation').classList.add('current')
+    document.getElementById('menuPresentation').parentNode.classList.add('current')
 
   if (page == 'feed')
-    document.getElementById('menuFeed').classList.add('current')
+    document.getElementById('menuFeed').parentNode.classList.add('current')
 
   if (page == 'adoption')
-    document.getElementById('menuAdoption').classList.add('current')
+    document.getElementById('menuAdoption').parentNode.classList.add('current')
 
   if (page == 'account')
-    document.getElementById('menuProfil').classList.add('current')
+    document.getElementById('menuProfil').parentNode.classList.add('current')
 
   function postPhoto() {
     // renvoie basename fichier uploadé

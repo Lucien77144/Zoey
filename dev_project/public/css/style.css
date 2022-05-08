@@ -14,9 +14,11 @@ body {
     box-sizing: border-box
 }
 
-.current{
+.current h2{
     text-decoration: underline;
-    text-decoration-thickness: 3px;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    text-decoration-color: #fd9030;
 }
 
 .loader {
@@ -455,6 +457,15 @@ header>img {
 
     body {
         padding-top: 60px
+    }
+
+    .current h2 {
+      text-decoration: none;
+      color: #f3811c;
+    }
+  
+    .current svg path {
+      fill: #f3811c;
     }
 }
 
