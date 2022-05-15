@@ -88,9 +88,8 @@ input[name=prenom] {
     width: 230px
 }
 
-.btn,
+/* .btn,
 input[type=submit] {
-    /* margin: 30px auto; */
   
     border-width: 0;
     outline: none;
@@ -102,7 +101,7 @@ input[type=submit] {
     text-align: center;
 
     padding: 12px 24px;
-    border-radius: 4px;
+    border-radius: 20px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
     
     background-color: #f3811c;
@@ -144,6 +143,61 @@ input[type=submit]:focus {
     padding-top: 120%;
 
     transition: width .2s ease-out, padding-top .2s ease-out;
+} */
+
+
+/* .btn,
+input[type=submit] {
+    font-family: Roboto, sans-serif;
+    font-size: 1rem;
+    text-decoration: none;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+    border: 3px solid #f3811c;
+    padding: 10px 20px 10px 20px;
+    height: fit-content;
+    height: -moz-fit-content;
+    width: fit-content;
+    width: -moz-fit-content;
+    border-radius: 12px;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .35);
+    transition: .25s ease-in-out;
+    cursor: pointer
+} */
+
+/* .btn:hover,
+input[type=submit]:hover {
+    border-radius: 8px;
+    transform: scale(1.1);
+    background-color: #f3811c;
+    color: #fff;
+    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, .35)
+} */
+
+.btn,
+input[type=submit] {
+    font-family: Roboto, sans-serif;
+    font-size: 1rem;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    background-color: #f3811c;
+    padding: 10px 20px 10px 20px;
+    height: fit-content;
+    height: -moz-fit-content;
+    width: fit-content;
+    width: -moz-fit-content;
+    border-radius: 20px;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .35);
+    transition: .25s ease-in-out;
+    cursor: pointer
+}
+
+.btn:hover,
+input[type=submit]:hover {
+    border-radius: 10px;
+    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, .35)
 }
 
 header {

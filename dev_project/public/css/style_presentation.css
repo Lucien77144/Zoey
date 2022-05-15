@@ -87,6 +87,10 @@ body>section {
   margin: auto;
 }
 
+.downloadWrapper > a{
+  text-decoration: none;
+}
+
 .download {
   align-self: flex-start;
   max-width: 600px;

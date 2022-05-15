@@ -51,7 +51,8 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
         document
           .getElementById('promptPWAinstall')
-          .addEventListener('click', async () => {
+          .addEventListener('click', async (e) => {
+            e.preventDefault()
             // Hide the app provided install promotion
             document.getElementById('promptPWA').style.display = 'none' // hide modal
             // Show the install prompt
