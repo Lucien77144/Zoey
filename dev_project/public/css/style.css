@@ -88,7 +88,6 @@ input[name=prenom] {
     width: 230px
 }
 
-/*  */
 .btn,
 input[type=submit] {
     /* margin: 30px auto; */
@@ -110,98 +109,42 @@ input[type=submit] {
     color: #ecf0f1;
     
     transition: background-color .3s;
-  }
-  
-  .btn:hover, .btn:focus,
-  input[type=submit]:hover,
-  input[type=submit]:focus {
+}
+
+.btn:hover, .btn:focus,
+input[type=submit]:hover,
+input[type=submit]:focus {
     background-color: #d6731c;
-  }
-  
-  .btn:before {
+}
+
+.btn:before {
     content: "";
-    
+
     position: absolute;
     top: 50%;
     left: 50%;
-    
+
     display: block;
     width: 0;
     padding-top: 0;
-      
+        
     border-radius: 100%;
-    
+
     background-color: rgba(241, 239, 236, 0.3);
-    
+
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-  }
-  
-  .btn:active:before {
-    width: 120%;
-    padding-top: 120%;
-    
-    transition: width .2s ease-out, padding-top .2s ease-out;
-  }
-
-  /*  */
-
-/* .btn,
-input[type=submit] {
-    font-family: Roboto, sans-serif;
-    font-size: 1rem;
-    text-decoration: none;
-    text-align: center;
-    color: #000;
-    font-weight: bold;
-    border: 3px solid #f3811c;
-    padding: 10px 20px 10px 20px;
-    height: fit-content;
-    height: -moz-fit-content;
-    width: fit-content;
-    width: -moz-fit-content;
-    border-radius: 12px;
-    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .35);
-    transition: .25s ease-in-out;
-    cursor: pointer
 }
 
-.btn:hover,
-input[type=submit]:hover {
-    border-radius: 8px;
-    transform: scale(1.1);
-    background-color: #f3811c;
-    color: #fff;
-    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, .35)
-} */
+.btn:active:before {
+    width: 120%;
+    padding-top: 120%;
 
-/* .btn,
-input[type=submit] {
-    font-family: Roboto, sans-serif;
-    font-size: 1rem;
-    text-decoration: none;
-    text-align: center;
-    color: #fff;
-    background-color: #f3811c;
-    padding: 10px 20px 10px 20px;
-    height: fit-content;
-    height: -moz-fit-content;
-    width: fit-content;
-    width: -moz-fit-content;
-    border-radius: 20px;
-    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .35);
-    transition: .25s ease-in-out;
-    cursor: pointer
-} */
-
-/* .btn:hover,
-input[type=submit]:hover {
-    border-radius: 10px;
-    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, .35)
-} */
+    transition: width .2s ease-out, padding-top .2s ease-out;
+}
 
 header {
     display: flex;

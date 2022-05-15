@@ -15,19 +15,27 @@ ob_start();
         Chaque année, <span class="importantColor">100 000 animaux</span> sont abandonnés en France. La solution la plus simple pour lutter contre l'abandon, c'est <span class="importantColor">l'adoption</span>.
       </p>
       <div class="wrapperCTA">
-        <a href="/?action=adoption"><div>Adopter</div></a>
-        <a href="/?action=feed"><div>Partager</div></a>
-        <a href="/?action=blog"><div>S'informer</div></a>
+        <a href="/?action=adoption">
+          <div>Adopter</div>
+        </a>
+        <a href="/?action=feed">
+          <div>Partager</div>
+        </a>
+        <a href="/?action=blog">
+          <div>S'informer</div>
+        </a>
       </div>
     </div>
   </div>
-  <div class="download" id="installPWAbtn">
-    <svg class="dl-icon" viewBox="0 0 330 330" fill="none">
-      <path d="M165 10C79.3959 10 10 79.3959 10 165C10 250.604 79.3959 320 165 320C250.604 320 320 250.604 320 165C320 79.3959 250.604 10 165 10ZM165 300C90.561 300 30 239.439 30 165C30 90.561 90.561 30 165 30C239.439 30 300 90.561 300 165C300 239.439 239.439 300 165 300Z" fill="#FFC800"/>
-      <path d="M195 244H135C126.716 244 120 246.715 120 255C120 263.283 126.716 266 135 266H195C203.284 266 210 263.283 210 255C210 246.715 203.284 244 195 244Z" fill="#FF9900"/>
-      <path d="M222.145 132.751C226.523 129.472 231.653 129.129 235.28 132.751C238.907 136.372 238.907 142.242 235.28 145.864L173.24 207.799C168.965 212.067 162.035 212.067 157.76 207.799L95.7203 145.864C92.0932 142.242 92.0932 136.372 95.7203 132.751C99.3475 129.129 104.477 129.472 108.855 132.751L155.375 168.265V141.884V75.1079C155.375 69.5255 159.908 65 165.5 65C171.092 65 175.625 69.5255 175.625 75.1079V152.811C175.625 157.573 175.625 168.265 175.625 168.265L222.145 132.751Z" fill="#FF9900"/>
-    </svg>
-    <p>Installez l'application Zoey !</p>
+  <div class="downloadWrapper">
+    <div class="download" id="installPWAbtn">
+      <svg class="dl-icon" viewBox="0 0 330 330" fill="none">
+        <path d="M165 10C79.3959 10 10 79.3959 10 165C10 250.604 79.3959 320 165 320C250.604 320 320 250.604 320 165C320 79.3959 250.604 10 165 10ZM165 300C90.561 300 30 239.439 30 165C30 90.561 90.561 30 165 30C239.439 30 300 90.561 300 165C300 239.439 239.439 300 165 300Z" fill="#FFC800" />
+        <path d="M195 244H135C126.716 244 120 246.715 120 255C120 263.283 126.716 266 135 266H195C203.284 266 210 263.283 210 255C210 246.715 203.284 244 195 244Z" fill="#FF9900" />
+        <path d="M222.145 132.751C226.523 129.472 231.653 129.129 235.28 132.751C238.907 136.372 238.907 142.242 235.28 145.864L173.24 207.799C168.965 212.067 162.035 212.067 157.76 207.799L95.7203 145.864C92.0932 142.242 92.0932 136.372 95.7203 132.751C99.3475 129.129 104.477 129.472 108.855 132.751L155.375 168.265V141.884V75.1079C155.375 69.5255 159.908 65 165.5 65C171.092 65 175.625 69.5255 175.625 75.1079V152.811C175.625 157.573 175.625 168.265 175.625 168.265L222.145 132.751Z" fill="#FF9900" />
+      </svg>
+      <p>Installez l'application Zoey !</p>
+    </div>
   </div>
   <img class="img-presentation" src="<?= BASE_URL ?>public/images/presentation/dog_presentation.png" alt="">
   <!-- <p class="introList">
@@ -50,7 +58,7 @@ ob_start();
       ZOEY est un projet regroupant cinq étudiants sensibles à la cause animale. Nous avons décidé de concevoir une plateforme entièrement gratuite, permettant la mise en relation entre futurs adoptants et refuges certifiés pour animaux en Île de France.
       Notre site web dispose de différentes sections, permettant de fidéliser une communauté passionnée d’animaux, et sensible face à l’abandon en France.<br><br>
 
-      Il y a tout d’abord la page adoption, mettant en avant de nombreux animaux (plus d’une centaine provenant de refuges ou d’associations certifiées au Répertoire National des Associations d’Île de France). Nous démarchons l’ensemble des refuges d'île-de-France afin de pouvoir mettre en avant le maximum d’animaux abandonnés dans le but de leur offrir une seconde chance. Nous promouvons la diversité d’animaux, en effet, de nombreux NAC (Nouveaux Animaux de Compagnie) sont présents sur notre page adoption et cherchent à trouver une famille d'accueil. Afin de pouvoir adapter une sélection d’animaux à adopter précise pour chaque utilisateur, ZOEY a conçu un Quiz permettant en quelques questions de proposer à l’utilisateur des animaux qui lui correspondent au mieux, en prenant en compte les envies et l’environnement de l’utilisateur en question.<br><br>  
+      Il y a tout d’abord la page adoption, mettant en avant de nombreux animaux (plus d’une centaine provenant de refuges ou d’associations certifiées au Répertoire National des Associations d’Île de France). Nous démarchons l’ensemble des refuges d'île-de-France afin de pouvoir mettre en avant le maximum d’animaux abandonnés dans le but de leur offrir une seconde chance. Nous promouvons la diversité d’animaux, en effet, de nombreux NAC (Nouveaux Animaux de Compagnie) sont présents sur notre page adoption et cherchent à trouver une famille d'accueil. Afin de pouvoir adapter une sélection d’animaux à adopter précise pour chaque utilisateur, ZOEY a conçu un Quiz permettant en quelques questions de proposer à l’utilisateur des animaux qui lui correspondent au mieux, en prenant en compte les envies et l’environnement de l’utilisateur en question.<br><br>
 
       Notre page Actus permet à notre communauté de pouvoir se tenir informée de l’actualité animalière, de par nos articles originaux et nos interviews de différents professionnels du domaine animalier. Cette page permet aussi de donner un rendez-vous hebdomadaire aux utilisateurs de ZOEY, nous postons chaque jeudi et mardi des articles permettant de fidéliser notre communauté.<br><br>
 
